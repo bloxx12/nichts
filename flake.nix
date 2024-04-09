@@ -20,7 +20,7 @@
         nixpkgs.config.allowUnfree = true;
 
         nixosConfigurations = {
-          laptop = mkSystem {
+          vlaptop = mkSystem {
             hostname = "nixos";
             modules = [./hosts/laptop];
             user-configs = [{
@@ -28,7 +28,7 @@
                 config = ./home/vali/laptop.nix;
             }];
           };
-          xfce = mkSystem {
+          vdesktop = mkSystem {
               hostname = "nixos";
               modules = [ ./hosts/xfce ];
               user-configs = [{
