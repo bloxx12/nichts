@@ -37,7 +37,7 @@
         nixosConfigurations = {
           vlaptop = mkSystem {
             hostname = "nixos";
-            modules = [./hosts/vali/laptop];
+            modules = [./hosts/vali/laptop ./modules/vali];
             user-configs = [{
                 name = "vali";
                 config = ./homes/vali/vlaptop.nix;

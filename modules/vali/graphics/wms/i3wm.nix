@@ -1,7 +1,7 @@
 { pkgs, lib, config, ...}
 {
   options = {
-    i3.enable = lib.mkEnableOption "enable i3wm";
+    i3wm.enable = lib.mkEnableOption "enable i3wm";
     };
   config = lib.mkIf config.i3wm.enable {
     services.xserver = {
