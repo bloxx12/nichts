@@ -4,5 +4,6 @@ _: {
       ./programs.nix
       ./hardware-configuration.nix
       ./profile.nix
+      ./i3.nix
     ];
 }
