@@ -17,22 +17,22 @@
           };
       };
       programs = {
-         # vesktop.enable = true;
+          vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
-#neovim.enable = true;
-          git = {
-              enable = true;
-              userName = "vali";
-              userEmail = "valentin@kaas.cc";
-              defaultBranch = "master";
-          };
+          i3.enable = true;
+          #neovim.enable = true;
+          #git = {
+          #    enable = true;
+          #    userName = "vali";
+          #    userEmail = "valentin@kaas.cc";
+          #    defaultBranch = "master";
+          #};
           starship.enable = true;
           zsh = {
               enable = true;
               profiling = false;
           };
-         #i3 = {  };
       };
       services = {
           pipewire.enable = true;
