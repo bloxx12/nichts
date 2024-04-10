@@ -1,9 +1,5 @@
-{
-    config,
-    inputs,
-    lib,
-    ...
-}: with lib; let
+{ config, inputs, lib, ... }:
+with lib; let
     cfg = config.myOptions.programs.schizofox;
     username = config.myOptions.other.system.username;
 in {
@@ -18,23 +14,23 @@ in {
             programs.schizofox = {
                 enable = true;
                 theme = {
-                    background-darker = "181825";
-                    background = "1e1e2e";
-                    foreground = "cdd6f4";
+                    colors.background-darker = "181825";
+                    colors.background = "1e1e2e";
+                    colors.foreground = "cdd6f4";
                     font = "Lexend";
-                    simplefox.enable = false;
-                    darkreader.enable = true;
-                    extraCss = ''
+                   extraUserChrome = ''
                         body {
                             color: red !important;
                         }
                     '';
                 };
+                extensions = {
+                    simplefox.enable = false;
+                    darkreader.enable = true;
+                };
                 search = {
-                    defaultSearchEngine = "Startpage";
+                    defaultSearchEngine = "Brave";
                     removeEngines = ["Google" "Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia"];
-                    searxUrl = "https://search.notashelf.dev";
-                    searxQuery = "https://search.notashelf.dev/search?q={searchTerms}";
                     addEngines = [
                         {
                             Name = "NixOS Packages";

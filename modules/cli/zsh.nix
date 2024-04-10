@@ -38,8 +38,9 @@ in {
                     l = "eza -a --icons";
                     la = "eza -lha --icons --git";
                     cd = "z";
+                    nv = "nvim";
                     #TODO fix hardcoding of git repo path and profile name
-                    update = "nixos-rebuild switch --flake \"$HOME/Git/nichts#${username}\" --log-format internal-json |& nom --json";
+                    update = "sudo -p 'password: ' echo 'Your daughter is just a fork of your wife.' && sudo nixos-rebuild switch --flake \"$HOME/Git/nichts#${username}\" --log-format internal-json |& nom --json";
 
                 } // cfg.extraAliases;
                 initExtraFirst = mkIf cfg.profiling "zmodload zsh/zprof";
