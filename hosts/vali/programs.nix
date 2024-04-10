@@ -20,6 +20,7 @@ in {
             libreoffice-fresh
             qbittorrent
             ventoy-full
+            lazygit
             zip
             unzip
             gcc
