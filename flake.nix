@@ -2,38 +2,53 @@
   description = "Our NixOS config lol";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     schizofox.url = "github:schizofox/schizofox";
-    flake-parts = {
-        url = "github:hercules-ci/flake-parts";
-        inputs.nixpkgs.lib.follows = "nixpkgs";
-    };
     home-manager = {
         url = "github:nix-community/home-manager/";
         inputs.nixpkgs.follows = "nixpkgs";
      };
   };
 
-  outputs = inputs @ { self, nixpkgs, nur, home-manager, ... }: {
+  outputs = inputs @ { self, nixpkgs, nur, home-manager, ... }: 
+    let
+      inherit (self) outputs;
+      mkSystem = {
+          hostname, 
+          modules ? [],
+          user-configs ? [],
+          system ? "x86_64-linux"
+      }:
+        let
+          profile-config = { inherit hostname system modules user-configs; };
+        in 
+        nixpkgs.lib.nixosSystem {
+            inherit modules;
+            specialArgs = { inherit inputs outputs profile-config; };
+        };
+        mkHome = user: modules: pkgs: home-manager.lib.homeManagerConfiguration {
+            inherit modules pkgs user;
+            extraSpecialArgs = { inherit inputs outputs user; };
+        };
     in {
         nixpkgs.config.allowUnfree = true;
 
         nixosConfigurations = {
           vlaptop = mkSystem {
             hostname = "nixos";
-            modules = [./hosts/laptop];
+            modules = [./hosts/vali/laptop];
             user-configs = [{
                 name = "vali";
-                config = ./home/vali/laptop.nix;
+                config = ./homes/vali/vlaptop.nix;
             }];
           };
           vdesktop = mkSystem {
               hostname = "nixos";
-              modules = [ ./hosts/xfce ];
+              modules = [ ./hosts/vali/desktop];
               user-configs = [{
                   name = "vali";
-                  config = ./home/vali/xfce.nix;
+                  config = ./home/vali/vdesktop.nix;
               }];
           };
         };
