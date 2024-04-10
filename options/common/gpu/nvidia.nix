@@ -12,7 +12,7 @@
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     nvidiaSettings = false;
-    package = config.boot.kernel.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
 
