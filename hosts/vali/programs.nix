@@ -6,6 +6,7 @@ in {
         home.packages = let
 
         in with pkgs; [
+            pfetch
             git
             keepassxc
             eza ripgrep
@@ -52,6 +53,7 @@ in {
             httpie
             sherlock
             strawberry
+            neovim
         ];
     };
 }
