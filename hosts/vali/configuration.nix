@@ -1,5 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
   time.timeZone = "Europe/Zurich";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
@@ -12,14 +13,14 @@
           };
           home-manager = {
               enable = true;
+              enableDirenv = true;
           };
       };
       programs = {
-          vesktop.enable = true;
+         # vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
           neovim.enable = true;
-          pipewire.enable = true;
           git = {
               enable = true;
               userName = "vali";
@@ -31,10 +32,11 @@
               enable = true;
               profiling = false;
           };
-         i3 = {
-
-          };
+         #i3 = {  };
       };
+      services = {
+          pipewire.enable = true;
+        };
       themes = {
           cursor = {
               enable = true;
@@ -50,13 +52,13 @@
               accentColour = "green";
               iconTtheme = {
                   name = "Papirus-Dark";
-                  package = pkgs.catppuccin-papirus-foldersM
+                  package = pkgs.catppuccin-papirus-folders;
               };
           };
           qt = {
             enable = true;
             package = pkgs.catppuccin-kde;
-            name = "Catppuccin-Mocha-Dark"
+            name = "Catppuccin-Mocha-Dark";
             variant = "mocha";
             accentColour = "green";
           };

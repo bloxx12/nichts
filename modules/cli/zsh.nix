@@ -34,11 +34,11 @@ in {
                     rm = "trash -v";
                     l = "eza -a --icons";
                     la = "eza -lha --icons --git";
-                    cd = "zoxide"
+                    cd = "zoxide";
                 } // cfg.extraAliases;
                 initExtraFirst = mkIf cfg.profiling "zmodload zsh/zprof";
                 initExtra = mkIf cfg.profiling "zprof";
-                history {
+                history = {
                     path = "${config.home-manager.users.${username}.xdg.dataHome}/zsh/zsh_history";
                     size = 99999;
                     save = 99999;
