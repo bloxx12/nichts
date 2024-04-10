@@ -21,6 +21,7 @@ in {
             qbittorrent
             ventoy-full
             lazygit
+            neofetch
             zip
             unzip
             gcc
