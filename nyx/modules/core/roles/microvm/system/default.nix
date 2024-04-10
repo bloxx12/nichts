@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./nix
-    ./os
-    ./securiy
-  ];
-}

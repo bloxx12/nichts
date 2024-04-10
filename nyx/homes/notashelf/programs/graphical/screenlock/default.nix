@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./gtklock
-    ./swaylock
-  ];
-}

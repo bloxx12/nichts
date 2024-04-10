@@ -12,6 +12,9 @@
     strawberry
     telegram-desktop
     betterbird
+    xclip
+    pavucontrol
+    lazygit
     vesktop
     zsh
     zoxide
