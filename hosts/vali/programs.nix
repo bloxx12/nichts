@@ -23,6 +23,7 @@ in {
             lazygit
             neofetch
             zip
+            vlc
             unzip
             gcc
             trash-cli
