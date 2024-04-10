@@ -13,3 +13,4 @@ in {
       inputs.home-manager.noxosModules.home-manager
       inputs.agenix.noxosModules.default
   ];
+}
