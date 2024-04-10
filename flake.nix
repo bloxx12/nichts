@@ -48,7 +48,7 @@
               modules = [ ./hosts/vali/desktop];
               user-configs = [{
                   name = "vali";
-                  config = ./home/vali/vdesktop.nix;
+                  config = ./homes/vali/vdesktop.nix;
               }];
           };
         };
