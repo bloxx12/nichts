@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 let
   username = config.myOptions.other.system.usermame;
-in
+in {
     home-manager.users.${username} = {
         home.packages = let
 
@@ -54,4 +54,4 @@ in
             strawberry
         ];
     };
-  }
+}

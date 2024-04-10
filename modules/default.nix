@@ -1,9 +1,9 @@
-{ pkgs, lib, config, ...}:
-{
+_: {
   imports = [
-    ./cli/default.nix
-    ./gui/default.nix
-    ./other/default.nix
-    ./services/default.nix
+    ./cli
+    ./gui
+    ./tui
+    ./other
+    ./services
   ];
 }
