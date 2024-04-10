@@ -27,6 +27,8 @@ in {
             zathura
             alacritty
             scc
+            texliveFull
+            st
             unzip
             gcc
             trash-cli
