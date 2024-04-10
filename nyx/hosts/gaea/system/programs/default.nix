@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./neovim
-
-    ./git.nix
-  ];
-}

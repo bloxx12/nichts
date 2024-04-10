@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./rofi
-    ./tofi
-    ./anyrun
-  ];
-}

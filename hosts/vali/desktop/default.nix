@@ -10,7 +10,7 @@
   i3wm.enable = true; 
   security.polkit.enable = true;
   # Set the keyboard layout to DE
-  services.xserver.xkb.layout.enable = "de";
+  services.xserver.xkb.layout = "de";
   console.keyMap = "de";
 }
 

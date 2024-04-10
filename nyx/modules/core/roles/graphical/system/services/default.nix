@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./login
-
-    ./xserver.nix
-  ];
-}
