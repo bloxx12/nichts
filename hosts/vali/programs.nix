@@ -24,6 +24,9 @@ in {
             neofetch
             zip
             vlc
+            zathura
+            alacritty
+            scc
             unzip
             gcc
             trash-cli
