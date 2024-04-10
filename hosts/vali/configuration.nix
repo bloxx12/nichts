@@ -21,6 +21,7 @@
           btop.enable = true;
           mpv.enable = true;
           i3.enable = true;
+          schizofox.enable = true;
           #neovim.enable = true;
           #git = {
           #    enable = true;

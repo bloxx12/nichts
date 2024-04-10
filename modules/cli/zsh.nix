@@ -25,16 +25,22 @@ in {
             pathsToLink = [ "/share/zsh" ];
         };
         home-manager.users.${username} = {
+            home.packages = with pkgs; [ nix-output-monitor ];
+            programs.zoxide.enable = true;
+            programs.zoxide.enableZshIntegration = true;
             programs.zsh = {
                 enable = true;
                 shellAliases = {
                     c = "clear";
-                    cc = "cd && clear";
+                    cc = "cd ~ && clear";
                     mv = "mv -iv";
                     rm = "trash -v";
                     l = "eza -a --icons";
                     la = "eza -lha --icons --git";
-                    cd = "zoxide";
+                    cd = "z";
+                    #TODO fix hardcoding of git repo path and profile name
+                    update = "nixos-rebuild switch --flake \"$HOME/Git/nichts#${username}\" --log-format internal-json |& nom --json";
+
                 } // cfg.extraAliases;
                 initExtraFirst = mkIf cfg.profiling "zmodload zsh/zprof";
                 initExtra = mkIf cfg.profiling "zprof";
