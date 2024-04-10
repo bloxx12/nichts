@@ -1,4 +1,5 @@
-{ pkgs, lib, config, ...}
+{ pkgs, lib, config, ...}:
+
 {
   options = {
     i3wm.enable = lib.mkEnableOption "enable i3wm";
@@ -11,7 +12,7 @@
         xfce = {
           enable = true;
           noDesktop = true;
-          nableXfwm = false;
+          enableXfwm = false;
         };
       };
       displayManager.defaultSession="xfce+i3";
@@ -24,5 +25,5 @@
         ];
       };
     };
-  }
+  };
 }
