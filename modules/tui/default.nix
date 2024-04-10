@@ -2,7 +2,7 @@ _: {
     imports = [
         ./btop.nix
 #        ./helix.nix
-#        ./neovim.nix
+        ./neovim.nix
 #       ./newsboat.nix
     ];
 }

@@ -1,8 +1,5 @@
-{
-    config,
-    lib,
-    ...
-}: with lib; let
+{ config, lib, ... }:
+with lib; let
     cfg = config.myOptions.programs.btop;
     username = config.myOptions.other.system.username;
 in {
