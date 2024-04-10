@@ -1,10 +1,10 @@
-{ pkgs, lib, config, ...}:
+{ pkgs, lib, config, callPackage, ... }:
+with lib; let
+  cfg = config.myOptions.programs.i3;
+in {
+  options.myOptions.programs.i3.enable = mkEnableOption "i3";
 
-{
-  options = {
-    i3wm.enable = lib.mkEnableOption "enable i3wm";
-    };
-  config = lib.mkIf config.i3wm.enable {
+  config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
       desktopManager = {
@@ -16,8 +16,8 @@
         };
       };
       displayManager.defaultSession="xfce+i3";
-      windowManager.i3 = {
-        enable = true;
+        windowManager.i3 = {
+          enable = true;
         extraPackages = with pkgs; [
           dmenu
           i3status
