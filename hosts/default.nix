@@ -10,7 +10,7 @@ in {
   modules = [
       ./vali
       ../modules/vali
-      inputs.home-manager.noxosModules.home-manager
-      inputs.agenix.noxosModules.default
+      inputs.home-manager.nixosModules.home-manager
+      inputs.agenix.nixosModules.default
   ];
 }
