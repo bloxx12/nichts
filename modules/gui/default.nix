@@ -7,5 +7,6 @@ _: {
         ./qt.nix
         ./schizofox.nix
         ./zathura.nix
+        ./obs.nix
     ];
 }
