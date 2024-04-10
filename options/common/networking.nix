@@ -11,5 +11,5 @@ networking = {
       enable = true;
       fallbackDns = ["9.9.9.9"];
   };
-  user.users.config.myOptions.other.system.username.extraGroups = [ "networkmanager" ];
+  users.users.config.myOptions.other.system.username.extraGroups = [ "networkmanager" ];
 }

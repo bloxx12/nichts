@@ -2,7 +2,7 @@
 with lib; let
   cfg = config.myOptions.services.pipewire;
 in {
-  options.myOptions.services.enable = mkEnableOption "pipewire";
+  options.myOptions.services.pipewire.enable = mkEnableOption "pipewire";
 
   config = mkIf cfg.enable {
     hardware.pulseaudio.enable = false;
