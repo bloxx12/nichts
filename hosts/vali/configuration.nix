@@ -20,7 +20,7 @@
          # vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
-          neovim.enable = true;
+#neovim.enable = true;
           git = {
               enable = true;
               userName = "vali";
@@ -50,7 +50,7 @@
               name = "Catppuccin-Mocha-Standard-Green-Dark";
               variant = "mocha";
               accentColour = "green";
-              iconTtheme = {
+              iconTheme = {
                   name = "Papirus-Dark";
                   package = pkgs.catppuccin-papirus-folders;
               };
