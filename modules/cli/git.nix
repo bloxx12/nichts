@@ -46,9 +46,9 @@ in {
                     push.autoSetupRemote = true;
                     commit = {
                         verbose = true;
-                        gpgsign = true;
+                        # gpgsign = true;
                     };
-                    gpg.format = "ssh";
+                    # gpg.format = "ssh";
 #                    user.signingkey = "key::${cfg.signingKey}";
                     merge.conflictstyle = "zdiff3";
                     interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
