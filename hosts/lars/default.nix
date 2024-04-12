@@ -28,6 +28,7 @@
   	          };
 	      oh-my-zsh = {
 	          enable = true;
+		  theme = "fino-time";
 	      };
           };
 
@@ -74,4 +75,5 @@
   console.keyMap = "sg"; 
 
   system.stateVersion = "23.11";
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 }
