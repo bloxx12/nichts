@@ -21,11 +21,9 @@ in {
                    extraUserChrome = ''
                         body {
                             color: red !important;
+                            ui.key.menuAccessKeyFocuses = false;
                         }
                     '';
-                };
-                Preferences = {
-                    "ui.key.menuAccessKeyFocuses" = false;
                 };
                 extensions = {
                     simplefox.enable = false;
