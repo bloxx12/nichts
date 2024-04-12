@@ -1,20 +1,19 @@
-{ pkgs, lib, config, callPackage, ... }:
+{ pkgs, lib, config, ... }:
 with lib; let
-  cfg = config.myOptions.programs.i3;
+  cfg = config.myOptions.programs.awesome;
 in {
-  options.myOptions.programs.i3.enable = mkEnableOption "i3";
+  options.myOptions.programs.awesome.enable = mkEnableOption "awesome";
 
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
       xkb.layout =  "de";
-      windowManager = {
-          bspwm.enable = true;
-          i3.enable = true;
-      };
-      displayManager = {
-          gdm.enable = true;
-          defaultSession = "none+i3";
+      windowManager.awesome = {
+          enable = true;
+          luaModules = with pkgs.luaPackages; [
+          luarocks
+          luadbi-mysql
+          ];
       };
     };
   };
