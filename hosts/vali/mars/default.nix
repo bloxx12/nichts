@@ -5,5 +5,6 @@ _: {
       ./hardware-configuration.nix
       ./profile.nix
       ./i3.nix
+      ./awesome.nix
     ];
 }
