@@ -12,6 +12,7 @@ in {
             asciinema
             betterbird
             bibata-cursors
+            chromium
             dig
             element-desktop
             eza ripgrep
@@ -24,8 +25,10 @@ in {
               "rustfmt"
             ])
             ffmpeg_6-full
+            foot
             gcc
             gdb
+            grimblast
             git
             httpie
             imagemagick
