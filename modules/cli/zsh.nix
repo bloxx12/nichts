@@ -83,8 +83,8 @@ in {
                       };
                   }
                 ];
-	              oh-my-zsh = mkIf cfg.ohmyzsh {
-	                  enable = true;
+	              oh-my-zsh = mkIf cfg.ohmyzsh.enable {
+	                  programs.oh-my-zsh.enable = true;
                     theme = cfg.ohmyzsh.theme;
             		    plugins = cfg.ohmyzsh.plugins;
 	              };
