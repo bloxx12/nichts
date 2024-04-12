@@ -15,7 +15,7 @@ in {
             libreoffice-fresh
             ventoy-full
             lazygit
-	    # obsidian
+	    obsidian
             neofetch
             zip
             vlc
@@ -46,6 +46,8 @@ in {
             rustdesk
             neovim
 	    tmux
+	    firefox
+	    kitty
         ];
     };
 }
