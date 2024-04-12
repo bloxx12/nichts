@@ -25,8 +25,10 @@
           i3.enable = true;
           awesome.enable = true;
           schizofox.enable = true;
-          obs.enable = true;
+          #foot.enable = true;
+#          obs.enable = true;
           displaymanager.enable = true;
+#          vivado.enable = true;
           #neovim.enable = true;
           #git = {
           #    enable = true;
@@ -35,6 +37,15 @@
           #    defaultBranch = "main";
           #};
           starship.enable = true;
+          hypr = {
+              land = {
+                  enable = false;
+                  extraPlugins = [
+                      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+                  ];
+              };
+              #lock.enable = true;
+          };
           zsh = {
               enable = true;
               profiling = false;

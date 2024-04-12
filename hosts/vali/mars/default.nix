@@ -6,5 +6,6 @@ _: {
       ./profile.nix
       ./i3.nix
       ./awesome.nix
+      ./hypr/default.nix
     ];
 }
