@@ -25,6 +25,7 @@
           i3.enable = true;
           schizofox.enable = true;
           obs.enable = true;
+          displaymanager.enable = true;
           #neovim.enable = true;
           #git = {
           #    enable = true;
