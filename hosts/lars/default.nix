@@ -22,10 +22,10 @@
           zsh = {
               enable = true;
               profiling = false;
-	      extraAliases = {
-	        cls = "clear"; 
-                cd = "z";
-	      };
+	            extraAliases = {
+	                cls = "clear"; 
+
+  	          };
           };
 
 	  git = {
