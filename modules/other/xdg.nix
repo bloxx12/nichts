@@ -14,7 +14,7 @@
     text_editor = "nvim.desktop";
 in {
 
-    environment.sessionVariables = {
+/*    environment.sessionVariables = {
         CARGO_HOME = "${hmCfg.xdg.dataHome}/cargo";
         GOPATH = "${hmCfg.xdg.dataHome}/go";
         GNUPGHOME = "${hmCfg.xdg.dataHome}/gnupg";
@@ -30,14 +30,13 @@ in {
         WINEPREFIX = "${hmCfg.xdg.dataHome}/wine";
         XAUTHORITY = "\$XDG_RUNTIME_DIR/Xauthority";
     };
-
+*/
     myOptions.programs.zsh.extraAliases = {
         gdb = "gdb -n -x ${hmCfg.xdg.configHome}/gdb/init";
         pidgin = "pidgin --config=${hmCfg.xdg.dataHome}/purple";
         svn = "svn --config-dir ${hmCfg.xdg.configHome}/subversion";
         wget = "wget --hsts-file=\"${hmCfg.xdg.dataHome}/wget-hsts\"";
     };
-
     home-manager.users.${username} = {
         xdg.configFile."npm/npmrc".text = ''
             prefix=${hmCfg.xdg.dataHome}/npm
