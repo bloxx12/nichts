@@ -9,8 +9,9 @@
   myOptions = {
       other = {
           system = {
-              hostname = "nixos";
+              hostname = "mars";
               username = "vali";
+              gitPath = "/home/vali/Git/nichts";
           };
           home-manager = {
               enable = true;
