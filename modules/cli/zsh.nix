@@ -26,7 +26,7 @@ in {
 	          plugins = mkOption {
 	              type = types.listOf(types.str);
                 description = "oh-my-zsh plugins (like git)";
-	              default = [ git ];
+	              default = [ "git" ];
 	          };
 	      };
     };
@@ -84,8 +84,8 @@ in {
                   }
                 ];
 	              oh-my-zsh = mkIf cfg.ohmyzsh.enable {
-	                  programs.oh-my-zsh.enable = true;
-                    theme = cfg.ohmyzsh.theme;
+	                    enable = true;
+                    	    theme = cfg.ohmyzsh.theme;
             		    plugins = cfg.ohmyzsh.plugins;
 	              };
             };
