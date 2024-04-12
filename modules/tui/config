@@ -12,7 +12,7 @@
 ## ncmpcpp.
 ##
 #
-#ncmpcpp_directory = ~/.config/ncmpcpp
+ncmpcpp_directory = ~/.config/ncmpcpp
 #
 ##
 ## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
@@ -25,13 +25,13 @@
 #
 #mpd_host = localhost
 #
-#mpd_port = 6600
+mpd_port = 6600
 #
-#mpd_connection_timeout = 5
+mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
 ##
-#mpd_music_dir = ~/music
+mpd_music_dir = ~/Nextcloud/Media/Music
 #
 #mpd_crossfade_time = 5
 #
@@ -69,7 +69,7 @@
 ## visualizer.
 ##
 #
-#visualizer_data_source = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output
@@ -77,19 +77,19 @@
 ## to synchronize with audio.
 ##
 #
-#visualizer_output_name = Visualizer feed
+visualizer_output_name = Visualizer feed
 #
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
-#visualizer_in_stereo = yes
+visualizer_in_stereo = yes
 #
 ##
 ## Note: set below to >=10 only if you have synchronization issues with
 ## visualization and audio.
 ##
 #
-#visualizer_sync_interval = 0
+visualizer_sync_interval = 0
 #
 ##
 ## Note: To enable spectrum frequency visualization you need to compile ncmpcpp
@@ -98,15 +98,15 @@
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-#visualizer_type = spectrum
+visualizer_type = wave_filled
 #
-#visualizer_fps = 60
+visualizer_fps = 60
 #
-#visualizer_autoscale = no
+visualizer_autoscale = no
 #
-#visualizer_look = ●▮
+visualizer_look = ●▮
 #
-#visualizer_color = blue, cyan, green, yellow, magenta, red
+visualizer_color = blue, cyan, green, yellow, magenta, red
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
@@ -121,7 +121,7 @@
 ## and visualizer_in_stereo set, artifacts may be visible on the bottom half of
 ## the visualization.
 #
-#visualizer_spectrum_smooth_look = yes
+visualizer_spectrum_smooth_look = yes
 #
 ## A value between 1 and 5 inclusive. Specifying a larger value makes the
 ## visualizer look at a larger slice of time, which results in less jumpy

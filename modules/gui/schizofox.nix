@@ -40,12 +40,20 @@ in {
                   searxQuery = "https://searx.be/search?q={searchTerms}&categories=general";
                   addEngines = [
                     {
-                      Name = "Etherscan";
-                      Description = "Checking balances";
-                      Alias = "!eth";
+                      Name = "NixOS Packages";
+                      Description = "NixOS Unstable package serach";
+                      Alias = "!np";
                       Method = "GET";
-                      URLTemplate = "https://etherscan.io/search?f=0&q={searchTerms}";
+                      URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
                     }
+                    {
+                      Name = "Home Manager Options";
+                      Description = "Home Manager option search";
+                      Alias = "!hm";
+                      Method = "GET";
+                      URLTemplate = "https://mipmip.github.io/home-manager-option-search?query={searchTerms}";
+                    }
+
                   ];
                 };
 
@@ -58,7 +66,6 @@ in {
                 misc = {
                   drmFix = true;
                   disableWebgl = false;
-                  startPageURL = "https://startpage.com";
                 };
 
                 extensions = {

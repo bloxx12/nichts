@@ -1,6 +1,7 @@
 { config, inputs, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
+  # Time Zone 
   time.timeZone = "Europe/Zurich";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -47,6 +48,7 @@
       };
       programs = {
           vesktop.enable = true;
+          ncmpcpp.enable = true;
           ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
