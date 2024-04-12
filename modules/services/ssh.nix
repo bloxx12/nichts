@@ -6,11 +6,9 @@ in  {
     options.myOptions.programs.ssh.enable = mkEnableOption "ssh";
 
     config = mkIf cfg.enable {
-        home-manager.users.${username} = {
             programs.ssh = {
                 startAgent = true;
             };
-        };
     };
 
 } 
