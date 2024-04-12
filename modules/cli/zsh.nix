@@ -86,8 +86,8 @@ in {
                 ];
 	              oh-my-zsh = mkIf cfg.ohmyzsh.enable {
 	                    enable = true;
-                    	    theme = cfg.ohmyzsh.theme;
-            		    plugins = cfg.ohmyzsh.plugins;
+                      theme = cfg.ohmyzsh.theme;
+            	        plugins = cfg.ohmyzsh.plugins;
 	              };
             };
         };
