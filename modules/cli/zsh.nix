@@ -16,19 +16,19 @@ in {
             description = "enable zsh profiling";
             default = false;
         };
-	oh-my-zsh = {
-	    enable = mkEnableOption "oh-my-zsh";
-	    theme = mkOption {
-	        type = types.str;
-		description = "oh-my-zsh theme";
-		default = "alanpeabody";
-	    };
-	    plugins = mkOption {
-	        type = types.listOf(types.str);
-		description = "oh-my-zsh plugins (like git)";
-		default = ["git"];
-	    };
-	};
+        ohmyzsh = {
+	          enable = mkEnableOption "ohmyzsh";
+	          theme = mkOption {
+	              type = types.str;
+        	      description = "oh-my-zsh theme";
+	              default = "alanpeabody";
+	          };
+	          plugins = mkOption {
+	              type = types.listOf(types.str);
+                description = "oh-my-zsh plugins (like git)";
+	              default = [ git ];
+	          };
+	      };
     };
 
     config = mkIf cfg.enable {
@@ -55,7 +55,7 @@ in {
                     cd = "z";
                     nv = "nvim";
                     #TODO fix hardcoding of git repo path and profile name
-                    update = "sudo -p 'password: ' echo 'Your daughter is just a fork of your wife.' && sudo nixos-rebuild switch --flake \"${gitPath}#${config.myOptions.other.system.hostname}\" --log-format internal-json |& nom --json";
+                    update = "sudo -p 'password: ' echo 'Your daughter is just a fork of your wife.' && sudo nixos-rebuild switch --flake \"${gitPath}#mars\" --log-format internal-json |& nom --json";
 
                 } // cfg.extraAliases;
                 initExtraFirst = mkIf cfg.profiling "zmodload zsh/zprof";
@@ -83,11 +83,11 @@ in {
                       };
                   }
                 ];
-	       oh-my-zsh = mkIf cfg.oh-my-zsh.enable {
-	           enable = cfg.oh-my-zsh.enable;
-		   theme = cfg.oh-my-zsh.theme;
-		   plugins = cfg.oh-my-zsh.plugins;
-	       };
+	              oh-my-zsh = mkIf cfg.ohmyzsh.enable {
+	                  programs.oh-my-zsh.enable = true;
+                    theme = cfg.ohmyzsh.theme;
+            		    plugins = cfg.ohmyzsh.plugins;
+	              };
             };
         };
       };
