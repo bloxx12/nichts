@@ -27,6 +27,7 @@ in {
               "rustfmt"
             ])
             ffmpeg_6-full
+            flameshot
             foot
             gcc
             gdb
