@@ -45,6 +45,7 @@ in {
             python3
             rustdesk
             neovim
+	    tmux
         ];
     };
 }
