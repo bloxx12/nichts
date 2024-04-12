@@ -31,6 +31,11 @@ in {
             default = "master";
             description = "default git branch";
         };
+	pullRebase = mkOption {
+	    type = types.bool;
+	    default = false;
+	    description = "git config pull.rebase {pullRebase}";
+	};
     };
 
     config = mkIf cfg.enable {
@@ -56,6 +61,7 @@ in {
                     transfer.fsckobjects = true;
                     fetch.fsckobjects = true;
                     receive.fsckobjects = true;
+		    pull.rebase = cfg.pullRebase;
                 };
             };
         };
