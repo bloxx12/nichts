@@ -15,6 +15,11 @@ in {
             description = "username for this system";
             type = types.str;
         };
+
+	gitPath = mkOption {
+	    description = "path to the flake directory";
+	    type = types.str;
+	};
     };
 
     config = {
