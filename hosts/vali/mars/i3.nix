@@ -9,7 +9,6 @@ in {
       enable = true;
       xkb.layout =  "de";
       windowManager = {
-          bspwm.enable = true;
           i3.enable = true;
       };
       displayManager = {
