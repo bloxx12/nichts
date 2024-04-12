@@ -48,6 +48,9 @@ in {
 	    tmux
 	    firefox
 	    kitty
+	    grim
+	    slurp
+	    wl-clipboard
         ];
     };
 }
