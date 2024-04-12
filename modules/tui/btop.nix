@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib; let
-    cfg = config.myOptions.programs.btop;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.btop;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.btop.enable = mkEnableOption "btop";
+    options.modules.programs.btop.enable = mkEnableOption "btop";
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {

@@ -1,8 +1,8 @@
 { pkgs, lib, config, callPackage, ... }:
 with lib; let
-  cfg = config.myOptions.programs.i3;
+  cfg = config.modules.programs.i3;
 in {
-  options.myOptions.programs.i3.enable = mkEnableOption "i3";
+  options.modules.programs.i3.enable = mkEnableOption "i3";
 
   config = mkIf cfg.enable {
     services.xserver = {

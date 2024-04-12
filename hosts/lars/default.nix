@@ -5,7 +5,7 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  myOptions = {
+  modules = {
       other = {
           system = {
               gitPath = "/home/lars/nichts";
