@@ -33,6 +33,7 @@ in {
             krita
             lazygit
             libreoffice-fresh
+            moc
             ncmpcpp
             neofetch
             neovim
