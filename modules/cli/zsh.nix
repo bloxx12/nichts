@@ -37,6 +37,7 @@ in {
                     rm = "trash -v";
                     l = "eza -a --icons";
                     la = "eza -lha --icons --git";
+                    kys = "shutdown now";
                     cd = "z";
                     nv = "nvim";
                     #TODO fix hardcoding of git repo path and profile name
