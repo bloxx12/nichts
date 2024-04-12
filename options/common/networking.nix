@@ -10,7 +10,10 @@ networking = {
   };
   services.resolved = {
       enable = true;
-      fallbackDns = ["9.9.9.9"];
+      fallbackDns = [
+      "9.9.9.9"
+      "2620::fe::fe"
+      ];
   };
   users.users.${username}.extraGroups = [ "networkmanager" ];
 }
