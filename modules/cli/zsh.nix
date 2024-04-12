@@ -2,6 +2,7 @@
 with lib; let
   cfg = config.myOptions.programs.zsh;
   username = config.myOptions.other.system.username;
+  gitPath = config.myOptions.other.system.gitPath;
 in {
     options.myOptions.programs.zsh = {
         enable = mkEnableOption "zsh";
@@ -54,7 +55,7 @@ in {
                     cd = "z";
                     nv = "nvim";
                     #TODO fix hardcoding of git repo path and profile name
-                    update = "sudo -p 'password: ' echo 'Your daughter is just a fork of your wife.' && sudo nixos-rebuild switch --flake \"$HOME/nichts#${config.myOptions.other.system.hostname}\" --log-format internal-json |& nom --json";
+                    update = "sudo -p 'password: ' echo 'Your daughter is just a fork of your wife.' && sudo nixos-rebuild switch --flake \"${gitPath}#${config.myOptions.other.system.hostname}\" --log-format internal-json |& nom --json";
 
                 } // cfg.extraAliases;
                 initExtraFirst = mkIf cfg.profiling "zmodload zsh/zprof";
