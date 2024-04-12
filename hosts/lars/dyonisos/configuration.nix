@@ -7,5 +7,9 @@
               username = "lars";
           };
       };
+      hyprland = {
+          enable = true;
+	  monitor = ",preferred,auto,1";
+      };
   };
 }
