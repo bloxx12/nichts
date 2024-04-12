@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let 
-  username = config.myOptions.other.system.username;
+  username = config.modules.other.system.username;
 in {
 networking = {
     networkmanager = {

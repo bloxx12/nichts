@@ -3,10 +3,10 @@
     lib,
     ...
 }: with lib; let
-    cfg = config.myOptions.themes.cursor;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.themes.cursor;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.themes.cursor = {
+    options.modules.themes.cursor = {
         enable = mkEnableOption "cursor theming";
         package = mkOption {
             description = "cursor theme package";

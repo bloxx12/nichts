@@ -5,12 +5,12 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.hypr.lock;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.hypr.lock;
+    username = config.modules.other.system.username;
 
     text_color = "rgba(eae0e4FF)";
 in {
-    options.myOptions.programs.hypr.lock = {
+    options.modules.programs.hypr.lock = {
         enable = mkEnableOption "hiper zamek";
         extraSettings = mkOption {
             type = types.attrs;
