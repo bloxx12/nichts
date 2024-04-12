@@ -2,7 +2,7 @@ _: {
     imports = [
         ./home-manager.nix
         ./system.nix
-        ./xdg.nix
+#        ./xdg.nix
         ./displaymanager.nix
     ];
 }
