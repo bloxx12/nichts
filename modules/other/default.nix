@@ -3,5 +3,6 @@ _: {
         ./home-manager.nix
         ./system.nix
         ./xdg.nix
+        ./displaymanager.nix
     ];
 }
