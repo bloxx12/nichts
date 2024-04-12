@@ -22,6 +22,17 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  services.mpd = {
+      enable = true;
+      musicDirectory = "/home/vali/Nextcloud/Media/Music/";
+      startWhenNeeded = true;
+      extraConfig = ''
+          audio_output {
+          type "pipewire"
+          name "My PipeWire Output"
+          }       
+      '';
+  };
   myOptions = {
       other = {
           system = {

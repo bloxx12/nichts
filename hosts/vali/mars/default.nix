@@ -4,7 +4,7 @@ _: {
       ./programs.nix
       ./hardware-configuration.nix
       ./profile.nix
-      ./i3.nix
+      ./i3
       ./awesome.nix
       ./hypr/default.nix
     ];
