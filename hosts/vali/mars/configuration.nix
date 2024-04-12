@@ -20,6 +20,7 @@
       };
       programs = {
           vesktop.enable = true;
+          ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
           i3.enable = true;
