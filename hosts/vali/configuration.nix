@@ -2,6 +2,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "Europe/Zurich";
+  console.keyMap = "de";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
@@ -28,7 +29,7 @@
           #    enable = true;
           #    userName = "vali";
           #    userEmail = "valentin@kaas.cc";
-          #    defaultBranch = "master";
+          #    defaultBranch = "main";
           #};
           starship.enable = true;
           zsh = {
