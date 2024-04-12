@@ -7,7 +7,7 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      layout =  "de";
+      xkb.layout =  "de";
       windowManager = {
           bspwm.enable = true;
           i3.enable = true;
