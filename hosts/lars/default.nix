@@ -7,10 +7,6 @@
   programs.kdeconnect.enable = true;
   myOptions = {
       other = {
-          system = {
-              hostname = "dyonisos";
-              username = "lars";
-          };
           home-manager = {
               enable = true;
               enableDirenv = true;
