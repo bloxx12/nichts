@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib; let
-  cfg = config.myOptions.programs.zsh;
-  username = config.myOptions.other.system.username;
-  hostname = config.myOptions.other.system.hostname;
-  gitPath = config.myOptions.other.system.gitPath;
+  cfg = config.modules.programs.zsh;
+  username = config.modules.other.system.username;
+  hostname = config.modules.other.system.hostname;
+  gitPath = config.modules.other.system.gitPath;
 in {
-    options.myOptions.programs.zsh = {
+    options.modules.programs.zsh = {
         enable = mkEnableOption "zsh";
         extraAliases = mkOption {
             type = types.attrs;

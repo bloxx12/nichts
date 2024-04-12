@@ -1,10 +1,10 @@
 { config, lib, inputs, pkgs, ... }:
 with lib; let
-  username = config.myOptions.other.system.username;
-  cfg = config.myOptions.hyprland;
+  username = config.modules.other.system.username;
+  cfg = config.modules.hyprland;
 in {
-    options.myOptions.hyprland.nvidia.enable = mkEnableOption "nvidia";
-    options.myOptions.hyprland = {
+    options.modules.hyprland.nvidia.enable = mkEnableOption "nvidia";
+    options.modules.hyprland = {
         enable = mkEnableOption "hyprland";
 	monitor = mkOption {
 	    description = "hyprland monitor config";

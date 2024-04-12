@@ -1,6 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
-  myOptions = {
+  modules = {
       other = {
           system = {
               hostname = "dyonisos";

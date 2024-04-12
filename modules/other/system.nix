@@ -3,9 +3,9 @@
     lib,
     ...
 }: with lib; let
-    cfg = config.myOptions.other.system;
+    cfg = config.modules.other.system;
 in {
-    options.myOptions.other.system = {
+    options.modules.other.system = {
         hostname = mkOption {
             description = "hostname for this system";
             type = types.str;

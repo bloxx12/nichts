@@ -2,8 +2,8 @@
 
 with lib; let
 
-    cfg = config.myOptions.programs.hypr.land;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.hypr.land;
+    username = config.modules.other.system.username;
     hmCfg = config.home-manager.users.${username};
                         
     smwPresent = elem inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces cfg.extraPlugins;
@@ -13,7 +13,7 @@ with lib; let
     inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
     inherit (inputs.hyprlock.packages.${pkgs.system}) hyprlock;
 in {
-    options.myOptions.programs.hypr.land = {
+    options.modules.programs.hypr.land = {
         enable = mkEnableOption "huperland";
         startupSound = mkOption {
             type = with types; nullOr path;
@@ -359,7 +359,7 @@ in {
                             "[workspace special:rog silent;tile] ${config.services.asusd.package}/bin/rog-control-center")
                         "[workspace special:keepassxc silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
-                        (if config.myOptions.programs.foot.server then "sleep 0.5 && ${pkgs.systemd}/bin/systemctl --user restart foot.service" else ";")
+                        (if config.modules.programs.foot.server then "sleep 0.5 && ${pkgs.systemd}/bin/systemctl --user restart foot.service" else ";")
 
                         "${hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 24"
 

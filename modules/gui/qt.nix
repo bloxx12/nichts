@@ -4,10 +4,10 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.themes.qt;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.themes.qt;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.themes.qt = {
+    options.modules.themes.qt = {
         enable = mkEnableOption "qt theming";
         name = mkOption {
             description = "qt theme name";
