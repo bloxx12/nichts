@@ -56,6 +56,7 @@ in {
             strawberry
             telegram-desktop
             texliveFull
+            thunderbird
             tor-browser-bundle-bin
             trash-cli
             tree
