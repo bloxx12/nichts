@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }
+{ config, lib, pkgs, ... }:
 with lib; let 
     cfg = config.myOptions.programs.ssh;
     username = config.myOptions.other.system.username;
