@@ -14,8 +14,10 @@ in {
             bibata-cursors
             chromium
             dig
+            easyeffects
             element-desktop
-            eza ripgrep
+            eza
+            ripgrep
             fastfetch
             (fenix.complete.withComponents [
               "cargo"
@@ -39,6 +41,7 @@ in {
             neofetch
             neovim
             networkmanagerapplet
+            nextcloud-client
             pamixer
             pavucontrol
             pcmanfm
@@ -53,7 +56,7 @@ in {
             smartmontools
             st
             steam
-            strawberry
+            strawberry-qt6
             telegram-desktop
             texliveFull
             thunderbird
