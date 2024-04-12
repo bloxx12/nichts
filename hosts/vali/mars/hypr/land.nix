@@ -1,10 +1,7 @@
-{
-    config,
-    inputs,
-    lib,
-    pkgs,
-    ...
-}: with lib; let
+{ config, inputs, lib, pkgs, ... }:
+
+with lib; let
+
     cfg = config.myOptions.programs.hypr.land;
     username = config.myOptions.other.system.username;
     hmCfg = config.home-manager.users.${username};
