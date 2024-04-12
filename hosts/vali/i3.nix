@@ -7,22 +7,14 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
+      layout =  "de";
+      windowManager = {
+          bspwm.enable = true;
+          i3.enable = true;
       };
-      displayManager.defaultSession="xfce+i3";
-        windowManager.i3 = {
-          enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-          i3lock
-        ];
+      displayManager = {
+          gdm.enable = true;
+          defaultSession = "none+i3";
       };
     };
   };
