@@ -20,7 +20,7 @@
 
         nur = {
             url = "github:nix-community/NUR";
-            inputs.nixpkgs.follows = "nixpkgs";
+            #inputs.nixpkgs.follows = "nixpkgs";
         };
 
         agenix.url = "github:ryantm/agenix";
@@ -36,19 +36,10 @@
             url = "github:nix-community/fenix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-	
-        hyprland = {
-            url = "github:hyprwm/Hyprland";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        hyprlock = {
-            url = "github:hyprwm/hyprlock";
-            inputs.nixpkgs.follows = "nixpkgs";
-          };
 
         split-monitor-workspaces = {
             url = "github:Duckonaut/split-monitor-workspaces";
-            inputs.hyprland.follows = "hyprland";
+#            inputs.hyprland.follows = "hyprland";
         };
     };
 }
