@@ -7,6 +7,9 @@
   programs.kdeconnect.enable = true;
   myOptions = {
       other = {
+          system = {
+              gitPath = "/home/lars/nichts";
+	  };
           home-manager = {
               enable = true;
               enableDirenv = true;
