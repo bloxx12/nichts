@@ -29,7 +29,7 @@
 	                cls = "clear"; 
 
   	          };
-	      oh-my-zsh = {
+	      ohmyzsh = {
 	          enable = true;
 		  theme = "fino-time";
 	      };
