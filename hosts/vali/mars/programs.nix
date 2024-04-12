@@ -62,6 +62,7 @@ in {
             tree
             unzip
             ventoy-full
+            vesktop
             vlc
             xclip
             yt-dlp

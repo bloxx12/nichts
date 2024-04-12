@@ -20,7 +20,7 @@
 
         nur = {
             url = "github:nix-community/NUR";
-            inputs.nixpkgs.follows = "nixpkgs";
+            #inputs.nixpkgs.follows = "nixpkgs";
         };
 
         agenix.url = "github:ryantm/agenix";
