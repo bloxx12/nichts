@@ -50,6 +50,7 @@ in {
             python3
             qbittorrent
             rustdesk
+            rofi
             scc
             sherlock
             signal-desktop-beta

@@ -24,6 +24,9 @@ in {
                         }
                     '';
                 };
+                Preferences = {
+                    "ui.key.menuAccessKeyFocuses" = false;
+                };
                 extensions = {
                     simplefox.enable = false;
                     darkreader.enable = true;
