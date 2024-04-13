@@ -53,6 +53,7 @@ in {
 	    slurp
 	    wl-clipboard
 	    pavucontrol
+	    wofi
         ];
     };
 }
