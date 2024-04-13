@@ -68,6 +68,13 @@
               enable = true;
               profiling = false;
           };
+          alacritty = {
+            enable = true;
+            catppuccin = true;
+            opacity = 0.8;
+            blur = true;
+            # Grüsse
+          };
       };
       services = {
           pipewire.enable = true;
