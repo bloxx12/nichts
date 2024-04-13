@@ -49,6 +49,9 @@ in {
 			    "$mod, Q, killactive"
 			    "$mod, return, exec, alacritty"
 			    "$mod SHIFT, return, exec, firefox"
+
+			    # Application
+			    "$mod SHIFT, c, exec, code"
 			    
 			    # Monitor management
 			    "$mod SHIFT, k, movecurrentworkspacetomonitor, DP-2"
