@@ -69,7 +69,6 @@ in {
                   darkreader.enable = true;
 
                   extraExtensions = {
-                    "webextension@metamask.io".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ether-metamask/latest.xpi";
                   };
                 };
 
