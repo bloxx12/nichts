@@ -41,6 +41,10 @@
 	      userEmail = "wasser.ian@gmail.com";
 	      defaultBranch = "main";
 	  };
+
+          firefox = {
+	    enable = true;
+          };
       };
 
       services = {
