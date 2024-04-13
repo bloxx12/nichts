@@ -90,7 +90,7 @@
               };
           };
           qt = {
-            enable = true;
+            enable = false;
             package = pkgs.catppuccin-kde;
             name = "Catppuccin-Mocha-Dark";
             variant = "mocha";
