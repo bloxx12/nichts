@@ -4,10 +4,10 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.git;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.git;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.git = {
+    options.modules.programs.git = {
         enable = mkEnableOption "git";
         userName = mkOption {
             type = types.str;

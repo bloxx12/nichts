@@ -1,13 +1,16 @@
 { config, inputs, pkgs, ... }:
 let
-  fenix = inputs.fenix.packages.${pkgs.system};
-  username = config.modules.other.system.username;
+  username = config.myOptions.other.system.username;
 in {
-    environment.systemPackages = with pkgs; [
+    home-manager.users.${username} = {
+        home.packages = let
+          fenix = inputs.fenix.packages.${pkgs.system};
+
+        in with pkgs; [
             alacritty
             alsa-utils
             asciinema
-#            betterbird
+            betterbird
             bibata-cursors
             dig
             easyeffects
@@ -34,8 +37,6 @@ in {
             krita
             lazygit
             libreoffice-fresh
-            moc
-            ncmpcpp
             neofetch
             neovim
             networkmanagerapplet
@@ -55,10 +56,9 @@ in {
             sherlock
             signal-desktop-beta
             smartmontools
-            spotube
             st
             steam
-            strawberry
+            strawberry.strawberry-wrapped
             telegram-desktop
             texliveFull
             thunderbird
@@ -74,4 +74,5 @@ in {
             zathura
             zip
         ];
+    };
 }

@@ -2,7 +2,7 @@
     config,
     ...
 }: let
-    username = config.myOptions.other.system.username;
+    username = config.modules.other.system.username;
     hmCfg = config.home-manager.users.${username};
 
     primary_browser = "schizofox.desktop";
@@ -30,7 +30,7 @@ in {
         XAUTHORITY = "\$XDG_RUNTIME_DIR/Xauthority";
     };
 */
-    myOptions.programs.zsh.extraAliases = {
+    modules.programs.zsh.extraAliases = {
         gdb = "gdb -n -x ${hmCfg.xdg.configHome}/gdb/init";
         pidgin = "pidgin --config=${hmCfg.xdg.dataHome}/purple";
         svn = "svn --config-dir ${hmCfg.xdg.configHome}/subversion";

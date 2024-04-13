@@ -4,10 +4,10 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.zathura;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.zathura;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.zathura.enable = mkEnableOption "zathura";
+    options.modules.programs.zathura.enable = mkEnableOption "zathura";
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
