@@ -20,7 +20,7 @@
           vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
-          schizofox.enable = true;
+          schizofox.enable = false;
 
           zsh = {
               enable = true;
@@ -46,7 +46,11 @@
 	    enable = true;
 	    extensions = {
 	      "support@lastpass.com" = {
-	        install_url = "https://addons.mozilla.org/de/firefox/addon/lastpass-password-manager/";
+	        install_url = "https://addons.mozilla.org/firefox/downloads/file/4246455/lastpass_password_manager-4.127.0.1.xpi";
+		installation_mode = "force_installed";
+	      };
+	      "newtaboverride@agenedia.com" = {
+	        install_url = "https://addons.mozilla.org/firefox/downloads/file/4231522/new_tab_override-16.0.0.xpi";
 		installation_mode = "force_installed";
 	      };
 	    };
@@ -65,7 +69,7 @@
               size = 24;
           };
           gtk = {
-              enable = false;
+              enable = true;
               package = pkgs.catppuccin-gtk;
               name = "Catppuccin-Mocha-Standard-Green-Dark";
               variant = "mocha";
@@ -76,7 +80,7 @@
               };
           };
           qt = {
-            enable = false;
+            enable = true;
             package = pkgs.catppuccin-kde;
             name = "Catppuccin-Mocha-Dark";
             variant = "mocha";
