@@ -4,5 +4,6 @@ _: {
 #        ./helix.nix
         ./neovim.nix
 #       ./newsboat.nix
+        ./ncmpcpp.nix
     ];
 }
