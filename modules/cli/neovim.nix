@@ -7,11 +7,11 @@ let
         rev = "d799724f48199d81ca6c8abb5951860fbf8fa0df";
         hash = "sha256-NF92CweRFQ1qZS8NXoTUEljazRGXgXS2AuDt5IWmwBc=";
     };
-    cfg = config.modules.neovim-old;
+    cfg = config.modules.programs.neovim-old;
     username = config.modules.other.system.username;
 in
 {
-    options.modules.cli.neovim-old = lib.mkEnableOption "neovim-old";
+    options.modules.programs.neovim-old.enable = lib.mkEnableOption "neovim-old";
 
     config = lib.mkIf cfg.enable {
     	home-manager.users.${username} = {
@@ -31,5 +31,5 @@ in
 	};
 
 
-    }
+    };
 }
