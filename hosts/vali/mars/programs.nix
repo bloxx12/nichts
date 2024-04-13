@@ -34,6 +34,7 @@ in {
             krita
             lazygit
             libreoffice-fresh
+            librewolf
             moc
             ncmpcpp
             neofetch
@@ -69,6 +70,7 @@ in {
             ventoy-full
             vesktop
             vlc
+            wget
             xclip
             yt-dlp
             zathura
