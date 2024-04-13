@@ -3,11 +3,11 @@
     lib,
     ...
 }: with lib; let
-    cfg = config.myOptions.themes.gtk;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.themes.gtk;
+    username = config.modules.other.system.username;
     hmCfg = config.home-manager.users.${username};
 in {
-    options.myOptions.themes.gtk = {
+    options.modules.themes.gtk = {
         enable = mkEnableOption "gtk theming";
         name = mkOption {
             description = "gtk theme name";

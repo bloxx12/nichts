@@ -34,7 +34,7 @@
           }       
       '';
   };
-  myOptions = {
+  modules = {
       other = {
           system = {
               hostname = "mars";

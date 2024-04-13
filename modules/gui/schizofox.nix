@@ -1,13 +1,9 @@
-{
-    config,
-    inputs,
-    lib,
-    ...
-}: with lib; let
-    cfg = config.myOptions.programs.schizofox;
-    username = config.myOptions.other.system.username;
+{ config, inputs, lib, ... }:
+with lib; let
+    cfg = config.modules.programs.schizofox;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.schizofox = {
+    options.modules.programs.schizofox = {
         enable = mkEnableOption "schizofox";
     };
 

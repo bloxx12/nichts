@@ -6,11 +6,11 @@ let
     desktopName = "Vivado";
     exec = "${pkgs.nur.repos.lschuermann.vivado-2022_2}/bin/vivado";
     };
-    cfg = with lib; [ config.myOptions.programs.vivado ];
-    username = with lib; [ config.myOptions.other.system.username ];
+    cfg = with lib; [ config.modules.programs.vivado ];
+    username = with lib; [ config.modules.other.system.username ];
 in
 {
-  options.myOptions.programs.vivado.enable = mkEnableOption "vivado";
+  options.modules.programs.vivado.enable = mkEnableOption "vivado";
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
