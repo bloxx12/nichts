@@ -28,7 +28,7 @@ in
     android-tools
     signal-desktop
     nextcloud-client
-    etcher
+    # etcher
     vlc
     audacity
     thunderbird
