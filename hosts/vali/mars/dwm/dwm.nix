@@ -11,12 +11,13 @@ in {
       xkb.layout =  "de";
       windowManager.dwm = {
           enable = true;
-          package = pkgs.dwm.overrideAttrs.src = ./dwm-6.5
-      };
-      displayManager = {
-          gdm.enable = true;
-          defaultSession = "none+dwm";
+   #       package = pkgs.dwm.overrideAttrs { src = ./dwm-6.5/dwm; };
       };
     };
+    nixpkgs.overlays = [
+    (final: prev: {
+      dwm = prev.dwm.overrideAttrs (old: {src = ./dwm-6.5;}); #FIX ME: Update with path to your dwm folder
+    })
+    ];
   };
 }
