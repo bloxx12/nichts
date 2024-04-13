@@ -4,15 +4,16 @@
     pkgs,
     ...
 }: with lib; let 
-    cfg = config.myOptions.programs.vesktop;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.vesktop;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.vesktop = {
+    options.modules.programs.vesktop = {
         enable = mkEnableOption "vesktop";
     };
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
+            home.packages = with pkgs; [ vesktop ];
             xdg.configFile."vesktop/settings.json".text = builtins.toJSON {
                 discordBranch = "ptb";
                 firstLaunch = false;

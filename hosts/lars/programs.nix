@@ -1,6 +1,6 @@
 { config, inputs, pkgs, ... }:
 let
-  username = config.myOptions.other.system.username;
+  username = config.modules.other.system.username;
 in {
     home-manager.users.${username} = {
         home.packages = let
@@ -48,6 +48,8 @@ in {
 	    tmux
 	    firefox
 	    kitty
+	    nextcloud-client
+	    vscode
 	    grim
 	    slurp
 	    wl-clipboard

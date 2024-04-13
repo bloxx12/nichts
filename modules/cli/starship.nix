@@ -3,16 +3,16 @@
     lib,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.starship;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.starship;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.starship.enable = mkEnableOption "starship";
+    options.modules.programs.starship.enable = mkEnableOption "starship";
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
             programs.starship = {
                 enable = true;
-                enableZshIntegration = config.myOptions.programs.zsh.enable;
+                enableZshIntegration = config.modules.programs.zsh.enable;
                 settings = {
                     add_newline = false;
                     command_timeout = 1000;

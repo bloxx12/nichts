@@ -4,10 +4,10 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.mpv;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.mpv;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.mpv.enable = mkEnableOption "mpv";
+    options.modules.programs.mpv.enable = mkEnableOption "mpv";
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {

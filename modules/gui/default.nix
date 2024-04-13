@@ -10,5 +10,6 @@ _: {
         ./obs.nix
         ./foot.nix
 #        ./vivado.nix
+        ./WM
     ];
 }

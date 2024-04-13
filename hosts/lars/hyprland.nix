@@ -1,15 +1,15 @@
 { config, lib, inputs, pkgs, ... }:
 with lib; let
-  username = config.myOptions.other.system.username;
-  cfg = config.myOptions.hyprland;
+  username = config.modules.other.system.username;
+  cfg = config.modules.hyprland;
 in {
-    options.myOptions.hyprland.nvidia.enable = mkEnableOption "nvidia";
-    options.myOptions.hyprland = {
+    options.modules.hyprland.nvidia.enable = mkEnableOption "nvidia";
+    options.modules.hyprland = {
         enable = mkEnableOption "hyprland";
 	monitor = mkOption {
 	    description = "hyprland monitor config";
 	    default = ",preferred,auto,1";
-	    type = types.listof(types.str);
+	    type = types.listOf(types.str);
 	};
     };
 
@@ -41,6 +41,9 @@ in {
 	    wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {
+			# Monitor config
+			monitor = cfg.monitor;
+
 			"$mod" = "SUPER";
 
 			input = {
@@ -51,6 +54,10 @@ in {
 			    "$mod, Q, killactive"
 			    "$mod, return, exec, alacritty"
 			    "$mod SHIFT, return, exec, firefox"
+			    "$mod SHIFT, m, exit"
+
+			    # Application
+			    "$mod SHIFT, c, exec, code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu"
 			    
 			    # Monitor management
 			    "$mod SHIFT, k, movecurrentworkspacetomonitor, DP-2"
