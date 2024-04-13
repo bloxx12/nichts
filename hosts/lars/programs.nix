@@ -7,20 +7,19 @@ in {
           fenix = inputs.fenix.packages.${pkgs.system};
 
         in with pkgs; [
-	    neofetch
+	          neofetch
             git
-	    trash-cli
+	          trash-cli
             element-desktop
             steam
             libreoffice-fresh
             ventoy-full
             lazygit
-	    obsidian
+	          obsidian
             neofetch
             zip
             vlc
             zathura
-            alacritty
             unzip
             gcc
             bibata-cursors
@@ -45,15 +44,15 @@ in {
             python3
             rustdesk
             neovim
-	    tmux
-	    kitty
-	    nextcloud-client
-	    vscode
-	    grim
-	    slurp
-	    wl-clipboard
-	    pavucontrol
-	    wofi
+            tmux
+            kitty
+            nextcloud-client
+            vscode
+            grim
+            slurp
+            wl-clipboard
+            pavucontrol
+            wofi
         ];
     };
 }
