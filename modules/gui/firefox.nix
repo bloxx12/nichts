@@ -1,9 +1,9 @@
 { config, lib, inputs, pkgs, ... }:
 with lib; let
   username = config.modules.other.system.username;
-  cfg = config.modules.firefox;
+  cfg = config.modules.programs.firefox;
 in {
-    options.modules.firefox = {
+    options.modules.programs.firefox = {
       enable = mkEnableOption "firefox";
       extensions = mkOption {
         description = "firefox extensions (format like https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265)";
@@ -14,7 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      programs.firefox = (lib.mkMerge [{
+      programs.firefox = lib.mkMerge [{
         enable = true;
 	policies = {
 	  ExtensionSettings = {
@@ -24,7 +24,7 @@ in {
             };
 	  };
 	};
-      } cfg.extensions]);
+      } cfg.extensions];
     };
   };
 }
