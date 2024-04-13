@@ -52,6 +52,7 @@ in {
 	    grim
 	    slurp
 	    wl-clipboard
+	    pavucontrol
         ];
     };
 }
