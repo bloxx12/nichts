@@ -14,17 +14,17 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      programs.firefox = lib.mkMerge [{
+      programs.firefox = {
         enable = true;
 	policies = {
-	  ExtensionSettings = {
+	  ExtensionSettings = lib.mkMerge [{
 	    "uBlock0@raymondhill.net" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
               installation_mode = "force_installed";
             };
-	  };
+	  } cfg.extensions];
 	};
-      } cfg.extensions];
+      };
     };
   };
 }
