@@ -8,5 +8,8 @@ _: {
         ./schizofox.nix
         ./zathura.nix
         ./obs.nix
+        ./foot.nix
+#        ./vivado.nix
+        ./WM
     ];
 }

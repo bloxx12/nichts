@@ -6,7 +6,7 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  myOptions = {
+  modules = {
       other = {
           system = {
               hostname = "mars";
@@ -20,12 +20,11 @@
       };
       programs = {
           vesktop.enable = true;
+          ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
           i3.enable = true;
-          awesome.enable = true;
           schizofox.enable = true;
-          obs.enable = true;
           displaymanager.enable = true;
           #neovim.enable = true;
           #git = {
@@ -42,7 +41,7 @@
       };
       services = {
           pipewire.enable = true;
-        };
+      };
       themes = {
           cursor = {
               enable = true;
