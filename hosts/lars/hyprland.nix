@@ -1,10 +1,17 @@
 { config, lib, inputs, pkgs, ... }:
 with lib; let
-  username = config.myOptions.other.system.username;
-  cfg = config.myOptions.hyprland;
+  username = config.modules.other.system.username;
+  cfg = config.modules.hyprland;
 in {
-    options.myOptions.hyprland.nvidia.enable = mkEnableOption "nvidia";
-    options.myOptions.hyprland.enable = mkEnableOption "hyprland";
+    options.modules.hyprland.nvidia.enable = mkEnableOption "nvidia";
+    options.modules.hyprland = {
+        enable = mkEnableOption "hyprland";
+	monitor = mkOption {
+	    description = "hyprland monitor config";
+	    default = ",preferred,auto,1";
+	    type = types.listof(types.str);
+	};
+    };
 
   config = mkIf cfg.enable {
 	  environment.sessionVariables = mkIf cfg.nvidia.enable {
@@ -36,11 +43,6 @@ in {
 		settings = {
 			"$mod" = "SUPER";
 
-			monitor = [
-			    "DP-2,2560x1440@144,0x0,1"
-			    "DP-1,1920x1080@60,2560x0,1"
-			];
-
 			input = {
 			    kb_layout = "ch";
 			};
@@ -56,6 +58,16 @@ in {
 			    # Monitor management
 			    "$mod SHIFT, k, movecurrentworkspacetomonitor, DP-2"
 			    "$mod SHIFT, j, movecurrentworkspacetomonitor, DP-1"
+
+			    # Window Management
+			    "$mod, left, movefocus, l"
+			    "$mod, right, movefocus, r"
+			    "$mod, up, movefocus, u"
+			    "$mod, down, movefocus, d"
+			    "$mod, F, fullscreen"
+
+			    # Screenshot
+			    "$mod SHIFT, s, exec, grim -g 'slurp -d' - | wl-copy"
 			]
 			++ (
 			  builtins.concatLists (builtins.genList (

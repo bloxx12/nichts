@@ -1,8 +1,8 @@
 {pkgs, lib, config, ...}:
 with lib; let 
-    cfg = config.myOptions.programs.displaymanager;
+    cfg = config.modules.programs.displaymanager;
 in {
-    options.myOptions.programs.displaymanager.enable = mkEnableOption "displaymanager";
+    options.modules.programs.displaymanager.enable = mkEnableOption "displaymanager";
 
     config = mkIf cfg.enable {
         services.xserver.displayManager = {

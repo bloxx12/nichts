@@ -1,8 +1,8 @@
 { pkgs, lib, config, ... }:
 with lib; let
-  cfg = config.myOptions.programs.awesome;
+  cfg = config.modules.programs.awesome;
 in {
-  options.myOptions.programs.awesome.enable = mkEnableOption "awesome";
+  options.modules.programs.awesome.enable = mkEnableOption "awesome";
 
   config = mkIf cfg.enable {
     services.xserver = {
