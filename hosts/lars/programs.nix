@@ -48,6 +48,8 @@ in {
 	    tmux
 	    firefox
 	    kitty
+	    nextcloud-client
+	    vscode
         ];
     };
 }
