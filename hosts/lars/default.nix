@@ -44,6 +44,12 @@
 
           firefox = {
 	    enable = true;
+	    extensions = {
+	      "support@lastpass.com" = {
+	        install_url = "https://addons.mozilla.org/de/firefox/addon/lastpass-password-manager/";
+		installation_mode = "force_installed";
+	      };
+	    };
           };
       };
 
