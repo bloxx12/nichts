@@ -1,10 +1,10 @@
 {pkgs, lib, config, ... }:
 with lib; let
-  cfg = config.myOptions.programs.i3;
-  username = config.myOptions.other.system.username;
+  cfg = config.modules.programs.i3;
+  username = config.modules.other.system.username;
   mod = "Mod4";
 in {
-  options.myOptions.programs.i3.enable = mkEnableOption "i3";
+  options.modules.programs.i3.enable = mkEnableOption "i3";
 
   config = mkIf cfg.enable {
       services.xserver = {
