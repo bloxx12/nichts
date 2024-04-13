@@ -26,6 +26,7 @@ in {
             foot
             gcc
             gdb
+            gnumake
             grimblast
             git
             httpie
@@ -72,6 +73,9 @@ in {
             vlc
             wget
             xclip
+            xorg.libX11.dev
+            xorg.libXft
+            xorg.libXinerama
             yt-dlp
             zathura
             zip
