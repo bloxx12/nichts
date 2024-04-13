@@ -11,6 +11,11 @@ in {
 	    default = ",preferred,auto,1";
 	    type = types.listOf(types.str);
 	};
+	extra = mkOption {
+	    description = "any extra configuration to add to the hyprland config file";
+	    default = {};
+	    type = types.attrs;
+	};
     };
 
   config = mkIf cfg.enable {
@@ -40,7 +45,7 @@ in {
     home-manager.users.${username} = {
 	    wayland.windowManager.hyprland = {
 		enable = true;
-		settings = {
+		settings = lib.mkMerge [{
 			# Monitor config
 			monitor = cfg.monitor;
 
@@ -49,6 +54,10 @@ in {
 			input = {
 			    kb_layout = "ch";
 			};
+
+			animation = [
+			    "workspaces,1,10,default"
+			];
 
 			bind = [
 			    "$mod, Q, killactive"
@@ -87,7 +96,7 @@ in {
 			  )
 			10)
 		 );
-		};
+		} cfg.extra];
 	    };
 	};
   };
