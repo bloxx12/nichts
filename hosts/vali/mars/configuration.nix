@@ -52,6 +52,7 @@
           ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
+          i3.enable = true;
           dwm.enable = true;
           schizofox.enable = true;
           displaymanager.enable = true;
