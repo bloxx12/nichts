@@ -5,8 +5,7 @@
     username = config.myOptions.other.system.username;
     hmCfg = config.home-manager.users.${username};
 
-    primary_browser = "firefox-schizo.desktop";
-    secondary_browser = "firefox-unschizo.desktop";
+    primary_browser = "schizofox.desktop";
     mail_client = "betterbird.desktop";
     file_manager = "pcmanfm.desktop";
     media_player = "mpv.desktop";
@@ -74,10 +73,10 @@ in {
                 enable = true;
                 defaultApplications = {
                     "text/html" = [ primary_browser secondary_browser ];
-                    "x-scheme-handler/http" = [ primary_browser secondary_browser ];
-                    "x-scheme-handler/https" = [ primary_browser secondary_browser ];
-                    "x-scheme-handler/about" = [ primary_browser secondary_browser ];
-                    "x-scheme-handler/unknown" = [ primary_browser secondary_browser ];
+                    "x-scheme-handler/http" = [ primary_browser ];
+                    "x-scheme-handler/https" = [ primary_browser ];
+                    "x-scheme-handler/about" = [ primary_browser ];
+                    "x-scheme-handler/unknown" = [ primary_browser ];
                     "x-scheme-handler/mailto" = [ mail_client ];
                     "message/rfc822" = [ mail_client ];
                     "x-scheme-handler/mid" = [ mail_client ];

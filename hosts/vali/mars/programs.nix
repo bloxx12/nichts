@@ -6,7 +6,7 @@ in {
             alacritty
             alsa-utils
             asciinema
-            betterbird
+#            betterbird
             bibata-cursors
             dig
             easyeffects
@@ -57,6 +57,7 @@ in {
             spotube
             st
             steam
+            strawberry
             telegram-desktop
             texliveFull
             thunderbird
