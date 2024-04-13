@@ -7,6 +7,14 @@
               username = "lars";
           };
       };
+
+      programs = {
+        alacritty = {
+          opacity = 0.8;
+          blur = true;
+        };
+      };
+
       hyprland = {
           enable = true;
       	  nvidia.enable = true;
