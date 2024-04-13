@@ -5,10 +5,10 @@
     self,
     ...
 }: with lib; let
-    cfg = config.myOptions.other.home-manager;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.other.home-manager;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.other.home-manager = {
+    options.modules.other.home-manager = {
         enable = mkEnableOption "home-manager";
         enableDirenv = mkEnableOption "direnv";
     };

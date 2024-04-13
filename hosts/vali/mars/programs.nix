@@ -1,45 +1,24 @@
 { config, inputs, pkgs, ... }:
 let
-  username = config.myOptions.other.system.username;
+  username = config.modules.other.system.username;
 in {
     home-manager.users.${username} = {
         home.packages = let
           fenix = inputs.fenix.packages.${pkgs.system};
 
         in with pkgs; [
-            pfetch
-            git
-            keepassxc
-            eza ripgrep
-            signal-desktop-beta
-            element-desktop
-            steam
-            tor-browser-bundle-bin
-            betterbird
-            telegram-desktop
-            libreoffice-fresh
-            qbittorrent
-            ventoy-full
-            lazygit
-            neofetch
-            zip
-            vlc
-            zathura
             alacritty
-            scc
-            texliveFull
-            st
-            unzip
-            gcc
-            trash-cli
+            alsa-utils
+            asciinema
+            betterbird
             bibata-cursors
-            networkmanagerapplet
-            xclip
-            pamixer
+            chromium
             dig
-            pcmanfm
-            ffmpeg_6-full
-            yt-dlp
+            easyeffects
+            element-desktop
+            eza
+            ripgrep
+            fastfetch
             (fenix.complete.withComponents [
               "cargo"
               "clippy"
@@ -47,22 +26,51 @@ in {
               "rustc"
               "rustfmt"
             ])
-            polkit
-            asciinema
-            fastfetch
-            alsa-utils
-            imagemagick
-            pavucontrol
+            ffmpeg_6-full
+            foot
+            gcc
             gdb
-            tree
-            smartmontools
-            krita
-            python3
-            rustdesk
+            grimblast
+            git
             httpie
-            sherlock
-            strawberry
+            imagemagick
+            keepassxc
+            krita
+            lazygit
+            libreoffice-fresh
+            neofetch
             neovim
+            networkmanagerapplet
+            nextcloud-client
+            pamixer
+            pavucontrol
+            pcmanfm
+            pfetch
+            polkit
+            python3
+            qbittorrent
+            rustdesk
+            scc
+            sherlock
+            signal-desktop-beta
+            smartmontools
+            st
+            steam
+            strawberry-qt6
+            telegram-desktop
+            texliveFull
+            thunderbird
+            tor-browser-bundle-bin
+            trash-cli
+            tree
+            unzip
+            ventoy-full
+            vesktop
+            vlc
+            xclip
+            yt-dlp
+            zathura
+            zip
         ];
     };
 }

@@ -5,10 +5,10 @@
     pkgs,
     ...
 }: with lib; let
-    cfg = config.myOptions.programs.neovim;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.neovim;
+    username = config.modules.other.system.username;
 in {
-    options.myOptions.programs.neovim.enable = mkEnableOption "neovim";
+    options.modules.programs.neovim.enable = mkEnableOption "neovim";
 
     config = mkIf cfg.enable {
         nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];

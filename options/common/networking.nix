@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let 
-  username = config.myOptions.other.system.username;
+  username = config.modules.other.system.username;
 in {
 networking = {
     networkmanager = {
@@ -10,7 +10,10 @@ networking = {
   };
   services.resolved = {
       enable = true;
-      fallbackDns = ["9.9.9.9"];
+      fallbackDns = [
+      "9.9.9.9"
+      "2620::fe::fe"
+      ];
   };
   users.users.${username}.extraGroups = [ "networkmanager" ];
 }
