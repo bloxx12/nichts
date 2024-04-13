@@ -11,5 +11,6 @@ _: {
         ./foot.nix
 #        ./vivado.nix
         ./WM
+	./firefox.nix
     ];
 }
