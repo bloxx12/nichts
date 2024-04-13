@@ -16,7 +16,41 @@ in {
     home-manager.users.${username} = {
       programs.firefox = {
         enable = true;
+
 	policies = {
+	DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        EnableTrackingProtection = {
+          Value= true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+        DisablePocket = true;
+        DisableFirefoxAccounts = true;
+        DisableAccounts = true;
+        DisableFirefoxScreenshots = true;
+        OverrideFirstRunPage = "";
+        OverridePostUpdatePage = "";
+        DontCheckDefaultBrowser = true;
+        DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+        DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
+        SearchBar = "unified"; # alternative: "separate"
+	FirefoxSuggest = {
+	  WebSuggestions = true;
+	  ImproveSuggest = true;
+	  Locked = true;
+	};
+	SearchSuggestEnabled = true;
+	theme = {
+	  colors = {
+	    background-darker = "181825";
+	    background = "1e1e2e";
+	    foreground = "cdd6f4";
+	  };
+	};
+
+	  font = "Lexend";
 	  ExtensionSettings = lib.mkMerge [{
 	    "uBlock0@raymondhill.net" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
