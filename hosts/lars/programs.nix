@@ -46,7 +46,6 @@ in {
             rustdesk
             neovim
 	    tmux
-	    firefox
 	    kitty
 	    nextcloud-client
 	    vscode
