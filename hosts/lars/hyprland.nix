@@ -83,6 +83,7 @@ in {
 			    "$mod SHIFT, m, exit"
 			    ", F11, exec, pamixer -d 2"
 			    ", F12, exec, pamixer -i 2"
+			    "$mod, d, exec, wofi --show drun"
 
 			    # Application
 			    "$mod SHIFT, c, exec, code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu"
