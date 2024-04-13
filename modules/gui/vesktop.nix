@@ -13,6 +13,7 @@ in {
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
+            home.packages = with pkgs; [ vesktop ];
             xdg.configFile."vesktop/settings.json".text = builtins.toJSON {
                 discordBranch = "ptb";
                 firstLaunch = false;
