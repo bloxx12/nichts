@@ -1,6 +1,6 @@
 { pkgs, lib, config, callPackage, ... }:
 with lib; let
-  username = config.myOptions.other.system.username;
+  username = config.modules.other.system.username;
   cfg = config.modules.programs.i3;
 in {
   options.modules.programs.i3.enable = mkEnableOption "i3";

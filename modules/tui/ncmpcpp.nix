@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib; let
-    cfg = config.myOptions.programs.ncmpcpp;
-    username = config.myOptions.other.system.username;
+    cfg = config.modules.programs.ncmpcpp;
+    username = config.modules.other.system.username;
 in  {
-    options.myOptions.programs.ncmpcpp.enable = mkEnableOption "ncmpcpp";
+    options.modules.programs.ncmpcpp.enable = mkEnableOption "ncmpcpp";
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
