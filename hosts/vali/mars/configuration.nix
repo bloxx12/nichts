@@ -1,11 +1,39 @@
 { config, inputs, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
+  # Time Zone 
   time.timeZone = "Europe/Zurich";
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
+    # enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # reduce file size used & automatic garbage collector
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 14d";
+  };
+  # required for nix-direnv to work and have environments not garbage collected
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  services.mpd = {
+      enable = true;
+      musicDirectory = "/home/vali/Nextcloud/Media/Music/";
+      startWhenNeeded = true;
+      extraConfig = ''
+          audio_output {
+          type "pipewire"
+          name "My PipeWire Output"
+          }       
+      '';
+  };
   modules = {
       other = {
           system = {
@@ -20,6 +48,7 @@
       };
       programs = {
           vesktop.enable = true;
+          ncmpcpp.enable = true;
           ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;

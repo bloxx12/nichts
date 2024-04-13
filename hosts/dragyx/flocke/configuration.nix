@@ -5,6 +5,7 @@
     ../../../options/common/pin-registry.nix
     ../../../options/common/preserve-system.nix
     ../../../options/desktop/fonts.nix
+    ./packages.nix
   ];
 
 
@@ -12,17 +13,15 @@
   time.timeZone = "Europe/Zurich";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
+  services.displayManager = {
       sessionPackages = [ pkgs.hyprland ]; # pkgs.gnome.gnome-session.sessions ];
       defaultSession = "hyprland";
       sddm = {
         enable = true;
-      };
+        wayland.enable = true;
     };
-    windowManager.hypr.enable = true;
   };
+
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -110,18 +109,22 @@
 
   modules = {
     other = {
-      system = {
+      system = rec {
           hostname = "flocke";
           username = "dragyx";
-          monitors = {
-            name = "LaptopMain";
-            resolution = {
-              x = 2256;
-              y = 1504;
-            };
-            scale = 1.0;
-            refresh_rate = 60;
-          };
+          gitPath = "/home/${username}/repos/nichts";
+          monitors = [
+            {
+              name = "LaptopMain";
+              device = "eDP-1";
+              resolution = {
+                x = 2256;
+                y = 1504;
+              };
+              scale = 1.175;
+              refresh_rate = 60;
+            }
+          ];
       };
       home-manager = {
           enable = true;
@@ -134,7 +137,7 @@
         mpv.enable = true;
         schizofox.enable = true;
         obs.enable = true;
-        neovim.enable = true;
+        # neovim.enable = true;
         git = {
             enable = true;
             userName = "Dragyx";
