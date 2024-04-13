@@ -6,7 +6,7 @@
     hmCfg = config.home-manager.users.${username};
 
     primary_browser = "schizofox.desktop";
-    mail_client = "betterbird.desktop";
+    mail_client = "thunderbird.desktop";
     file_manager = "pcmanfm.desktop";
     media_player = "mpv.desktop";
     image_viewer = "imv.desktop";
@@ -72,7 +72,7 @@ in {
             mimeApps = {
                 enable = true;
                 defaultApplications = {
-                    "text/html" = [ primary_browser secondary_browser ];
+                    "text/html" = [ primary_browser ];
                     "x-scheme-handler/http" = [ primary_browser ];
                     "x-scheme-handler/https" = [ primary_browser ];
                     "x-scheme-handler/about" = [ primary_browser ];
