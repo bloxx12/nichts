@@ -9,7 +9,7 @@ let
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      rofi
+      rofi-wayland
       waybar 
       hyprpaper
       hyprlock
