@@ -3,6 +3,10 @@ with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.hyprland;
 in {
+    imports = [
+      ./waybar.nix
+    ];
+
     options.modules.hyprland.nvidia.enable = mkEnableOption "nvidia";
     options.modules.hyprland = {
         enable = mkEnableOption "hyprland";
@@ -74,6 +78,7 @@ in {
 			];
 
 			exec-once = [
+				"waybar"
 			];
 
 			bind = [
