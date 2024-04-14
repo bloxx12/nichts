@@ -15,6 +15,7 @@ in {
             element-desktop
             eza
             fastfetch
+            feh
             (fenix.complete.withComponents [
               "cargo"
               "clippy"
@@ -74,6 +75,7 @@ in {
             vlc
             wget
             xclip
+            xfce.thunar
             xorg.libX11.dev
             xorg.libXft
             xorg.libXinerama
