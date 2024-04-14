@@ -63,7 +63,6 @@ in {
 
             atexit.register(write_history)
         '';
-
         xdg = {
             cacheHome = "${hmCfg.home.homeDirectory}/.cache";
             configHome = "${hmCfg.home.homeDirectory}/.config";

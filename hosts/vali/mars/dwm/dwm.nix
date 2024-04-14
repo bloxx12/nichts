@@ -12,6 +12,11 @@ in {
       windowManager.dwm = {
           enable = true;
       };
+      displayManager.sddm = {
+          enable = true;
+          setupScript = "xrandr --output HDMI-1 --rotate normal --output DP-2 --rotate normal --left-of HDMI-1 --output HDMI-0 --right-of HDMI-1";
+#          defaultSession = "dwm";
+      };
     };
     nixpkgs.overlays = [
     (final: prev: {
