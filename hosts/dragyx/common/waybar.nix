@@ -29,7 +29,7 @@ in
             ];
             #  Modules
             "custom/os-icon" = {
-              format = "\uf313"; #NixOS logo
+              format = "\\uf313"; #NixOS logo
             };
             battery =  {
               interval = 10;
@@ -73,15 +73,15 @@ in
             network = {
               interval = 5;
               format-wifi = "{icon} {essid}";
-              format-ethernet = "\udb80\ude01 {ifname}";
-              format-disconnected = "\uf0202 Offline";
-              format-alt = "\udb80\uddda {bandwidthDownBytes} \udb81\udd52 {bandwidthUpBytes} \udb82\ude5f {ipaddr}/{cidr}";
+              format-ethernet = "\\udb80\\ude01 {ifname}";
+              format-disconnected = "\\uf0202 Offline";
+              format-alt = "\\udb80\\uddda {bandwidthDownBytes} \\udb81\\udd52 {bandwidthUpBytes} \\udb82\\ude5f {ipaddr}/{cidr}";
               format-icons = [
-                "\udb82\udd28 "
-                "\udb82\udd25 "
-                "\udb82\udd22 "
-                "\udb82\udd1f "
-                "\udb82\udd2f "
+                "\\udb82\\udd28 "
+                "\\udb82\\udd25 "
+                "\\udb82\\udd22 "
+                "\\udb82\\udd1f "
+                "\\udb82\\udd2f "
               ];
               tooltip = false;
             };
@@ -94,9 +94,9 @@ in
               max-length = 30;
               tooltip = false;
               rewrite = {
-                "([Aa]lacritty|kitty)" = "\ue795 $1";
-                "(.*) .{15} Mozilla Firefox" = "\ue745 $1";
-                "(^Spotify.*)" = "\uf1bc $1";
+                "([Aa]lacritty|kitty)" = "\\ue795 $1";
+                "(.*) .{15} Mozilla Firefox" = "\\ue745 $1";
+                "(^Spotify.*)" = "\\uf1bc $1";
               };
             };
             "hyprland/workspaces" = {
@@ -161,26 +161,26 @@ in
             backlight = {
               format = "{percent}% {icon} ";
               format-icons = [
-                "\udb80\udf36"
-                "\udb86\ude4e"
-                "\udb86\ude4f"
-                "\udb86\ude50"
-                "\udb86\ude51"
-                "\udb86\ude52"
-                "\udb86\ude53"
-                "\udb86\ude54"
-                "\udb86\ude55"
-                "\udb86\ude56"
-                "\udb81\udee8"
+                "\\udb80\\udf36"
+                "\\udb86\\ude4e"
+                "\\udb86\\ude4f"
+                "\\udb86\\ude50"
+                "\\udb86\\ude51"
+                "\\udb86\\ude52"
+                "\\udb86\\ude53"
+                "\\udb86\\ude54"
+                "\\udb86\\ude55"
+                "\\udb86\\ude56"
+                "\\udb81\\udee8"
               ];
             };
             wireplumber = {
               format = "{icon} {volume}%";
-              format-muted = "\udb81\udd81";
+              format-muted = "\\udb81\\udd81";
               format-icons = [
-                "\uf026"
-                "\uf027"
-                "\udb81\udd7e"
+                "\\uf026"
+                "\\uf027"
+                "\\udb81\\udd7e"
               ];
             };
             tray = {

@@ -23,6 +23,34 @@ let
       cp -r $src/basic/.local/share/rofi/themes/* $out/share/
     '';
   };
+  grub-theme = pkgs.stdenv.mkDerivation {
+    pname = "catppuccin-grub";
+    version = "0";
+    src = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "grub";
+      rev = "803c5df0e83aba61668777bb96d90ab8f6847106"; 
+      sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
+    };
+    installPhase = ''
+      # runHook preInstall
+
+
+      mkdir -p $out/
+
+      cp -r $src/src/catppuccin-mocha-grub-theme/* $out/
+
+
+
+      # runHook postInstall
+    '';
+  };
+  catppuccin-sddm-corners-patched = pkgs.catppuccin-sddm-corners.overrideAttrs (prevAttrs: {
+    postInstall = (prevAttrs.postInstall or "") + ''
+      sed -i -E "s/passwordMaskDelay: [0-9]+/passwordMaskDelay: 0/" $out/share/sddm/themes/catppuccin-sddm-corners/components/PasswordPanel.qml
+    '';
+  });
+
 in
 {
   home-manager.users.${username} = {
@@ -44,5 +72,9 @@ in
       '';
     };
   };
+  environment.systemPackages = [ catppuccin-sddm-corners-patched ];
+  services.displayManager.sddm.theme = "catppuccin-sddm-corners";
+
+  boot.loader.grub.theme = grub-theme;
 
 }

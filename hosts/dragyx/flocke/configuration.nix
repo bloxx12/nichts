@@ -3,9 +3,6 @@
 {
   imports = [
     ../common/default.nix
-    ../../../options/common/pin-registry.nix
-    ../../../options/common/preserve-system.nix
-    ../../../options/desktop/fonts.nix
     ./packages.nix
   ];
 
@@ -51,6 +48,15 @@
           device = "nodev";
           efiSupport = true;
           enableCryptodisk = true;
+          useOSProber = true;
+          extraEntries = ''
+            menuentry "Reboot" {
+              reboot
+            }
+            menuentry "Poweroff" {
+              halt
+            }
+          '';
         };
     };
     initrd.luks.devices = {
@@ -160,6 +166,7 @@
         pipewire.enable = true;
     };
     WM.hyprland.enable = true;
+    WM.hyprland.gnome-keyring = true;
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
