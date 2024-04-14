@@ -6,5 +6,6 @@ _: {
       ./profile.nix
       ./i3
       ./dwm/dwm.nix
+
     ];
 }
