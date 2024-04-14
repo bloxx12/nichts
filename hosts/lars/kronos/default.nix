@@ -7,9 +7,5 @@ _: {
       ./configuration.nix
       ./hardware-configuration.nix
       ./profile.nix
-      ./configuration.nix
-      ./programs.nix
-      ./hardware-configuration.nix
-      ./profile.nix
     ];
 }

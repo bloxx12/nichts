@@ -1,24 +1,21 @@
 { config, inputs, pkgs, ... }:
 let
+  fenix = inputs.fenix.packages.${pkgs.system};
   username = config.modules.other.system.username;
 in {
-    home-manager.users.${username} = {
-        home.packages = let
-          fenix = inputs.fenix.packages.${pkgs.system};
-
-        in with pkgs; [
+    environment.systemPackages = with pkgs; [
             alacritty
             alsa-utils
             asciinema
-            betterbird
+#            betterbird
             bibata-cursors
-            chromium
             dig
+            dmenu
             easyeffects
             element-desktop
             eza
-            ripgrep
             fastfetch
+            feh
             (fenix.complete.withComponents [
               "cargo"
               "clippy"
@@ -27,9 +24,11 @@ in {
               "rustfmt"
             ])
             ffmpeg_6-full
+            flameshot
             foot
             gcc
             gdb
+            gnumake
             grimblast
             git
             httpie
@@ -38,6 +37,9 @@ in {
             krita
             lazygit
             libreoffice-fresh
+            librewolf
+            moc
+            ncmpcpp
             neofetch
             neovim
             networkmanagerapplet
@@ -46,17 +48,21 @@ in {
             pavucontrol
             pcmanfm
             pfetch
+            playerctl
             polkit
             python3
             qbittorrent
+            ripgrep
             rustdesk
+            rofi
             scc
             sherlock
             signal-desktop-beta
             smartmontools
+            spotube
             st
             steam
-            strawberry-qt6
+            strawberry
             telegram-desktop
             texliveFull
             thunderbird
@@ -67,10 +73,14 @@ in {
             ventoy-full
             vesktop
             vlc
+            wget
             xclip
+            xfce.thunar
+            xorg.libX11.dev
+            xorg.libXft
+            xorg.libXinerama
             yt-dlp
             zathura
             zip
         ];
-    };
 }
