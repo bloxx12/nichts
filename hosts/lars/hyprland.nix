@@ -97,6 +97,9 @@ in {
 
 			    # Application
 			    "$mod SHIFT, c, exec, code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu"
+				"$mod, o, exec, obsidian --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
+				"$mod SHIFT, D, exec, webcord --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
+				"$mod SHIFT, L, exec, element-desktop --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 			    
 			    # Monitor management
 			    "$mod SHIFT, k, movecurrentworkspacetomonitor, DP-2"
