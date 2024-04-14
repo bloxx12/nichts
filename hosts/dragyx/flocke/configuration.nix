@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../configuration.nix
     ../../../options/common/pin-registry.nix
     ../../../options/common/preserve-system.nix
     ../../../options/desktop/fonts.nix
@@ -106,6 +107,7 @@
   # services.xserver.enable = pkgs.lib.mkForce false;
 
   security.polkit.enable = true;
+  home-manager.users."dragyx".home.packages = with pkgs; [ vesktop ];
 
   modules = {
     other = {
@@ -132,11 +134,12 @@
       };
     };
     programs = {
-        vesktop.enable = true;
+        vesktop.enable = false;
         btop.enable = true;
         mpv.enable = true;
         schizofox.enable = true;
         obs.enable = true;
+        vivado.enable = true;
         # neovim.enable = true;
         git = {
             enable = true;
@@ -149,7 +152,7 @@
             enable = true;
             profiling = false;
         };
-        # badneovim.enable = true;
+        neovim-old.enable = true;
     };
     services = {
         pipewire.enable = true;
