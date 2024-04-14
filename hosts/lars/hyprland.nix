@@ -11,6 +11,11 @@ in {
 	    default = ",preferred,auto,1";
 	    type = types.listOf(types.str);
 	};
+	extra = mkOption {
+	    description = "any extra configuration to add to the hyprland config file";
+	    default = {};
+	    type = types.attrs;
+	};
     };
 
   config = mkIf cfg.enable {
@@ -40,7 +45,7 @@ in {
     home-manager.users.${username} = {
 	    wayland.windowManager.hyprland = {
 		enable = true;
-		settings = {
+		settings = lib.mkMerge [{
 			# Monitor config
 			monitor = cfg.monitor;
 
@@ -50,11 +55,35 @@ in {
 			    kb_layout = "ch";
 			};
 
+			bezier = [
+			  "wind, 0.05, 0.9, 0.1, 1.05"
+			  "winIn, 0.1, 1.1, 0.1, 1.1"
+			  "winOut, 0.3, -0.3, 0, 1"
+			  "liner, 1, 1, 1, 1"
+			];
+
+			animation = [
+			    "windows, 1, 6, wind, slide"
+			    "windowsIn, 1, 6, winIn, slide"
+			    "windowsOut, 1, 5, winOut, slide"
+			    "windowsMove, 1, 5, wind, slide"
+			    "border, 1, 1, liner"
+			    "borderangle, 1, 30, liner, loop"
+			    "fade, 1, 10, default"
+			    "workspaces, 1, 5, wind"
+			];
+
+			exec-once = [
+			];
+
 			bind = [
 			    "$mod, Q, killactive"
 			    "$mod, return, exec, alacritty"
 			    "$mod SHIFT, return, exec, firefox"
 			    "$mod SHIFT, m, exit"
+			    ", F11, exec, pamixer -d 2"
+			    ", F12, exec, pamixer -i 2"
+			    "$mod, d, exec, wofi --show drun"
 
 			    # Application
 			    "$mod SHIFT, c, exec, code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu"
@@ -71,7 +100,7 @@ in {
 			    "$mod, F, fullscreen"
 
 			    # Screenshot
-			    "$mod SHIFT, s, exec, grim -g 'slurp -d' - | wl-copy"
+			    "$mod SHIFT, s, exec, grim -g '$(slurp -d)' - | wl-copy"
 			]
 			++ (
 			  builtins.concatLists (builtins.genList (
@@ -87,7 +116,7 @@ in {
 			  )
 			10)
 		 );
-		};
+		} cfg.extra];
 	    };
 	};
   };
