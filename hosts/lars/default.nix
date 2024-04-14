@@ -16,6 +16,8 @@
           };
       };
 
+      waybar.enable = true;
+
       programs = {
           vesktop.enable = true;
           btop.enable = true;
