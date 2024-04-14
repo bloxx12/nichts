@@ -67,8 +67,8 @@ in
 
     xdg.configFile."hypr/hyprpaper.conf" = { #TODO: generic path
       text = ''
-        preload = ${gitPath}/hosts/dragyx/common/theming/wallpaper/default.jpg
-        wallpaper = ,${gitPath}/hosts/dragyx/common/theming/wallpaper/default.jpg
+        preload = ${gitPath}/hosts/dragyx/common/theming/wallpapers/default.jpg
+        wallpaper = ,${gitPath}/hosts/dragyx/common/theming/wallpapers/default.jpg
       '';
     };
   };
