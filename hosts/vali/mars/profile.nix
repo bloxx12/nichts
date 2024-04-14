@@ -8,5 +8,6 @@ _: {
         ../../../options/common/pin-registry.nix
         ../../../options/common/preserve-system.nix
         #../../options/
+        ../../../options/desktop/monitors.nix
     ];
 }
