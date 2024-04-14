@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../configuration.nix
+    ../common/default.nix
     ../../../options/common/pin-registry.nix
     ../../../options/common/preserve-system.nix
     ../../../options/desktop/fonts.nix
@@ -127,6 +127,7 @@
               refresh_rate = 60;
             }
           ];
+          wayland = true;
       };
       home-manager = {
           enable = true;
@@ -137,9 +138,10 @@
         vesktop.enable = false;
         btop.enable = true;
         mpv.enable = true;
-        schizofox.enable = true;
+        schizofox.enable = false;
         obs.enable = true;
-        vivado.enable = true;
+        # vivado.enable = true;
+        rofi.enable = true;
         # neovim.enable = true;
         git = {
             enable = true;
