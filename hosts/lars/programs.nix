@@ -15,7 +15,7 @@ in {
             libreoffice-fresh
             ventoy-full
             lazygit
-	          obsidian
+            obsidian
             neofetch
             zip
             vlc
@@ -55,6 +55,8 @@ in {
             wofi
             dolphin
             xdg-utils # xdg-mime script
+            webcord
+            element-desktop
         ];
     };
 }
