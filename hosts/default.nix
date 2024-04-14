@@ -42,6 +42,7 @@ in {
     system = "x86_64-linux";
     specialArgs = { inherit lib inputs self; };
     modules = [
+        ../overlay.nix # TODO: move this somewhere else
         ./dragyx/flocke
         ../modules
         inputs.home-manager.nixosModules.home-manager
