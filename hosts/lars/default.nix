@@ -16,17 +16,20 @@
           };
       };
 
+      waybar.enable = true;
+
       programs = {
           vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
+          yazi.enable = true;
 
           zsh = {
               enable = true;
               profiling = false;
 	            extraAliases = {
 	                cls = "clear"; 
-
+                  Hyprland = "dbus-run-session Hyprland";
   	          };
 	      ohmyzsh = {
 	          enable = true;

@@ -3,6 +3,10 @@ with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.hyprland;
 in {
+    imports = [
+      ./waybar.nix
+    ];
+
     options.modules.hyprland.nvidia.enable = mkEnableOption "nvidia";
     options.modules.hyprland = {
         enable = mkEnableOption "hyprland";
@@ -18,8 +22,8 @@ in {
 	};
     };
 
-  config = mkIf cfg.enable {
-	  environment.sessionVariables = mkIf cfg.nvidia.enable {
+  	config = mkIf cfg.enable {
+	  	environment.sessionVariables = mkIf cfg.nvidia.enable {
 	    LIBVA_DRIVER_NAME = "nvidia";
 	    XDG_SESSION_TYPE = "wayland";
 	    GBM_BACKEND = "nvidia-drm";
@@ -34,11 +38,16 @@ in {
 	    GTK_USE_PORTAL = "1";
 	    NIXOS_XDG_OPEN_USE_PORTAL = "1";
 	  };
+
     programs.hyprland = {
         enable = true;
-	xwayland.enable = true;
-    };
+		xwayland.enable = true;
+		};
+
   xdg.portal.wlr.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = "gtk";
+
   xdg.portal.lxqt.enable = false;
   systemd.user.services.xdg-desktop-portal-gnome.enable = false;
 
@@ -74,6 +83,7 @@ in {
 			];
 
 			exec-once = [
+				"waybar"
 			];
 
 			bind = [
