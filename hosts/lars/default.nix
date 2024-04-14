@@ -29,7 +29,7 @@
               profiling = false;
 	            extraAliases = {
 	                cls = "clear"; 
-
+                  Hyprland = "dbus-run-session Hyprland";
   	          };
 	      ohmyzsh = {
 	          enable = true;
