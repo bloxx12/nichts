@@ -5,8 +5,9 @@ _: {
         ../../../options/common/networking.nix
         ../../../options/common/gpu/nvidia.nix
 #        ../../../overlay.nix
-#        ../../options/common/pin-registry.nix
-#        ../../options/common/preserve-system.nix
+        ../../../options/common/pin-registry.nix
+        ../../../options/common/preserve-system.nix
         #../../options/
+        ../../../options/desktop/monitors.nix
     ];
 }

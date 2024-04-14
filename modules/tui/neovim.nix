@@ -1,89 +1,48 @@
-{
-    config,
-    inputs,
-    lib,
-    pkgs,
-    ...
-}: with lib; let
+{ config, inputs, lib, pkgs, ... }:
+with lib; let
     cfg = config.modules.programs.neovim;
     username = config.modules.other.system.username;
 in {
     options.modules.programs.neovim.enable = mkEnableOption "neovim";
 
     config = mkIf cfg.enable {
-        nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
-
         home-manager.users.${username} = {
             imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-
             programs.nixvim = {
                 enable = true;
-                package = pkgs.neovim-nightly;
                 enableMan = true;
                 defaultEditor = true;
 
-                colorscheme = "catppuccin";
-                colorschemes.catppuccin = {
-                    enable = true;
-                    flavour = "mocha";
-                    transparentBackground = true;
-                };
-
                 opts = {
+                    background = "dark";
+                    shiftwidth = 4;
+                    autoread = true;
+                    cmdheight = 1;
+                    encoding = "utf8";
+                    expandtab = true;
+                    hidden = true;
+                    ignorecase = true;
+                    linebreak = true;
+                    mousemoveevent = true;
                     number = true;
                     relativenumber = true;
-                    autoread = true;
-                    so = 7;
-                    cmdheight = 1;
-                    ignorecase = true;
-                    smartcase = true;
                     showmatch = true;
-                    timeoutlen = 500;
-                    encoding = "utf8";
-                    smarttab = true;
-                    shiftwidth = 4;
-                    tabstop = 4;
-                    expandtab = true;
-                    linebreak = true;
+                    smartcase = true;
                     smartindent = true;
-                    updatetime = 300;
-                    hidden = true;
-                    background = "dark";
-                    mousemoveevent = true;
-                    smoothscroll = true;
+                    smarttab = true;
+                    so = 7;
+                    timeoutlen = 500;
+                    tabstop = 4;
+                    updatetime = 50;
                 };
 
-                globals = {
-                    mapleader = " ";
-                };
-
-                keymaps = [
-                    {
-                        # TODO move this to lua to be cool
-                        # action = "vim.cmd { cmd = \"Neotree\", args = { \"toggle\" } }";
-                        # lua = true;
-                        action = "<CMD>Neotree toggle<CR>";
-                        key = "<leader>v";
-                        options.silent = true;
-                    }
-                    {
-                        action = "vim.cmd.MarkdownPreviewToggle";
-                        lua = true;
-                        key = "<leader>m";
-                        options.silent = true;
-                    }
-                ];
+                globals.mapleader = " ";
 
                 plugins = {
-                    airline = {
-                        enable = false;
-                        settings.theme = "catppuccin";
-                    };
                     lualine = {
                         enable = true;
                         theme = "catppuccin";
                     };
-                    fugitive.enable = true;
                     treesitter = {
                         enable = true;
                         folding = false;
@@ -106,66 +65,7 @@ in {
                     neo-tree = {
                         enable = true;
                     };
-                    toggleterm = {
-                        enable = true;
-                        direction = "float";
-                        openMapping = "<C-\\>";
-                        shadeTerminals = true;
-                        shadingFactor = 2;
-                        size = 10;
-                    };
-                    # TODO laytan/cloak.nvim
-                    gitsigns = {
-                        enable = true;
-                        settings = {
-                            current_line_blame = true;
-                            numhl = true;
-                            signcolumn = true;
-                            word_diff = true;
-                            on_attach = ''
-                                function(bufnr)
-                                    local gs = package.loaded.gitsigns
-
-                                    local function map(mode, l, r, opts)
-                                      opts = opts or {}
-                                      opts.buffer = bufnr
-                                      vim.keymap.set(mode, l, r, opts)
-                                    end
-
-                                    -- Navigation
-                                    map('n', ']c', function()
-                                      if vim.wo.diff then return ']c' end
-                                      vim.schedule(function() gs.next_hunk() end)
-                                      return '<Ignore>'
-                                    end, {expr=true})
-
-                                    map('n', '[c', function()
-                                      if vim.wo.diff then return '[c' end
-                                      vim.schedule(function() gs.prev_hunk() end)
-                                      return '<Ignore>'
-                                    end, {expr=true})
-
-                                    -- Actions
-                                    map('n', '<leader>hs', gs.stage_hunk)
-                                    map('n', '<leader>hr', gs.reset_hunk)
-                                    map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-                                    map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-                                    map('n', '<leader>hS', gs.stage_buffer)
-                                    map('n', '<leader>hu', gs.undo_stage_hunk)
-                                    map('n', '<leader>hR', gs.reset_buffer)
-                                    map('n', '<leader>hp', gs.preview_hunk)
-                                    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-                                    map('n', '<leader>tb', gs.toggle_current_line_blame)
-                                    map('n', '<leader>hd', gs.diffthis)
-                                    map('n', '<leader>hD', function() gs.diffthis('~') end)
-                                    map('n', '<leader>td', gs.toggle_deleted)
-
-                                    -- Text object
-                                    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-                                  end
-                            '';
-                        };
-                    };
+                   # TODO laytan/cloak.nvim
                     lsp = {
                         enable = true;
                         servers = {
@@ -181,6 +81,7 @@ in {
                             tsserver.enable = true;
                             java-language-server.enable = true;
                             #pylyzer.enable = true;
+                            rnix-lsp.enable = true;
                         };
                         #onAttach = ''
                         #    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -228,7 +129,6 @@ in {
                             showParameterHints = true;
                         };
                     };
-                    leap.enable = true;
                     fidget.enable = true;
                     telescope = {
                         enable = true;
@@ -242,7 +142,6 @@ in {
                         keymapsSilent = true;
                     };
                     comment.enable = true;
-                    crates-nvim.enable = true;
                     harpoon = {
                         enable = true;
                         package = pkgs.vimPlugins.harpoon.overrideAttrs {
