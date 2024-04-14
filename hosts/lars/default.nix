@@ -22,6 +22,7 @@
           vesktop.enable = true;
           btop.enable = true;
           mpv.enable = true;
+          yazi.enable = true;
 
           zsh = {
               enable = true;

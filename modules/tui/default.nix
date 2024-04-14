@@ -5,5 +5,6 @@ _: {
         ./neovim.nix
 #       ./newsboat.nix
         ./ncmpcpp.nix
+        ./yazi.nix
     ];
 }
