@@ -3,6 +3,9 @@ _: {
     ./configuration.nix
     ./packages.nix
     ./hyprland.nix
+    ./waybar.nix
+    ./theming
+    ./cli
   ];
 
 
