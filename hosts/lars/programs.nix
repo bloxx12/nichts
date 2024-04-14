@@ -53,6 +53,8 @@ in {
             wl-clipboard
             pavucontrol
             wofi
+            dolphin
+            xdg-utils # xdg-mime script
         ];
     };
 }
