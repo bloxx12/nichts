@@ -10,6 +10,7 @@ in {
 #            betterbird
             bibata-cursors
             dig
+            dmenu
             easyeffects
             element-desktop
             eza
