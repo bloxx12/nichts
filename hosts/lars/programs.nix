@@ -43,7 +43,6 @@ in {
             smartmontools
             python3
             rustdesk
-            neovim
             tmux
             kitty
             nextcloud-client

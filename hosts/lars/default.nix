@@ -1,5 +1,10 @@
 { config, inputs, pkgs, ... }:
 {
+  imports = [
+      ./hyprland.nix
+      ./programs.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "Europe/Zurich";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
@@ -62,6 +67,10 @@
             enable = true;
             catppuccin = true;
           };
+
+	  neovim = {
+	    enable = true;
+	  };
       };
 
       services = {
