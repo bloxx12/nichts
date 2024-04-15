@@ -181,7 +181,7 @@ in {
             }
             {
                 mode = "n";
-                key = "<leader>q";
+                key = "<leader>qw";
                 action = "<cmd>q<CR>";
             }
             {
