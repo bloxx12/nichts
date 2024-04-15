@@ -43,7 +43,6 @@ in {
             smartmontools
             python3
             rustdesk
-            neovim
             tmux
             kitty
             nextcloud-client
@@ -58,6 +57,7 @@ in {
             webcord
             element-desktop
 	    swww
+            toipe
         ];
     };
 }

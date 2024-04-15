@@ -1,5 +1,10 @@
 { config, inputs, pkgs, ... }:
 {
+  imports = [
+      ./hyprland.nix
+      ./programs.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "Europe/Zurich";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
@@ -62,6 +67,10 @@
             enable = true;
             catppuccin = true;
           };
+
+	  neovim = {
+	    enable = true;
+	  };
       };
 
       services = {
@@ -99,6 +108,9 @@
   console.keyMap = "sg";
 
   # services.flatpak.enable = true;
+  services = {
+      twingate.enable = true;
+  };
 
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
