@@ -2,6 +2,7 @@
 with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.hyprland;
+  gitPath = config.modules.other.system.gitPath;
 in {
     imports = [
       ./waybar.nix
@@ -19,6 +20,11 @@ in {
 	    description = "any extra configuration to add to the hyprland config file";
 	    default = {};
 	    type = types.attrs;
+	};
+	wallpaper = mkOption {
+	    description = "wallpaper relative from assets";
+	    default = "";
+	    type = types.str;
 	};
     };
 
@@ -84,6 +90,7 @@ in {
 
 			exec-once = [
 				"waybar"
+				"swww init & swww img ${gitPath}/${cfg.wallpaper}"
 			];
 
 			bind = [
