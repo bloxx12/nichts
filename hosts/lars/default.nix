@@ -115,6 +115,7 @@
 
   # SSH AGENT
   programs.ssh.startAgent = true;
+  services.gnome3.gnome-keyring.enable = false;
 
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
