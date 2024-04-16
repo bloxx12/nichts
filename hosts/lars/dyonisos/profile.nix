@@ -5,5 +5,6 @@ _: {
         ../../../options/common/networking.nix
         ../../../options/common/pin-registry.nix
         ../../../options/common/preserve-system.nix
+        ../../../options/common/bluetooth.nix
     ];
 }
