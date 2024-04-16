@@ -113,6 +113,9 @@
       twingate.enable = true;
   };
 
+  # SSH AGENT
+  programs.ssh.startAgent = true;
+
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }
