@@ -10,7 +10,7 @@
       hyprland = {
           enable = true;
 	  monitor = [",preferred,auto,2"];
-	  wallpaper = "wallpaper/nix.png";
+	  wallpaper = "wallpaper/wave.jpg";
       };
   };
 }
