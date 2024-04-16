@@ -34,7 +34,8 @@
               profiling = false;
 	            extraAliases = {
 	                cls = "clear"; 
-                  Hyprland = "dbus-run-session Hyprland";
+                    Hyprland = "dbus-run-session Hyprland";
+                    y = "yazi";
   	          };
 	      ohmyzsh = {
 	          enable = true;
