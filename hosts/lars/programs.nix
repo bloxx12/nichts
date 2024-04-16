@@ -59,7 +59,6 @@ in {
 	        swww
             toipe
             keepassxc
-            bluetuith
         ];
     };
 }
