@@ -34,7 +34,8 @@
               profiling = false;
 	            extraAliases = {
 	                cls = "clear"; 
-                  Hyprland = "dbus-run-session Hyprland";
+                    Hyprland = "dbus-run-session Hyprland";
+                    y = "yazi";
   	          };
 	      ohmyzsh = {
 	          enable = true;
@@ -111,6 +112,10 @@
   services = {
       twingate.enable = true;
   };
+
+  # SSH AGENT
+  programs.ssh.startAgent = true;
+  services.gnome3.gnome-keyring.enable = false;
 
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];

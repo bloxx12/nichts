@@ -56,8 +56,10 @@ in {
             xdg-utils # xdg-mime script
             webcord
             element-desktop
-	    swww
+	        swww
             toipe
+            keepassxc
+            vivaldi
         ];
     };
 }
