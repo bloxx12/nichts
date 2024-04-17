@@ -13,6 +13,11 @@
           opacity = 0.8;
           blur = true;
         };
+
+        steam = {
+            enable = true;
+            gamescope = true;
+        };
       };
 
       hyprland = {

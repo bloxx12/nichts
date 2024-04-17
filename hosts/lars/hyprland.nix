@@ -120,6 +120,10 @@ in {
 			    "$mod, down, movefocus, d"
 			    "$mod, F, fullscreen"
 
+                # Special Workspaces
+                "$mod SHIFT, F, movetoworkspacesilent, special"
+                "$mod, s, togglespecialworkspace,"
+
 			    # Screenshot
 			    "$mod SHIFT, s, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
