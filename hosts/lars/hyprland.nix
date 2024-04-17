@@ -91,6 +91,9 @@ in {
 			exec-once = [
 				"waybar"
 				"swww init & swww img ${gitPath}/${cfg.wallpaper}"
+                "keepassxc"
+                "nextcloud"
+                "element-desktop --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 			];
 
 			bind = [

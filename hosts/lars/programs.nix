@@ -60,6 +60,8 @@ in {
             toipe
             keepassxc
             vivaldi
+            fzf
+            nix-index
         ];
     };
 }
