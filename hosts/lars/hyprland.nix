@@ -120,7 +120,8 @@ in {
 			    "$mod, F, fullscreen"
 
 			    # Screenshot
-			    "$mod SHIFT, s, exec, grim -g '$(slurp -d)' - | wl-copy"
+			    "$mod SHIFT, s, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+
 			]
 			++ (
 			  builtins.concatLists (builtins.genList (
@@ -136,6 +137,11 @@ in {
 			  )
 			10)
 		 );
+        # Mouse movement
+        bindm = [
+            "$mod, mouse:272, movewindow"
+            "$mod, mouse:273, resizewindow"
+        ];
 		} cfg.extra];
 	    };
 	};
