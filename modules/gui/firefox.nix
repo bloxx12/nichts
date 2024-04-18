@@ -18,7 +18,7 @@ in {
         enable = true;
 
 	policies = {
-	DisableTelemetry = true;
+	    DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
           Value= true;
@@ -36,28 +36,30 @@ in {
         DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
         DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
         SearchBar = "unified"; # alternative: "separate"
-	FirefoxSuggest = {
-	  WebSuggestions = true;
-	  ImproveSuggest = true;
-	  Locked = true;
-	};
-	SearchSuggestEnabled = true;
-	theme = {
-	  colors = {
-	    background-darker = "181825";
-	    background = "1e1e2e";
-	    foreground = "cdd6f4";
-	  };
-	};
+        FirefoxSuggest = {
+          WebSuggestions = true;
+          ImproveSuggest = true;
+          Locked = true;
+        };
+        SearchSuggestEnabled = true;
+        theme = {
+          colors = {
+            background-darker = "181825";
+            background = "1e1e2e";
+            foreground = "cdd6f4";
+          };
+        };
 
-	  font = "Lexend";
-	  ExtensionSettings = lib.mkMerge [{
-	    "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-	  } cfg.extensions];
-	};
+        OfferToSaveLogins = false;
+
+          font = "Lexend";
+          ExtensionSettings = lib.mkMerge [{
+            "uBlock0@raymondhill.net" = {
+                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+                  installation_mode = "force_installed";
+                };
+          } cfg.extensions];
+        };
       };
     };
   };

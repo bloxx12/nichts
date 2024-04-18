@@ -1,5 +1,10 @@
 { config, inputs, pkgs, ... }:
 {
+  imports = [
+      ./hyprland.nix
+      ./programs.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "Europe/Zurich";
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
@@ -29,7 +34,8 @@
               profiling = false;
 	            extraAliases = {
 	                cls = "clear"; 
-                  Hyprland = "dbus-run-session Hyprland";
+                    Hyprland = "dbus-run-session Hyprland";
+                    y = "yazi";
   	          };
 	      ohmyzsh = {
 	          enable = true;
@@ -55,6 +61,14 @@
                 install_url = "https://addons.mozilla.org/firefox/downloads/file/4231522/new_tab_override-16.0.0.xpi";
                 installation_mode = "force_installed";
               };
+              "keepassxc-browser@keepassxc.org" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/file/4257616/keepassxc_browser-1.9.0.3.xpi";
+                installation_mode = "force_installed";
+              };
+              "{7be2ba16-0f1e-4d93-9ebc-5164397477a9}" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/file/3756025/videospeed-0.6.3.3.xpi";
+                installation_mode = "force_installed";
+              };
             };
           };
 
@@ -62,6 +76,10 @@
             enable = true;
             catppuccin = true;
           };
+
+	  neovim = {
+	    enable = true;
+	  };
       };
 
       services = {
@@ -99,6 +117,13 @@
   console.keyMap = "sg";
 
   # services.flatpak.enable = true;
+  services = {
+      twingate.enable = true;
+  };
+
+  # SSH AGENT
+  programs.ssh.startAgent = true;
+  services.gnome3.gnome-keyring.enable = false;
 
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];

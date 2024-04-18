@@ -43,7 +43,6 @@ in {
             smartmontools
             python3
             rustdesk
-            neovim
             tmux
             kitty
             nextcloud-client
@@ -57,6 +56,15 @@ in {
             xdg-utils # xdg-mime script
             webcord
             element-desktop
+	        swww
+            toipe
+            keepassxc
+            vivaldi
+            yubikey-personalization-gui
+            yubikey-personalization
+            yubioath-flutter
+            fzf
+            nix-index
         ];
     };
 }
