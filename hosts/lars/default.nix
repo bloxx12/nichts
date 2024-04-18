@@ -61,6 +61,14 @@
                 install_url = "https://addons.mozilla.org/firefox/downloads/file/4231522/new_tab_override-16.0.0.xpi";
                 installation_mode = "force_installed";
               };
+              "keepassxc-browser@keepassxc.org" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/file/4257616/keepassxc_browser-1.9.0.3.xpi";
+                installation_mode = "force_installed";
+              };
+              "{7be2ba16-0f1e-4d93-9ebc-5164397477a9}" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/file/3756025/videospeed-0.6.3.3.xpi";
+                installation_mode = "force_installed";
+              };
             };
           };
 
