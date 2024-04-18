@@ -41,18 +41,19 @@ in
       wl-clipboard
     ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-    xwayland.enable = true;
-    settings = {
-      exec-once = if cfg.gnome-keyring then ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"]
-        else [];
-      monitor = map (
-        m: "${m.device},${builtins.toString m.resolution.x}x${builtins.toString m.resolution.y}@${builtins.toString m.refresh_rate},${builtins.toString m.position.x}x${builtins.toString m.position.y},${builtins.toString m.scale},transform,${builtins.toString m.transform}"
-      ) monitors; #TODO: default value
+    wayland.windowManager.hyprland = {
+      enable = true;
+      systemd.enable = true;
+      xwayland.enable = true;
+      settings = {
+        exec-once = (if cfg.gnome-keyring then 
+          ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"]
+        else []);
+        monitor = map (
+          m: "${m.device},${builtins.toString m.resolution.x}x${builtins.toString m.resolution.y}@${builtins.toString m.refresh_rate},${builtins.toString m.position.x}x${builtins.toString m.position.y},${builtins.toString m.scale},transform,${builtins.toString m.transform}"
+        ) monitors; #TODO: default value
+      };
     };
-  };
   };
   };
 }
