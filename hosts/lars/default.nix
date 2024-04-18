@@ -119,6 +119,12 @@
   # services.flatpak.enable = true;
   services = {
       twingate.enable = true;
+      pcscd.enable = true;
+      # pam.yubico = { # login
+      #     enable = true;
+      #     mode = "challenge-response";
+      #     id = [ "18067815" ];
+      # };
   };
 
   # SSH AGENT
