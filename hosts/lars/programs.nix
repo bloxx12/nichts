@@ -63,6 +63,8 @@ in {
             yubikey-personalization-gui
             yubikey-personalization
             yubioath-flutter
+            fzf
+            nix-index
         ];
     };
 }
