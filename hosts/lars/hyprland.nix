@@ -2,6 +2,7 @@
 with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.hyprland;
+  gitPath = config.modules.other.system.gitPath;
 in {
     imports = [
       ./waybar.nix
@@ -19,6 +20,11 @@ in {
 	    description = "any extra configuration to add to the hyprland config file";
 	    default = {};
 	    type = types.attrs;
+	};
+	wallpaper = mkOption {
+	    description = "wallpaper relative from assets";
+	    default = "";
+	    type = types.str;
 	};
     };
 
@@ -84,6 +90,10 @@ in {
 
 			exec-once = [
 				"waybar"
+				"swww init & swww img ${gitPath}/${cfg.wallpaper}"
+                "keepassxc"
+                "nextcloud"
+                "element-desktop --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 			];
 
 			bind = [
@@ -100,6 +110,7 @@ in {
 				"$mod, o, exec, obsidian --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 				"$mod SHIFT, D, exec, webcord --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 				"$mod SHIFT, L, exec, element-desktop --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
+				"$mod, v, exec, vivaldi --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
 			    
 			    # Monitor management
 			    "$mod SHIFT, k, movecurrentworkspacetomonitor, DP-2"
@@ -112,8 +123,13 @@ in {
 			    "$mod, down, movefocus, d"
 			    "$mod, F, fullscreen"
 
+                # Special Workspaces
+                "$mod SHIFT, F, movetoworkspacesilent, special"
+                "$mod, s, togglespecialworkspace,"
+
 			    # Screenshot
-			    "$mod SHIFT, s, exec, grim -g '$(slurp -d)' - | wl-copy"
+			    "$mod SHIFT, s, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+
 			]
 			++ (
 			  builtins.concatLists (builtins.genList (
@@ -129,6 +145,11 @@ in {
 			  )
 			10)
 		 );
+        # Mouse movement
+        bindm = [
+            "$mod, mouse:272, movewindow"
+            "$mod, mouse:273, resizewindow"
+        ];
 		} cfg.extra];
 	    };
 	};
