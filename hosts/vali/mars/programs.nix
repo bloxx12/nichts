@@ -26,6 +26,7 @@ in {
             ffmpeg_6-full
             flameshot
             foot
+            img2pdf
             gcc
             gdb
             gnumake
@@ -47,6 +48,7 @@ in {
             pamixer
             pavucontrol
             pcmanfm
+            pdfarranger
             pfetch
             playerctl
             polkit

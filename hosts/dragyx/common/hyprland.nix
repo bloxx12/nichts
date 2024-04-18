@@ -1,12 +1,11 @@
-{ config, pkgs, ... }: 
+{ config, lib, pkgs, ... }: 
 
 with lib;
 let 
   username = config.modules.other.system.username;
   cfg = config.modules.WM.hyprland;
-
+in
 {
-
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       rofi-wayland
@@ -27,9 +26,8 @@ let
 
     # hyprland settings
     home-manager.users.${username} = {
-
-
-      programs.hyprland.settings = {
+      programs.waybar.enable = true;
+      wayland.windowManager.hyprland.settings = {
         input = {
           kb_layout = "us";
           natural_scroll = true;

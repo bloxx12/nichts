@@ -2,10 +2,7 @@
 
 {
   imports = [
-    ../configuration.nix
-    ../../../options/common/pin-registry.nix
-    ../../../options/common/preserve-system.nix
-    ../../../options/desktop/fonts.nix
+    ../common/default.nix
     ./packages.nix
   ];
 
@@ -51,6 +48,15 @@
           device = "nodev";
           efiSupport = true;
           enableCryptodisk = true;
+          useOSProber = true;
+          extraEntries = ''
+            menuentry "Reboot" {
+              reboot
+            }
+            menuentry "Poweroff" {
+              halt
+            }
+          '';
         };
     };
     initrd.luks.devices = {
@@ -127,6 +133,7 @@
               refresh_rate = 60;
             }
           ];
+          wayland = true;
       };
       home-manager = {
           enable = true;
@@ -137,9 +144,10 @@
         vesktop.enable = false;
         btop.enable = true;
         mpv.enable = true;
-        schizofox.enable = true;
+        schizofox.enable = false;
         obs.enable = true;
-        vivado.enable = true;
+        # vivado.enable = true;
+        rofi.enable = true;
         # neovim.enable = true;
         git = {
             enable = true;
@@ -158,6 +166,7 @@
         pipewire.enable = true;
     };
     WM.hyprland.enable = true;
+    WM.hyprland.gnome-keyring = true;
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

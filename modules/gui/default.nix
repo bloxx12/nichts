@@ -9,7 +9,8 @@ _: {
         ./zathura.nix
         ./obs.nix
         ./foot.nix
-#        ./vivado.nix
+        ./rofi.nix
+        ./vivado2.nix
         ./WM
         ./alacritty.nix
 	    ./firefox.nix
