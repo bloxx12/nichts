@@ -14,5 +14,6 @@ _: {
         ./WM
         ./alacritty.nix
 	    ./firefox.nix
+        ./steam.nix
     ];
 }

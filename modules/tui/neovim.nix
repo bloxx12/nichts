@@ -82,6 +82,7 @@ in {
                             java-language-server.enable = true;
                             #pylyzer.enable = true;
                             rnix-lsp.enable = true;
+			                pyright.enable = true;
                         };
                         #onAttach = ''
                         #    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -159,11 +160,36 @@ in {
                         enable = true;
                         settings.theme = "dark";
                     };
+
                 };
 
                 extraPlugins = with pkgs.vimPlugins; [
                     zen-mode-nvim
+                    lazygit-nvim
                 ];
+
+		keymaps = [
+		    {
+		        mode = "n";
+			    key = "<leader>pv";
+    			action = "<cmd>Explore<CR>";
+		    }
+            {
+                mode = "n";
+                key = "<leader>w";
+                action = "<cmd>w<CR>";
+            }
+            {
+                mode = "n";
+                key = "<leader>qw";
+                action = "<cmd>q<CR>";
+            }
+            {
+                mode = "n";
+                key = "<leader>gg";
+                action = "<cmd>LazyGit<CR>";
+            }
+		];
             };
         };
     };
