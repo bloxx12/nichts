@@ -64,6 +64,7 @@ in {
             yubikey-personalization
             yubioath-flutter
             fzf
+            tldr
         ];
     };
 }
