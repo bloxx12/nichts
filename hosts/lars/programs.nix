@@ -59,7 +59,6 @@ in {
 	        swww
             toipe
             keepassxc
-            vivaldi
             yubikey-personalization-gui
             yubikey-personalization
             yubioath-flutter
