@@ -10,8 +10,8 @@ _: {
         ./obs.nix
         ./foot.nix
         ./rofi.nix
-        ./vivado2.nix
         ./WM
+        ./vivado.nix
         ./alacritty.nix
 	    ./firefox.nix
         ./steam.nix

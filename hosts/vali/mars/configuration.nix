@@ -54,7 +54,6 @@
           btop.enable = true;
           mpv.enable = true;
           dwm.enable = true;
-          vivado.enable = true;
           schizofox.enable = true;
           #git = {
           #    enable = true;
