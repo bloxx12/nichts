@@ -21,13 +21,15 @@ in {
     (final: prev: {
       dwm = prev.dwm.overrideAttrs (old: {src = ./dwm-6.5;});
       dmenu = prev.dmenu.overrideAttrs (old: {src = ./dmenu-5.3;});
-#      st = prev.st.overrideAttrs (old: {src = ./st-0.9.2;});
     })
     ];
     environment.systemPackages = with pkgs; [
       (st.overrideAttrs (oldAttrs: rec { src = ./st-0.9.2; }))
       (dmenu.overrideAttrs (oldAttrs: rec { src = ./dmenu-5.3; }))
     ];
-
+    home-manager.users.${username} = {
+    programs.eww.enable = true;
+    programs.eww.configDir=./eww;
+    };
   };
 }
