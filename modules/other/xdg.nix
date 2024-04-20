@@ -117,7 +117,6 @@ in {
                     "text/plain" = [ text_editor ];
                 };
             };
-
         };
     };
 }

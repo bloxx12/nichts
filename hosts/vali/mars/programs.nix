@@ -57,7 +57,6 @@ in {
             polkit
             python3
             qbittorrent
-            qutebrowser
             ripgrep
             rustdesk
             rofi
