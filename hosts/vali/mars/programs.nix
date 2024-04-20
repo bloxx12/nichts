@@ -9,8 +9,8 @@ in {
             asciinema
 #            betterbird
             bibata-cursors
+            blanket
             dig
-            dmenu
             easyeffects
             element-desktop
             eza
@@ -39,6 +39,7 @@ in {
             lazygit
             libreoffice-fresh
             librewolf
+            links2
             moc
             ncmpcpp
             neofetch
@@ -54,6 +55,7 @@ in {
             polkit
             python3
             qbittorrent
+            qutebrowser
             ripgrep
             rustdesk
             rofi

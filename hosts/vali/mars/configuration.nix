@@ -23,6 +23,7 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  services.picom.enable = true;
   services.mpd = {
       enable = true;
       musicDirectory = "/home/vali/Nextcloud/Media/Music/";
@@ -53,6 +54,7 @@
           btop.enable = true;
           mpv.enable = true;
           dwm.enable = true;
+          vivado.enable = true;
           schizofox.enable = true;
           #git = {
           #    enable = true;
@@ -84,7 +86,7 @@
               size = 24;
           };
           gtk = {
-              enable = true;
+              enable = false;
               package = pkgs.catppuccin-gtk;
               name = "Catppuccin-Mocha-Standard-Green-Dark";
               variant = "mocha";
