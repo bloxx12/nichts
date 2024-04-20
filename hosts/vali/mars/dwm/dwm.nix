@@ -24,5 +24,10 @@ in {
 #      st = prev.st.overrideAttrs (old: {src = ./st-0.9.2;});
     })
     ];
+    environment.systemPackages = with pkgs; [
+      (st.overrideAttrs (oldAttrs: rec { src = ./st-0.9.2; }))
+      (dmenu.overrideAttrs (oldAttrs: rec { src = ./dmenu-5.3; }))
+    ];
+
   };
 }
