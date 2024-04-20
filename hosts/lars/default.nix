@@ -131,7 +131,7 @@
    enable = true;
    debug = false;
    mode = "challenge-response";
-   id = [ "26292316" ];
+   id = [ "26292316" "28067815" ];
 };
 
   system.stateVersion = "23.11";
