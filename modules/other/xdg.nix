@@ -1,5 +1,5 @@
 {
-    config,
+    pkgs, config,
     ...
 }: let
     username = config.modules.other.system.username;
@@ -36,6 +36,13 @@ in {
         svn = "svn --config-dir ${hmCfg.xdg.configHome}/subversion";
         wget = "wget --hsts-file=\"${hmCfg.xdg.dataHome}/wget-hsts\"";
     };
+    xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+            xdg-desktop-portal-gtk
+        ];
+    };
+      
     home-manager.users.${username} = {
         xdg.configFile."npm/npmrc".text = ''
             prefix=${hmCfg.xdg.dataHome}/npm
@@ -110,6 +117,7 @@ in {
                     "text/plain" = [ text_editor ];
                 };
             };
+
         };
     };
 }
