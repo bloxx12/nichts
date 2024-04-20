@@ -11,6 +11,7 @@ in {
             bibata-cursors
             blanket
             dig
+            dmenu
             easyeffects
             element-desktop
             eza
@@ -35,6 +36,7 @@ in {
             httpie
             imagemagick
             keepassxc
+            kitty
             krita
             lazygit
             libreoffice-fresh
