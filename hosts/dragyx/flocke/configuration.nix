@@ -146,8 +146,9 @@
         mpv.enable = true;
         schizofox.enable = false;
         obs.enable = true;
-        # vivado.enable = true;
+        vivado.enable = true;
         rofi.enable = true;
+        zathura.enable = true;
         # neovim.enable = true;
         git = {
             enable = true;
