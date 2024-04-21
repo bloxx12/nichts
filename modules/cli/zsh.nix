@@ -49,9 +49,11 @@ in {
                     c = "clear";
                     cc = "cd ~ && clear";
                     mv = "mv -iv";
-                    rm = "trash -v";
+                    # rm = "trash -v";
+                    ls = "eza";
                     l = "eza -a --icons";
                     la = "eza -lha --icons --git";
+                    ll = "eza -l";
                     kys = "shutdown now";
                     cd = "z";
                     nv = "nvim";
