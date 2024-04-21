@@ -50,6 +50,20 @@ let
       sed -i -E "s/passwordMaskDelay: [0-9]+/passwordMaskDelay: 0/" $out/share/sddm/themes/catppuccin-sddm-corners/components/PasswordPanel.qml
     '';
   });
+  catppuccin-wallpapers = pkgs.stdenv.mkDerivation {
+    pname="catppuccin-wallpapers";
+    version = "0";
+    src = pkgs.fetchFromGitHub {
+      owner = "zhichaoh";
+      repo = "catppuccin-wallpapers";
+      rev = "1023077979591cdeca76aae94e0359da1707a60e"; 
+      sha256 = "sha256-h+cFlTXvUVJPRMpk32jYVDDhHu1daWSezFcvhJqDpmU=";
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp -r $src/* $out/
+    '';
+  };
 
 in
 {
@@ -67,12 +81,19 @@ in
 
     xdg.configFile."hypr/hyprpaper.conf" = { #TODO: generic path
       text = ''
-        preload = ${gitPath}/hosts/dragyx/common/theming/wallpapers/default.jpg
-        wallpaper = ,${gitPath}/hosts/dragyx/common/theming/wallpapers/default.jpg
+        preload = ${catppuccin-wallpapers}/landscapes/Rainnight.jpg
+        wallpaper = ,${catppuccin-wallpapers}/landscapes/Rainnight.jpg
       '';
     };
   };
-  environment.systemPackages = [ catppuccin-sddm-corners-patched ];
+  environment.systemPackages = with pkgs; [ 
+    catppuccin-sddm-corners-patched 
+
+    # deps of catppuccin-sddm-corners-patched
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtsvg
+    libsForQt5.qt5.qtquickcontrols
+  ];
   services.displayManager.sddm.theme = "catppuccin-sddm-corners";
 
   boot.loader.grub.theme = grub-theme;
