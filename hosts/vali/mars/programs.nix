@@ -9,6 +9,7 @@ in {
             asciinema
 #            betterbird
             bibata-cursors
+            blanket
             dig
             dmenu
             easyeffects
@@ -35,10 +36,12 @@ in {
             httpie
             imagemagick
             keepassxc
+            kitty
             krita
             lazygit
             libreoffice-fresh
             librewolf
+            links2
             moc
             ncmpcpp
             neofetch

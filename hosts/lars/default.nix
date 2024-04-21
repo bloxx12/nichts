@@ -120,20 +120,11 @@
   # services.flatpak.enable = true;
   services = {
       twingate.enable = true;
-      pcscd.enable = true;
   };
 
   # SSH AGENT
   programs.ssh.startAgent = true;
   services.gnome3.gnome-keyring.enable = false;
-
-  # Security PAM with yubico key
-  security.pam.yubico = {
-   enable = true;
-   debug = false;
-   mode = "challenge-response";
-   id = [ "26292316" "28067815" ];
-};
 
   system.stateVersion = "23.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
