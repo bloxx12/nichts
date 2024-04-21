@@ -3,6 +3,7 @@
   imports = [
       ./hyprland.nix
       ./programs.nix
+      # ./xwayland.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
