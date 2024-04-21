@@ -29,6 +29,7 @@ in
     #   as counting the number of packages takes over 800 (!!!) ms,
     #   which makes it very unpleasant to use as default thing
     #   to display when starting a terminal
+    zathura
     fastfetch    
     alacritty
     wget
