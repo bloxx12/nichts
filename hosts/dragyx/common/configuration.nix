@@ -18,6 +18,11 @@ in
     localuser = null;
   };
 
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+
   home-manager.users.${username} = {
     programs.firefox.profiles = {
       main = {
