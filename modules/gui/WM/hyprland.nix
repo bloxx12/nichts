@@ -18,7 +18,7 @@ in
     programs.hyprland = {
       	enable = true;
     };
-  services.gnome.gnome-keyring.enable = mkDefault cfg.gnome-keyring;
+  services.gnome.gnome-keyring.enable = cfg.gnome-keyring;
   systemd.user.services.polkit-gnome-authentication-agent-1 = mkIf cfg.gnome-keyring {
     description = "polkit-gnome-authentication-agent-1";
     wantedBy = [ "graphical-session.target" ];
