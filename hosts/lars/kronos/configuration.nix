@@ -37,4 +37,5 @@
   };
 
   services.getty.autologinUser = "lars";
+  services.flatpak.enable = true;
 }
