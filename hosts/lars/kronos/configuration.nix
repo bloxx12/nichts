@@ -18,6 +18,11 @@
             enable = true;
             gamescope = true;
         };
+
+        minecraft = {
+            enable = true;
+            wayland = true;
+        };
       };
 
       hyprland = {
