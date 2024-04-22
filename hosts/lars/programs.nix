@@ -64,6 +64,7 @@ in {
             yubioath-flutter
             fzf
             tldr
+            feh
         ];
     };
 }
