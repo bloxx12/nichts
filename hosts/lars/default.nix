@@ -3,6 +3,7 @@
   imports = [
       ./hyprland.nix
       ./programs.nix
+      # ./xwayland.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -119,6 +120,14 @@
   # services.flatpak.enable = true;
   services = {
       twingate.enable = true;
+      pcscd.enable = true;
+  };
+
+  security.pam.yubico = {
+   enable = true;
+   debug = false;
+   mode = "challenge-response";
+   id = [ "28067815" "28067816" ];
   };
 
   # SSH AGENT
