@@ -6,9 +6,11 @@ in {
   options.modules.programs.dwm.enable = mkEnableOption "dwm";
 
   config = mkIf cfg.enable {
-        services.xserver = {
+      services.xserver = {
       enable = true;
-      xkb.layout =  "de";
+      layout = "de, de";
+      xkbVariant = ",neo ";
+      xkbOptions = "grp:alt_space_toggle";
       windowManager.dwm = {
           enable = true;
       };
@@ -24,12 +26,7 @@ in {
     })
     ];
     environment.systemPackages = with pkgs; [
-      (st.overrideAttrs (oldAttrs: rec { src = ./st-0.9.2; }))
-      (dmenu.overrideAttrs (oldAttrs: rec { src = ./dmenu-5.3; }))
+    #  (dmenu.overrideAttrs (oldAttrs: rec { src = ./dmenu-5.3; }))
     ];
-    home-manager.users.${username} = {
-    programs.eww.enable = true;
-    programs.eww.configDir=./eww;
-    };
   };
 }

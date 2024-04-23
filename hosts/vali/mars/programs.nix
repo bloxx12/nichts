@@ -36,7 +36,6 @@ in {
             httpie
             imagemagick
             keepassxc
-            kitty
             krita
             lazygit
             libreoffice-fresh
@@ -48,6 +47,7 @@ in {
             neovim
             networkmanagerapplet
             nextcloud-client
+            nheko
             pamixer
             pavucontrol
             pcmanfm
@@ -65,7 +65,6 @@ in {
             signal-desktop-beta
             smartmontools
             spotube
-            st
             steam
             strawberry
             telegram-desktop
@@ -78,6 +77,7 @@ in {
             ventoy-full
             vesktop
             vlc
+            weechat
             wget
             xclip
             xfce.thunar
