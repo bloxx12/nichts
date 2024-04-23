@@ -47,7 +47,6 @@ in {
             neovim
             networkmanagerapplet
             nextcloud-client
-            nheko
             pamixer
             pavucontrol
             pcmanfm
@@ -65,7 +64,6 @@ in {
             signal-desktop-beta
             smartmontools
             spotube
-            steam
             strawberry
             telegram-desktop
             texliveFull
@@ -74,6 +72,7 @@ in {
             trash-cli
             tree
             unzip
+            util-linux
             ventoy-full
             vesktop
             vlc
