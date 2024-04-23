@@ -59,11 +59,10 @@
           mpv.enable = true;
           kitty.enable = true;
           dwm.enable = true;
-          schizofox.enable = true;
+          newsboat.enable = true;
           #git = {
           #    enable = true;
-          #    userName = "vali";
-          #    userEmail = "valentin@kaas.cc";
+          #    userName = "vali"; userEmail = "valentin@kaas.cc";
           #    defaultBranch = "main";
           #};
           starship.enable = true;
@@ -83,11 +82,9 @@
               size = 24;
           };
           gtk = {
-              enable = false;
-              package = pkgs.catppuccin-gtk;
-              name = "Catppuccin-Mocha-Standard-Green-Dark";
-              variant = "mocha";
-              accentColour = "green";
+              enable = true;
+              package = pkgs.gruvbox-gtk-theme;
+              name = "Gruvbox-Dark-BL";
               iconTheme = {
                   name = "Papirus-Dark";
                   package = pkgs.catppuccin-papirus-folders;
@@ -95,10 +92,8 @@
           };
           qt = {
             enable = true;
-            package = pkgs.catppuccin-kde;
-            name = "Catppuccin-Mocha-Dark";
-            variant = "mocha";
-            accentColour = "green";
+            package = pkgs.kde-gruvbox;
+            name = "konsole";
           };
       };
     };
