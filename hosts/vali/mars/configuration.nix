@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, lib, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   # Time Zone 
@@ -23,7 +23,6 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  services.picom.enable = true;
   services.mpd = {
       enable = true;
       musicDirectory = "/home/vali/Nextcloud/Media/Music/";
@@ -35,6 +34,12 @@
           }       
       '';
   };
+/*   options.ui.darkTheme = {
+    type = lib.types.bool;
+    default = true;
+    example = false;
+    description = "If ui programs should use a dark or light theme";
+  };*/
   modules = {
       other = {
           system = {
@@ -49,10 +54,10 @@
       };
       programs = {
           vesktop.enable = true;
-          ncmpcpp.enable = true;
           ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
+          kitty.enable = true;
           dwm.enable = true;
           schizofox.enable = true;
           #git = {
@@ -65,13 +70,6 @@
           zsh = {
               enable = true;
               profiling = false;
-          };
-          alacritty = {
-            enable = true;
-            catppuccin = true;
-            opacity = 0.8;
-            blur = true;
-            # Grüsse
           };
       };
       services = {
@@ -106,3 +104,4 @@
     };
   system.stateVersion = "23.11";
 }
+

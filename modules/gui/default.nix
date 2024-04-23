@@ -11,6 +11,7 @@ _: {
         ./foot.nix
         ./rofi.nix
         ./WM
+        ./kitty.nix
         ./vivado.nix
         ./alacritty.nix
 	    ./firefox.nix

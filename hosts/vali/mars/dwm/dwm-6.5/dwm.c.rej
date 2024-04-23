@@ -1,0 +1,23 @@
+--- dwm.c
++++ dwm.c
+@@ -274,11 +279,19 @@ static Drw *drw;
+ static Monitor *mons, *selmon;
+ static Window root, wmcheckwin;
+ 
++/* scratchpad */
++#define SCRATCHPAD_MASK_1 (1u << sizeof tags / sizeof * tags)
++#define SCRATCHPAD_MASK_2 (1u << (sizeof tags / sizeof * tags + 1))
++#define SCRATCHPAD_MASK_3 (1u << (sizeof tags / sizeof * tags + 2))
++static int scratchpad_hide_flag = 0;
++static Client *scratchpad_last_showed_1 = NULL;
++static Client *scratchpad_last_showed_2 = NULL;
++static Client *scratchpad_last_showed_3 = NULL;
+ /* configuration, allows nested code to access above variables */
+ #include "config.h"
+ 
+ /* compile-time check if all tags fit into an unsigned int bit array. */
+-struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
++struct NumTags { char limitexceeded[LENGTH(tags) > 28 ? -1 : 1]; };
+ 
+ /* function implementations */
+ void

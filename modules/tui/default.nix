@@ -3,7 +3,7 @@ _: {
         ./btop.nix
 #        ./helix.nix
         ./neovim.nix
-#       ./newsboat.nix
+       ./newsboat.nix
         ./ncmpcpp.nix
         ./yazi.nix
     ];
