@@ -27,7 +27,7 @@ in {
 
         users.users.${cfg.username} = {
             isNormalUser = true;
-            extraGroups = [ "wheel" ];
+            extraGroups = [ "wheel" "adbusers" ];
         };
     };
 }
