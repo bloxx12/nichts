@@ -7,7 +7,6 @@ in {
             alacritty
             alsa-utils
             asciinema
-#            betterbird
             bibata-cursors
             blanket
             dig
@@ -47,6 +46,7 @@ in {
             neovim
             networkmanagerapplet
             nextcloud-client
+            nicotine-plus
             pamixer
             pavucontrol
             pcmanfm
@@ -55,6 +55,7 @@ in {
             playerctl
             polkit
             python3
+            python311Packages.pygame
             qbittorrent
             ripgrep
             rustdesk
@@ -74,10 +75,10 @@ in {
             unzip
             util-linux
             ventoy-full
-            vesktop
             vlc
             weechat
             wget
+            wireguard-tools 
             xclip
             xfce.thunar
             xorg.libX11.dev
