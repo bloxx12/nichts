@@ -34,12 +34,7 @@
           }       
       '';
   };
-/*   options.ui.darkTheme = {
-    type = lib.types.bool;
-    default = true;
-    example = false;
-    description = "If ui programs should use a dark or light theme";
-  };*/
+
   modules = {
       other = {
           system = {
@@ -82,18 +77,18 @@
               size = 24;
           };
           gtk = {
-              enable = true;
+              enable = false;
               package = pkgs.gruvbox-gtk-theme;
               name = "Gruvbox-Dark-BL";
               iconTheme = {
-                  name = "Papirus-Dark";
-                  package = pkgs.catppuccin-papirus-folders;
+                 # name = "Papirus-Dark";
+                 # package = pkgs.catppuccin-papirus-folders;
               };
           };
           qt = {
             enable = true;
             package = pkgs.kde-gruvbox;
-            name = "konsole";
+            name = "Gruvbox";
           };
       };
     };
