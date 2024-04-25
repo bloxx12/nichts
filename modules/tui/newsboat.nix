@@ -25,6 +25,7 @@ in {
                     bind-key d pagedown
                     bind-key u pageup
                     bind-key a toggle-article-read
+                    macro x set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser ; set browser librewolf
 
                     color listnormal         color15 default
                     color listnormal_unread  color2  default
@@ -49,6 +50,14 @@ in {
                     {
                         title = "NixOS Weekly";
                         url = "https://weekly.nixos.org/feeds/all.rss.xml";
+                    }
+                    {
+                        title = "Veronica Explains";
+                        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ";
+                    }
+                    {
+                        title = "Mental Outlaw";
+                        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
                     }
                     {
                         title = "Hacker News";

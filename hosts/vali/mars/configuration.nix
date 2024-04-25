@@ -23,6 +23,8 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.neovim.defaultEditor = true;
+  programs.adb.enable = true;
   services.mpd = {
       enable = true;
       musicDirectory = "/home/vali/Nextcloud/Media/Music/";
@@ -34,12 +36,7 @@
           }       
       '';
   };
-/*   options.ui.darkTheme = {
-    type = lib.types.bool;
-    default = true;
-    example = false;
-    description = "If ui programs should use a dark or light theme";
-  };*/
+
   modules = {
       other = {
           system = {
@@ -59,11 +56,10 @@
           mpv.enable = true;
           kitty.enable = true;
           dwm.enable = true;
-          schizofox.enable = true;
+          newsboat.enable = true;
           #git = {
           #    enable = true;
-          #    userName = "vali";
-          #    userEmail = "valentin@kaas.cc";
+          #    userName = "vali"; userEmail = "valentin@kaas.cc";
           #    defaultBranch = "main";
           #};
           starship.enable = true;
@@ -84,21 +80,17 @@
           };
           gtk = {
               enable = false;
-              package = pkgs.catppuccin-gtk;
-              name = "Catppuccin-Mocha-Standard-Green-Dark";
-              variant = "mocha";
-              accentColour = "green";
+              package = pkgs.gruvbox-gtk-theme;
+              name = "Gruvbox-Dark-BL";
               iconTheme = {
-                  name = "Papirus-Dark";
-                  package = pkgs.catppuccin-papirus-folders;
+                 # name = "Papirus-Dark";
+                 # package = pkgs.catppuccin-papirus-folders;
               };
           };
           qt = {
             enable = true;
-            package = pkgs.catppuccin-kde;
-            name = "Catppuccin-Mocha-Dark";
-            variant = "mocha";
-            accentColour = "green";
+            package = pkgs.kde-gruvbox;
+            name = "Gruvbox";
           };
       };
     };
