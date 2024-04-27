@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, inputs, ... }:
 let
+  username = config.modules.other.system.username;
     newer_egl-wayland = self: super: {
       egl-wayland = super.xwayland.overrideAttrs (prev: {
         # version = "23.2.6-HEAD";
@@ -18,4 +18,12 @@ in
   environment.systemPackages = with pkgs; [
     egl-wayland
   ];
+    home-manager.users.${username} = {
+        home.packages = let
+          fenix = inputs.fenix.packages.${pkgs.system};
+
+        in with pkgs; [
+            teamspeak_client
+        ];
+    };
 }
