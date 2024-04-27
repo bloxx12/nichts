@@ -56,6 +56,7 @@
           mpv.enable = true;
           kitty.enable = true;
           dwm.enable = true;
+          awesome.enable = true;
           newsboat.enable = true;
           #git = {
           #    enable = true;
