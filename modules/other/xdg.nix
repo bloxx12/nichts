@@ -11,6 +11,7 @@
     media_player = "mpv.desktop";
     image_viewer = "imv.desktop";
     text_editor = "nvim.desktop";
+    terminal = "alacritty.desktop";
 in {
 
 /*    environment.sessionVariables = {
@@ -41,6 +42,9 @@ in {
         extraPortals = with pkgs; [
             xdg-desktop-portal-gtk
         ];
+    };
+    environment.sessionVariables = {
+        TERMINAL = "${terminal}";
     };
       
     home-manager.users.${username} = {
