@@ -6,9 +6,11 @@ in {
     environment.systemPackages = with pkgs; [
             alacritty
             alsa-utils
+            android-tools
             asciinema
             bibata-cursors
             blanket
+            blugon
             dig
             dmenu
             easyeffects
@@ -47,15 +49,16 @@ in {
             networkmanagerapplet
             nextcloud-client
             nicotine-plus
+            nitrogen
             pamixer
             pavucontrol
+            picom
             pcmanfm
             pdfarranger
             pfetch
             playerctl
             polkit
             python3
-            python311Packages.pygame
             qbittorrent
             ripgrep
             rustdesk
@@ -65,9 +68,11 @@ in {
             signal-desktop-beta
             smartmontools
             spotube
+            steam
             strawberry
             telegram-desktop
             texliveFull
+            trilium-desktop
             thunderbird
             tor-browser-bundle-bin
             trash-cli
@@ -84,6 +89,7 @@ in {
             xorg.libX11.dev
             xorg.libXft
             xorg.libXinerama
+            xournalpp
             yt-dlp
             zathura
             zip
