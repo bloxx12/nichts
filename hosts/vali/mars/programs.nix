@@ -25,17 +25,19 @@ in {
               "rustc"
               "rustfmt"
             ])
-            ffmpeg_6-full
+            ffmpeg-full
+            fftw
             flameshot
             foot
-            img2pdf
             gcc
             gdb
             gnumake
             grimblast
             git
             httpie
-            imagemagick
+            i3lock
+            imagemagickBig
+            img2pdf
             keepassxc
             krita
             lazygit
@@ -64,6 +66,7 @@ in {
             rustdesk
             rofi
             scc
+            scrot
             sherlock
             signal-desktop-beta
             smartmontools
