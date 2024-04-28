@@ -41,6 +41,12 @@
       };
   };
 
-  services.getty.autologinUser = "lars";
-  services.flatpak.enable = true;
+  services = {
+      flatpak.enable = true;
+      getty.autologinUser = "lars";
+      openssh = {
+          enable = true;
+          passwordAuthentication = true;
+      };
+  };
 }
