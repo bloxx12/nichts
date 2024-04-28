@@ -66,6 +66,7 @@ in {
             tldr
             feh
             wine
+            eclipses.eclipse-java
         ];
     };
 }
