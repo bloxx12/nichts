@@ -3,7 +3,7 @@ with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.programs.awesome;
 in {
-  options.modules.programs.awesome.enable = mkEnableOption "awesome";
+  options.modules.programs.dwm.enable = mkEnableOption "awesome";
 
   config = mkIf cfg.enable {
       services.xserver = {
@@ -11,7 +11,7 @@ in {
       layout = "de, de";
       xkbVariant = ",neo ";
       xkbOptions = "grp:alt_space_toggle";
-      windowManager.awesome= {
+      windowManager.awesome = {
           enable = true;
       };
       displayManager = {
