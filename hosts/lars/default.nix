@@ -130,6 +130,13 @@
    id = [ "28067815" "28067816" ];
   };
 
+  programs = {
+      java = {
+          enable = true;
+          package = pkgs.jdk21_headless;
+      };
+  };
+
   # SSH AGENT
   programs.ssh.startAgent = true;
   services.gnome3.gnome-keyring.enable = false;
