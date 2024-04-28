@@ -11,6 +11,7 @@ in {
             bibata-cursors
             blanket
             blugon
+            difftastic
             dig
             dmenu
             easyeffects
@@ -36,7 +37,7 @@ in {
             git
             httpie
             i3lock
-            imagemagickBig
+            imagemagick
             img2pdf
             keepassxc
             krita
@@ -94,6 +95,7 @@ in {
             xorg.libXinerama
             xournalpp
             yt-dlp
+            zapzap
             zathura
             zip
         ];
