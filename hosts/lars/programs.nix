@@ -65,6 +65,7 @@ in {
             fzf
             tldr
             feh
+            wine
         ];
     };
 }
