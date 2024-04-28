@@ -46,7 +46,7 @@
       getty.autologinUser = "lars";
       openssh = {
           enable = true;
-          passwordAuthentication = true;
+          passwordAuthentication = false;
       };
   };
 }
