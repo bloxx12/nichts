@@ -38,6 +38,7 @@ in {
                   plugins = [
                   ];
                   shellAliases = {
+
                       cl = "clear";
                       cp = "cp -ivr";
                       mv = "mv -iv";
@@ -58,7 +59,6 @@ in {
                       woman = "man";
                       open = "xdg-open";
                       ":q" = "exit";
-                      emacs = ":(){ :|:& };:";
                   } // cfg.extraAliases;
               };
         };

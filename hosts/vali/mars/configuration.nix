@@ -63,11 +63,12 @@
           #    userName = "vali"; userEmail = "valentin@kaas.cc";
           #    defaultBranch = "main";
           #};
-          starship.enable = true;
+          starship.enable = false;
           zsh = {
               enable = true;
               profiling = false;
           };
+          fish.enable = true;
       };
       services = {
           pipewire.enable = true;
@@ -89,7 +90,7 @@
               };
           };
           qt = {
-            enable = true;
+            enable = false;
             package = pkgs.kde-gruvbox;
             name = "Gruvbox";
           };
