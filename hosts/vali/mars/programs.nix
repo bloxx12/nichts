@@ -6,9 +6,12 @@ in {
     environment.systemPackages = with pkgs; [
             alacritty
             alsa-utils
+            android-tools
             asciinema
-#            betterbird
             bibata-cursors
+            blanket
+            blugon
+            difftastic
             dig
             dmenu
             easyeffects
@@ -23,30 +26,36 @@ in {
               "rustc"
               "rustfmt"
             ])
-            ffmpeg_6-full
+            ffmpeg-full
+            fftw
             flameshot
             foot
-            img2pdf
             gcc
             gdb
             gnumake
             grimblast
             git
             httpie
+            i3lock
             imagemagick
+            img2pdf
             keepassxc
             krita
             lazygit
             libreoffice-fresh
             librewolf
+            links2
             moc
             ncmpcpp
             neofetch
             neovim
             networkmanagerapplet
             nextcloud-client
+            nicotine-plus
+            nitrogen
             pamixer
             pavucontrol
+            picom
             pcmanfm
             pdfarranger
             pfetch
@@ -58,30 +67,35 @@ in {
             rustdesk
             rofi
             scc
+            scrot
             sherlock
             signal-desktop-beta
             smartmontools
             spotube
-            st
             steam
             strawberry
             telegram-desktop
             texliveFull
+            trilium-desktop
             thunderbird
             tor-browser-bundle-bin
             trash-cli
             tree
             unzip
+            util-linux
             ventoy-full
-            vesktop
             vlc
+            weechat
             wget
+            wireguard-tools 
             xclip
             xfce.thunar
             xorg.libX11.dev
             xorg.libXft
             xorg.libXinerama
+            xournalpp
             yt-dlp
+            zapzap
             zathura
             zip
         ];

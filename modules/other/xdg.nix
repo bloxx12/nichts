@@ -1,5 +1,5 @@
 {
-    config,
+    pkgs, config,
     ...
 }: let
     username = config.modules.other.system.username;
@@ -11,6 +11,7 @@
     media_player = "mpv.desktop";
     image_viewer = "imv.desktop";
     text_editor = "nvim.desktop";
+    terminal = "alacritty.desktop";
 in {
 
 /*    environment.sessionVariables = {
@@ -36,6 +37,16 @@ in {
         svn = "svn --config-dir ${hmCfg.xdg.configHome}/subversion";
         wget = "wget --hsts-file=\"${hmCfg.xdg.dataHome}/wget-hsts\"";
     };
+    xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+            xdg-desktop-portal-gtk
+        ];
+    };
+    environment.sessionVariables = {
+        TERMINAL = "${terminal}";
+    };
+      
     home-manager.users.${username} = {
         xdg.configFile."npm/npmrc".text = ''
             prefix=${hmCfg.xdg.dataHome}/npm

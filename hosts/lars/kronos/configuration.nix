@@ -18,6 +18,11 @@
             enable = true;
             gamescope = true;
         };
+
+        minecraft = {
+            enable = true;
+            wayland = true;
+        };
       };
 
       hyprland = {
@@ -36,5 +41,12 @@
       };
   };
 
-  services.getty.autologinUser = "lars";
+  services = {
+      flatpak.enable = true;
+      getty.autologinUser = "lars";
+      openssh = {
+          enable = true;
+          passwordAuthentication = false;
+      };
+  };
 }

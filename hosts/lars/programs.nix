@@ -59,12 +59,14 @@ in {
 	        swww
             toipe
             keepassxc
-            vivaldi
             yubikey-personalization-gui
             yubikey-personalization
             yubioath-flutter
             fzf
-            nix-index
+            tldr
+            feh
+            wine
+            eclipses.eclipse-java
         ];
     };
 }
