@@ -7,7 +7,6 @@ _: {
         ./qt.nix
         ./zathura.nix
         ./rofi.nix
-        ./WM
         ./kitty.nix
         ./vivado.nix
   	    ./firefox.nix
