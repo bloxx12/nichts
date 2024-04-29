@@ -1,11 +1,9 @@
-{
-    pkgs, config,
-    ...
-}: let
+{ pkgs, config, ... }:
+let
     username = config.modules.other.system.username;
     hmCfg = config.home-manager.users.${username};
 
-    primary_browser = "schizofox.desktop";
+    primary_browser = "librewolf.desktop";
     mail_client = "thunderbird.desktop";
     file_manager = "pcmanfm.desktop";
     media_player = "mpv.desktop";
@@ -14,46 +12,21 @@
     terminal = "kitty.desktop";
 in {
 
-/*    environment.sessionVariables = {
-        CARGO_HOME = "${hmCfg.xdg.dataHome}/cargo";
-        GOPATH = "${hmCfg.xdg.dataHome}/go";
-        GNUPGHOME = "${hmCfg.xdg.dataHome}/gnupg";
-        GRADLE_USER_HOME = "${hmCfg.xdg.dataHome}/gradle";
-        HISTFILE = "${hmCfg.xdg.stateHome}/bash/history";
-        MYSQL_HISTFILE = "${hmCfg.xdg.stateHome}/mysql/history";
-        NPM_CONFIG_USERCONFIG = "${hmCfg.xdg.configHome}/npm/npmrc";
-        NUGET_PACKAGES = "${hmCfg.xdg.cacheHome}/NuGetPackages";
-        JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${hmCfg.xdg.configHome}/java";
-        PARALLEL_HOME = "${hmCfg.xdg.configHome}/parallel";
-        PYTHONSTARTUP = "${hmCfg.xdg.configHome}/python/pythonrc";
-        RUSTUP_HOME = "${hmCfg.xdg.dataHome}/rustup";
-        WINEPREFIX = "${hmCfg.xdg.dataHome}/wine";
-        XAUTHORITY = "\$XDG_RUNTIME_DIR/Xauthority";
-    };
-*/
     xdg.portal = {
         enable = true;
-        config =  {
-            common.default = "gtk";
-        };
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        config.common.default = "gtk";
     };
     environment.sessionVariables = {
         TERMINAL = "${terminal}";
     };
       
     home-manager.users.${username} = {
-        xdg.configFile."npm/npmrc".text = ''
-            prefix=${hmCfg.xdg.dataHome}/npm
-            cache=${hmCfg.xdg.cacheHome}/npm
-            tmp=\$XDG_RUNTIME_DIR/npm
-            init-module=${hmCfg.xdg.configHome}/npm/config/npm-init.js
-        '';
-
         xdg = {
-            cacheHome = "${hmCfg.home.homeDirectory}/.cache";
-            configHome = "${hmCfg.home.homeDirectory}/.config";
-            dataHome = "${hmCfg.home.homeDirectory}/.local/share";
-            stateHome = "${hmCfg.home.homeDirectory}/.local/state";
+#            cacheHome = "${hmCfg.home.homeDirectory}/.cache";
+#            configHome = "${hmCfg.home.homeDirectory}/.config";
+#            dataHome = "${hmCfg.home.homeDirectory}/.local/share";
+#            stateHome = "${hmCfg.home.homeDirectory}/.local/state";
             mimeApps = {
                 enable = true;
                 defaultApplications = {

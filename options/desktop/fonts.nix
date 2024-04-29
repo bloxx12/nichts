@@ -3,7 +3,7 @@
   fonts.packages = with pkgs; [
     material-design-icons
     (nerdfonts.override {
-       # fonts = [ "JetBrains Mono"];
+      #  fonts = [ "JetBrains Mono"];
       })
     noto-fonts
     noto-fonts-cjk-sans
