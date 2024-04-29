@@ -29,6 +29,7 @@ in {
             ffmpeg-full
             fftw flameshot
             foot
+            imv
             gcc
             gdb
             gnumake
