@@ -1,9 +1,5 @@
-{
-    config,
-    lib,
-    pkgs,
-    ...
-}: with lib; let
+{ config, lib, pkgs, ... }:
+with lib; let
     cfg = config.modules.themes.gtk;
     username = config.modules.other.system.username;
     hmCfg = config.home-manager.users.${username};
