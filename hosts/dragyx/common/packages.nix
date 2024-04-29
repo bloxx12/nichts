@@ -31,6 +31,7 @@ in
     #   to display when starting a terminal
     zathura
     fastfetch    
+    wlr-randr
     alacritty
     wget
     gnumake

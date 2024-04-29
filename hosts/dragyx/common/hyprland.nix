@@ -4,6 +4,21 @@ with lib;
 let 
   username = config.modules.other.system.username;
   cfg = config.modules.WM.hyprland;
+
+
+  ani-script = pkgs.writeShellApplication {
+    name = "ani-cli-advanced";
+    runtimeInputs = with pkgs; [ ani-cli ];
+    text = ''
+      selection=$(printf "\\ueacf Continue\n\\uf002 Search\n\\uea81 Delete History" | rofi -p "ani-cli" -dmenu -i)
+      case $selection in 
+        *Search) ani-cli --rofi;;
+        *Continue) ani-cli --rofi -c;;
+        "*Delete History") ani-cli -D;;
+      esac
+
+    '';
+  };
 in
 {
   config = mkIf cfg.enable {
@@ -32,6 +47,7 @@ in
           kb_layout = "us";
           natural_scroll = true;
           sensitivity = 0;
+          kb_variant = "altgr-intl";
         };
         general = {
           gaps_in = 2;
@@ -58,15 +74,23 @@ in
               "windows, 1, 7, myBezier"
             ];
         };
+        xwayland = {
+          force_zero_scaling = true;
+        };
         gestures.workspace_swipe = true;
         debug.enable_stdout_logs = true;
+        windowrulev2 = [
+          "float,title:bluetuith"
+        ];
         bind = [
           # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
           "SUPER, RETURN, exec, alacritty"
           "SUPER SHIFT, RETURN, exec, rofi -show drun"
           "SUPER SHIFT, Q, killactive,"
           "SUPER, M, exit, "
-          "SUPER, B, exec, firefox"
+          "SUPER, B, exec, alacritty --title bluetuith -e bluetuith"
+          "SUPER, A, exec, ${ani-script}/bin/ani-cli-advanced"
+          "SUPER SHIFT, A, exec, ani-cli --rofi -c"
           "SUPER, f, fullscreen"
           "SUPER, E, exec, nautilus --new-window "
           "SUPER, V, togglefloating, "
@@ -83,12 +107,12 @@ in
           "SUPER, j, movefocus, d"
           
           # move window to next / previous workspace"
-          "SUPER CTRL, h, movetoworkspace, -1"
-          "SUPER CTRL, l, movetoworkspace, +1"
+          "SUPER CTRL, h, movetoworkspace, r-1"
+          "SUPER CTRL, l, movetoworkspace, r+1"
           
           # move to next / previous workspace"
-          "SUPER CTRL, h, workspace, -1"
-          "SUPER CTRL, l, workspace, +1"
+          "SUPER CTRL, j, workspace, r-1"
+          "SUPER CTRL, k, workspace, r+1"
           
           
           # Switch workspaces with mainMod + [0-9]"
@@ -102,6 +126,9 @@ in
           "SUPER, 8, workspace, 8"
           "SUPER, 9, workspace, 9"
           "SUPER, 0, workspace, 10"
+
+
+
           
           # Move active window to a workspace with mainMod + SHIFT + [0-9]"
           "SUPER SHIFT, 1, movetoworkspace, 1"
@@ -114,6 +141,16 @@ in
           "SUPER SHIFT, 8, movetoworkspace, 8"
           "SUPER SHIFT, 9, movetoworkspace, 9"
           "SUPER SHIFT, 0, movetoworkspace, 10"
+
+
+          "SUPER SHIFT, h, movewindow, l"
+          "SUPER SHIFT, l, movewindow, r"
+          "SUPER SHIFT, k, movewindow, u"
+          "SUPER SHIFT, j, movewindow, d"
+
+          # resize windows
+          "SUPER, -, resizeactive, -30"
+          "SUPER, +, resizeactive, 30"
           
           # Scroll through existing workspaces with mainMod + scroll"
           "SUPER, mouse_down, workspace, e+1"
