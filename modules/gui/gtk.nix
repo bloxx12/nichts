@@ -1,6 +1,7 @@
 {
     config,
     lib,
+    pkgs,
     ...
 }: with lib; let
     cfg = config.modules.themes.gtk;
@@ -13,33 +14,25 @@ in {
             description = "gtk theme name";
             type = types.str;
         };
-        variant = mkOption {
-            description = "gtk theme variant";
-            type = types.str;
-        };
-        accentColour = mkOption {
-            description = "accent colour for gtk theme";
-            type = types.str;
-        };
         package = mkOption {
             description = "gtk theme package";
             type = types.package;
         };
-        iconTheme = mkOption {
-            description = "gtk icon theme";
-            type = with types; submodule {
-                options = {
-                    name = mkOption {
-                        description = "gtk icon theme name";
-                        type = str;
-                    };
-                    package = mkOption {
-                        description = "gtk icon theme package";
-                        type = package;
-                    };
-                };
-            };
-        };
+      #  iconTheme = mkOption {
+      #      description = "gtk icon theme";
+      #      type = with types; submodule {
+      #          options = {
+      #              name = mkOption {
+      #                  description = "gtk icon theme name";
+      #                  type = str;
+      #              };
+      #              package = mkOption {
+      #                  description = "gtk icon theme package";
+      #                  type = package;
+      #              };
+      #          };
+      #      };
+      #  };
     };
 
     config = mkIf cfg.enable {
@@ -47,19 +40,18 @@ in {
             gtk = {
                 enable = true;
                 theme = {
-                    inherit (cfg) name package;
+                #    inherit (cfg) name package;
+                    package = pkgs.materia-theme;
+                    name = "Materia-dark";
                 };
-                iconTheme = {
-                    inherit (cfg.iconTheme) name package;
-                };
-                gtk2 = {
-                    configLocation = "${hmCfg.xdg.configHome}/gtk-2.0/gtkrc";
-                };
+              #  iconTheme = {
+              #      inherit (cfg.iconTheme) name package;
+              #  };
             };
-            home.sessionVariables = {
-                GTK_THEME = cfg.name;
-                GTK_USE_PORTAL = "1";
-            };
+         #   home.sessionVariables = {
+         #       GTK_THEME = cfg.name;
+         #       GTK_USE_PORTAL = "1";
+         #   };
         };
     };
 }

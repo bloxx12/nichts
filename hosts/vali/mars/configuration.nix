@@ -23,6 +23,7 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.dconf.enable = true;
   modules = {
       other = {
           system = {
@@ -63,17 +64,17 @@
           };
           gtk = {
               enable = false;
-              package = pkgs.gruvbox-gtk-theme;
-              name = "Gruvbox-Dark-BL";
-              iconTheme = {
-                  name = "Papirus-Dark";
-                  package = pkgs.catppuccin-papirus-folders;
-              };
+              package = pkgs.materia-theme;
+              name = "Materia-dark";
+            #  iconTheme = {
+            #      name = "Papirus-Dark";
+            #      package = pkgs.catppuccin-papirus-folders;
+            #  };
           };
           qt = {
             enable = true;
             package = pkgs.kde-gruvbox;
-            name = "Gruvbox";
+            name = "Gruvbox-Dark";
           };
       };
     };
