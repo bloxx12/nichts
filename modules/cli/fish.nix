@@ -38,7 +38,6 @@ in {
                   plugins = [
                        { name = "grc"; src = pkgs.fishPlugins.grc.src; }
                        { name = "sponge"; src = pkgs.fishPlugins.sponge.src; }
-#                       { name = "z"; src = pkgs.fishPlugins.z.src; }
                        { name = "done"; src = pkgs.fishPlugins.done.src; }
                        { name = "colored_man_pages"; src = pkgs.fishPlugins.colored-man-pages.src; }
                        { name = "tide"; src = pkgs.fishPlugins.tide.src; }
@@ -55,7 +54,7 @@ in {
                       lg = "lazygit";
                       cd = "z";
                       v = "nvim";
-                      update = "sudo -p 'password: ' echo '' && sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\" --log-format internal-json &| nom --json";
+                      update = "sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\" --log-format internal-json &| nom --json";
                       flake = "cd '${gitPath}'";
                   } // cfg.extraAliases;
               };
