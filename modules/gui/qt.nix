@@ -4,6 +4,10 @@
     pkgs,
     ...
 }: with lib; let
+    theme = {
+        package = pkgs.gruvbox-gtk-theme;
+        name = "Gruvbox-Dark-BL";
+    };
     cfg = config.modules.themes.qt;
     username = config.modules.other.system.username;
 in {
@@ -31,51 +35,26 @@ in {
         environment.sessionVariables = {
             QT_QPA_PLATFORMTHEME = "qt5ct";
         };
+        environment.variables = {
+            QT_STYLE_OVERRIDE = lib.mkForce "kvantum";
+            GTK_THEME = theme.name; 
+        };
 
         home-manager.users.${username} = {
             qt = {
                 enable = true;
-                platformTheme.name = "qtct";
-                style = {
-                    inherit (cfg) name package;
-                };
+                platformTheme.name = "qt5ct";
+               # style = {
+               #     inherit (cfg) name package;
+               # };
             };
-
             home = {
                 packages = with pkgs; [
                     qt5.qttools
-                    qt6Packages.qtstyleplugin-kvantum
-                    libsForQt5.qtstyleplugin-kvantum
                     libsForQt5.qt5ct
+                    libsForQt5.qtstyleplugin-kvantum
                     breeze-icons
                 ];
-
-                sessionVariables = {
-                    #QT_STYLE_OVERRIDE = "kvantum";
-                    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-#                    QT_QPA_PLATFORM = "wayland;xcb";
-#                    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-                    DISABLE_QT_COMPAT = "0";
-                };
-            };
-
-            # TODO somehow make this configurable IDK
-            xdg.configFile = {
-                "Kvantum/catppuccin/catppuccin.kvconfig".source = pkgs.fetchurl {
-                    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Green/Catppuccin-Mocha-Green.kvconfig";
-                    sha256 = "16ry4k09nf5w1gyawwz2ny14zn6infqk40l35lqlg30lhgbdmr5f";
-                };
-                "Kvantum/catppuccin/catppuccin.svg".source = pkgs.fetchurl {
-                    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Mocha-Green/Catppuccin-Mocha-Green.svg";
-                    sha256 = "1djh625qag34rjsp7y67nzbi9nbmiwgq63ydfizsh65n3fyfakf1";
-                };
-                "Kvantum/kvantum.kvconfig".text = ''
-                    [General]
-                    theme=catppuccin
-
-                    [Applications]
-                    catppuccin=qt5ct, org.qbittorrent.qBittorrent, hyprland-share-picker
-                '';
             };
         };
     };
