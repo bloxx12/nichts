@@ -63,7 +63,7 @@
               size = 24;
           };
           gtk = {
-              enable = true;
+              enable = false;
               package = pkgs.materia-theme;
               name = "Materia-dark";
             #  iconTheme = {
