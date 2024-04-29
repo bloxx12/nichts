@@ -33,16 +33,11 @@ in {
         };
 
         home-manager.users.${username} = {
-            # thanks raf :3 https://github.com/NotAShelf/nyx/blob/main/homes/notashelf/themes/qt.nix
             qt = {
                 enable = true;
-                platformTheme = "qtct";
+                platformTheme.name = "qtct";
                 style = {
-                    inherit (cfg) name;
-                    package = cfg.package.override {
-                        flavour = [ cfg.variant ];
-                        accents = [ cfg.accentColour ];
-                    };
+                    inherit (cfg) name package;
                 };
             };
 

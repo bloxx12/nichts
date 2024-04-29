@@ -23,20 +23,6 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  programs.neovim.defaultEditor = true;
-  programs.adb.enable = true;
-  services.mpd = {
-      enable = true;
-      musicDirectory = "/home/vali/Nextcloud/Media/Music/";
-      startWhenNeeded = true;
-      extraConfig = ''
-          audio_output {
-          type "pipewire"
-          name "My PipeWire Output"
-          }       
-      '';
-  };
-
   modules = {
       other = {
           system = {
@@ -57,16 +43,12 @@
           kitty.enable = true;
           awesome.enable = true;
           newsboat.enable = true;
+          emacs.enable = true;
           #git = {
           #    enable = true;
           #    userName = "vali"; userEmail = "valentin@kaas.cc";
           #    defaultBranch = "main";
           #};
-          starship.enable = false;
-          zsh = {
-              enable = true;
-              profiling = false;
-          };
           fish.enable = true;
       };
       services = {
@@ -84,12 +66,12 @@
               package = pkgs.gruvbox-gtk-theme;
               name = "Gruvbox-Dark-BL";
               iconTheme = {
-                 # name = "Papirus-Dark";
-                 # package = pkgs.catppuccin-papirus-folders;
+                  name = "Papirus-Dark";
+                  package = pkgs.catppuccin-papirus-folders;
               };
           };
           qt = {
-            enable = false;
+            enable = true;
             package = pkgs.kde-gruvbox;
             name = "Gruvbox";
           };

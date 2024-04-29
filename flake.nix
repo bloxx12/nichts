@@ -7,7 +7,6 @@
     };
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         anyrun = {
             url = "github:Kirottu/anyrun";
             inputs.nixpkgs.follows = "nixpkgs";

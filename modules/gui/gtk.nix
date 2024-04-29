@@ -47,20 +47,10 @@ in {
             gtk = {
                 enable = true;
                 theme = {
-                    inherit (cfg) name;
-                    package = cfg.package.override {
-                        size = "standard";
-                        accents = [ cfg.accentColour ];
-                        inherit (cfg) variant;
-                        tweaks = [ "normal" ];
-                    };
+                    inherit (cfg) name package;
                 };
                 iconTheme = {
-                    inherit (cfg.iconTheme) name;
-                    package = cfg.iconTheme.package.override {
-                        accent = cfg.accentColour;
-                        flavor = cfg.variant;
-                    };
+                    inherit (cfg.iconTheme) name package;
                 };
                 gtk2 = {
                     configLocation = "${hmCfg.xdg.configHome}/gtk-2.0/gtkrc";
