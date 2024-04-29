@@ -34,7 +34,7 @@ in {
 
     config = mkIf cfg.enable {
         programs.zsh.enable = true;
-        users.users.${username}.shell = pkgs.zsh;
+#        users.users.${username}.shell = pkgs.zsh;
         environment = {
             shells = [ pkgs.zsh ];
             pathsToLink = [ "/share/zsh" ];

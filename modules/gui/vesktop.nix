@@ -33,8 +33,8 @@ in {
                 autoUpdate = false;
                 autoUpdateNotification = false;
                 useQuickCss = true;
-                themeLinks = [];
-                enabledThemes = ["Catppuccin.theme.css"];
+                themeLinks = ["https://github.com/Costeer/Gruvbox-Material-Themes/blob/main/Discord%20Theme/gruvboxmaterial.theme.css"];
+                enabledThemes = ["gruvboxmaterial.theme.css"];
                 enableReactDevtools = true;
                 frameless = false;
                 transparent = false;

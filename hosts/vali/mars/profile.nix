@@ -9,5 +9,6 @@ _: {
         ../../../options/common/preserve-system.nix
         #../../options/
         ../../../options/desktop/monitors.nix
+        ../../../overlay.nix
     ];
 }

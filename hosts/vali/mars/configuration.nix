@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, lib, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   # Time Zone 
@@ -23,6 +23,8 @@
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.neovim.defaultEditor = true;
+  programs.adb.enable = true;
   services.mpd = {
       enable = true;
       musicDirectory = "/home/vali/Nextcloud/Media/Music/";
@@ -34,6 +36,7 @@
           }       
       '';
   };
+
   modules = {
       other = {
           system = {
@@ -48,30 +51,23 @@
       };
       programs = {
           vesktop.enable = true;
-          ncmpcpp.enable = true;
           ssh.enable = true;
           btop.enable = true;
           mpv.enable = true;
-          dwm.enable = true;
-          schizofox.enable = true;
+          kitty.enable = true;
+          awesome.enable = true;
+          newsboat.enable = true;
           #git = {
           #    enable = true;
-          #    userName = "vali";
-          #    userEmail = "valentin@kaas.cc";
+          #    userName = "vali"; userEmail = "valentin@kaas.cc";
           #    defaultBranch = "main";
           #};
-          starship.enable = true;
+          starship.enable = false;
           zsh = {
               enable = true;
               profiling = false;
           };
-          alacritty = {
-            enable = true;
-            catppuccin = true;
-            opacity = 0.8;
-            blur = true;
-            # Grüsse
-          };
+          fish.enable = true;
       };
       services = {
           pipewire.enable = true;
@@ -84,24 +80,21 @@
               size = 24;
           };
           gtk = {
-              enable = true;
-              package = pkgs.catppuccin-gtk;
-              name = "Catppuccin-Mocha-Standard-Green-Dark";
-              variant = "mocha";
-              accentColour = "green";
+              enable = false;
+              package = pkgs.gruvbox-gtk-theme;
+              name = "Gruvbox-Dark-BL";
               iconTheme = {
-                  name = "Papirus-Dark";
-                  package = pkgs.catppuccin-papirus-folders;
+                 # name = "Papirus-Dark";
+                 # package = pkgs.catppuccin-papirus-folders;
               };
           };
           qt = {
-            enable = true;
-            package = pkgs.catppuccin-kde;
-            name = "Catppuccin-Mocha-Dark";
-            variant = "mocha";
-            accentColour = "green";
+            enable = false;
+            package = pkgs.kde-gruvbox;
+            name = "Gruvbox";
           };
       };
     };
   system.stateVersion = "23.11";
 }
+
