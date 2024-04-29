@@ -11,7 +11,7 @@
     media_player = "mpv.desktop";
     image_viewer = "imv.desktop";
     text_editor = "nvim.desktop";
-    terminal = "alacritty.desktop";
+    terminal = "kitty.desktop";
 in {
 
 /*    environment.sessionVariables = {
@@ -31,17 +31,11 @@ in {
         XAUTHORITY = "\$XDG_RUNTIME_DIR/Xauthority";
     };
 */
-    modules.programs.zsh.extraAliases = {
-        gdb = "gdb -n -x ${hmCfg.xdg.configHome}/gdb/init";
-        pidgin = "pidgin --config=${hmCfg.xdg.dataHome}/purple";
-        svn = "svn --config-dir ${hmCfg.xdg.configHome}/subversion";
-        wget = "wget --hsts-file=\"${hmCfg.xdg.dataHome}/wget-hsts\"";
-    };
     xdg.portal = {
         enable = true;
-        extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
-        ];
+        config =  {
+            common.default = "gtk";
+        };
     };
     environment.sessionVariables = {
         TERMINAL = "${terminal}";
@@ -55,25 +49,6 @@ in {
             init-module=${hmCfg.xdg.configHome}/npm/config/npm-init.js
         '';
 
-        xdg.configFile."python/pythonrc".text = ''
-            import os
-            import atexit
-            import readline
-
-            history = os.path.join(os.environ['XDG_CACHE_HOME'], 'python_history')
-            try:
-                readline.read_history_file(history)
-            except OSError:
-                pass
-
-            def write_history():
-                try:
-                    readline.write_history_file(history)
-                except OSError:
-                    pass
-
-            atexit.register(write_history)
-        '';
         xdg = {
             cacheHome = "${hmCfg.home.homeDirectory}/.cache";
             configHome = "${hmCfg.home.homeDirectory}/.config";
@@ -91,7 +66,6 @@ in {
                     "message/rfc822" = [ mail_client ];
                     "x-scheme-handler/mid" = [ mail_client ];
                     "inode/directory" = [ file_manager ];
-                    "x-scheme-handler/heroic" = [ "heroic.desktop" ];
                     "audio/mp3" = [ media_player ];
                     "audio/ogg" = [ media_player ];
                     "audio/mpeg" = [ media_player ];

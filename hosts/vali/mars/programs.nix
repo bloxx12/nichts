@@ -27,12 +27,12 @@ in {
               "rustfmt"
             ])
             ffmpeg-full
-            fftw
-            flameshot
+            fftw flameshot
             foot
             gcc
             gdb
             gnumake
+            grc
             grimblast
             git
             httpie
@@ -98,5 +98,6 @@ in {
             zapzap
             zathura
             zip
+            zoxide
         ];
 }

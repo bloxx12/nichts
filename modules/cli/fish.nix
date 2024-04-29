@@ -14,11 +14,6 @@ in {
             description = "extra shell aliases";
             default = {};
         };
-        profiling = mkOption {
-            type = types.bool;
-            description = "enable zsh profiling";
-            default = false;
-        };
     };
 
     config = mkIf cfg.enable {
@@ -36,6 +31,12 @@ in {
                   enable = true;
                   interactiveShellInit = "set fish_greeting";
                   plugins = [
+                       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+                       { name = "z"; src = pkgs.fishPlugins.z.src; }
+                       { name = "sponge"; src = pkgs.fishPlugins.sponge.src; }
+                       { name = "done"; src = pkgs.fishPlugins.done.src; }
+                       { name = "colored_man_pages"; src = pkgs.fishPlugins.colored-man-pages.src; }
+                       { name = "tide"; src = pkgs.fishPlugins.tide.src; }
                   ];
                   shellAliases = {
 

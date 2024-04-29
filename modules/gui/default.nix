@@ -14,8 +14,9 @@ _: {
         ./kitty.nix
         ./vivado.nix
         ./alacritty.nix
-	    ./firefox.nix
+  	    ./firefox.nix
         ./steam.nix
         ./minecraft.nix
+        ./emacs.nix
     ];
 }
