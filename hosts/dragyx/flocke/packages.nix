@@ -20,6 +20,7 @@ in
     lynis
     element-desktop
     jetbrains.idea-community
+    jetbrains.rust-rover
     baobab
     amdvlk
     texlive.combined.scheme-full 

@@ -115,6 +115,9 @@
   security.polkit.enable = true;
   home-manager.users."dragyx".home.packages = with pkgs; [ vesktop ];
 
+  # Mainly for coding weekend
+  services.hardware.bolt.enable = true;
+
   modules = {
     other = {
       system = rec {
@@ -131,6 +134,38 @@
               };
               scale = 1.175;
               refresh_rate = 60;
+              position = {
+                x = 0;
+                y = 0;
+              };
+            }
+            rec {
+              name = "CodingWeekend";
+              device = "DP-9";
+              resolution = {
+                x = 2560;
+                y = 1440;
+              };
+              refresh_rate = 60;
+              scale = 1;
+              position = {
+                x = -152;
+                y = -resolution.y;
+              };
+            }
+            rec {
+              name = "CodingWeekend2";
+              device = "DP-10";
+              resolution = {
+                x = 2560;
+                y = 1440;
+              };
+              refresh_rate = 60;
+              scale = 1;
+              position = {
+                x = -152;
+                y = -resolution.y;
+              };
             }
           ];
           wayland = true;

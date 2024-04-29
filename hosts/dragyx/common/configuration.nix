@@ -24,20 +24,23 @@ in
   };
 
   home-manager.users.${username} = {
-    programs.firefox.profiles = {
-      main = {
-        id = 0;
-        isDefault = true;
-        search.default = "DuckDuckGo";
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          bitwarden
-          darkreader
-          maya-dark
-        ];
-        search.force = true;
+    programs.firefox = {
+      enable = true;
+      profiles = {
+        main = {
+          id = 0;
+          isDefault = true;
+          search.default = "DuckDuckGo";
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            bitwarden
+            darkreader
+            maya-dark
+          ];
+          search.force = true;
+        };
       };
-    };
+    };  
   };
 
 }
