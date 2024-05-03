@@ -11,7 +11,7 @@
             url = "github:Kirottu/anyrun";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
+        stylix.url = "github:danth/stylix";
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -24,28 +24,12 @@
 
         agenix.url = "github:ryantm/agenix";
 
-        schizofox = {
-            url = "github:schizofox/schizofox";
-            inputs = {
-                nixpkgs.follows = "nixpkgs";
-            };
-        };
-
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-        nixvim = {
-            url = "github:nix-community/nixvim";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
 
         fenix = {
             url = "github:nix-community/fenix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        split-monitor-workspaces = {
-            url = "github:Duckonaut/split-monitor-workspaces";
-#            inputs.hyprland.follows = "hyprland";
-        };
     };
 }

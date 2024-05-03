@@ -37,17 +37,19 @@ in {
                 enable = true;
                 theme = {
                 #    inherit (cfg) name package;
-                    package = pkgs.materia-theme;
-                    name = "Materia-dark";
+                    package = pkgs.gruvbox-gtk-theme;
+                    name = "Gruvbox-Dark-BL";
                 };
               #  iconTheme = {
               #      inherit (cfg.iconTheme) name package;
               #  };
             };
-         #   home.sessionVariables = {
-         #       GTK_THEME = cfg.name;
-         #       GTK_USE_PORTAL = "1";
-         #   };
+            home.sessionVariables = {
+                GTK_THEME = "Gruvbox-Dark-BL";
+                #       GTK_USE_PORTAL = "1";
+
+
+            };
         };
     };
 }
