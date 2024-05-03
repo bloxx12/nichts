@@ -16,6 +16,7 @@ in {
             dmenu
             easyeffects
             element-desktop
+            evince
             eza
             fastfetch
             feh
@@ -28,7 +29,7 @@ in {
             ])
             ffmpeg-full
             fftw flameshot
-            foot
+            heroic
             imv
             gcc
             gdb
@@ -43,10 +44,9 @@ in {
             keepassxc
             krita
             lazygit
-            libreoffice-fresh
             librewolf
             links2
-            moc
+            mars-mips
             ncmpcpp
             neofetch
             neovim
@@ -54,6 +54,9 @@ in {
             nextcloud-client
             nicotine-plus
             nitrogen
+            nmap
+            notesnook
+            onlyoffice-bin
             pamixer
             pavucontrol
             picom
@@ -69,6 +72,7 @@ in {
             rofi
             scc
             scrot
+            scummvm
             sherlock
             signal-desktop-beta
             smartmontools

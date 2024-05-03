@@ -10,6 +10,15 @@ in  {
             programs.emacs = {
                 enable = true;
                 package = pkgs.emacs;
+                extraConfig = ''
+                    (setq standard-indent 2)
+                    (require 'evil)
+                    (evil-mode 1)
+                '';
+                extraPackages = epkgs: [
+                epkgs.evil
+
+                ]; 
             };
         };
     };

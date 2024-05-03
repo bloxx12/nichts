@@ -54,6 +54,7 @@ in {
                       lg = "lazygit";
                       cd = "z";
                       v = "nvim";
+                      e = "emacs";
                       update = "sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\" --log-format internal-json &| nom --json";
                       flake = "cd '${gitPath}'";
                   } // cfg.extraAliases;
