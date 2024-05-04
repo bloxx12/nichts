@@ -17,6 +17,7 @@ in  {
                 '';
                 extraPackages = epkgs: [
                 epkgs.evil
+		epkgs.gruvbox-theme
 
                 ]; 
             };

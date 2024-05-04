@@ -10,13 +10,13 @@ in  {
             programs.kitty = {
                 enable = true; 
                 settings = {
-                    font_size = "13.0";
+                   # font_size = "13.0";
                     mouse_hide_wait = -1;
                     url_style = "curly";
                     open_url_with = "default";
-                    background_opacity = "0.9";
+                    #background_opacity = "0.9";
                     confirm_os_window_close = "0";
-                    font_family = "JetBrainsMono Nerd Font";
+                    #font_family = "JetBrainsMono Nerd Font";
 
                     cursor_text_color = "background";
 
