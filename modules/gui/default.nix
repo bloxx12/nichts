@@ -6,6 +6,7 @@ _: {
         ./mpv.nix
         ./qt.nix
         ./zathura.nix
+        ./stylix.nix
         ./rofi.nix
         ./kitty.nix
         ./vivado.nix
