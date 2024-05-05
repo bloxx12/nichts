@@ -34,7 +34,7 @@
           system = {
               hostname = "mars";
               username = "vali";
-              gitPath = "/home/vali/Git/nichts";
+              gitPath = "/home/vali/repos/nichts";
           };
           home-manager = {
               enable = true;

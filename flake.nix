@@ -13,6 +13,8 @@
             url = "github:hyprwm/hyprland-plugins";
             inputs.hyprland.follows = "hyprland";
         };
+
+        nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         split-monitor-workspaces = {
             url = "github:Duckonaut/split-monitor-workspaces";
             inputs.hyprland.follows = "hyprland";
@@ -36,6 +38,7 @@
 
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+        waybar.url = "github:Alexays/Waybar";
         fenix = {
             url = "github:nix-community/fenix";
             inputs.nixpkgs.follows = "nixpkgs";
