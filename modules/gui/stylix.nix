@@ -46,17 +46,12 @@ in {
                     popups = 14;
 
                 };
-                sansSerif = {
-                    package = pkgs.dejavu_fonts;
-                    name = "DejaVu Sans";
-                };
+                sansSerif = config.stylix.fonts.monospace;
+                serif = config.stylix.fonts.monospace;
+                emoji = config.stylix.fonts.monospace;
                 monospace = {
                     package = (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
                     name = "JetBrainsMono";
-                };
-                emoji = {
-                    package = pkgs.noto-fonts-emoji;
-                    name = "Noto Color Emoji";
                 };
             };
 

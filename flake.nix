@@ -13,7 +13,10 @@
             url = "github:hyprwm/hyprland-plugins";
             inputs.hyprland.follows = "hyprland";
         };
-
+        doomemacs = {
+            url = "github:doomemacs/doomemacs";
+            flake = false;
+        };
         nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         split-monitor-workspaces = {
             url = "github:Duckonaut/split-monitor-workspaces";

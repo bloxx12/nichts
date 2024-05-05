@@ -12,21 +12,16 @@ let
     terminal = "kitty.desktop";
 in {
 
-#    xdg.portal = {
-#        enable = true;
-#        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-#        config.common.default = "gtk";
-#    };
     environment.sessionVariables = {
         TERMINAL = "${terminal}";
     };
       
     home-manager.users.${username} = {
         xdg = {
-#            cacheHome = "${hmCfg.home.homeDirectory}/.cache";
-#            configHome = "${hmCfg.home.homeDirectory}/.config";
-#            dataHome = "${hmCfg.home.homeDirectory}/.local/share";
-#            stateHome = "${hmCfg.home.homeDirectory}/.local/state";
+            cacheHome = "${hmCfg.home.homeDirectory}/.cache";
+            configHome = "${hmCfg.home.homeDirectory}/.config";
+            dataHome = "${hmCfg.home.homeDirectory}/.local/share";
+            stateHome = "${hmCfg.home.homeDirectory}/.local/state";
             mimeApps = {
                 enable = true;
                 defaultApplications = {

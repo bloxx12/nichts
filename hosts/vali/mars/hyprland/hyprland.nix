@@ -137,8 +137,8 @@ in {
                       enabled = true;
                       animation = [
                           "windows, 1, 4, dupa, popin"
-                          "windowsIn, 1, 4, fast, popin"
-                          "windowsOut, 1, 4, fast, popin"
+                          "windowsIn, 1, 4, dupa, popin"
+                          "windowsOut, 1, 4, dupa, popin"
                           "border, 1, 15, default"
                           "fade, 1, 10, default"
                           "workspaces, 1, 5, dupa, slidefadevert"

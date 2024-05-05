@@ -7,7 +7,7 @@ _: {
         ./qt.nix
         ./zathura.nix
         ./stylix.nix
-        ./anyrun.nix
+        ./anyrun
         ./rofi.nix
         ./kitty.nix
         ./vivado.nix

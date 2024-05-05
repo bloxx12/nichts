@@ -55,7 +55,7 @@ in {
                       cd = "z";
                       v = "nvim";
                       e = "emacs";
-                      update = "sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\" --log-format internal-json |& nom --json";
+                      update = "sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\"";
                       flake = "cd '${gitPath}'";
                   } // cfg.extraAliases;
               };
