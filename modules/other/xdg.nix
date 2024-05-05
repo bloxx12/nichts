@@ -12,11 +12,11 @@ let
     terminal = "kitty.desktop";
 in {
 
-    xdg.portal = {
-        enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-        config.common.default = "gtk";
-    };
+#    xdg.portal = {
+#        enable = true;
+#        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+#        config.common.default = "gtk";
+#    };
     environment.sessionVariables = {
         TERMINAL = "${terminal}";
     };

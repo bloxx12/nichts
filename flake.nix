@@ -7,6 +7,16 @@
     };
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        hyprland.url = "github:hyprwm/Hyprland";
+
+        hyprland-plugins = {
+            url = "github:hyprwm/hyprland-plugins";
+            inputs.hyprland.follows = "hyprland";
+        };
+        split-monitor-workspaces = {
+            url = "github:Duckonaut/split-monitor-workspaces";
+            inputs.hyprland.follows = "hyprland";
+        };
         anyrun = {
             url = "github:Kirottu/anyrun";
             inputs.nixpkgs.follows = "nixpkgs";

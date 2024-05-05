@@ -23,6 +23,7 @@ in {
                     vim.enable = true;
                     zathura.enable = true;
                     gtk.enable = true;
+                    hyprland.enable = true;
 
                 };
                 opacity = {
@@ -54,6 +55,7 @@ in {
             };
         };
         stylix = {
+            polarity = "dark";
             image = ../../hosts/vali/mars/2024-04-21-14-50.png;
             cursor = {
               package = pkgs.bibata-cursors;
