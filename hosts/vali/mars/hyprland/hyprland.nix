@@ -44,9 +44,42 @@ in {
                   "DP-2,1920x1080,0x0,1"
                   "HDMI-A-2,1920x1080,1920x0,1"
                   "DP-1,1920x1080,3480x0,1" 
+                  "Unknown-1,disable"
                   ];
                   workspace = [
+                  "1, monitor:DP-2, default:true"
+                  "2, monitor:DP-2"
+                  "3, monitor:DP-2"
+                  "4, monitor:DP-2"
+                  "5, monitor:DP-2"
+                  "6, monitor:DP-2"
+                  "7, monitor:DP-2"
+                  "8, monitor:DP-2"
+                  "9, monitor:DP-2"
+                  "10, monitor:DP-2"
 
+                  "11, monitor:HDMI-A-2, default:true"
+                  "12, monitor:HDMI-A-2"
+                  "13, monitor:HDMI-A-2"
+                  "14, monitor:HDMI-A-2"
+                  "15, monitor:HDMI-A-2"
+                  "16, monitor:HDMI-A-2"
+                  "17, monitor:HDMI-A-2"
+                  "18, monitor:HDMI-A-2"
+                  "19, monitor:HDMI-A-2"
+                  "20, monitor:HDMI-A-2"
+
+
+                  "21, monitor:DP-1, default:true"
+                  "22, monitor:DP-1"
+                  "23, monitor:DP-1"
+                  "24, monitor:DP-1"
+                  "25, monitor:DP-1"
+                  "26, monitor:DP-1"
+                  "27, monitor:DP-1"
+                  "28, monitor:DP-1"
+                  "29, monitor:DP-1"
+                  "30, monitor:DP-1"
                   ];
                   input = {
                       kb_layout  = "de";
@@ -89,19 +122,25 @@ in {
                   };
                   bezier = [
                       "dupa, 0.1, 0..9, 0.1, 1.05"
+                      "apf,0.76,0,0.24,1"
+                      "fast,0.34,1.56,0.64,1"
                   ];
                   animations = {
                       enabled = true;
                       animation = [
                           "windows, 1, 4, dupa, popin"
-                          "windowsOut, 1, 7, dupa, slide"
+                          "windowsIn, 1, 4, fast, popin"
+                          "windowsOut, 1, 4, fast, popin"
                           "border, 1, 15, default"
                           "fade, 1, 10, default"
-                          "workspaces, 1, 5, dupa, slidevert"
+                          "workspaces, 1, 5, dupa, slidefadevert"
                       ];
                   };
                   dwindle = {
                       no_gaps_when_only = true;
+                  };
+                  debug = {
+                      disable_logs =false;
                   };
                   misc = {
                       enable_swallow = false;
@@ -116,6 +155,7 @@ in {
                   bind = [
                       "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
                       "$mainMod, Q, killactive"
+                      "$mainMod, F, fullscreen, 0"
                       "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
                       "$mainMod, SPACE, togglefloating, active"
                       # workspaces
@@ -128,7 +168,7 @@ in {
                       "$mainMod, 7, split-workspace, 7"
                       "$mainMod, 8, split-workspace, 8"
                       "$mainMod, 9, split-workspace, 9"
-                      "$mainMod, 10, split-workspace, 10"
+                      "$mainMod, 0, split-workspace, 10"
                       "$mainMod SHIFT, 1, split-movetoworkspacesilent, 1"
                       "$mainMod SHIFT, 2, split-movetoworkspacesilent, 2"
                       "$mainMod SHIFT, 3, split-movetoworkspacesilent, 3"
@@ -138,8 +178,8 @@ in {
                       "$mainMod SHIFT, 7, split-movetoworkspacesilent, 7"
                       "$mainMod SHIFT, 8, split-movetoworkspacesilent, 8"
                       "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
-                      "$mainMod SHIFT, 10, split-movetoworkspacesilent, 10"
-                  ];
+                      "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
+                                        ];
                   binde = [
                       # window focus
                       "$mainMod, H, movefocus, l"
@@ -159,7 +199,8 @@ in {
                   plugin = {
                       split-monitor-workspaces = {
                           count = 10;
-                          keep_focused = true;
+                          keep_focused = 0;
+                          enable_notifications = 0;
                       };
                   };
               };
@@ -191,7 +232,6 @@ in {
           dunst
           libnotify
           hyprpaper
-          rofi-wayland
      ];
   };
 }

@@ -267,7 +267,6 @@ in {
                         theme = "https://raw.githubusercontent.com/shikijs/shiki/0b28ad8ccfbf2615f2d9d38ea8255416b8ac3043/packages/shiki/themes/dark-plus.json";
                         tryHljs = "SECONDARY";
                         uesDevIcon = "GREYSCALE";
-                        bgOpacity = 100;
                     };
                     ShowAllMessageButtons.enabled = true;
                     ShowConnections = {
