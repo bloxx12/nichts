@@ -104,6 +104,7 @@
           emacs.enable = true;
           fish.enable = true;
           stylix.enable = true;
+          anyrun.enable = true;
       };
       services = {
           pipewire.enable = true;

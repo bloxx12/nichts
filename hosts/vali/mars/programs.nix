@@ -29,6 +29,7 @@ in {
             ])
             ffmpeg-full
             fftw flameshot
+            grimblast
             heroic
             imv
             gcc
@@ -79,6 +80,7 @@ in {
             spotube
             steam
             strawberry
+            teamspeak_client
             telegram-desktop
             texliveFull
             trilium-desktop
