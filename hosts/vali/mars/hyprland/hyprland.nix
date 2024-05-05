@@ -5,6 +5,8 @@ let
   username = config.modules.other.system.username;
   inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
+  inherit (inputs.nixpkgs-wayland.packages.${pkgs.system}) wl-clipboard swww wlsunset;
+  inherit (inputs.waybar.packages.${pkgs.system}) waybar;
 in {
   options.modules.programs.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
@@ -80,6 +82,12 @@ in {
                   "28, monitor:DP-1"
                   "29, monitor:DP-1"
                   "30, monitor:DP-1"
+
+                  # scratchpads
+                  "special:btop, decorate:false"
+                  "special:pipewire, decorate:false"
+                  "special:nixos, decorate:false"
+                  "special:keepassxc, decorate:false"
                   ];
                   input = {
                       kb_layout  = "de";
@@ -152,6 +160,21 @@ in {
                       animate_mouse_windowdragging = false;
                       force_default_wallpaper = 0;
                   };
+
+                  windowrulev2 = [
+                      "float, class:^(Tor Browser)$"
+                      "float, class:^(mpv)$"
+                      "float, class:^(imv)$"
+                      "float, title:^(Picture-in-Picture)$"
+                      "float, title:^(.*)(Choose User Profile)(.*)$"
+                      "float, title:^(blob:null/)(.*)$"
+                      "float, class:^(xdg-desktop-portal-gtk)$"
+                      "float, class:^(code), title: ^(Open*)"
+                      "size 70% 70%, class:^(code), title: ^(Open*)"
+                      "center, class: ^(code), title: ^(Open*)"
+                      "float, class:^(org.keepassxc.KeePassXC)$"
+                  ];
+
                   bind = [
                       "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
                       "$mainMod, Q, killactive"
@@ -179,7 +202,14 @@ in {
                       "$mainMod SHIFT, 8, split-movetoworkspacesilent, 8"
                       "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
                       "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
-                                        ];
+                      "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+                      "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
+                      "$mainMod, B, togglespecialworkspace, btop"
+                      "$mainMod, V, togglespecialworkspace, pipewire"
+                      "$mainMod, N, togglespecialworkspace, nixos"
+                      "$mainMod, X, togglespecialworkspace, keepassxc"
+                      "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${waybar}/bin/waybar"
+                  ];
                   binde = [
                       # window focus
                       "$mainMod, H, movefocus, l"
@@ -188,6 +218,31 @@ in {
                       "$mainMod, L, movefocus, r"
 
                   ];
+                  
+                  bindl = let
+                      play-pause = "${pkgs.playerctl}/bin/playerctl play-pause";
+                      stop = "${pkgs.playerctl}/bin/playerctl stop";
+                      prev = "${pkgs.playerctl}/bin/playerctl previous";
+                      next = "${pkgs.playerctl}/bin/playerctl next";
+                      toggle-mute = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
+                  in [
+                      ", XF86AudioMedia, exec, ${play-pause}"
+                      ", XF86AudioPlay,  exec, ${play-pause}"
+                      ", XF86AudioStop,  exec, ${stop}"
+                      ", XF86AudioPrev,  exec, ${prev}"
+                      ", XF86AudioNext,  exec, ${next}"
+                      ", XF86AudioMute,  exec, ${toggle-mute}"
+                  ];
+
+                  # locked + repeat
+                  bindle = let
+                      volume_up = "${pkgs.pamixer}/bin/pamixer -ui 5";
+                      volume_down = "${pkgs.pamixer}/bin/pamixer -ud 5";
+                  in [
+                      ", XF86AudioRaiseVolume,  exec, ${volume_up}"
+                      ", XF86AudioLowerVolume,  exec, ${volume_down}"
+                  ];
+
                   bindm = [
                       "$mainMod, mouse:272, movewindow"
                       "$mainMod, mouse:273, resizewindow"
@@ -196,6 +251,42 @@ in {
                       pass_mouse_when_bound = false;
                       movefocus_cycles_fullscreen = false;
                   };
+                  exec-once = let 
+                      handle_hyprland_events = pkgs.writeShellScriptBin "handle_hyprland_events" ''
+                          #!/bin/sh
+
+                          handle() {
+                              case $1 in
+                                  configreloaded*)
+                                      ${hyprland}/bin/hyprctl notify 1 2500 "" " Reloading Hyprland..."
+                                      ;;
+                              esac
+                          }
+                      '';
+                  in [
+                      "${waybar}/bin/waybar"
+
+                      # run persistent special workspace windows
+                      "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e nvim"
+                      "[workspace special:keepassxc silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
+
+                      "${swww}/bin/swww init"
+                      "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
+                  ];
+
+                  exec = [
+                      # kill (almost) everything on special workspaces
+                      "${pkgs.procps}/bin/pkill btop"
+                      "${pkgs.procps}/bin/pkill helvum"
+                      "${pkgs.procps}/bin/pkill pavucontrol"
+                      # and run it all again
+                      "[workspace special:btop silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
+                      "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
+                      "[workspace special:pipewire silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
+
+                      "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
+                  ];
+
                   plugin = {
                       split-monitor-workspaces = {
                           count = 10;
@@ -231,7 +322,6 @@ in {
             }))
           dunst
           libnotify
-          hyprpaper
      ];
   };
 }

@@ -38,6 +38,7 @@ in {
             grc
             grimblast
             git
+            helvum
             httpie
             i3lock
             imagemagick
