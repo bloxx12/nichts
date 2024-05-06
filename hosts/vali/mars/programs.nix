@@ -77,7 +77,6 @@ in {
             rustdesk
             rofi
             scc
-            scrot
             scummvm
             sherlock
             signal-desktop-beta
