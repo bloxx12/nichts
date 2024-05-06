@@ -21,7 +21,6 @@ in {
                     zathura.enable = true;
                     gtk.enable = true;
                     hyprland.enable = true;
-
                 };
             };
         };
@@ -35,6 +34,7 @@ in {
               name = "Bibata-Modern-Classic";
               size = 24;
             };
+            targets.plymouth.enable = true;
             opacity = {
                 applications = 0.7;
                 popups = 0.7;
@@ -46,12 +46,21 @@ in {
                     popups = 14;
 
                 };
-                sansSerif = config.stylix.fonts.monospace;
-                serif = config.stylix.fonts.monospace;
-                emoji = config.stylix.fonts.monospace;
                 monospace = {
                     package = (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
                     name = "JetBrainsMono";
+                };
+                serif = {
+                    package = (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
+                    name = "JetBrainsMono";
+                };
+                sansSerif = {
+                    package = (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
+                    name = "JetBrainsMono";
+                };
+                emoji = {
+                    package = pkgs.noto-fonts-emoji;
+                    name = "Noto Color Emoji";
                 };
             };
 

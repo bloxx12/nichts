@@ -17,7 +17,7 @@ in  {
                     #background_opacity = "0.9";
                     confirm_os_window_close = "0";
                     #font_family = "JetBrainsMono Nerd Font";
-
+/*
                     cursor_text_color = "background";
 
                     url_color = "#83a598";
@@ -69,6 +69,7 @@ in  {
                     # white (fg4/fg3)
                     color7 = "#a89984";
                     color15 = "#bdae93"; 
+                    */
                 };
 
             };

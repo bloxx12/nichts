@@ -28,6 +28,8 @@
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 #  services.picom.enable = true; 
   modules = {
       other = {
@@ -59,23 +61,11 @@
           pipewire.enable = true;
       };
       themes = {
-          cursor = {
-              enable = false;
-              package = pkgs.bibata-cursors;
-              name = "Bibata-Modern-Classic";
-              size = 24;
-          };
           gtk = {
-              enable = false;
-              package = pkgs.materia-theme;
-              name = "Materia-dark";
-            #  iconTheme = {
-            #      name = "Papirus-Dark";
-            #      package = pkgs.catppuccin-papirus-folders;
-            #  };
+              enable = true;
           };
           qt = {
-            enable = false;
+            enable = true;
             package = pkgs.kde-gruvbox;
             name = "Gruvbox-Dark";
           };

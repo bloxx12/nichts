@@ -1,7 +1,6 @@
 _: {
     imports = [
         ./vesktop.nix
-        ./cursor.nix
         ./gtk.nix
         ./mpv.nix
         ./qt.nix
