@@ -1,10 +1,10 @@
 { config, inputs, pkgs, ... }:
 let
   fenix = inputs.fenix.packages.${pkgs.system};
+  nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
   username = config.modules.other.system.username;
 in {
     environment.systemPackages = with pkgs; [
-            alacritty
             alsa-utils
             android-tools
             asciinema
@@ -28,10 +28,9 @@ in {
               "rustfmt"
             ])
             ffmpeg-full
-            fftw flameshot
+            fftw 
+            flameshot
             grimblast
-            heroic
-            imv
             gcc
             gdb
             gnumake
@@ -39,10 +38,12 @@ in {
             grimblast
             git
             helvum
+            heroic
             httpie
             i3lock
             imagemagick
             img2pdf
+            imv
             keepassxc
             krita
             lazygit
@@ -56,8 +57,11 @@ in {
             nextcloud-client
             nicotine-plus
             nitrogen
+            nixpkgs-wayland.swww
             nmap
             notesnook
+            obs-studio
+            obsidian
             onlyoffice-bin
             pamixer
             pavucontrol
@@ -91,6 +95,7 @@ in {
             tree
             unzip
             util-linux
+            v4l-utils
             ventoy-full
             vlc
             weechat

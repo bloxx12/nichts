@@ -36,16 +36,16 @@ in {
             gtk = {
                 enable = true;
                 theme = {
-                #    inherit (cfg) name package;
-                    package = pkgs.gruvbox-gtk-theme;
-                    name = "Gruvbox-Dark-BL";
+                    #package = pkgs.gruvbox-gtk-theme;
+                    #name = "Gruvbox-Dark-BL";
                 };
-              #  iconTheme = {
-              #      inherit (cfg.iconTheme) name package;
-              #  };
+                iconTheme = {
+                    name = "Papirus-Dark";
+                    package = pkgs.catppuccin-papirus-folders;
+                };
             };
             home.sessionVariables = {
-                GTK_THEME = "Gruvbox-Dark-BL";
+                #GTK_THEME = "Gruvbox-Dark-BL";
                 #       GTK_USE_PORTAL = "1";
 
 

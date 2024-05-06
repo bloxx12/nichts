@@ -12,6 +12,9 @@ in {
   config = mkIf cfg.enable {
       
       environment.sessionVariables = {
+          LIBVA_DRIVER_NAME = "nvidia";
+          GTK_USE_PORTAL = "1";
+          NIXOS_XDG_OPEN_USE_PORTAL = "1";
           XDG_CURRENT_DESKTOP = "Hyprland";
           XDG_SESSION_TYPE = "wayland";
           XDG_SESSION_DESKTOP = "Hyprland";
@@ -45,20 +48,20 @@ in {
                   monitor = [
                   "DP-2,1920x1080,0x0,1"
                   "HDMI-A-2,1920x1080,1920x0,1"
-                  "DP-1,1920x1080,3480x0,1" 
+                  "HDMI-A-1,1920x1080,3840x0,1" 
                   "Unknown-1,disable"
                   ];
                   workspace = [
-                  "1, monitor:DP-2, default:true"
-                  "2, monitor:DP-2"
-                  "3, monitor:DP-2"
-                  "4, monitor:DP-2"
-                  "5, monitor:DP-2"
-                  "6, monitor:DP-2"
-                  "7, monitor:DP-2"
-                  "8, monitor:DP-2"
-                  "9, monitor:DP-2"
-                  "10, monitor:DP-2"
+                  "1, monitor:HDMI-A-1, default:true"
+                  "2, monitor:HDMI-A-1"
+                  "3, monitor:HDMI-A-1"
+                  "4, monitor:HDMI-A-1"
+                  "5, monitor:HDMI-A-1"
+                  "6, monitor:HDMI-A-1"
+                  "7, monitor:HDMI-A-1"
+                  "8, monitor:HDMI-A-1"
+                  "9, monitor:HDMI-A-1"
+                  "10, monitor:HDMI-A-1"
 
                   "11, monitor:HDMI-A-2, default:true"
                   "12, monitor:HDMI-A-2"
@@ -72,16 +75,16 @@ in {
                   "20, monitor:HDMI-A-2"
 
 
-                  "21, monitor:DP-1, default:true"
-                  "22, monitor:DP-1"
-                  "23, monitor:DP-1"
-                  "24, monitor:DP-1"
-                  "25, monitor:DP-1"
-                  "26, monitor:DP-1"
-                  "27, monitor:DP-1"
-                  "28, monitor:DP-1"
-                  "29, monitor:DP-1"
-                  "30, monitor:DP-1"
+                  "21, monitor:DP-2, default:true"
+                  "22, monitor:DP-2"
+                  "23, monitor:DP-2"
+                  "24, monitor:DP-2"
+                  "25, monitor:DP-2"
+                  "26, monitor:DP-2"
+                  "27, monitor:DP-2"
+                  "28, monitor:DP-2"
+                  "29, monitor:DP-2"
+                  "30, monitor:DP-2"
 
                   # scratchpads
                   "special:btop, decorate:false"
@@ -125,11 +128,13 @@ in {
                       shadow_ignore_window = 1;
                       shadow_offset = "2 4";
                       shadow_scale = 1;
+                      active_opacity = 0.90;
+                      inactive_opacity = 0.90;
 
                       #"col.shadow" = "0xAF1E1E2E";
                   };
                   bezier = [
-                      "dupa, 0.1, 0..9, 0.1, 1.05"
+                      "dupa, 0.1, 0.9, 0.1, 1.05"
                       "apf,0.76,0,0.24,1"
                       "fast,0.34,1.56,0.64,1"
                   ];
@@ -137,11 +142,10 @@ in {
                       enabled = true;
                       animation = [
                           "windows, 1, 4, dupa, popin"
-                          "windowsIn, 1, 4, dupa, popin"
-                          "windowsOut, 1, 4, dupa, popin"
+                          "windowsOut, 1, 4, dupa, slide"
                           "border, 1, 15, default"
                           "fade, 1, 10, default"
-                          "workspaces, 1, 5, dupa, slidefadevert"
+                          "workspaces, 1, 5, dupa, slidevert"
                       ];
                   };
                   dwindle = {
@@ -181,6 +185,7 @@ in {
                       "$mainMod, F, fullscreen, 0"
                       "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
                       "$mainMod, SPACE, togglefloating, active"
+                      "$mainMod, O, exec, obsidian --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
                       # workspaces
                       "$mainMod, 1, split-workspace, 1"
                       "$mainMod, 2, split-workspace, 2"
@@ -251,26 +256,15 @@ in {
                       pass_mouse_when_bound = false;
                       movefocus_cycles_fullscreen = false;
                   };
-                  exec-once = let 
-                      handle_hyprland_events = pkgs.writeShellScriptBin "handle_hyprland_events" ''
-                          #!/bin/sh
-
-                          handle() {
-                              case $1 in
-                                  configreloaded*)
-                                      ${hyprland}/bin/hyprctl notify 1 2500 "" " Reloading Hyprland..."
-                                      ;;
-                              esac
-                          }
-                      '';
-                  in [
+                  exec-once = [
+                      #start waybar
                       "${waybar}/bin/waybar"
 
                       # run persistent special workspace windows
                       "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e nvim"
                       "[workspace special:keepassxc silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
-                      "${swww}/bin/swww init"
+                      "${swww}/bin/swww-daemon"
                       "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
                   ];
 
