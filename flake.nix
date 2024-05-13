@@ -31,7 +31,7 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
+        spicetify-nix.url = "github:the-argus/spicetify-nix";
         nur = {
             url = "github:nix-community/NUR";
             #inputs.nixpkgs.follows = "nixpkgs";

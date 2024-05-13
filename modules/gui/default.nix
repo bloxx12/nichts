@@ -6,6 +6,7 @@ _: {
         ./qt.nix
         ./zathura.nix
         ./stylix.nix
+        #./spicetify.nix
         ./anyrun
         ./rofi.nix
         ./kitty.nix

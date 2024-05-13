@@ -10,10 +10,8 @@ in {
             asciinema
             bibata-cursors
             blanket
-            blugon
             difftastic
             dig
-            dmenu
             easyeffects
             element-desktop
             evince
@@ -28,7 +26,6 @@ in {
             ffmpeg-full
             fftw 
             flameshot
-            foot
             grimblast
             gcc
             gdb

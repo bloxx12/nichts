@@ -55,6 +55,7 @@
           emacs.enable = true;
           fish.enable = true;
           stylix.enable = true;
+#          spicetify.enable = true;
           anyrun.enable = true;
       };
       services = {
