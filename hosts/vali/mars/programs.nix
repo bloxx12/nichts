@@ -21,15 +21,14 @@ in {
             fastfetch
             feh
             (fenix.complete.withComponents [
-              "cargo"
-              "clippy"
-              "rust-src"
+              "cargo" "clippy" "rust-src"
               "rustc"
               "rustfmt"
             ])
             ffmpeg-full
             fftw 
             flameshot
+            foot
             grimblast
             gcc
             gdb
@@ -56,7 +55,7 @@ in {
             networkmanagerapplet
             nextcloud-client
             nicotine-plus
-            nitrogen
+            nitch
             nixpkgs-wayland.swww
             nmap
             notesnook
@@ -69,6 +68,7 @@ in {
             pcmanfm
             pdfarranger
             pfetch
+            pidgin
             playerctl
             polkit
             python3
