@@ -42,6 +42,11 @@ in {
               plugins = [
                   inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
               ];
+              xwayland.enable = true;
+              systemd = {
+                  enable = true;
+                  variables = ["--all"];
+              };
               settings = {
                   "$mainMod" = "SUPER";
 
@@ -128,11 +133,16 @@ in {
                       shadow_ignore_window = 1;
                       shadow_offset = "2 4";
                       shadow_scale = 1;
-                      active_opacity = 0.90;
-                      inactive_opacity = 0.90;
+                      #active_opacity = 1;
+                      #inactive_opacity = 1;
 
                       #"col.shadow" = "0xAF1E1E2E";
                   };
+                  /*cursor = {
+                      default_monitor ="HDMI-A-2";
+                      enable_hyprcursor = true;
+                      hide_on_key_press = true;
+                  };*/
                   bezier = [
                       "dupa, 0.1, 0.9, 0.1, 1.05"
                       "apf,0.76,0,0.24,1"
@@ -155,7 +165,7 @@ in {
                       disable_logs =false;
                   };
                   misc = {
-                      enable_swallow = false;
+                      enable_swallow = true;
                       swallow_regex = "kitty";
                       focus_on_activate = true;
                       vrr = 1;
@@ -164,7 +174,6 @@ in {
                       animate_mouse_windowdragging = false;
                       force_default_wallpaper = 0;
                   };
-
                   windowrulev2 = [
                       "float, class:^(Tor Browser)$"
                       "float, class:^(mpv)$"
