@@ -1,6 +1,6 @@
 { config, lib, ... }:
-with lib; let
-  cfg = config.modules.services.pipewire;
+with lib;
+let cfg = config.modules.services.pipewire;
 in {
   options.modules.services.pipewire.enable = mkEnableOption "pipewire";
 
