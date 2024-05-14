@@ -1,4 +1,4 @@
-{ pkgs, nur, ... }:
+{ pkgs, ... }:
 
 let
   vivado-desktop-symbol = pkgs.makeDesktopItem {

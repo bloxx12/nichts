@@ -83,9 +83,11 @@ in {
     spotube
     steam
     strawberry
+    svls
     teamspeak_client
     telegram-desktop
     texliveFull
+    tldr
     trilium-desktop
     thunderbird
     tor-browser-bundle-bin
