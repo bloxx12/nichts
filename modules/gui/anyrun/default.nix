@@ -1,3 +1,1 @@
-_: {
-    imports = [./anyrun.nix];
-}
+_: { imports = [ ./anyrun.nix ]; }

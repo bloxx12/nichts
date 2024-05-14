@@ -1,5 +1,4 @@
-{ pkgs, nur, ...}:
-
+{ pkgs, nur, ... }:
 
 let
   vivado-desktop-symbol = pkgs.makeDesktopItem {
@@ -7,16 +6,14 @@ let
     desktopName = "Vivado";
     exec = "${pkgs.nur.repos.lschuermann.vivado-2022_2}/bin/vivado";
   };
-in
-{
+in {
 
-  environment.systemPackages = with pkgs; [     
+  environment.systemPackages = with pkgs; [
     # this propietary software is huge, but I need it for
     # university
     pkgs.nur.repos.lschuermann.vivado-2022_2
     vivado-desktop-symbol
   ];
-
 
   # Create udev rules. Reference: https://blog.kotatsu.dev/posts/2021-09-14-vivado-on-nixos/
   services.udev.packages = [

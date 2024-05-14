@@ -1,5 +1,1 @@
-_:{
-    imports = [
-      ./emacs.nix
-    ];
-}
+_: { imports = [ ./emacs.nix ]; }
