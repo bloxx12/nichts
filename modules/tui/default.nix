@@ -1,7 +1,7 @@
 _: {
     imports = [
         ./btop.nix
-#        ./helix.nix
+        ./helix.nix
         ./neovim.nix
        ./newsboat.nix
         ./ncmpcpp.nix

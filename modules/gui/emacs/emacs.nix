@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 with lib; let
     cfg = config.modules.programs.emacs;
     username = config.modules.other.system.username;
@@ -7,19 +7,14 @@ in  {
 
     config = mkIf cfg.enable {
         home-manager.users.${username} = {
-            programs.emacs = {
+            programs.doom-emacs = {
                 enable = true;
-                package = pkgs.emacs;
                 extraConfig = ''
                     (setq standard-indent 2)
                     (require 'evil)
                     (evil-mode 1)
                 '';
-                extraPackages = epkgs: [
-                epkgs.evil
-		epkgs.gruvbox-theme
-
-                ]; 
+                doomPrivateDir = ./doom.d;
             };
         };
     };

@@ -13,7 +13,8 @@ _: {
         ./vivado.nix
   	    ./firefox.nix
         ./steam.nix
+        ./schizofox.nix
         ./minecraft.nix
-        ./emacs.nix
+#        ./emacs
     ];
 }

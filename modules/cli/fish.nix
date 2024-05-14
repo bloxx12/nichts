@@ -54,6 +54,7 @@ in {
                       lg = "lazygit";
                       cd = "z";
                       v = "nvim";
+                      h = "hx";
                       e = "emacs";
                       update = "sudo nixos-rebuild switch --flake \"${gitPath}#${hostname}\"";
                       flake = "cd '${gitPath}'";

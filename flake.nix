@@ -13,11 +13,12 @@
             url = "github:hyprwm/hyprland-plugins";
             inputs.hyprland.follows = "hyprland";
         };
-        doomemacs = {
-            url = "github:doomemacs/doomemacs";
-            flake = false;
+        nixpak = {
+            url = "github:nixpak/nixpak";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
         nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+
         split-monitor-workspaces = {
             url = "github:Duckonaut/split-monitor-workspaces";
             inputs.hyprland.follows = "hyprland";
@@ -30,6 +31,13 @@
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
+        };
+        schizofox = {
+            url = "github:schizofox/schizofox";
+            inputs = {
+                 nixpkgs.follows = "nixpkgs";
+                 nixpak.follows = "nixpak";
+            };
         };
         spicetify-nix.url = "github:the-argus/spicetify-nix";
         nur = {
