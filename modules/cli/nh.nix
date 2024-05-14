@@ -1,8 +1,6 @@
-{ pkgs, lib, config, callPackage, ... }:
+{ lib, config, ... }:
 with lib;
-let
-  username = config.modules.other.system.username;
-  cfg = config.modules.programs.nh;
+let cfg = config.modules.programs.nh;
 in {
   options.modules.programs.nh.enable = mkEnableOption "nh";
 

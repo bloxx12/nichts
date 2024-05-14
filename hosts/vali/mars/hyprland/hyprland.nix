@@ -116,8 +116,6 @@ in {
             gaps_in = 0;
             gaps_out = 0;
             border_size = 2;
-            #"col.active_border" = "0xFFF5C2E7";
-            #"col.inactive_border" = "0xFF45475A";
           };
 
           decoration = {
@@ -133,10 +131,6 @@ in {
             shadow_ignore_window = 1;
             shadow_offset = "2 4";
             shadow_scale = 1;
-            #active_opacity = 1;
-            #inactive_opacity = 1;
-
-            #"col.shadow" = "0xAF1E1E2E";
           };
 
           bezier = [
