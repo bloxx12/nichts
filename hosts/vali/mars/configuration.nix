@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, lib, ... }: {
+{ pkgs, ... }: {
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Time Zone 

@@ -1,8 +1,7 @@
-{ config, inputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   fenix = inputs.fenix.packages.${pkgs.system};
   nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
-  username = config.modules.other.system.username;
 in {
   environment.systemPackages = with pkgs; [
     alsa-utils
@@ -100,11 +99,6 @@ in {
     weechat
     wget
     wireguard-tools
-    xclip
-    xfce.thunar
-    xorg.libX11.dev
-    xorg.libXft
-    xorg.libXinerama
     xournalpp
     yt-dlp
     zapzap
