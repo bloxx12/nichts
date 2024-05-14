@@ -10,7 +10,7 @@ in {
             stylix = {
                 polarity = "dark";
                 image = ../../FreeBSD.png;
-#                base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
+                base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
                 autoEnable = true;
                 targets = {
                     btop.enable = true;
