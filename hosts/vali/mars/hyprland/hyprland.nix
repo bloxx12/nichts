@@ -45,7 +45,7 @@ in {
               xwayland.enable = true;
               systemd = {
                   enable = true;
-                  variables = ["--all"];
+                  variables = [ "--all" ];
               };
               settings = {
                   "$mainMod" = "SUPER";
@@ -97,6 +97,7 @@ in {
                   "special:nixos, decorate:false"
                   "special:keepassxc, decorate:false"
                   ];
+
                   input = {
                       kb_layout  = "de";
                       kb_variant = "";
@@ -120,6 +121,7 @@ in {
                       #"col.active_border" = "0xFFF5C2E7";
                       #"col.inactive_border" = "0xFF45475A";
                   };
+
                   decoration = {
                       rounding = 0;
                       blur = {
@@ -138,16 +140,13 @@ in {
 
                       #"col.shadow" = "0xAF1E1E2E";
                   };
-                  /*cursor = {
-                      default_monitor ="HDMI-A-2";
-                      enable_hyprcursor = true;
-                      hide_on_key_press = true;
-                  };*/
+
                   bezier = [
                       "dupa, 0.1, 0.9, 0.1, 1.05"
                       "apf,0.76,0,0.24,1"
                       "fast,0.34,1.56,0.64,1"
                   ];
+
                   animations = {
                       enabled = true;
                       animation = [
@@ -158,12 +157,15 @@ in {
                           "workspaces, 1, 5, dupa, slidevert"
                       ];
                   };
+
                   dwindle = {
                       no_gaps_when_only = true;
                   };
+
                   debug = {
                       disable_logs =false;
                   };
+
                   misc = {
                       enable_swallow = true;
                       swallow_regex = "kitty";
@@ -174,6 +176,7 @@ in {
                       animate_mouse_windowdragging = false;
                       force_default_wallpaper = 0;
                   };
+
                   windowrulev2 = [
                       "float, class:^(Tor Browser)$"
                       "float, class:^(mpv)$"
@@ -224,6 +227,7 @@ in {
                       "$mainMod, X, togglespecialworkspace, keepassxc"
                       "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${waybar}/bin/waybar"
                   ];
+
                   binde = [
                       # window focus
                       "$mainMod, H, movefocus, l"
@@ -253,10 +257,9 @@ in {
                       volume_up = "${pkgs.pamixer}/bin/pamixer -ui 5";
                       volume_down = "${pkgs.pamixer}/bin/pamixer -ud 5";
                   in [
-                      ", XF86AudioRaiseVolume,  exec, ${volume_up}"
-                      ", XF86AudioLowerVolume,  exec, ${volume_down}"
+                      ", XF86AudioRaiseVolume, exec, ${volume_up}"
+                      ", XF86AudioLowerVolume, exec, ${volume_down}"
                   ];
-
                   bindm = [
                       "$mainMod, mouse:272, movewindow"
                       "$mainMod, mouse:273, resizewindow"
@@ -270,7 +273,7 @@ in {
                       "${waybar}/bin/waybar"
 
                       # run persistent special workspace windows
-                      "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e nvim"
+                      "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e hx"
                       "[workspace special:keepassxc silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
                       "${swww}/bin/swww-daemon"

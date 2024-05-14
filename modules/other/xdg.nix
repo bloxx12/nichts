@@ -8,7 +8,7 @@ let
     file_manager = "pcmanfm.desktop";
     media_player = "mpv.desktop";
     image_viewer = "imv.desktop";
-    text_editor = "nvim.desktop";
+    text_editor = "helix.desktop";
     terminal = "kitty.desktop";
 in {
 
