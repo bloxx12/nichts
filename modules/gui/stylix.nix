@@ -10,7 +10,7 @@ in {
     home-manager.users.${username} = {
       stylix = {
         polarity = "dark";
-        image = ../../FreeBSD.png;
+        image = ../../lib/wallpapers/FreeBSD.png;
         base16Scheme =
           "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
         autoEnable = true;
@@ -71,7 +71,7 @@ in {
       };
     };
     stylix = {
-      image = ../../FreeBSD.png;
+      image = ../../lib/wallpapers/FreeBSD.png;
       polarity = "dark";
     };
   };

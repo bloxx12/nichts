@@ -39,16 +39,13 @@
       btop.enable = true;
       mpv.enable = true;
       kitty.enable = true;
-      #          awesome.enable = true;
       hyprland.enable = true;
       newsboat.enable = true;
-      #          emacs.enable = true;
       fish.enable = true;
       stylix.enable = true;
       helix.enable = true;
       nh.enable = true;
       schizofox.enable = true;
-      #          spicetify.enable = true;
       anyrun.enable = true;
     };
     services = { pipewire.enable = true; };
