@@ -14,15 +14,6 @@
           # reduce file size used & automatic garbage collector
           auto-optimise-store = true;
       };
-      gc = {
-          automatic = true;
-          options = "--delete-older-than 14d";
-      };
-      # required for nix-direnv to work and have environments not garbage collected
-      extraOptions = ''
-          keep-outputs = true
-          keep-derivations = true
-      '';
   };
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
   security.polkit.enable = true;
@@ -55,6 +46,7 @@
           emacs.enable = true;
           fish.enable = true;
           stylix.enable = true;
+          nh.enable = true;
 #          spicetify.enable = true;
           anyrun.enable = true;
       };
