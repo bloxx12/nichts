@@ -3,7 +3,6 @@ with lib;
 let
   cfg = config.modules.themes.gtk;
   username = config.modules.other.system.username;
-  hmCfg = config.home-manager.users.${username};
 in {
   options.modules.themes.gtk = {
     enable = mkEnableOption "gtk theming";
@@ -36,10 +35,10 @@ in {
     home-manager.users.${username} = {
       gtk = {
         enable = true;
-        theme = {
-          #package = pkgs.gruvbox-gtk-theme;
-          #name = "Gruvbox-Dark-BL";
-        };
+        # theme = {
+        # package = pkgs.gruvbox-gtk-theme;
+        # name = "Gruvbox-Dark-BL";
+        # };
         iconTheme = {
           name = "Papirus-Dark";
           package = pkgs.catppuccin-papirus-folders;

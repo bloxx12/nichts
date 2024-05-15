@@ -18,8 +18,9 @@
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
-  boot.kernelModules = [ "v4l2loopback" ];
-  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  # boot.kernelModules = [ "v4l2loopback" ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true; 
   modules = {
     other = {
@@ -50,7 +51,7 @@
     };
     services = { pipewire.enable = true; };
     themes = {
-      gtk = { enable = false; };
+      gtk = { enable = true; };
       qt = {
         enable = false;
         package = pkgs.kde-gruvbox;

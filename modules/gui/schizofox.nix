@@ -14,13 +14,13 @@ in {
       programs.schizofox = {
         enable = true;
         theme = {
-          background-darker = "181825";
-          background = "1e1e2e";
-          foreground = "cdd6f4";
+          colors = {
+            background-darker = "181825";
+            background = "1e1e2e";
+            foreground = "cdd6f4";
+          };
           font = "Lexend";
-          simplefox.enable = false;
-          darkreader.enable = true;
-          extraCss = ''
+          extraUserChrome = ''
             body {
                 color: red !important;
             }
@@ -105,7 +105,7 @@ in {
         };
 
         misc = {
-          drmFix = false;
+          drm.enable = true;
           disableWebgl = true;
         };
       };

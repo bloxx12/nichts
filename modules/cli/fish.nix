@@ -3,7 +3,8 @@ with lib;
 let
   cfg = config.modules.programs.fish;
   username = config.modules.other.system.username;
-  hostname = config.modules.other.system.hostname;
+  # not needed because I'm using nh os switch
+  # hostname = config.modules.other.system.hostname;
   gitPath = config.modules.other.system.gitPath;
 in {
   options.modules.programs.fish = {
@@ -59,7 +60,7 @@ in {
           cc = "cd ~ && clear";
           mv = "mv -iv";
           rm = "trash -v";
-          # ls = "eza --icons";
+          ls = "eza --icons";
           l = "eza -a --icons";
           la = "eza -lha --icons --git";
           kys = "shutdown now";
@@ -68,7 +69,7 @@ in {
           v = "nvim";
           h = "hx";
           e = "emacs";
-          # update = ''nh os switch "${gitPath}"'';
+          update = ''nh os switch "${gitPath}"'';
           flake = "cd '${gitPath}'";
         } // cfg.extraAliases;
       };

@@ -8,6 +8,8 @@ let
   inherit (inputs.nixpkgs-wayland.packages.${pkgs.system})
     wl-clipboard swww wlsunset;
   inherit (inputs.waybar.packages.${pkgs.system}) waybar;
+  inherit (inputs.split-monitor-workspaces.packages.${pkgs.system})
+    split-monitor-workspaces;
 in {
   options.modules.programs.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
@@ -24,7 +26,7 @@ in {
       GDK_BACKEND = "wayland";
       QT_QPA_PLATFORM = "wayland";
       LIBSEAT_BACKEND = "logind";
-      WLR_NO_HARDWARE_CURSORS = "1";
+      # WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
 
@@ -39,10 +41,8 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        plugins = [
-          inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-        ];
+        package = hyprland;
+        plugins = [ split-monitor-workspaces ];
         xwayland.enable = true;
         systemd = {
           enable = true;
@@ -258,7 +258,7 @@ in {
           };
           exec-once = [
             #start waybar
-            "${waybar}/bin/waybar"
+            # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
             "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e hx"
@@ -291,21 +291,6 @@ in {
         };
       };
     };
-    environment.sessionVariables = {
-      /* LIBVA_DRIVER_NAME = "nvidia";
-          XDG_SESSION_TYPE = "wayland";
-          GBM_BACKEND = "nvidia-drm";
-          __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-          SDL_VIDEODRIVER = "wayland";
-          _JAVA_AWT_WM_NONREPARENTING = "1";
-          CLUTTER_BACKEND = "wayland";
-          WLR_RENDERER = "vulkan";
-          XDG_CURRENT_DESKTOP = "Hyprland";
-          XDG_SESSION_DESKTOP = "Hyprland";
-          GTK_USE_PORTAL = "1";
-          NIXOS_XDG_OPEN_USE_PORTAL = "1";
-      */
-    };
     hardware = {
       opengl.enable = true;
       nvidia.modesetting.enable = true;
@@ -314,7 +299,7 @@ in {
       (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
-      dunst
+      mako
       libnotify
     ];
   };
