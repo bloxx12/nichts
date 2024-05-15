@@ -15,6 +15,7 @@ in {
             line-number = "relative";
             mouse = false;
             bufferline = "multiple";
+            soft-wrap.enable = true;
             lsp.display-messages = true;
             cursor-shape = { insert = "bar"; };
             statusline.left =

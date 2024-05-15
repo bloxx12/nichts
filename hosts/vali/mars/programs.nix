@@ -26,7 +26,6 @@ in {
     ])
     ffmpeg-full
     fftw
-    flameshot
     grimblast
     gcc
     gdb
@@ -47,6 +46,7 @@ in {
     librewolf
     links2
     mars-mips
+    gnome.nautilus
     ncmpcpp
     neofetch
     neovim
@@ -64,7 +64,6 @@ in {
     pamixer
     pavucontrol
     picom
-    pcmanfm
     pdfarranger
     pfetch
     pidgin
@@ -74,7 +73,6 @@ in {
     qbittorrent
     ripgrep
     rustdesk
-    rofi
     scc
     scummvm
     sherlock
@@ -83,7 +81,6 @@ in {
     spotube
     steam
     strawberry
-    # svls
     teamspeak_client
     telegram-desktop
     texliveFull
@@ -93,6 +90,11 @@ in {
     tor-browser-bundle-bin
     trash-cli
     tree
+    typst
+    # typstfmt does not work either
+    typstyle
+
+    typst-lsp
     unzip
     util-linux
     v4l-utils
@@ -104,7 +106,6 @@ in {
     xournalpp
     yt-dlp
     zapzap
-    zathura
     zip
     zoxide
   ];
