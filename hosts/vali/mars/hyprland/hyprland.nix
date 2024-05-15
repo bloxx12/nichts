@@ -180,7 +180,7 @@ in {
           ];
 
           bind = [
-            "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
+            "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty -d ~"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
@@ -213,9 +213,9 @@ in {
             "$mainMod, V, togglespecialworkspace, pipewire"
             "$mainMod, N, togglespecialworkspace, nixos"
             "$mainMod, X, togglespecialworkspace, keepassxc"
+            "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
             "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${waybar}/bin/waybar"
           ];
-
           binde = [
             # window focus
             "$mainMod, H, movefocus, l"
@@ -271,37 +271,24 @@ in {
           exec = [
             # kill (almost) everything on special workspaces
             "${pkgs.procps}/bin/pkill btop"
-            "${pkgs.procps}/bin/pkill helvum"
             "${pkgs.procps}/bin/pkill pavucontrol"
             # and run it all again
             "[workspace special:btop silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
-            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
+            # "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
-
-            "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
+            # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
 
           plugin = {
             split-monitor-workspaces = {
               count = 10;
-              keep_focused = 0;
-              enable_notifications = 0;
+              keep_focused = true;
             };
           };
         };
       };
     };
-    hardware = {
-      opengl.enable = true;
-      nvidia.modesetting.enable = true;
-    };
-    environment.systemPackages = with pkgs; [
-      (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      }))
-      mako
-      libnotify
-    ];
+    environment.systemPackages = with pkgs; [ mako libnotify ];
   };
 }
 

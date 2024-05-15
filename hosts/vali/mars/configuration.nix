@@ -42,10 +42,12 @@
       kitty.enable = true;
       hyprland.enable = true;
       newsboat.enable = true;
+      # foot.enable = true;
       fish.enable = true;
       stylix.enable = true;
       helix.enable = true;
       nh.enable = true;
+      spicetify.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
     };

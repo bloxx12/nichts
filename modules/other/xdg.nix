@@ -3,7 +3,7 @@ let
   username = config.modules.other.system.username;
   hmCfg = config.home-manager.users.${username};
 
-  primary_browser = "librewolf.desktop";
+  primary_browser = "firefox-schizo.desktop";
   mail_client = "thunderbird.desktop";
   file_manager = "pcmanfm.desktop";
   media_player = "mpv.desktop";
