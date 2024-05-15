@@ -59,7 +59,7 @@ in {
           cc = "cd ~ && clear";
           mv = "mv -iv";
           rm = "trash -v";
-          ls = "eza --icons";
+          # ls = "eza --icons";
           l = "eza -a --icons";
           la = "eza -lha --icons --git";
           kys = "shutdown now";
@@ -68,7 +68,7 @@ in {
           v = "nvim";
           h = "hx";
           e = "emacs";
-          update = ''nh os switch "${gitPath}"'';
+          # update = ''nh os switch "${gitPath}"'';
           flake = "cd '${gitPath}'";
         } // cfg.extraAliases;
       };

@@ -18,6 +18,7 @@ in {
             lsp.display-messages = true;
             cursor-shape = { insert = "bar"; };
             statusline.left =
+
               [ "mode" "spinner" "version-control" "file-name" ];
           };
           keys.normal = {
@@ -33,7 +34,7 @@ in {
         languages.language = [{
           name = "nix";
           auto-format = true;
-          formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+          formatter.command = "${pkgs.nixfmt-classic}/bin/nixfmt";
         }];
       };
     };
