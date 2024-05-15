@@ -10,9 +10,9 @@ in {
     home-manager.users.${username} = {
       stylix = {
         polarity = "dark";
-        image = ../../lib/wallpapers/FreeBSD.png;
-        base16Scheme =
-          "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
+        image = ../../lib/wallpapers/mafu_trad_wall.png;
+        # base16Scheme =
+        # "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         autoEnable = true;
         targets = {
           btop.enable = true;

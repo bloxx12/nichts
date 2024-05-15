@@ -149,7 +149,6 @@ in {
               "workspaces, 1, 5, dupa, slidevert"
             ];
           };
-
           dwindle = { no_gaps_when_only = true; };
 
           debug = { disable_logs = false; };
@@ -208,6 +207,7 @@ in {
             "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
             "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+            "$mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus"
             "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
             "$mainMod, B, togglespecialworkspace, btop"
             "$mainMod, V, togglespecialworkspace, pipewire"
@@ -261,8 +261,8 @@ in {
             # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e hx"
-            "[workspace special:keepassxc silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
+            "[workspace special:nixos; silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e hx"
+            "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
             "${swww}/bin/swww-daemon"
             "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
@@ -273,9 +273,9 @@ in {
             "${pkgs.procps}/bin/pkill btop"
             "${pkgs.procps}/bin/pkill pavucontrol"
             # and run it all again
-            "[workspace special:btop silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
+            "[workspace special:btop;silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
             # "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
-            "[workspace special:pipewire silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
+            "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
             # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
 
