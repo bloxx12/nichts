@@ -50,9 +50,9 @@
     };
     services = { pipewire.enable = true; };
     themes = {
-      gtk = { enable = true; };
+      gtk = { enable = false; };
       qt = {
-        enable = true;
+        enable = false;
         package = pkgs.kde-gruvbox;
         name = "Gruvbox-Dark";
       };

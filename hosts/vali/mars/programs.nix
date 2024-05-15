@@ -83,7 +83,7 @@ in {
     spotube
     steam
     strawberry
-    svls
+    # svls
     teamspeak_client
     telegram-desktop
     texliveFull
