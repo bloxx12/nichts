@@ -11,8 +11,8 @@ in {
       stylix = {
         polarity = "dark";
         image = ../../lib/wallpapers/mafu_trad_wall.png;
-        # base16Scheme =
-        # "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+        base16Scheme =
+          "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         autoEnable = true;
         targets = {
           btop.enable = true;
