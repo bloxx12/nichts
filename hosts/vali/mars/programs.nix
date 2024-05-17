@@ -4,6 +4,7 @@ let
   nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
 in {
   environment.systemPackages = with pkgs; [
+    abaddon
     alsa-utils
     android-tools
     asciinema
@@ -13,6 +14,7 @@ in {
     dig
     easyeffects
     element-desktop
+    emacs
     evince
     eza
     fastfetch
@@ -63,7 +65,6 @@ in {
     onlyoffice-bin
     pamixer
     pavucontrol
-    picom
     pdfarranger
     pfetch
     pidgin
@@ -85,7 +86,6 @@ in {
     telegram-desktop
     texliveFull
     tldr
-    trilium-desktop
     thunderbird
     tor-browser-bundle-bin
     trash-cli
