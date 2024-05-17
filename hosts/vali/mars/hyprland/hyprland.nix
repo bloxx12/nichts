@@ -220,7 +220,7 @@ in {
             # window focus
             "$mainMod, H, movefocus, l"
             "$mainMod, J, movefocus, d"
-            "$mainMod, K, movefocus, k"
+            "$mainMod, K, movefocus, u"
             "$mainMod, L, movefocus, r"
 
           ];
