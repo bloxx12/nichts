@@ -42,16 +42,20 @@
       kitty.enable = true;
       hyprland.enable = true;
       newsboat.enable = true;
-      # foot.enable = true;
+      foot.enable = true;
       fish.enable = true;
       stylix.enable = true;
       helix.enable = true;
       nh.enable = true;
       spicetify.enable = true;
+      kakoune.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
     };
-    services = { pipewire.enable = true; };
+    services = {
+      pipewire.enable = true;
+      dunst.enable = true;
+    };
     themes = {
       gtk = { enable = true; };
       qt = {

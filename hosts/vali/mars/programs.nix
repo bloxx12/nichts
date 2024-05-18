@@ -47,6 +47,7 @@ in {
     lazygit
     librewolf
     links2
+    lutris
     mars-mips
     gnome.nautilus
     ncmpcpp
@@ -102,6 +103,8 @@ in {
     vlc
     weechat
     wget
+    wine
+    winetricks
     wireguard-tools
     xournalpp
     yt-dlp
