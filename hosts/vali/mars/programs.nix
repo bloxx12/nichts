@@ -80,7 +80,6 @@ in {
     sherlock
     signal-desktop-beta
     smartmontools
-    spotube
     steam
     strawberry
     teamspeak_client

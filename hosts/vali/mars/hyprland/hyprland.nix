@@ -14,6 +14,7 @@ in {
   options.modules.programs.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
 
+    # Session variables for Hyprland
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "nvidia";
       GTK_USE_PORTAL = "1";
@@ -25,11 +26,13 @@ in {
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland";
       QT_QPA_PLATFORM = "wayland";
+      # Needed anymore?
       LIBSEAT_BACKEND = "logind";
       # WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
 
+    # xdg Portal
     xdg.portal = {
       enable = true;
       extraPortals = [
@@ -42,21 +45,29 @@ in {
       wayland.windowManager.hyprland = {
         enable = true;
         package = hyprland;
+        # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [ split-monitor-workspaces ];
+        # Xwayland for X applications
         xwayland.enable = true;
+        # No idea why I set this
         systemd = {
           enable = true;
           variables = [ "--all" ];
         };
+
+        # Hyprland settings
         settings = {
           "$mainMod" = "SUPER";
 
+          # Monitor config
           monitor = [
             "DP-2,1920x1080,0x0,1"
             "HDMI-A-2,1920x1080,1920x0,1"
             "HDMI-A-1,1920x1080,3840x0,1"
+            # Had the shadow monitor bug, so had to disable all unknown monitors.
             "Unknown-1,disable"
           ];
+          # Workspace config
           workspace = [
             "1, monitor:HDMI-A-1, default:true"
             "2, monitor:HDMI-A-1"
@@ -97,7 +108,7 @@ in {
             "special:nixos, decorate:false"
             "special:keepassxc, decorate:false"
           ];
-
+          # Input settings
           input = {
             kb_layout = "de";
             kb_variant = "";
@@ -115,9 +126,9 @@ in {
             sensitivity = 1.0;
             gaps_in = 0;
             gaps_out = 0;
-            border_size = 2;
+            border_size = 0;
           };
-
+          #Decoration settings
           decoration = {
             rounding = 0;
             blur = {
@@ -132,13 +143,14 @@ in {
             shadow_offset = "2 4";
             shadow_scale = 1;
           };
-
+          # Bezier curves for aninmations. 
+          # Generate your own at https://www.cssportal.com/css-cubic-bezier-generator/
           bezier = [
             "dupa, 0.1, 0.9, 0.1, 1.05"
             "apf,0.76,0,0.24,1"
             "fast,0.34,1.56,0.64,1"
           ];
-
+          # Hyprland anomations, using the above bezier curves
           animations = {
             enabled = true;
             animation = [
@@ -163,7 +175,7 @@ in {
             animate_mouse_windowdragging = false;
             force_default_wallpaper = 0;
           };
-
+          # Window rules for some programs.
           windowrulev2 = [
             "float, class:^(Tor Browser)$"
             "float, class:^(mpv)$"
@@ -177,7 +189,7 @@ in {
             "center, class: ^(code), title: ^(Open*)"
             "float, class:^(org.keepassxc.KeePassXC)$"
           ];
-
+          # Keybinds
           bind = [
             "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty -d ~"
             "$mainMod, Q, killactive"
@@ -186,6 +198,7 @@ in {
             "$mainMod, SPACE, togglefloating, active"
             "$mainMod, O, exec, obsidian --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
             # workspaces
+            # split-workspace is because of the split-workspace plugin
             "$mainMod, 1, split-workspace, 1"
             "$mainMod, 2, split-workspace, 2"
             "$mainMod, 3, split-workspace, 3"
@@ -206,14 +219,19 @@ in {
             "$mainMod SHIFT, 8, split-movetoworkspacesilent, 8"
             "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
             "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
+            # Screenshotting
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+            # File manager
             "$mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus"
-            "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
+            # Toggle the four different special workspaces.
             "$mainMod, B, togglespecialworkspace, btop"
             "$mainMod, V, togglespecialworkspace, pipewire"
             "$mainMod, N, togglespecialworkspace, nixos"
             "$mainMod, X, togglespecialworkspace, keepassxc"
+
+            # Reload hyprland
             "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
+            # Restart waybar
             "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${waybar}/bin/waybar"
           ];
           binde = [
@@ -224,7 +242,7 @@ in {
             "$mainMod, L, movefocus, r"
 
           ];
-
+          # Media controls
           bindl = let
             play-pause = "${pkgs.playerctl}/bin/playerctl play-pause";
             stop = "${pkgs.playerctl}/bin/playerctl stop";
@@ -248,14 +266,17 @@ in {
             ", XF86AudioRaiseVolume, exec, ${volume_up}"
             ", XF86AudioLowerVolume, exec, ${volume_down}"
           ];
+          # Mouse settings
           bindm = [
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+          # Some more movement-related settings
           binds = {
             pass_mouse_when_bound = false;
             movefocus_cycles_fullscreen = false;
           };
+          # Programs which get executed at Hyprland start.
           exec-once = [
             #start waybar
             # "${waybar}/bin/waybar"
