@@ -17,9 +17,9 @@ in {
             monitor = 1;
             follow = "none";
             width = 300;
-            height = 300;
-            origin = "top-center";
-            offset = "0x15";
+            height = 100;
+            origin = "top-right";
+            offset = "0x10";
             scale = 0;
             notification_limit = 3;
             idle_threshold = 120;
@@ -40,9 +40,7 @@ in {
             font = "JetBrains Mono 12";
             line_height = 0;
             markup = "full";
-            format = ''
-              <b>%s</b>
-              %b'';
+            format = "<b>%s</b>%b";
             alignment = "right";
             vertical_alignment = "center";
             show_age_threshold = 60;
