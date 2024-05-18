@@ -68,6 +68,7 @@ in {
           cd = "z";
           v = "nvim";
           h = "hx";
+          k = "kak";
           e = "emacs";
           update = ''nh os switch "${gitPath}"'';
           flake = "cd '${gitPath}'";

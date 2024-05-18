@@ -17,13 +17,13 @@ in {
         targets = {
           btop.enable = true;
           fish.enable = true;
-          dunst.enable = true;
+          dunst.enable = false;
           emacs.enable = true;
           firefox.enable = true;
           kitty.enable = true;
           lazygit.enable = true;
           rofi.enable = true;
-          foot.enable = true;
+          foot.enable = false;
           tmux.enable = true;
           waybar.enable = true;
           vim.enable = true;
@@ -73,6 +73,7 @@ in {
     stylix = {
       image = ../../lib/wallpapers/FreeBSD.png;
       polarity = "dark";
+      targets.plymouth.enable = false;
     };
   };
 }

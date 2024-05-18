@@ -4,6 +4,7 @@ _: {
     ./gtk.nix
     ./foot.nix
     ./mpv.nix
+    ./kakoune.nix
     ./qt.nix
     ./zathura.nix
     ./stylix.nix

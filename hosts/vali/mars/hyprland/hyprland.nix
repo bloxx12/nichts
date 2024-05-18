@@ -274,6 +274,7 @@ in {
             "${pkgs.procps}/bin/pkill pavucontrol"
             # and run it all again
             "[workspace special:btop;silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
+
             # "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
             # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
