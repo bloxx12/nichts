@@ -10,7 +10,7 @@ in {
     home-manager.users.${username} = {
       stylix = {
         polarity = "dark";
-        image = ../../lib/wallpapers/mafu_trad_wall.png;
+        image = ../../assets/wallpapers/mafu_trad_wall.png;
         base16Scheme =
           "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         autoEnable = true;
@@ -71,7 +71,7 @@ in {
       };
     };
     stylix = {
-      image = ../../lib/wallpapers/FreeBSD.png;
+      image = ../../assets/wallpapers/FreeBSD.png;
       polarity = "dark";
       targets.plymouth.enable = false;
     };
