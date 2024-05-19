@@ -13,13 +13,14 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = [ "clock" "custom/launcher" "tray" "hyprland/window" ];
+          modules-left = [ "custom/launcher" "tray" "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [ # "custom/dnd"
             "mpd"
             "cpu"
             "memory"
             "pulseaudio"
+            "clock"
           ];
 
           pulseaudio = {
@@ -140,13 +141,6 @@ in {
             format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
             actions = { on-click-right = "mode"; };
           };
-          "custom/xwayland" = {
-            exec = "${
-                inputs.hyprland.packages.${pkgs.system}.hyprland
-              }/bin/hyprctl clients | ${pkgs.ripgrep}/bin/rg -e 'xwayland: [1]' | ${pkgs.coreutils-full}/bin/wc -l";
-            interval = 1;
-            format = "X {}";
-          };
           mpd = {
             format =
               "󰝚 {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
@@ -222,7 +216,7 @@ in {
           }
 
           #workspaces button {
-              border-radius: 15px;
+              border-radius: 3px;
               padding-top: 0px;
               padding-right: 0px;
               padding-bottom: 0px;

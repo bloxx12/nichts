@@ -6,4 +6,5 @@ The whole project is licensed under GPL-3, with excpetion of the *lib* folder, s
 
 # credits
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
+
 Wallpapers: https://github.com/zhichaoh/catppuccin-wallpapers?tab=readme-ov-file

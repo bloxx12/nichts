@@ -1,0 +1,88 @@
+# --- kks
+eval %sh{ kks init }
+
+# --- kak-lsp
+eval %sh{kak-lsp --kakoune -s $kak_session}
+
+hook global WinCreate .* %{
+    lsp-inlay-hints-enable window
+    lsp-auto-signature-help-enable
+}
+
+hook global WinSetOption filetype=(nix|haskell) %{
+    lsp-enable-window
+}
+
+set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
+set-option global lsp_diagnostic_line_error_sign "!"
+set-option global lsp_diagnostic_line_warning_sign "?"
+
+hook global WinSetOption filetype=(rust) %{
+    map window user "l" ':enter-user-mode lsp<ret>' -docstring "LSP mode"
+    lsp-enable-window
+    lsp-auto-hover-insert-mode-disable
+    set-option window lsp_hover_anchor true
+    set-face window DiagnosticError default+u
+    set-face window DiagnosticWarning default+u
+    set-option window lsp_server_configuration rust.clippy_preference="on"
+}
+
+# hook global WinSetOption filetype=rust %{
+#     lsp-enable-window hook window BufWritePre .* lsp-formatting-sync
+#     hook  window -group rust-inlay-hints BufWritePost .* rust-analyzer-inlay-hints
+#     hook -once -always window WinSetOption filetype=.* %{
+#       remove-hooks window rust-inlay-hints
+#     }
+# }
+
+map global normal <a-d> ':lsp-definition<ret>'
+
+# --- kakoune-rainbow
+hook global ModuleLoaded rainbow %{
+    set-option global rainbow_colors rgb:FF3B2F+db rgb:FF9500+db rgb:FFCC02+db rgb:27cd41+db rgb:007AFF+db rgb:AF52DE+db
+    hook global WinSetOption filetype=(rust|python|c|cpp|scheme|lisp|clojure|javascript|json|kak|haskell|python|latex|nix) %{
+        rainbow-enable-window
+  }
+}
+
+# --- alacritty.kak
+hook global ModuleLoaded x11 %{
+    alias global terminal kitty-terminal
+    alias global popup alacritty-terminal-popup
+}
+
+# --- Kakship
+hook global ModuleLoaded kakship %{
+    kakship-enable
+}
+
+# --- Broot
+define-command -override broot-oneoff-select -docstring 'focus broot' %{
+    evaluate-commands %sh{
+        d="$(dirname "$kak_buffile")"
+        b="$(basename "$kak_buffile")"
+        echo echo -debug "$d"
+        broot_cmd="broot"
+        if [ -d "$d" ]; then
+            broot_cmd="$broot_cmd --cmd \":focus $d;:select $b\""
+        fi
+        echo "kks-connect ala-popup sh -c '""kks send edit $broot_cmd""'"
+    }
+}
+
+define-command ala-popup -params .. -shell-completion -docstring 'alacritty-terminal-popup <program> [arguments]: create a new terminal as an Alacritty window (class: popup, app_id: popup)' %{
+  nop %sh{
+    setsid alacritty -o window.dimensions.columns=200 window.dimensions.lines=57 --title popup --class 'alacritty-popup' --command "$@" < /dev/null > /dev/null 2>&1 &
+  }
+}
+
+# --- Map
+map global normal <c-f> ':fzf-mode<ret>f<ret>'
+map global normal <c-t> ':alacritty-popup<ret>'
+
+require-module fzf
+set-option global fzf_terminal_command 'ala-popup kak -c %val{session} -e "%arg{@}"'
+
+
+require-module alacritty
+require-module rainbow
