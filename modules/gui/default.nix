@@ -15,6 +15,7 @@ _: {
     ./vivado.nix
     ./firefox.nix
     ./steam.nix
+    ./waybar.nix
     ./schizofox.nix
     ./minecraft.nix
     #        ./emacs

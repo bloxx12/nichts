@@ -51,6 +51,7 @@
       stylix.enable = true;
       helix.enable = true;
       nh.enable = true;
+      waybar.enable = true;
       spicetify.enable = true;
       kakoune.enable = true;
       schizofox.enable = true;

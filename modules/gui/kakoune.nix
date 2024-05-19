@@ -71,7 +71,7 @@ in {
             }
           ];
         };
-
+        extraConfig = "\n";
       };
     };
 
