@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 let
   username = config.modules.other.system.username;
   hmCfg = config.home-manager.users.${username};

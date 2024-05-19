@@ -15,11 +15,9 @@ in {
     dig
     easyeffects
     element-desktop
-    emacs
     evince
     eza
     fastfetch
-    fd
     feh
     (fenix.complete.withComponents [
       "cargo"
@@ -75,7 +73,6 @@ in {
     polkit
     python3
     qbittorrent
-    ripgrep
     rustdesk
     scc
     scummvm
