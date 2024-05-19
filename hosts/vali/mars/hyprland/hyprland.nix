@@ -124,9 +124,9 @@ in {
 
           general = {
             sensitivity = 1.0;
-            gaps_in = 0;
-            gaps_out = 0;
-            border_size = 0;
+            gaps_in = 4;
+            gaps_out = 10;
+            border_size = 2;
           };
           #Decoration settings
           decoration = {
