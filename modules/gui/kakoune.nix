@@ -27,13 +27,13 @@ in {
             enableMouse = true;
             assistant = "none";
           };
-          numberLines.enable = true;
-          numberLines.relative = true;
-          numberLines.highlightCursor = true;
+          # numberLines.enable = true;
+          # numberLines.relative = true;
+          # numberLines.highlightCursor = true;
           # numberLines.separator = "  ";
-          showMatching = true;
-          indentWidth = 2;
-          tabStop = 2;
+          # showMatching = true;
+          # indentWidth = 2;
+          # tabStop = 2;
           scrollOff.lines = 1;
           scrollOff.columns = 3;
           keyMappings = [
@@ -69,9 +69,54 @@ in {
               effect = ":bn<ret>";
               docstring = "go to next buffer";
             }
+            {
+              mode = "normal";
+              key = " f";
+              effect = ":fzf-mode<ret>";
+              docstring = "open fzf";
+            }
           ];
         };
-        extraConfig = "\n";
+        extraConfig = ''
+          # display line numbers
+          add-highlighter global/ number-lines -hlcursor -relative -separator "  " -cursor-separator " |"
+          # show matching symbols
+          add-highlighter global/ show-matching
+          # Intenting
+          set-option global tabstop 4
+          set-option global indentwidth 4
+          # Scrolloff
+          set-option global scrolloff 8,3
+          # spellcheck (requires aspell)
+          map -docstring "check document for spelling" global user w ": spell<ret>"
+          map -docstring "clear document spelling" global user q ": spell-clear<ret>"
+          plug "alexherbo2/auto-pairs.kak" config %{
+            enable-auto-pairs
+          }
+          plug "andreyorst/fzf.kak" config %{
+            require-module fzf
+            require-module fzf-grep
+            require-module fzf-file
+          } defer fzf %{
+            set-option global fzf_highlight_command "lat -r {}"
+          } defer fzf-file %{
+            set-option global fzf_file_command "fd . --no-ignore-vcs"
+          } defer fzf-grep %{
+            set-option global fzf_grep_command "fd"
+          }
+          plug "andreyorst/powerline.kak" defer kakoune-themes %{
+            powerline-theme pastel
+          } defer powerline %{
+            powerline-format global "git lsp bufname filetype mode_info lsp line_column position"
+            set-option global powerline_separator_thin ""
+            set-option global powerline_separator ""
+          } config %{
+            powerline-start
+          }
+          plug "evanrelf/byline.kak" config %{
+            require-module "byline"
+          }
+        '';
       };
     };
 
