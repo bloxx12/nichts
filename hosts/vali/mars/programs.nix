@@ -46,6 +46,7 @@ in {
     krita
     lazygit
     librewolf
+    libtool
     links2
     lutris
     mars-mips
@@ -58,6 +59,7 @@ in {
     nicotine-plus
     nil
     nitch
+    nixfmt
     nixpkgs-wayland.swww
     nmap
     notesnook
