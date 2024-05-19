@@ -282,7 +282,7 @@ in {
             # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${pkgs.kitty}/bin/kitty -d ~/repos/nichts -e hx"
+            "[workspace special:nixos; silent;tile] ${pkgs.emacs}/bin/emacsclient ~/repos/nichts -c"
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
             "${swww}/bin/swww-daemon"

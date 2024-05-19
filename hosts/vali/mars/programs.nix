@@ -10,6 +10,7 @@ in {
     asciinema
     bibata-cursors
     blanket
+    cmake
     difftastic
     dig
     easyeffects
@@ -18,6 +19,7 @@ in {
     evince
     eza
     fastfetch
+    fd
     feh
     (fenix.complete.withComponents [
       "cargo"

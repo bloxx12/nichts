@@ -26,6 +26,7 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true; 
+  services.emacs.enable = true;
   modules = {
     other = {
       system = {
@@ -53,9 +54,14 @@
       nh.enable = true;
       waybar.enable = true;
       spicetify.enable = true;
-      kakoune.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
+    };
+    editors = {
+      emacs = {
+        enable = true;
+        doom.enable = true;
+      };
     };
     services = {
       pipewire.enable = true;
