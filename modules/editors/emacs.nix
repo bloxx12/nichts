@@ -1,13 +1,12 @@
 # Taken from: https://github.com/hlissner/dotfiles/blob/master/modules/editors/emacs.nix
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
-# with lib.my;
 let
   cfg = config.modules.editors.emacs;
-  forgeUrl = "https://github.com";
-  repoUrl = "${forgeUrl}/doomemacs/doomemacs";
-  configRepoUrl = "${forgeUrl}/bloxx12/doom-emacs-config";
+  username = config.modules.other.system.username;
+  repoUrl = inputs.doomemacs;
+  configRepoUrl = inputs.doom-emacs-config;
 in {
   options.modules.editors.emacs = {
     enable = mkEnableOption "emacs";
@@ -49,7 +48,8 @@ in {
       beancount
     ];
 
-    environment.sessionVariables.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
+    home-manager.users.${username}.home.sessionPath =
+      [ "/home/vali/.config/emacs/bin" ];
 
     # modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
@@ -57,9 +57,10 @@ in {
 
     system.userActivationScripts = mkIf cfg.doom.enable {
       installDoomEmacs = ''
-        if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-           git clone --depth=1 --single-branch "${repoUrl}" "$XDG_CONFIG_HOME/emacs"
-           git clone "${configRepoUrl}" "$XDG_CONFIG_HOME/doom"
+        #!/bin/bash
+        if [ ! -d "/home/${username}/.config/emacs" ]; then
+           git clone --depth=1 --single-branch "${repoUrl}" "/home/${username}/.config/emacs"
+           git clone "${configRepoUrl}" "/home/${username}/.config/doom"
         fi
       '';
     };

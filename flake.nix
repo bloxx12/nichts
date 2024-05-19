@@ -21,6 +21,14 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
+    doomemacs = {
+      url = "github:doomemacs/doomemacs";
+      flake = false;
+    };
+    doom-emacs-config = {
+      url = "github:bloxx12/doom-emacs-config";
+      flake = false;
+    };
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
