@@ -1,8 +1,7 @@
 # nichts
 My personal collection of NixOS configuration files
 # License 
-The whole project is licensed under GPL-3, with excpetion of the *lib* folder, since I do not know the copyright of some of the wallpapers. 
-
+No Idea at this point 
 # Flake structure: 
 ```
 .
@@ -112,5 +111,8 @@ The whole project is licensed under GPL-3, with excpetion of the *lib* folder, s
 ```
 # credits
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
-
+Sioodmy: https://github.com/sioodmy/dotfiles
+Heinrik Lissner: https://github.com/hlissner/dotfiles/
+Lokasku: https://github.com/lokasku/nix-config
+NotaShelf: https://github.com/notashelf/Nyx
 Wallpapers: https://github.com/zhichaoh/catppuccin-wallpapers?tab=readme-ov-file
