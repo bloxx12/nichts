@@ -7,6 +7,11 @@ let
   username = config.modules.other.system.username;
   repoUrl = inputs.doomemacs;
   configRepoUrl = inputs.doom-emacs-config;
+  emacs-desktop-symbol = pkgs.makeDesktopItem {
+    name = "emacsclient";
+    desktopName = "Emacs Client";
+    exec = "emacsclient -c -a emacs";
+  };
 in {
   options.modules.editors.emacs = {
     enable = mkEnableOption "emacs";
@@ -14,17 +19,16 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # Why is this needed?
-    # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+    ## Emacs itself as an overlay
+    nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
     environment.systemPackages = with pkgs; [
-      ## Emacs itself
-      emacs
       binutils # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacsNativeComp).emacsWithPackages
         (epkgs: [ epkgs.vterm ]))
 
+      emacs-desktop-symbol
       ## Doom dependencies
       git
       (ripgrep.override { withPCRE2 = true; })

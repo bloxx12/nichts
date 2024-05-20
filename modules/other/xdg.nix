@@ -3,9 +3,9 @@ let
   username = config.modules.other.system.username;
   hmCfg = config.home-manager.users.${username};
 
-  primary_browser = "schizofox.desktop";
+  primary_browser = "firefox-schizo.desktop";
   mail_client = "thunderbird.desktop";
-  file_manager = "pcmanfm.desktop";
+  file_manager = "nautilus.desktop";
   media_player = "mpv.desktop";
   image_viewer = "imv.desktop";
   text_editor = "helix.desktop";

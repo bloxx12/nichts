@@ -23,7 +23,7 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   # boot.kernelModules = [ "v4l2loopback" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true; 
   services.emacs.enable = true;
@@ -60,7 +60,7 @@
     editors = {
       emacs = {
         enable = true;
-        doom.enable = true;
+        doom.enable = false;
       };
     };
     services = {
