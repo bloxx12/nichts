@@ -86,6 +86,13 @@ in {
               URLTemplate =
                 "https://wiki.debian.org/FrontPage?action=fullsearch&value={searchTerms}";
             }
+            {
+              Name = "noogle";
+              Descriptiom = "Noogle Search";
+              Alias = "!no";
+              Method = "GET";
+              URLTemplate = "https://noogle.dev/";
+            }
           ];
         };
         extensions = {
