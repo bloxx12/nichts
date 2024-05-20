@@ -14,25 +14,6 @@ in {
   options.modules.programs.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
 
-    # Session variables for Hyprland
-    environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "nvidia";
-      GTK_USE_PORTAL = "1";
-      NIXOS_XDG_OPEN_USE_PORTAL = "1";
-      XDG_CURRENT_DESKTOP = "Hyprland";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Hyprland";
-      SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      GDK_BACKEND = "wayland";
-      WLR_RENDERER_ALLOW_SOFTWARE = "1";
-      QT_QPA_PLATFORM = "wayland";
-      # Needed anymore?
-      LIBSEAT_BACKEND = "logind";
-      # WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-    };
-
     # xdg Portal
     xdg.portal = {
       enable = true;

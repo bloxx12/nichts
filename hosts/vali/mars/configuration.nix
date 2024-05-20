@@ -39,13 +39,18 @@
         enableDirenv = true;
       };
     };
+    wms = {
+        wayland = {
+            enable = true;
+            hyprland.enable = true;
+        };
+    };
     programs = {
       vesktop.enable = true;
       ssh.enable = true;
       btop.enable = true;
       mpv.enable = true;
       kitty.enable = true;
-      hyprland.enable = true;
       newsboat.enable = true;
       foot.enable = true;
       fish.enable = true;
