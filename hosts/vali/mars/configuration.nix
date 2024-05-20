@@ -40,10 +40,10 @@
       };
     };
     wms = {
-        wayland = {
-            enable = true;
-            hyprland.enable = true;
-        };
+      wayland = {
+        enable = true;
+        hyprland.enable = true;
+      };
     };
     programs = {
       vesktop.enable = true;
