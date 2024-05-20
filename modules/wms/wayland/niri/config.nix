@@ -19,7 +19,7 @@ with theme.colors; {
 
     input = {
       keyboard.xkb = {
-        layout = "pl";
+        layout = "de";
         options = "caps:escape";
       };
       touchpad = {
