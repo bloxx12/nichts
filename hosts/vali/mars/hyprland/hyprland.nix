@@ -25,6 +25,7 @@ in {
       SDL_VIDEODRIVER = "wayland";
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland";
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
       QT_QPA_PLATFORM = "wayland";
       # Needed anymore?
       LIBSEAT_BACKEND = "logind";
@@ -121,7 +122,6 @@ in {
             repeat_delay = 250;
             tablet = { output = "HDMI-A-2"; };
           };
-
           general = {
             sensitivity = 1.0;
             gaps_in = 4;
@@ -163,7 +163,7 @@ in {
           };
           dwindle = { no_gaps_when_only = true; };
 
-          debug = { disable_logs = false; };
+          debug.disable_logs = false;
 
           misc = {
             enable_swallow = true;

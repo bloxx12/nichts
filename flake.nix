@@ -6,6 +6,7 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "hyprland/nixpkgs";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-plugins = {
@@ -29,6 +30,7 @@
       url = "github:bloxx12/doom-emacs-config";
       flake = false;
     };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,10 +49,7 @@
       };
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    nur = {
-      url = "github:nix-community/NUR";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nur = { url = "github:nix-community/NUR"; };
 
     agenix.url = "github:ryantm/agenix";
 
