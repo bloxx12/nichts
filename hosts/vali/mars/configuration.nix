@@ -23,7 +23,7 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   # boot.kernelModules = [ "v4l2loopback" ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true; 
   services.emacs.enable = true;
