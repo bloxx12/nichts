@@ -10,119 +10,105 @@ The whole project is licensed under GPL-3, with excpetion of the *lib* folder, s
 │   └── wallpapers # My wallpapers
 ├── flake.lock # Lock file
 ├── flake.nix # Flake inputs
-├── hosts
-│   ├── default.nix
+├── hosts # My different hosts
+│   ├── default.nix # Where the different hosts are specified
 │   └── vali
-│       └── mars
-│           ├── awesome
-│           │   └── awesome.nix
-│           ├── configuration.nix
+│       └── mars # My main computer 
+│           ├── configuration.nix # Main configuration file 
 │           ├── default.nix
-│           ├── hardware-configuration.nix
-│           ├── profile.nix
-│           └── programs.nix
+│           ├── hardware-configuration.nix # Hardware config for my system
+│           ├── profile.nix # importing different system options
+│           └── programs.nix # Installed Programs
 ├── lib
 │   ├── default.nix
-│   └── options.nix
+│   └── options.nix # For the future: some options to set if I need them
 ├── LICENSE
 ├── modules
 │   ├── cli
 │   │   ├── default.nix
-│   │   ├── fish.nix
-│   │   ├── neovim.nix
-│   │   └── nh.nix
+│   │   ├── fish.nix # Fish shell config
+│   │   ├── neovim.nix # Incomplete neovim config
+│   │   └── nh.nix # nix helper config
 │   ├── default.nix
-│   ├── editors
-│   │   ├── default.nix
-│   │   └── emacs.nix
+│   ├── editors # My different editors
+│   │   ├── default.nix 
+│   │   ├── emacs.nix # Emacs config
+│   │   ├── helix.nix # Helix config
+│   │   ├── kakoune.nix # Kakoune config
+│   │   └── neovim.nix # Neovim config
 │   ├── gui
-│   │   ├── anyrun
-│   │   │   ├── anyrun.nix
+│   │   ├── anyrun # My Anyrun config
+│   │   │   ├── anyrun.nix # Anyrun config
 │   │   │   ├── default.nix
-│   │   │   └── style.css
+│   │   │   └── style.css # Anyrun styling
 │   │   ├── default.nix
-│   │   ├── emacs
-│   │   │   ├── default.nix
-│   │   │   ├── doom.d
-│   │   │   └── emacs.nix
-│   │   ├── firefox.nix
-│   │   ├── foot.nix
-│   │   ├── gtk.nix
-│   │   ├── kakoune
-│   │   │   ├── default.nix
-│   │   │   ├── kak-lsp.toml
-│   │   │   ├── kakoune.nix
-│   │   │   ├── kakrc
-│   │   │   └── starship.toml
-│   │   ├── kakoune.nix
-│   │   ├── kitty.nix
-│   │   ├── minecraft.nix
-│   │   ├── mpv.nix
-│   │   ├── qt.nix
-│   │   ├── rofi.nix
-│   │   ├── schizofox.nix
-│   │   ├── spicetify.nix
-│   │   ├── steam.nix
-│   │   ├── stylix.nix
-│   │   ├── vesktop.nix
-│   │   ├── vivado.nix
-│   │   ├── waybar.nix
-│   │   └── zathura.nix
+│   │   ├── foot.nix # Foot config
+│   │   ├── gtk.nix # Gtk config
+│   │   ├── kitty.nix # Kitty config
+│   │   ├── minecraft.nix # Minecraft config
+│   │   ├── mpv.nix # Mpv config
+│   │   ├── qt.nix # Qt config
+│   │   ├── rofi.nix # Rofi config
+│   │   ├── schizofox.nix # Schizofox config
+│   │   ├── spicetify.nix # Spotify config
+│   │   ├── steam.nix # Steam config
+│   │   ├── stylix.nix # Stylix config
+│   │   ├── vesktop.nix # Discord config
+│   │   ├── vivado.nix # Vivado my beloved <3
+│   │   ├── waybar.nix # Waybar config
+│   │   └── zathura.nix # Zathura config
 │   ├── other
 │   │   ├── default.nix
-│   │   ├── home-manager.nix
-│   │   ├── system.nix
-│   │   └── xdg.nix
+│   │   ├── home-manager.nix # Home Manager config
+│   │   ├── system.nix # System config
+│   │   └── xdg.nix # XDG config
 │   ├── services
 │   │   ├── default.nix
-│   │   ├── dunst.nix
-│   │   ├── greetd.nix
-│   │   ├── pipewire.nix
-│   │   └── ssh.nix
+│   │   ├── dunst.nix # Dunst Daemon config
+│   │   ├── greetd.nix # Greetd greeter config
+│   │   ├── pipewire.nix # Audio config
+│   │   └── ssh.nix # Ssh config
 │   ├── tui
-│   │   ├── btop.nix
-│   │   ├── config
+│   │   ├── btop.nix # btop config
 │   │   ├── default.nix
-│   │   ├── helix.nix
-│   │   ├── ncmpcpp.nix
-│   │   ├── neovim.nix
-│   │   ├── newsboat.nix
-│   │   └── yazi.nix
-│   └── wms
-│       ├── wayland
+│   │   ├── ncmpcpp.nix # Ncmpcpp config
+│   │   ├── newsboat.nix # Newsboat config
+│   │   └── yazi.nix # Yazi config
+│   └── wms # My different Window Managers
+│       ├── wayland # Wayland Compositors
 │       │   ├── default.nix
-│       │   ├── hypr
+│       │   ├── hypr # Hypr* stuff
 │       │   │   ├── default.nix
-│       │   │   ├── idle.nix
-│       │   │   ├── land.nix
-│       │   │   ├── lock.nix
-│       │   │   └── paper.nix
-│       │   ├── niri
-│       │   │   ├── config.nix
+│       │   │   ├── idle.nix # Hypridle config
+│       │   │   ├── land.nix # Hyprland config
+│       │   │   ├── lock.nix # Hyprlock config
+│       │   │   └── paper.nix # Hyprpaper config
+│       │   ├── niri # The Miri compositor
+│       │   │   ├── config.nix # Niri config
 │       │   │   └── default.nix
-│       │   ├── services.nix
-│       │   └── variables.nix
-│       └── x
-│           ├── awesome
-│           │   ├── awesome.nix
-│           │   └── rc.lua
+│       │   ├── services.nix # Enabled services I need in wayland
+│       │   └── variables.nix # Wayland system variables
+│       └── x # My X window managers 
+│           ├── awesome # Awesome window manager
+│           │   ├── awesome.nix # Awesome config
+│           │   └── rc.lua #  Awesome config file
 │           └── default.nix
 ├── notes.md
-├── options
+├── options # Options for my system
 │   ├── boot
-│   │   └── grub-boot.nix
+│   │   └── grub-boot.nix # Grub config
 │   ├── common
-│   │   ├── bluetooth.nix
+│   │   ├── bluetooth.nix # Bluetooth
 │   │   ├── gpu
-│   │   │   └── nvidia.nix
-│   │   ├── networking.nix
-│   │   ├── pin-registry.nix
-│   │   └── preserve-system.nix
+│   │   │   └── nvidia.nix # Fuck Nvidia
+│   │   ├── networking.nix # Networking config
+│   │   ├── pin-registry.nix # No idea
+│   │   └── preserve-system.nix # No idea
 │   └── desktop
-│       ├── fonts.nix
-│       └── monitors.nix
-├── overlay.nix
-└── README.md
+│       ├── fonts.nix # My fonts
+│       └── monitors.nix # Monitor config
+├── overlay.nix # Overlays
+└── README.md # This file # This file
 ```
 # credits
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
