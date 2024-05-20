@@ -65,7 +65,7 @@ in {
             "HDMI-A-2,1920x1080,1920x0,1"
             "HDMI-A-1,1920x1080,3840x0,1"
             # Had the shadow monitor bug, so had to disable all unknown monitors.
-            "Unknown-1,disable"
+            # "Unknown-1,disable"
           ];
           # Workspace config
           workspace = [
@@ -282,7 +282,7 @@ in {
             # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${pkgs.emacs}/bin/emacsclient ~/repos/nichts -c"
+            "[workspace special:nixos; silent;tile] ${pkgs.bash}/bin/bash cd ~/repos/nichts && emacsclient -c"
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
             "${swww}/bin/swww-daemon"
