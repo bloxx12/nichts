@@ -110,9 +110,11 @@ No Idea at this point
 └── README.md # This file # This file
 ```
 # credits
+```
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
 Sioodmy: https://github.com/sioodmy/dotfiles
 Heinrik Lissner: https://github.com/hlissner/dotfiles/
 Lokasku: https://github.com/lokasku/nix-config
 NotaShelf: https://github.com/notashelf/Nyx
 Wallpapers: https://github.com/zhichaoh/catppuccin-wallpapers?tab=readme-ov-file
+```
