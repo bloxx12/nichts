@@ -45,7 +45,7 @@ in {
     keepassxc
     krita
     lazygit
-    librewolf
+    #librewolf
     libtool
     links2
     lutris
@@ -106,6 +106,7 @@ in {
     wine
     winetricks
     wireguard-tools
+    wl-clipboard
     xournalpp
     yt-dlp
     zapzap
