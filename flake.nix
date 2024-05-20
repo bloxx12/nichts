@@ -6,9 +6,8 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "hyprland/nixpkgs";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
+    hyprland.url =
+      "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.40.0&submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
