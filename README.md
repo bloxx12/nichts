@@ -4,6 +4,7 @@ My personal collection of NixOS configuration files
 The whole project is licensed under GPL-3, with excpetion of the *lib* folder, since I do not know the copyright of some of the wallpapers. 
 
 # Flake structure: 
+```
 .
 ├── assets
 │   └── wallpapers # My wallpapers
@@ -122,6 +123,7 @@ The whole project is licensed under GPL-3, with excpetion of the *lib* folder, s
 │       └── monitors.nix
 ├── overlay.nix
 └── README.md
+```
 # credits
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
 
