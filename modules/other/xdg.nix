@@ -3,13 +3,13 @@ let
   username = config.modules.other.system.username;
   hmCfg = config.home-manager.users.${username};
 
-  primary_browser = "firefox-schizo.desktop";
+  primary_browser = "Schizofox.desktop";
   mail_client = "thunderbird.desktop";
   file_manager = "nautilus.desktop";
   media_player = "mpv.desktop";
   image_viewer = "imv.desktop";
   text_editor = "helix.desktop";
-  terminal = "kitty.desktop";
+  terminal = "foot.desktop";
 in {
 
   environment.sessionVariables = { TERMINAL = "${terminal}"; };

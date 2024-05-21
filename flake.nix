@@ -1,5 +1,5 @@
 {
-  description = "lololo";
+  description = "My NixOS config flake";
   outputs = inputs@{ self, nixpkgs, ... }: {
     inherit (nixpkgs) lib;
     nixosConfigurations = import ./hosts { inherit inputs; };
@@ -51,8 +51,8 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nur = { url = "github:nix-community/NUR"; };
     nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
 

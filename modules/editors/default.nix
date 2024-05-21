@@ -1,1 +1,1 @@
-_: { imports = [ ./emacs.nix ./helix.nix ./kakoune.nix ]; }
+_: { imports = [ ./emacs.nix ./helix.nix ./kakoune.nix ./nixvim.nix ]; }
