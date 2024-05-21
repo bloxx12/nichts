@@ -13,7 +13,6 @@ _: {
     ./rofi.nix
     ./kitty.nix
     ./vivado.nix
-    ./firefox.nix
     ./steam.nix
     ./waybar.nix
     ./schizofox.nix

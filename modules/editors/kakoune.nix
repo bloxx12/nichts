@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.programs.kakoune;
+  cfg = config.modules.editors.kakoune;
   username = config.modules.other.system.username;
   # inherit (inputs.kakoune.packages.${pkgs.system}) kakoun;
 in {
-  options.modules.programs.kakoune.enable = mkEnableOption "kakoune";
+  options.modules.editors.kakoune.enable = mkEnableOption "kakoune";
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {

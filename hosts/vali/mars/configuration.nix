@@ -10,7 +10,7 @@
     settings = {
       substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [
-        # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
       # enable flakes
       experimental-features = [ "nix-command" "flakes" ];
@@ -55,7 +55,6 @@
       foot.enable = true;
       fish.enable = true;
       stylix.enable = true;
-      helix.enable = true;
       nh.enable = true;
       waybar.enable = true;
       spicetify.enable = true;
