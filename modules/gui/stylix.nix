@@ -23,7 +23,7 @@ in {
           kitty.enable = true;
           lazygit.enable = true;
           rofi.enable = true;
-          foot.enable = false;
+          foot.enable = true;
           tmux.enable = true;
           waybar.enable = true;
           vim.enable = true;
@@ -54,14 +54,12 @@ in {
             name = "JetBrainsMono";
           };
           serif = {
-            package =
-              (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-            name = "JetBrainsMono";
+            package = pkgs.noto-fonts;
+            name = "Noto Serif";
           };
           sansSerif = {
-            package =
-              (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-            name = "JetBrainsMono";
+            package = pkgs.lexend;
+            name = "Lexend";
           };
           emoji = {
             package = pkgs.noto-fonts-emoji;
@@ -74,6 +72,8 @@ in {
       image = ../../assets/wallpapers/FreeBSD.png;
       polarity = "dark";
       targets.plymouth.enable = false;
+      base16Scheme =
+        "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     };
   };
 }

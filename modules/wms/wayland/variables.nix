@@ -25,8 +25,8 @@ in {
       DISABLE_QT_COMPAT = "0";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       MOZ_ENABLE_WAYLAND = "1";
-      WLR_BACKEND = "vulkan";
-      WLR_RENDERER = "vulkan";
+     # WLR_BACKEND = "vulkan";
+     # WLR_RENDERER = "vulkan";
       XDG_SESSION_TYPE = "wayland";
       SDL_VIDEODRIVER = "wayland";
       CLUTTER_BACKEND = "wayland";
