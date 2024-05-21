@@ -23,7 +23,7 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   # boot.kernelModules = [ "v4l2loopback" ];
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true; 
   services.emacs.enable = true;
@@ -67,6 +67,8 @@
         enable = true;
         doom.enable = false;
       };
+      helix.enable = true;
+      kakoune.enable = true;
     };
     services = {
       pipewire.enable = true;

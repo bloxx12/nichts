@@ -1,1 +1,1 @@
-_: { imports = [ ./cli ./gui ./tui ./other ./services ./editors ]; }
+_: { imports = [ ./cli ./gui ./tui ./other ./services ./editors ./wms ]; }
