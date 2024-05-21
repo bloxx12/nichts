@@ -75,6 +75,7 @@ in {
     polkit
     python3
     qbittorrent
+    ripgrep
     rustdesk
     scc
     scummvm

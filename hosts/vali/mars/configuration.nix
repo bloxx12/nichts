@@ -64,7 +64,7 @@
     editors = {
       emacs = {
         enable = false;
-        doom.enable =  false;
+        doom.enable = false;
       };
       helix.enable = true;
       kakoune.enable = true;

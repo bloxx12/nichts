@@ -1,12 +1,11 @@
 { config, lib, pkgs, ... }:
-with lib;
 let
   cfg = config.modules.editors.helix;
   username = config.modules.other.system.username;
 in {
-  options.modules.editors.helix.enable = mkEnableOption "helix";
+  options.modules.editors.helix.enable = lib.mkEnableOption "helix";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
@@ -20,7 +19,7 @@ in {
             cursor-shape = { insert = "bar"; };
             statusline.left =
 
-              [ "mode" "spinner" "version-control" "file-name" ];
+              [ "mode"  "spinner" "version-control" "file-name" ];
           };
           keys.normal = {
             C-g =

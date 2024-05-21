@@ -12,6 +12,7 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
+      inputs.nixvim.nixosModules.nixvim
     ];
   };
 
