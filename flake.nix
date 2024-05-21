@@ -50,7 +50,10 @@
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nur = { url = "github:nix-community/NUR"; };
-
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix.url = "github:ryantm/agenix";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";

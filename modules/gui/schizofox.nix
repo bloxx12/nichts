@@ -14,11 +14,17 @@ in {
       programs.schizofox = {
         enable = true;
         theme = {
+        #  colors = {
+        #    background-darker = "181825";
+        #    background = "1e1e2e";
+        #    foreground = "cdd6f4";
+        #  };
           colors = {
-            background-darker = "181825";
-            background = "1e1e2e";
-            foreground = "cdd6f4";
+            background-darker = "1d2021";
+            background = "282828";
+            foreground = "ebdbb2";
           };
+
           font = "Lexend";
           extraUserChrome = ''
             body {

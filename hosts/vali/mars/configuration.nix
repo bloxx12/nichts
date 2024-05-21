@@ -68,6 +68,7 @@
       };
       helix.enable = true;
       kakoune.enable = true;
+      nixvim.enable = true;
     };
     services = {
       pipewire.enable = true;

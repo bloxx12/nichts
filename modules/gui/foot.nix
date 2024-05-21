@@ -66,7 +66,7 @@ in {
           };
           cursor = {
             style = "beam";
-            blink = "no";
+            blink = "true";
           };
           mouse = {
             hide-when-typing = "yes";
