@@ -12,7 +12,8 @@ in {
         polarity = "dark";
         image = ../../assets/wallpapers/mafu_trad_wall.png;
         base16Scheme =
-          "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+          #"${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+          "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
         autoEnable = true;
         targets = {
           btop.enable = true;
@@ -73,7 +74,8 @@ in {
       polarity = "dark";
       targets.plymouth.enable = false;
       base16Scheme =
-        "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+        #"${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+        "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
     };
   };
 }

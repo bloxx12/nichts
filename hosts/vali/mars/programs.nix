@@ -107,6 +107,7 @@ in {
     winetricks
     wireguard-tools
     wl-clipboard
+    xdg-utils
     xournalpp
     yt-dlp
     zapzap

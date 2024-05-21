@@ -6,7 +6,7 @@ let
   inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
   inherit (inputs.nixpkgs-wayland.packages.${pkgs.system})
-    wl-clipboard swww wlsunset;
+    foot wl-clipboard swww wlsunset;
   inherit (inputs.waybar.packages.${pkgs.system}) waybar;
   inherit (inputs.split-monitor-workspaces.packages.${pkgs.system})
     split-monitor-workspaces;
@@ -148,7 +148,7 @@ in {
 
           misc = {
             enable_swallow = true;
-            swallow_regex = "kitty";
+            swallow_regex = "foot";
             focus_on_activate = true;
             vrr = 1;
             vfr = true;
@@ -172,7 +172,7 @@ in {
           ];
           # Keybinds
           bind = [
-            "$mainMod, RETURN, exec, ${pkgs.kitty}/bin/kitty -d ~"
+            "$mainMod, RETURN, exec, ${foot}/bin/foot -D ~"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
@@ -263,7 +263,8 @@ in {
             # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${pkgs.bash}/bin/bash cd ~/repos/nichts && emacsclient -c"
+            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/repos/nichts nvim"
+
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
             "${swww}/bin/swww-daemon"
@@ -275,9 +276,9 @@ in {
             "${pkgs.procps}/bin/pkill btop"
             "${pkgs.procps}/bin/pkill pavucontrol"
             # and run it all again
-            "[workspace special:btop;silent;tile] ${pkgs.kitty}/bin/kitty -e ${pkgs.btop}/bin/btop"
+            "[workspace special:btop;silent;tile] ${foot}/bin/foot ${pkgs.btop}/bin/btop"
 
-            # "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
+            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
             # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
@@ -291,7 +292,7 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [ mako libnotify ];
+    environment.systemPackages = with pkgs; [ libnotify ];
   };
 }
 
