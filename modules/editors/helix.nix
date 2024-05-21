@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.programs.helix;
+  cfg = config.modules.editors.helix;
   username = config.modules.other.system.username;
 in {
-  options.modules.programs.helix.enable = mkEnableOption "helix";
+  options.modules.editors.helix.enable = mkEnableOption "helix";
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
