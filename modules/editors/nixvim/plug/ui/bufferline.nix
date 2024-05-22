@@ -9,7 +9,7 @@ in {
     plugins = {
       bufferline = {
         enable = true;
-        separatorStyle = "thick"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
+        separatorStyle = "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
         highlights = {
           fill = {
             fg = colors.base00;
