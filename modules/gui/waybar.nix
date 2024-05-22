@@ -1,11 +1,10 @@
 { config, lib, inputs, pkgs, ... }:
-with lib;
 let
   cfg = config.modules.programs.waybar;
   inherit (config.modules.other.system) username;
 in {
-  options.modules.programs.waybar.enable = mkEnableOption "waybar";
-  config = mkIf cfg.enable {
+  options.modules.programs.waybar.enable = lib.mkEnableOption "waybar";
+  config = lib.mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.waybar = {
         enable = true;

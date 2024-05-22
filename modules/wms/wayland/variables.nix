@@ -1,19 +1,18 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.modules.wms.wayland;
   hyprland = config.modules.wms.wayland.hyprland;
 in {
-  options.modules.wms.wayland.enable = mkEnableOption "wayland";
+  options.modules.wms.wayland.enable = lib.mkEnableOption "wayland";
   # options.modules.wms.wayland.hyprland.enable = mkEnableOption "hyprland";
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # lib.mkMerge [
     # {
     environment.variables = {
       NIXOS_OZONE_WL = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
-      # _JAVA_AWT_WM_NONEREPARENTING = "1";
+      # _JAVA_AWT_WM_NONEREPARENTING = "1"; 
       # SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
       DISABLE_QT5_COMPAT = "0";
       GDK_BACKEND = "wayland,x11";

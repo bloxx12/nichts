@@ -1,18 +1,17 @@
 { config, pkgs, lib, inputs, ... }:
-with lib;
 let
   cfg = config.modules.wms.wayland.hyprland;
   username = config.modules.other.system.username;
   inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
   inherit (inputs.nixpkgs-wayland.packages.${pkgs.system})
-    foot wl-clipboard swww wlsunset;
+    foot swww wlsunset;
   inherit (inputs.waybar.packages.${pkgs.system}) waybar;
   inherit (inputs.split-monitor-workspaces.packages.${pkgs.system})
     split-monitor-workspaces;
 in {
-  options.modules.wms.wayland.hyprland.enable = mkEnableOption "hyprland";
-  config = mkIf cfg.enable {
+  options.modules.wms.wayland.hyprland.enable = lib.mkEnableOption "hyprland";
+  config = lib.mkIf cfg.enable {
 
     # xdg Portal
     xdg.portal = {
