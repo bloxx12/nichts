@@ -1,13 +1,12 @@
 { config, pkgs, lib, inputs, ... }:
-with lib;
 let
   cfg = config.modules.programs.spicetify;
   username = config.modules.other.system.username;
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
   # inherit (inputs.spicetify-nix.packages.${pkgs.system}) spicetify-nix;
 in {
-  options.modules.programs.spicetify.enable = mkEnableOption "spicetify";
-  config = mkIf cfg.enable {
+  options.modules.programs.spicetify.enable = lib.mkEnableOption "spicetify";
+  config = lib.mkIf cfg.enable {
     home-manager.users.${username} = {
       imports = [ inputs.spicetify-nix.homeManagerModule ];
       programs.spicetify = {

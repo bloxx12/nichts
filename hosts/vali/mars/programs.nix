@@ -5,6 +5,7 @@ let
 in {
   environment.systemPackages = with pkgs; [
     abaddon
+    alejandra
     alsa-utils
     android-tools
     asciinema
