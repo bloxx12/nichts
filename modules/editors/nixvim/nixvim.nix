@@ -1,9 +1,13 @@
-{ config, lib, ... }:
-let cfg = config.modules.editors.nixvim;
+{
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.editors.nixvim;
 in {
   options.modules.editors.nixvim.enable = lib.mkEnableOption "nixvim";
   imports = [
-    #./keys.nix
+    ./keys.nix
     ./settings.nix
     ./plug/completion/cmp.nix
     #./plug/completion/copilot-cmp.nix
@@ -30,7 +34,7 @@ in {
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
-    #./plug/ui/alpha.nix
+    ./plug/ui/alpha.nix
     ./plug/ui/btw.nix
     ./plug/ui/bufferline.nix
     ./plug/ui/noice.nix
@@ -38,7 +42,7 @@ in {
     ./plug/ui/telescope.nix
 
     ./plug/utils/comment.nix
-    ./plug/utils/copilot.nix
+    #./plug/utils/copilot.nix
     ./plug/utils/flash.nix
     ./plug/utils/hardtime.nix
     #./plug/utils/harpoon.nix
@@ -49,15 +53,18 @@ in {
     ./plug/utils/undotree.nix
     ./plug/utils/ufo.nix
     ./plug/utils/whichkey.nix
-
   ];
-  config = lib.mkIf cfg.enable {
-    programs.nixvim = {
-      enable = true;
-      colorschemes.gruvbox = {
-        enable = true;
-        settings.transparent_mode = true;
-      };
+  options = {
+    theme = lib.mkOption {
+      default = "gruvbox";
+      type = lib.types.enum ["paradise" "decay" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox"];
     };
+  };
+  config = lib.mkIf cfg.enable {
+    programs.nixvim.enable = true;
+    theme = "gruvbox";
+    programs.nixvim.extraConfigLua = ''
+      _G.theme = "${config.theme}"
+    '';
   };
 }

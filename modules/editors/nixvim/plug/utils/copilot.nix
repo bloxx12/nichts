@@ -10,6 +10,7 @@
     hash = "sha256-Q+g81BQVQTY5J2c2ZWB7bjJLuNSdI0PAan+75YJ7mI0=";
   };
 in {
+  programs.nixvim = {
   extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "copilotchat";
@@ -53,4 +54,5 @@ in {
       action = "<cmd>CopilotChatCommit<cr>";
     }
   ];
+};
 }

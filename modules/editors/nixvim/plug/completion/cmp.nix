@@ -1,5 +1,6 @@
 {
-  programs.nixvim.plugins = {
+  programs.nixvim = {
+    plugins = {
     cmp-emoji = {enable = true;};
     cmp = {
       enable = true;
@@ -117,4 +118,5 @@
     --      end
     -- }
        })  '';
+     };
 }
