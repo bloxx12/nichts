@@ -1,18 +1,28 @@
-{ config, pkgs, lib, inputs, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: let
   cfg = config.modules.wms.wayland.hyprland;
   username = config.modules.other.system.username;
   inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
-  inherit (inputs.nixpkgs-wayland.packages.${pkgs.system})
-    foot swww wlsunset;
+  inherit
+    (inputs.nixpkgs-wayland.packages.${pkgs.system})
+    foot
+    swww
+    wlsunset
+    ;
   inherit (inputs.waybar.packages.${pkgs.system}) waybar;
-  inherit (inputs.split-monitor-workspaces.packages.${pkgs.system})
-    split-monitor-workspaces;
+  inherit
+    (inputs.split-monitor-workspaces.packages.${pkgs.system})
+    split-monitor-workspaces
+    ;
 in {
   options.modules.wms.wayland.hyprland.enable = lib.mkEnableOption "hyprland";
   config = lib.mkIf cfg.enable {
-
     # xdg Portal
     xdg.portal = {
       enable = true;
@@ -27,13 +37,13 @@ in {
         enable = true;
         package = hyprland;
         # Split-monitor-workspaces provides awesome-like workspace behaviour
-        plugins = [ split-monitor-workspaces ];
+        plugins = [split-monitor-workspaces];
         # Xwayland for X applications
         xwayland.enable = true;
         # No idea why I set this
         systemd = {
           enable = true;
-          variables = [ "--all" ];
+          variables = ["--all"];
         };
 
         # Hyprland settings
@@ -100,7 +110,7 @@ in {
             follow_mouse = true;
             repeat_rate = 50;
             repeat_delay = 250;
-            tablet = { output = "HDMI-A-2"; };
+            tablet = {output = "HDMI-A-2";};
           };
           general = {
             sensitivity = 1.0;
@@ -123,7 +133,7 @@ in {
             shadow_offset = "2 4";
             shadow_scale = 1;
           };
-          # Bezier curves for aninmations. 
+          # Bezier curves for aninmations.
           # Generate your own at https://www.cssportal.com/css-cubic-bezier-generator/
           bezier = [
             "dupa, 0.1, 0.9, 0.1, 1.05"
@@ -141,7 +151,7 @@ in {
               "workspaces, 1, 5, dupa, slidevert"
             ];
           };
-          dwindle = { no_gaps_when_only = true; };
+          dwindle = {no_gaps_when_only = true;};
 
           debug.disable_logs = false;
 
@@ -220,7 +230,6 @@ in {
             "$mainMod, J, movefocus, d"
             "$mainMod, K, movefocus, u"
             "$mainMod, L, movefocus, r"
-
           ];
           # Media controls
           bindl = let
@@ -291,7 +300,6 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [ libnotify ];
+    environment.systemPackages = with pkgs; [libnotify];
   };
 }
-

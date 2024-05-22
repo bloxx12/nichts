@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   theme = {
     package = pkgs.gruvbox-gtk-theme;
     name = "Gruvbox-Dark-BL";
@@ -29,7 +33,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt5ct"; };
+    environment.sessionVariables = {QT_QPA_PLATFORMTHEME = "qt5ct";};
     environment.variables = {
       QT_STYLE_OVERRIDE = lib.mkForce "kvantum";
       GTK_THEME = theme.name;

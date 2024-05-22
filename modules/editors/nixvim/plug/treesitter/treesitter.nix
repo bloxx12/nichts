@@ -11,36 +11,36 @@
   };
 in {
   programs.nixvim = {
-  filetype.extension.liq = "liquidsoap";
-  filetype.extension.nu = "nu";
+    filetype.extension.liq = "liquidsoap";
+    filetype.extension.nu = "nu";
 
-  plugins.treesitter = {
-    enable = true;
-    indent = true;
-    folding = true;
-    languageRegister.nu = "nu";
-    languageRegister.liq = "liquidsoap";
-    nixvimInjections = true;
-    grammarPackages =
-      [
-        nu-grammar
-      ]
-      ++ pkgs.vimPlugins.nvim-treesitter.allGrammars;
+    plugins.treesitter = {
+      enable = true;
+      indent = true;
+      folding = true;
+      languageRegister.nu = "nu";
+      languageRegister.liq = "liquidsoap";
+      nixvimInjections = true;
+      grammarPackages =
+        [
+          nu-grammar
+        ]
+        ++ pkgs.vimPlugins.nvim-treesitter.allGrammars;
+    };
+
+    extraFiles = {
+      "/queries/nu/highlights.scm" = builtins.readFile "${nu-grammar}/queries/nu/highlights.scm";
+      "/queries/nu/injections.scm" = builtins.readFile "${nu-grammar}/queries/nu/injections.scm";
+    };
+    extraConfigLua = ''
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+      parser_config.liquidsoap = {
+        filetype = "liquidsoap",
+      }
+      parser_config.nu = {
+        filetype = "nu",
+      }
+    '';
   };
-
-  extraFiles = {
-    "/queries/nu/highlights.scm" = builtins.readFile "${nu-grammar}/queries/nu/highlights.scm";
-    "/queries/nu/injections.scm" = builtins.readFile "${nu-grammar}/queries/nu/injections.scm";
-  };
-  extraConfigLua = ''
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-    parser_config.liquidsoap = {
-      filetype = "liquidsoap",
-    }
-    parser_config.nu = {
-      filetype = "nu",
-    }
-  '';
-};
 }

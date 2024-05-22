@@ -1,6 +1,11 @@
-{ config, lib, pkgs, buildGoModule, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  buildGoModule,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.kakoune;
   username = config.modules.other.system.username;
   kakship = pkgs.rustPlatform.buildRustPackage rec {
@@ -16,8 +21,7 @@ let
       lockFile = "${src}/Cargo.lock";
       outputHashes = {
         "kak-0.1.2" = "sha256-RhtHQkC9yCSJtr/kbC5c9MavbL79acrsiEGXyoAST8U=";
-        "yew-ansi-0.1.0" =
-          "sha256-dSaEzqiOon+OqCZKQudzLRNP+Iv97kC+XZcTElKNrzs=";
+        "yew-ansi-0.1.0" = "sha256-dSaEzqiOon+OqCZKQudzLRNP+Iv97kC+XZcTElKNrzs=";
       };
     };
 
@@ -70,7 +74,7 @@ let
       description = "Handy Kakoune companion.";
       homepage = "https://github.com/kkga/kks";
       license = licenses.unfree;
-      maintainers = with maintainers; [ kalbasit ];
+      maintainers = with maintainers; [kalbasit];
     };
   };
   kak-alacritty = pkgs.kakouneUtils.buildKakounePluginFrom2Nix rec {
@@ -97,7 +101,7 @@ let
 in {
   options.modules.programs.kakoune.enable = mkEnableOption "kakoune";
   config = mkIf cfg.enable {
-    home-manager.users.${username} = { programs.kakoune.enable = true; };
+    home-manager.users.${username} = {programs.kakoune.enable = true;};
     environment.systemPackages = with pkgs; [
       rust-analyzer
       rustfmt # Rust    LSP

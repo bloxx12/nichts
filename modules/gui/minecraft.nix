@@ -1,6 +1,11 @@
-{ config, lib, inputs, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
+with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.programs.minecraft;
 in {
@@ -12,7 +17,7 @@ in {
   config = mkIf cfg.enable {
     # Set wayland environment flag
     environment.variables =
-      mkIf cfg.wayland { __GL_THREADED_OPTIMIZATIONS = 0; };
+      mkIf cfg.wayland {__GL_THREADED_OPTIMIZATIONS = 0;};
     # Install glfw-wayland-minecraft
     environment.systemPackages = with pkgs;
       mkIf cfg.wayland [
@@ -21,7 +26,7 @@ in {
 
     home-manager.users.${username} = {
       # Install minecraft
-      home.packages = with pkgs; [ prismlauncher ];
+      home.packages = with pkgs; [prismlauncher];
     };
   };
 }

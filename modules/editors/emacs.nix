@@ -1,8 +1,12 @@
 # Taken from: https://github.com/hlissner/dotfiles/blob/master/modules/editors/emacs.nix
-{ config, lib, pkgs, inputs, ... }:
-
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib; let
   cfg = config.modules.editors.emacs;
   username = config.modules.other.system.username;
   repoUrl = inputs.doomemacs;
@@ -20,18 +24,18 @@ in {
 
   config = mkIf cfg.enable {
     ## Emacs itself as an overlay
-    nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+    nixpkgs.overlays = [inputs.emacs-overlay.overlay];
 
     environment.systemPackages = with pkgs; [
       binutils # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacsNativeComp).emacsWithPackages
-        (epkgs: [ epkgs.vterm ]))
+        (epkgs: [epkgs.vterm]))
 
       emacs-desktop-symbol
       ## Doom dependencies
       git
-      (ripgrep.override { withPCRE2 = true; })
+      (ripgrep.override {withPCRE2 = true;})
       gnutls # for TLS connectivity
 
       ## Optional dependencies
@@ -41,7 +45,7 @@ in {
 
       ## Module dependencies
       # :checkers spell
-      (aspellWithDicts (ds: with ds; [ en en-computers en-science ]))
+      (aspellWithDicts (ds: with ds; [en en-computers en-science]))
       # :tools editorconfig
       editorconfig-core-c # per-project style config
       # :tools lookup & :lang org +roam
@@ -52,12 +56,11 @@ in {
       beancount
     ];
 
-    home-manager.users.${username}.home.sessionPath =
-      [ "/home/vali/.config/emacs/bin" ];
+    home-manager.users.${username}.home.sessionPath = ["/home/vali/.config/emacs/bin"];
 
     # modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
-    fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
+    fonts.fonts = [pkgs.emacs-all-the-icons-fonts];
 
     system.userActivationScripts = mkIf cfg.doom.enable {
       installDoomEmacs = ''

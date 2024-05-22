@@ -5,36 +5,34 @@
     disabledFiletypes = {
       statusline = ["dashboard" "alpha" "starter"];
     };
-#    theme = {
-#      normal = {
-#        a = {
-#          bg = "#b4befe";
-#          fg = "#1c1d21";
-#        };
-#        b = {
-#          bg = "nil";
-#        };
-#        c = {
-#          bg = "nil";
-#        };
-#        z = {
-#          bg = "nil";
-#        };
-#        y = {
-#          bg = "nil";
-#        };
-#      };
-#    };
+    #    theme = {
+    #      normal = {
+    #        a = {
+    #          bg = "#b4befe";
+    #          fg = "#1c1d21";
+    #        };
+    #        b = {
+    #          bg = "nil";
+    #        };
+    #        c = {
+    #          bg = "nil";
+    #        };
+    #        z = {
+    #          bg = "nil";
+    #        };
+    #        y = {
+    #          bg = "nil";
+    #        };
+    #      };
+    #    };
     sections = {
       lualine_a = [
         {
           name = "mode";
           fmt = "string.lower";
           color = {
-            fg =
-              "none";
-            bg =
-               "none";
+            fg = "none";
+            bg = "none";
           };
         }
       ];
@@ -43,10 +41,8 @@
           name = "branch";
           icon = "";
           color = {
-            fg =
-              "none";
-            bg =
-              "none";
+            fg = "none";
+            bg = "none";
           };
         }
         "diff"
@@ -63,10 +59,8 @@
             };
           };
           color = {
-            fg =
-              "none";
-            bg =
-              "none";
+            fg = "none";
+            bg = "none";
           };
         }
       ];
@@ -89,10 +83,8 @@
             };
           };
           color = {
-            fg =
-              "none";
-            bg =
-              "none";
+            fg = "none";
+            bg = "none";
           };
           separator.left = "";
         }
@@ -101,10 +93,8 @@
         {
           name = "location";
           color = {
-            fg =
-              "none";
-            bg =
-              "none";
+            fg = "none";
+            bg = "none";
           };
         }
       ];

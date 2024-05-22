@@ -1,6 +1,11 @@
-{ config, inputs, lib, self, ... }:
-with lib;
-let
+{
+  config,
+  inputs,
+  lib,
+  self,
+  ...
+}:
+with lib; let
   cfg = config.modules.other.home-manager;
   username = config.modules.other.system.username;
 in {
@@ -13,7 +18,7 @@ in {
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
-      extraSpecialArgs = { inherit inputs self; };
+      extraSpecialArgs = {inherit inputs self;};
       users.${username} = {
         programs = {
           home-manager.enable = true;

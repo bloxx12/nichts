@@ -1,8 +1,12 @@
 {
   description = "My NixOS config flake";
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: {
     inherit (nixpkgs) lib;
-    nixosConfigurations = import ./hosts { inherit inputs; };
+    nixosConfigurations = import ./hosts {inherit inputs;};
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -49,7 +53,7 @@
       };
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    nur = { url = "github:nix-community/NUR"; };
+    nur = {url = "github:nix-community/NUR";};
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +67,5 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 }

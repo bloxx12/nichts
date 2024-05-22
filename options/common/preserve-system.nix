@@ -1,1 +1,1 @@
-{ self, ... }: { environment.etc."current-flake".source = self; }
+{self, ...}: {environment.etc."current-flake".source = self;}

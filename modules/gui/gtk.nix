@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.themes.gtk;
   username = config.modules.other.system.username;
 in {
@@ -47,7 +51,6 @@ in {
       home.sessionVariables = {
         #GTK_THEME = "Gruvbox-Dark-BL";
         #       GTK_USE_PORTAL = "1";
-
       };
     };
   };

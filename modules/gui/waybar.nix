@@ -1,5 +1,10 @@
-{ config, lib, inputs, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: let
   cfg = config.modules.programs.waybar;
   inherit (config.modules.other.system) username;
 in {
@@ -12,9 +17,10 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = [ "custom/launcher" "tray" "hyprland/window" ];
-          modules-center = [ "hyprland/workspaces" ];
-          modules-right = [ # "custom/dnd"
+          modules-left = ["custom/launcher" "tray" "hyprland/window"];
+          modules-center = ["hyprland/workspaces"];
+          modules-right = [
+            # "custom/dnd"
             "mpd"
             "cpu"
             "memory"
@@ -27,9 +33,8 @@ in {
             scroll-step = "1";
             format = " {icon} {volume}%";
             format-muted = " 󰸈 {volume}%";
-            format-icons = { default = [ "󰕿" "󰖀" "󰕾" ]; };
-            on-click =
-              "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
+            on-click = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           };
           "hyprland/workspaces" = {
             sort-by-name = true;
@@ -75,7 +80,7 @@ in {
             icon-size = 18;
             spacing = 8;
           };
-          # 󰃰 
+          # 󰃰
           clock = {
             interval = 1;
             format = " {:%a  %d %b %H:%M:%S}";
@@ -137,12 +142,11 @@ in {
             waves = false;
             noise_reduction = 0.77;
             input_delay = 0;
-            format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
-            actions = { on-click-right = "mode"; };
+            format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+            actions = {on-click-right = "mode";};
           };
           mpd = {
-            format =
-              "󰝚 {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
+            format = "󰝚 {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
             format-disconnected = "󰝚 Disconnected";
             format-stopped = "󰝚 Stopped";
             interval = 1;
@@ -458,4 +462,3 @@ in {
     };
   };
 }
-

@@ -1,14 +1,18 @@
-{ config, pkgs, lib, inputs, ... }:
-
-with lib;
-let
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.programs.anyrun;
 in {
   options.modules.programs.anyrun.enable = mkEnableOption "anyrun";
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      imports = [ inputs.anyrun.homeManagerModules.default ];
+      imports = [inputs.anyrun.homeManagerModules.default];
 
       programs.anyrun = {
         enable = true;
@@ -45,4 +49,3 @@ in {
     };
   };
 }
-

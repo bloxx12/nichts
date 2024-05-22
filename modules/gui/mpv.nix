@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.mpv;
   username = config.modules.other.system.username;
 in {
@@ -17,7 +21,7 @@ in {
           osd-bar = "no";
           border = "no";
         };
-        scripts = with pkgs.mpvScripts; [ mpris thumbfast sponsorblock uosc ];
+        scripts = with pkgs.mpvScripts; [mpris thumbfast sponsorblock uosc];
       };
     };
   };
