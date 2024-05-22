@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
-let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   fenix = inputs.fenix.packages.${pkgs.system};
   nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
 in {

@@ -1,6 +1,10 @@
-{ config, pkgs, lib, ... }:
-with lib;
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.stylix;
   username = config.modules.other.system.username;
 in {
@@ -47,11 +51,10 @@ in {
           sizes = {
             terminal = 14;
             popups = 14;
-
           };
           monospace = {
             package =
-              (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+              pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
             name = "JetBrainsMono";
           };
           serif = {

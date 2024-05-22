@@ -1,6 +1,10 @@
-{ config, lib, ... }:
-with lib;
-let cfg = config.modules.other.system;
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.other.system;
 in {
   options.modules.other.system = {
     hostname = mkOption {
@@ -24,7 +28,7 @@ in {
 
     users.users.${cfg.username} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = ["wheel"];
     };
   };
 }

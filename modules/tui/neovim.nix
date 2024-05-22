@@ -1,6 +1,11 @@
-{ config, inputs, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.neovim;
   username = config.modules.other.system.username;
 in {
@@ -8,7 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+      imports = [inputs.nixvim.homeManagerModules.nixvim];
       programs.nixvim = {
         enable = true;
         enableMan = true;
@@ -51,7 +56,7 @@ in {
             nixvimInjections = true;
             incrementalSelection.enable = true;
           };
-          treesitter-context = { enable = true; };
+          treesitter-context = {enable = true;};
           coq-nvim = {
             enable = true;
             installArtifacts = true;
@@ -61,7 +66,7 @@ in {
               completion.always = false;
             };
           };
-          neo-tree = { enable = true; };
+          neo-tree = {enable = true;};
           # TODO laytan/cloak.nvim
           lsp = {
             enable = true;
@@ -118,7 +123,7 @@ in {
           rust-tools = {
             enable = true;
             crateGraph = {
-              enabledGraphvizBackends = [ "png" "svg" ];
+              enabledGraphvizBackends = ["png" "svg"];
               backend = "x11";
             };
             inlayHints = {
@@ -157,10 +162,9 @@ in {
             enable = true;
             settings.theme = "dark";
           };
-
         };
 
-        extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim lazygit-nvim ];
+        extraPlugins = with pkgs.vimPlugins; [zen-mode-nvim lazygit-nvim];
 
         keymaps = [
           {

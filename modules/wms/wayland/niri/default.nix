@@ -1,13 +1,17 @@
-{ pkgs, lib, theme, ... }:
-let
+{
+  pkgs,
+  lib,
+  theme,
+  ...
+}: let
   mkService = lib.recursiveUpdate {
-    Unit.PartOf = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Install.WantedBy = [ "graphical-session.target" ];
+    Unit.PartOf = ["graphical-session.target"];
+    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = ["graphical-session.target"];
   };
 in {
-  imports = [ ./config.nix ];
-  home.packages = with pkgs; [ pamixer ];
+  imports = [./config.nix];
+  home.packages = with pkgs; [pamixer];
   services = {
     wlsunset = {
       # TODO: fix opaque red screen issue
@@ -28,7 +32,7 @@ in {
     tray = {
       Unit = {
         Description = "Home Manager System Tray";
-        Requires = [ "graphical-session-pre.target" ];
+        Requires = ["graphical-session-pre.target"];
       };
     };
   };

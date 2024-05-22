@@ -1,5 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.modules.services.dunst;
   inherit (config.modules.other.system) username;
 
@@ -67,7 +72,7 @@ in {
             mouse_middle_click = "context";
             mouse_right_click = "close_all";
           };
-          experimental = { per_monitor_dpi = false; };
+          experimental = {per_monitor_dpi = false;};
           urgency_low = {
             background = "#1E1E2E";
             foreground = "#CDD6F4";

@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.editors.kakoune;
   username = config.modules.other.system.username;
   # inherit (inputs.kakoune.packages.${pkgs.system}) kakoun;
@@ -41,8 +45,7 @@ in {
               mode = "normal";
               key = "<esc>";
               effect = ";,";
-              docstring =
-                "Press escape to clear highlighted text and collapse cursors";
+              docstring = "Press escape to clear highlighted text and collapse cursors";
             }
             {
               mode = "normal";
@@ -119,6 +122,5 @@ in {
         '';
       };
     };
-
   };
 }

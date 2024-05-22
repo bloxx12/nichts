@@ -1,9 +1,12 @@
-{ config, lib, ... }:
-
+{
+  config,
+  lib,
+  ...
+}:
 with lib; {
   options.modules.other.system.monitors = mkOption {
     description = "\n      List of monitors to use\n    ";
-    default = [ ];
+    default = [];
     type = with types;
       types.listOf (submodule {
         options = {
@@ -69,5 +72,4 @@ with lib; {
         };
       });
   };
-
 }

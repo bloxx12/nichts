@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.kitty;
   username = config.modules.other.system.username;
 in {
@@ -19,9 +23,7 @@ in {
           #background_opacity = "0.9";
           confirm_os_window_close = "0";
         };
-
       };
     };
   };
-
 }

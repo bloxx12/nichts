@@ -1,14 +1,18 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.vesktop;
   username = config.modules.other.system.username;
 in {
-  options.modules.programs.vesktop = { enable = mkEnableOption "vesktop"; };
+  options.modules.programs.vesktop = {enable = mkEnableOption "vesktop";};
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      home.packages = with pkgs; [ vesktop ];
+      home.packages = with pkgs; [vesktop];
       xdg.configFile."vesktop/settings.json".text = builtins.toJSON {
         discordBranch = "ptb";
         firstLaunch = false;
@@ -31,7 +35,7 @@ in {
         themeLinks = [
           "https://github.com/Costeer/Gruvbox-Material-Themes/blob/main/Discord%20Theme/gruvboxmaterial.theme.css"
         ];
-        enabledThemes = [ "gruvboxmaterial.theme.css" ];
+        enabledThemes = ["gruvboxmaterial.theme.css"];
         enableReactDevtools = true;
         frameless = false;
         transparent = false;
@@ -129,7 +133,7 @@ in {
           iLoveSpam.enabled = true;
           IgnoreActivities = {
             enabled = true;
-            ignoredActivities = [ ];
+            ignoredActivities = [];
           };
           ImageZoom = {
             enabled = true;
@@ -261,8 +265,7 @@ in {
           ServerProfile.enabled = true;
           ShikiCodeblocks = {
             enabled = true;
-            theme =
-              "https://raw.githubusercontent.com/shikijs/shiki/0b28ad8ccfbf2615f2d9d38ea8255416b8ac3043/packages/shiki/themes/dark-plus.json";
+            theme = "https://raw.githubusercontent.com/shikijs/shiki/0b28ad8ccfbf2615f2d9d38ea8255416b8ac3043/packages/shiki/themes/dark-plus.json";
             tryHljs = "SECONDARY";
             uesDevIcon = "GREYSCALE";
           };

@@ -1,6 +1,10 @@
-{ lib, config, ... }:
-with lib;
-let cfg = config.modules.programs.nh;
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.programs.nh;
 in {
   options.modules.programs.nh.enable = mkEnableOption "nh";
 

@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.newsboat;
   username = config.modules.other.system.username;
 in {
@@ -51,13 +54,11 @@ in {
           }
           {
             title = "Veronica Explains";
-            url =
-              "https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ";
+            url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ";
           }
           {
             title = "Mental Outlaw";
-            url =
-              "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
+            url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
           }
           {
             title = "Hacker News";

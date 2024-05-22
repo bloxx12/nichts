@@ -1,1 +1,1 @@
-_: { imports = [ ./kakoune.nix ]; }
+_: {imports = [./kakoune.nix];}

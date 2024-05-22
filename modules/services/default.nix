@@ -1,1 +1,1 @@
-_: { imports = [ ./pipewire.nix ./ssh.nix ./greetd.nix ./dunst.nix ]; }
+_: {imports = [./pipewire.nix ./ssh.nix ./greetd.nix ./dunst.nix];}

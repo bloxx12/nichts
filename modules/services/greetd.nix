@@ -1,6 +1,11 @@
-{ config, inputs, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.services.greetd;
   inherit (config.modules.other.system) username;
 
@@ -44,8 +49,8 @@ in {
       enable = true;
       settings.default_session = {
         command = "${
-            inputs.hyprland.packages.${pkgs.system}.hyprland
-          }/bin/Hyprland --config ${hyprlandConfig}";
+          inputs.hyprland.packages.${pkgs.system}.hyprland
+        }/bin/Hyprland --config ${hyprlandConfig}";
         user = username;
       };
     };

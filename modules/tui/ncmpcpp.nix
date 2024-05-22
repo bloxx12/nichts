@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.programs.ncmpcpp;
   username = config.modules.other.system.username;
 in {
@@ -11,20 +15,16 @@ in {
       xdg.configFile."ncmpcpp/config".source = ./config;
       programs.ncmpcpp = {
         enable = true;
-        package = (pkgs.ncmpcpp.override { visualizerSupport = true; });
+        package = pkgs.ncmpcpp.override {visualizerSupport = true;};
         mpdMusicDir = "/home/vali/Nextcloud/Media/Music";
         settings = {
           mpd_host = "127.0.0.1";
           mpd_port = "6600";
           alternative_header_first_line_format = "$5{$b%t$/b}$9";
-          alternative_header_second_line_format =
-            "$3by $7{$b%a$/b}$9 $3from $7{$b%b$/b}$9 $5{(%y)}";
-          song_list_format =
-            "♫   $2%n$(end) $9 $3%a$(end) $(245)-$9 $(246)%t$9 $R{ $5%y$9}$(end)     $(246)%lq$(end)";
-          song_columns_list_format =
-            "(3f)[red]{n} (3f)[246]{} (35)[white]{t} (18)[blue]{a} (30)[green]{b} (5f)[yellow]{d} (5f)[red]{y} (7f)[magenta]{l}";
-          song_status_format =
-            "$b $8%A $8•$3• $3%t $3•$5• $5%b $5•$2• $2%y $2•$8• %g";
+          alternative_header_second_line_format = "$3by $7{$b%a$/b}$9 $3from $7{$b%b$/b}$9 $5{(%y)}";
+          song_list_format = "♫   $2%n$(end) $9 $3%a$(end) $(245)-$9 $(246)%t$9 $R{ $5%y$9}$(end)     $(246)%lq$(end)";
+          song_columns_list_format = "(3f)[red]{n} (3f)[246]{} (35)[white]{t} (18)[blue]{a} (30)[green]{b} (5f)[yellow]{d} (5f)[red]{y} (7f)[magenta]{l}";
+          song_status_format = "$b $8%A $8•$3• $3%t $3•$5• $5%b $5•$2• $2%y $2•$8• %g";
           playlist_display_mode = "columns";
           browser_display_mode = "columns";
           search_engine_display_mode = "columns";

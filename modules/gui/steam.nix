@@ -1,6 +1,11 @@
-{ config, lib, inputs, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
+with lib; let
   username = config.modules.other.system.username;
   cfg = config.modules.programs.steam;
 in {
@@ -16,6 +21,6 @@ in {
       dedicatedServer.openFirewall = true;
       gamescopeSession.enable = mkIf cfg.gamescope true;
     };
-    home-manager.users.${username} = { };
+    home-manager.users.${username} = {};
   };
 }

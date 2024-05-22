@@ -1,5 +1,9 @@
-{ config, lib, ... }:
-let username = config.modules.other.system.username;
+{
+  config,
+  lib,
+  ...
+}: let
+  username = config.modules.other.system.username;
 in {
   networking = {
     networkmanager = {
@@ -9,7 +13,7 @@ in {
   };
   services.resolved = {
     enable = true;
-    fallbackDns = [ "9.9.9.9" "2620::fe::fe" ];
+    fallbackDns = ["9.9.9.9" "2620::fe::fe"];
   };
-  users.users.${username}.extraGroups = [ "networkmanager" ];
+  users.users.${username}.extraGroups = ["networkmanager"];
 }
