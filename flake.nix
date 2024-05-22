@@ -9,23 +9,28 @@
     nixosConfigurations = import ./hosts {inherit inputs;};
   };
   inputs = {
+    # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hyprland.url =
-      # "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.40.0&submodules=1";
-      "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # Hyprland, my main compositor
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # Plugins for hyprland
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    nixpak = {
-      url = "github:nixpak/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # Plugin to get split monitor workspaces
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
+    # Sandboxing
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # Wayland packages
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+
     doomemacs = {
       url = "github:doomemacs/doomemacs";
       flake = false;
@@ -59,8 +64,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     waybar.url = "github:Alexays/Waybar";
     fenix = {
