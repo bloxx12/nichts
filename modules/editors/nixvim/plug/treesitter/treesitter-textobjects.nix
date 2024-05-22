@@ -1,5 +1,5 @@
 {
-  plugins.treesitter-textobjects = {
+  programs.nixvim.plugins.treesitter-textobjects = {
     enable = false;
     select = {
       enable = true;

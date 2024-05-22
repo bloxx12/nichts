@@ -1,3 +1,3 @@
-_:{
-  imports = [./nixvim.nix ];
+_: {
+  imports = [./nixvim.nix];
 }

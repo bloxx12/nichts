@@ -1,5 +1,6 @@
 {
-  programs.nixvim.plugins.gitsigns = {
+  programs.nixvim = {
+    plugins.gitsigns = {
     enable = true;
     settings = {
       trouble = true;
@@ -73,4 +74,5 @@
       };
     }
   ];
+};
 }

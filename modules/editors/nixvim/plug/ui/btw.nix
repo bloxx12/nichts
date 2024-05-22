@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  programs.nixvim = {
   extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "btw.nvim";
@@ -17,4 +18,5 @@
       text = "I use Neovim (and NixOS, BTW)",
     })
   '';
+};
 }

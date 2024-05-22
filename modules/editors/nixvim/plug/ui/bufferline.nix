@@ -5,11 +5,12 @@
 }: let
   colors = import ../../colors/${config.theme}.nix {};
 in {
+  programs.nixvim = {
   plugins = {
     bufferline = {
       enable = true;
       separatorStyle = "thick"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
-      highlights = lib.mkIf config.colorschemes.base16.enable {
+      highlights = {
         fill = {
           fg = colors.base00;
           bg = colors.base00;
@@ -172,4 +173,5 @@ in {
       };
     }
   ];
+};
 }

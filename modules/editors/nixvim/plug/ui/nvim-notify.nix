@@ -1,4 +1,5 @@
 {
+  programs.nixvim = {
   plugins.notify = {
     enable = true;
     backgroundColour = "#000000";
@@ -42,4 +43,5 @@
     	return notify(message, level, merged_opts)
     end
   '';
+};
 }

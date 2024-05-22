@@ -10,6 +10,7 @@
     };
   };
 in {
+  programs.nixvim = {
   filetype.extension.liq = "liquidsoap";
   filetype.extension.nu = "nu";
 
@@ -41,4 +42,5 @@ in {
       filetype = "nu",
     }
   '';
+};
 }

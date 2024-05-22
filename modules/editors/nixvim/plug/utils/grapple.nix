@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  programs.nixvim = {
   extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "grapple.nvim";
@@ -17,4 +18,5 @@
       scope = "git_branch",
     })
   '';
+  };
 }
