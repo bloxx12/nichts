@@ -30,7 +30,7 @@
   modules = {
     other = {
       system = {
-        hostname = "mars";
+        hostname = "hermit";
         username = "vali";
         gitPath = "/home/vali/repos/nichts";
       };
@@ -66,8 +66,8 @@
         enable = false;
         doom.enable = false;
       };
-      helix.enable = true;
-      kakoune.enable = true;
+      helix.enable = false;
+      kakoune.enable = false;
       nixvim.enable = true;
     };
     services = {
