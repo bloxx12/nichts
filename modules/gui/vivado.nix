@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   vivado-desktop-symbol = pkgs.makeDesktopItem {
-    name = "vivado-2019-2";
+    name = "vivado2019.2";
     desktopName = "Vivado";
     exec = "${pkgs.nur.repos.Nick1296.vivado-2019-2}/bin/vivado";
   };

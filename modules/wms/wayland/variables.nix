@@ -43,6 +43,7 @@ in {
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_DESKTOP = "Hyprland";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
       # GDK_BACKEND = "wayland";
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
       # QT_QPA_PLATFORM = "wayland";

@@ -58,6 +58,7 @@ in {
     ncmpcpp
     neofetch
     neovim
+    nheko
     networkmanagerapplet
     nextcloud-client
     nicotine-plus
