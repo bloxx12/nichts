@@ -115,7 +115,6 @@ in {
         misc = {
           drm.enable = true;
           disableWebgl = true;
-          startPageURL = "file://${builtins.readFile ./chevron/index.html}";
         };
       };
     };
