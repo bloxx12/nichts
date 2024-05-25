@@ -77,7 +77,7 @@
     themes = {
       gtk = {enable = true;};
       qt = {
-        enable = false;
+        enable = true;
         package = pkgs.kde-gruvbox;
         name = "Gruvbox-Dark";
       };
