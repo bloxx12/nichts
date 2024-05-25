@@ -24,7 +24,7 @@ in {
           fish.enable = true;
           dunst.enable = false;
           emacs.enable = true;
-          firefox.enable = true;
+          firefox.enable = false;
           kitty.enable = true;
           lazygit.enable = true;
           rofi.enable = true;

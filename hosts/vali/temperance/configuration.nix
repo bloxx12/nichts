@@ -23,10 +23,10 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   # boot.kernelModules = [ "v4l2loopback" ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true;
-  services.emacs.enable = true;
+  #  services.emacs.enable = true;
   modules = {
     other = {
       system = {
@@ -40,6 +40,9 @@
       };
     };
     wms = {
+      x = {
+        i3.enable = false;
+      };
       wayland = {
         enable = true;
         hyprland.enable = true;

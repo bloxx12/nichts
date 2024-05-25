@@ -59,7 +59,7 @@ in {
             "HDMI-A-2,1920x1080,1920x0,1"
             "HDMI-A-1,1920x1080,3840x0,1"
             # Had the shadow monitor bug, so had to disable all unknown monitors.
-            # "Unknown-1,disable"
+            "Unknown-1,disable"
           ];
           # Workspace config
           workspace = [
@@ -155,7 +155,7 @@ in {
           ];
           # Hyprland anomations, using the above bezier curves
           animations = {
-            enabled = true;
+            enabled = false;
             animation = [
               "windows, 1, 4, dupa, popin"
               "windowsOut, 1, 4, dupa, slide"
@@ -222,6 +222,12 @@ in {
             "$mainMod SHIFT, 8, split-movetoworkspacesilent, 8"
             "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
             "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
+
+            # Move Windows
+            "$mainMod SHIFT, H, movewindow, left"
+            "$mainMod SHIFT, J, movewindow, down"
+            "$mainMod SHIFT, K, movewindow, up"
+            "$mainMod SHIFT, L, movewindow, right"
             # Screenshotting
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
             # File manager
@@ -300,7 +306,7 @@ in {
             # and run it all again
             "[workspace special:btop;silent;tile] ${foot}/bin/foot ${pkgs.btop}/bin/btop"
 
-            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
+            #            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
             # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
