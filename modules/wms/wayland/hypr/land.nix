@@ -224,10 +224,10 @@ in {
             "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
 
             # Move Windows
-            "$mainMod SHIFT, H, movewindow, left"
-            "$mainMod SHIFT, J, movewindow, down"
-            "$mainMod SHIFT, K, movewindow, up"
-            "$mainMod SHIFT, L, movewindow, right"
+            "$mainMod SHIFT, H, movewindow, l"
+            "$mainMod SHIFT, J, movewindow, d"
+            "$mainMod SHIFT, K, movewindow, u"
+            "$mainMod SHIFT, L, movewindow, r"
             # Screenshotting
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
             # File manager
