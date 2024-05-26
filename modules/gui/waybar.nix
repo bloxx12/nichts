@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }: let
@@ -13,7 +12,7 @@ in {
     home-manager.users.${username} = {
       programs.waybar = {
         enable = true;
-        package = inputs.waybar.packages.${pkgs.system}.waybar;
+        package = pkgs.waybar;
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
