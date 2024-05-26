@@ -17,10 +17,9 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = ["custom/launcher" "tray" "hyprland/window"];
+          modules-left = ["tray" "hyprland/window"];
           modules-center = ["hyprland/workspaces"];
           modules-right = [
-            # "custom/dnd"
             "mpd"
             "cpu"
             "memory"
@@ -77,8 +76,8 @@ in {
             };
           };
           tray = {
-            icon-size = 18;
-            spacing = 8;
+            icon-size = 12;
+            spacing = 5;
           };
           # 󰃰
           clock = {
@@ -125,25 +124,6 @@ in {
           "hyprland/window" = {
             format = "{}";
             separate-outputs = true;
-          };
-          cava = {
-            framerate = 60;
-            autosens = 0;
-            sensitivity = 7;
-            bars = 14;
-            lower_cutoff_freq = 50;
-            higher_cutoff_freq = 10000;
-            method = "pipewire";
-            source = "auto";
-            stereo = true;
-            reverse = false;
-            bar_delimiter = 0;
-            monstercat = false;
-            waves = false;
-            noise_reduction = 0.77;
-            input_delay = 0;
-            format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-            actions = {on-click-right = "mode";};
           };
           mpd = {
             format = "󰝚 {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
@@ -205,10 +185,10 @@ in {
           }
 
           #window {
-              margin-top: 4px;
-              margin-bottom: 4px;
-              padding-left: 10px;
-              padding-right: 10px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              padding-left: 2px;
+              padding-right: 2px;
               background: @mantle;
               color: @teal;
               font-family: JetBrains Mono;
@@ -219,7 +199,7 @@ in {
           }
 
           #workspaces button {
-              border-radius: 3px;
+              border-radius: 0px;
               padding-top: 0px;
               padding-right: 0px;
               padding-bottom: 0px;
