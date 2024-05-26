@@ -6,10 +6,8 @@
 }:
 with lib; let
   cfg = config.modules.programs.fish;
-  username = config.modules.other.system.username;
-  # not needed because I'm using nh os switch
-  # hostname = config.modules.other.system.hostname;
-  gitPath = config.modules.other.system.gitPath;
+  inherit (config.modules.other.system) username;
+  inherit (config.modules.other.system) gitPath;
 in {
   options.modules.programs.fish = {
     enable = mkEnableOption "fish";
@@ -32,53 +30,55 @@ in {
 
     home-manager.users.${username} = {
       home.packages = with pkgs; [nix-output-monitor];
-      programs.zoxide.enable = true;
-      programs.zoxide.enableFishIntegration = true;
-      programs.fish = {
-        enable = true;
-        interactiveShellInit = "set fish_greeting";
-        plugins = [
-          {
-            name = "grc";
-            src = pkgs.fishPlugins.grc.src;
-          }
-          {
-            name = "sponge";
-            src = pkgs.fishPlugins.sponge.src;
-          }
-          {
-            name = "done";
-            src = pkgs.fishPlugins.done.src;
-          }
-          {
-            name = "colored_man_pages";
-            src = pkgs.fishPlugins.colored-man-pages.src;
-          }
-          {
-            name = "tide";
-            src = pkgs.fishPlugins.tide.src;
-          }
-        ];
-        shellAbbrs =
-          {
-            c = "clear";
-            cc = "cd ~ && clear";
-            mv = "mv -iv";
-            rm = "trash -v";
-            ls = "eza --icons";
-            l = "eza -a --icons";
-            la = "eza -lha --icons --git";
-            kys = "shutdown now";
-            lg = "lazygit";
-            cd = "z";
-            v = "nvim";
-            h = "hx";
-            k = "kak";
-            e = "emacs";
-            update = ''nh os switch "${gitPath}"'';
-            flake = "cd '${gitPath}'";
-          }
-          // cfg.extraAliases;
+      programs = {
+        zoxide.enable = true;
+        zoxide.enableFishIntegration = true;
+        fish = {
+          enable = true;
+          interactiveShellInit = "set fish_greeting";
+          plugins = [
+            {
+              name = "grc";
+              inherit (pkgs.fishPlugins.grc) src;
+            }
+            {
+              name = "sponge";
+              inherit (pkgs.fishPlugins.sponge) src;
+            }
+            {
+              name = "done";
+              inherit (pkgs.fishPlugins.done) src;
+            }
+            {
+              name = "colored_man_pages";
+              inherit (pkgs.fishPlugins.colored-man-pages) src;
+            }
+            {
+              name = "tide";
+              inherit (pkgs.fishPlugins.tide) src;
+            }
+          ];
+          shellAbbrs =
+            {
+              c = "clear";
+              cc = "cd ~ && clear";
+              mv = "mv -iv";
+              rm = "trash -v";
+              ls = "eza --icons";
+              l = "eza -a --icons";
+              la = "eza -lha --icons --git";
+              kys = "shutdown now";
+              lg = "lazygit";
+              cd = "z";
+              v = "nvim";
+              h = "hx";
+              k = "kak";
+              e = "emacs";
+              update = ''nh os switch "${gitPath}"'';
+              flake = "cd '${gitPath}'";
+            }
+            // cfg.extraAliases;
+        };
       };
     };
   };

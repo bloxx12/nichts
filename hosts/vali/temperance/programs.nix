@@ -64,7 +64,6 @@ in {
     nicotine-plus
     nil
     nitch
-    nixfmt
     nixpkgs-wayland.swww
     nmap
     notesnook

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   hardware.bluetooth = {
     enable = true;

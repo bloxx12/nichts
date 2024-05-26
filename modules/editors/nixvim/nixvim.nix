@@ -1,12 +1,14 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: let
   cfg = config.modules.editors.nixvim;
 in {
   options.modules.editors.nixvim.enable = lib.mkEnableOption "nixvim";
   imports = [
+    inputs.nixvim.nixosModules.nixvim
     ./keys.nix
     ./settings.nix
     ./plug/completion/cmp.nix

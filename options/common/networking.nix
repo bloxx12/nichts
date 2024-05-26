@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   networking = {
     networkmanager = {

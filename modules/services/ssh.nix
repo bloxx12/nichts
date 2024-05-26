@@ -6,7 +6,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.ssh;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.ssh.enable = mkEnableOption "ssh";
 
