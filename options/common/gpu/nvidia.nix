@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   ...
 }: {
   services.xserver.videoDrivers = ["nvidia"];
