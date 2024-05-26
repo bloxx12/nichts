@@ -63,9 +63,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix";
 
-    waybar.url = "github:Alexays/Waybar";
+    agenix.url = "github:ryantm/agenix";
 
     fenix = {
       url = "github:nix-community/fenix";
