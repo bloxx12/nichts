@@ -6,8 +6,7 @@
 }:
 with lib; let
   cfg = config.modules.editors.kakoune;
-  username = config.modules.other.system.username;
-  # inherit (inputs.kakoune.packages.${pkgs.system}) kakoun;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.editors.kakoune.enable = mkEnableOption "kakoune";
 
@@ -15,15 +14,12 @@ in {
     home-manager.users.${username} = {
       programs.kakoune = {
         enable = true;
-        # extraConfig = builtins.readFile
-        # package = kakoun;
         plugins = with pkgs.kakounePlugins; [
           auto-pairs-kak
           fzf-kak
           powerline-kak
           byline-kak
           kakoune-lsp
-          # luar-kak
         ];
         config = {
           ui = {
@@ -31,13 +27,6 @@ in {
             enableMouse = true;
             assistant = "none";
           };
-          # numberLines.enable = true;
-          # numberLines.relative = true;
-          # numberLines.highlightCursor = true;
-          # numberLines.separator = "  ";
-          # showMatching = true;
-          # indentWidth = 2;
-          # tabStop = 2;
           scrollOff.lines = 1;
           scrollOff.columns = 3;
           keyMappings = [

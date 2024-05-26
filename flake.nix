@@ -66,6 +66,7 @@
     agenix.url = "github:ryantm/agenix";
 
     waybar.url = "github:Alexays/Waybar";
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";

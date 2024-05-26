@@ -65,9 +65,9 @@ in {
   };
   config = lib.mkIf cfg.enable {
     programs.nixvim.enable = true;
-    theme = "gruvbox";
-    programs.nixvim.extraConfigLua = ''
-      _G.theme = "${config.theme}"
-    '';
+    # theme = "gruvbox";
+    # programs.nixvim.extraConfigLua = ''
+    #  _G.theme = "${config.theme}"
+    #'';
   };
 }

@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.modules.wms.wayland.hyprland;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
   inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
   inherit

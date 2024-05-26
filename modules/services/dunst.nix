@@ -38,11 +38,11 @@ in {
             separator_height = 2;
             padding = 10;
             frame_width = 3;
-            frame_color = "#89B4FA";
-            separator_color = "frame";
+            # frame_color = "#89B4FA";
+            # separator_color = "frame";
             highlight = "#89DCEB";
             sort = "yes";
-            font = "JetBrains Mono 12";
+            # font = "JetBrains Mono 12";
             line_height = 0;
             markup = "full";
             format = "<b>%s</b>%b";
@@ -73,22 +73,22 @@ in {
             mouse_right_click = "close_all";
           };
           experimental = {per_monitor_dpi = false;};
-          urgency_low = {
-            background = "#1E1E2E";
-            foreground = "#CDD6F4";
-            timeout = 5;
-          };
-          urgency_normal = {
-            background = "#1E1E2E";
-            foreground = "#CDD6F4";
-            timeout = 6;
-          };
-          urgency_critical = {
-            background = "#1E1E2E";
-            foreground = "#CDD6F4";
-            frame_color = "#FAB387";
-            timeout = 0;
-          };
+          # urgency_low = {
+          #   background = "#1E1E2E";
+          #   foreground = "#CDD6F4";
+          #   timeout = 5;
+          # };
+          # urgency_normal = {
+          #   background = "#1E1E2E";
+          #   foreground = "#CDD6F4";
+          #   timeout = 6;
+          # };
+          # urgency_critical = {
+          #   background = "#1E1E2E";
+          #   foreground = "#CDD6F4";
+          #   frame_color = "#FAB387";
+          #   timeout = 0;
+          # };
         };
       };
     };
