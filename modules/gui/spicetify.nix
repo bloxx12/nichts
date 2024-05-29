@@ -17,7 +17,7 @@ in {
       programs.spicetify = {
         enable = true;
         spotifyPackage = pkgs.spotify;
-        theme = spicePkgs.themes.Onepunch;
+        #theme = spicePkgs.themes.Onepunch;
         colorScheme = "mocha";
         enabledExtensions = with spicePkgs.extensions; [
           shuffle

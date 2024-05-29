@@ -36,6 +36,7 @@ in {
     gcc
     gdb
     gnumake
+    gnutls
     grc
     grimblast
     git
