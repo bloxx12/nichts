@@ -68,7 +68,6 @@ in {
     nixpkgs-wayland.swww
     nmap
     notesnook
-    obs-studio
     obsidian
     onlyoffice-bin
     pamixer
