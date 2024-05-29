@@ -15,7 +15,6 @@
     swww
     wlsunset
     ;
-  inherit (inputs.waybar.packages.${pkgs.system}) waybar;
   inherit
     (inputs.split-monitor-workspaces.packages.${pkgs.system})
     split-monitor-workspaces
@@ -241,7 +240,7 @@ in {
             # Reload hyprland
             "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
             # Restart waybar
-            "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${waybar}/bin/waybar"
+            "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
           ];
           binde = [
             # window focus
@@ -296,7 +295,7 @@ in {
 
             "${swww}/bin/swww-daemon"
             "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
-            "${waybar}/bin/waybar"
+            "${pkgs.waybar}/bin/waybar"
           ];
 
           exec = [
