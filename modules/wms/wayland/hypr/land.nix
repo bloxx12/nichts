@@ -53,7 +53,6 @@ in {
 
           # Monitor config
           monitor = [
-            #"eDP-1,1920x1080,0x0,1"
             "DP-2,1920x1080,0x0,1"
             "HDMI-A-2,1920x1080,1920x0,1"
             "HDMI-A-1,1920x1080,3840x0,1"
@@ -62,16 +61,6 @@ in {
           ];
           # Workspace config
           workspace = [
-            #"1, monitor:eDP-1, default:true"
-            #"2, monitor:eDP-1"
-            #"3, monitor:eDP-1"
-            #"4, monitor:eDP-1"
-            #"5, monitor:eDP-1"
-            #"6, monitor:eDP-1"
-            #"7, monitor:eDP-1"
-            #"8, monitor:eDP-1"
-            #"9, monitor:eDP-1"
-            #"10, monitor:eDP-1"
 
             "1,monitor:HDMI-A-1, default:true"
             "2,monitor:HDMI-A-1"

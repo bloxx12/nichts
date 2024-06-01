@@ -12,6 +12,7 @@ _: {
     ./anyrun
     ./rofi.nix
     ./kitty.nix
+    #./vivado.nix
     ./steam.nix
     ./waybar.nix
     ./schizofox.nix

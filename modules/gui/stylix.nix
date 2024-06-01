@@ -5,6 +5,7 @@
   ...
 }: let
   cfg = config.modules.programs.stylix;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.stylix.enable = lib.mkEnableOption "stylix";
   config = lib.mkIf cfg.enable {
@@ -50,7 +51,7 @@ in {
       targets = {
         console.enable = true;
         fish.enable = true;
-        grub.enable = true;
+        grub.enable = false;
         grub.useImage = true;
         gtk.enable = true;
         lightdm.enable = true;
