@@ -11,7 +11,6 @@ in {
     alsa-utils
     asciinema
     bibata-cursors
-    blanket
     cmake
     difftastic
     dig
