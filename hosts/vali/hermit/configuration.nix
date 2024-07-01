@@ -23,10 +23,9 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   # boot.kernelModules = [ "v4l2loopback" ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   #  services.picom.enable = true;
-  services.emacs.enable = true;
   modules = {
     other = {
       system = {
@@ -66,8 +65,8 @@
         enable = false;
         doom.enable = false;
       };
-      helix.enable = false;
-      kakoune.enable = false;
+      helix.enable = true;
+      kakoune.enable = true;
       nixvim.enable = true;
     };
     services = {
