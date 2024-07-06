@@ -6,7 +6,7 @@
 }: let
   inherit (config.modules.other.system) username;
 in {
-  home-manager.users.${username}.programs.neovim-flake.settings.vim = {
+  programs.neovim-flake.settings.vim = {
     languages = {
       enableLSP = true;
       enableFormat = true;
@@ -28,17 +28,6 @@ in {
       elixir.enable = false;
       svelte.enable = false;
       sql.enable = false;
-      java = let
-        jdtlsCache = "${config.xdg.cacheHome}/jdtls";
-      in {
-        enable = true;
-        lsp.package = [
-          "${lib.getExe pkgs.jdt-language-server}"
-          "-configuration ${jdtlsCache}/config"
-          "-data ${jdtlsCache}/workspace"
-        ];
-      };
-
       lua = {
         enable = true;
         lsp.neodev.enable = true;

@@ -1,19 +1,19 @@
-# Credity to raf aka Notashelf, link to his repo is in the README.md
+# Credits to raf aka Notashelf, link to his repo is in the README.md
 {
-  inputs,
   config,
-  pkgs,
   lib,
+  pkgs,
+  inputs,
   ...
 }: let
   inherit (builtins) filter map toString path isPath throw;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix fileContents;
   inherit (lib.attrsets) genAttrs;
-  inherit (config.modues.other.system) username;
+  inherit (lib) mkIf mkEnableOption;
 
+  cfg = config.modules.editors.neovim;
   nvf = inputs.neovim-flake;
-  inherit (inputs) neovim-nightly-overlay;
   inherit (nvf.lib.nvim.dag) entryBefore entryAnywhere;
 
   mkRuntimeDir = name: let
@@ -24,7 +24,8 @@
       path = toString finalPath;
     };
 in {
-  home-manager.users.${username} = {
+  options.modules.editors.neovim.enable = mkEnableOption "neovim";
+  config = mkIf cfg.enable {
     programs.neovim-flake = {
       enable = true;
 
@@ -36,8 +37,7 @@ in {
           # use neovim-unwrapped from nixpkgs
           # alternatively, neovim-nightly from the neovim-nightly overlay
           # via inputs.neovim-nightly.packages.${pkgs.stdenv.system}.neovim
-          # package = pkgs.neovim-unwrapped;
-          package = neovim-nightly-overlay;
+          package = pkgs.neovim-unwrapped;
 
           viAlias = true;
           vimAlias = true;
@@ -50,7 +50,8 @@ in {
           useSystemClipboard = true;
           spellcheck = {
             enable = true;
-            languages = ["en" "de"];
+            # TODO add de
+            languages = ["en"];
           };
 
           enableLuaLoader = true;
@@ -81,7 +82,7 @@ in {
           # directory, so we do not need to use require
           luaConfigRC = let
             # get the name of each lua file in the lua directory, where setting files reside
-            # and import tham recursively
+            # and import them recursively
             configPaths = filter (hasSuffix ".lua") (map toString (listFilesRecursive ./lua));
 
             # generates a key-value pair that looks roughly as follows:
