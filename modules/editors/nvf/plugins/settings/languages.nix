@@ -3,8 +3,10 @@
   pkgs,
   lib,
   ...
-}: {
-  programs.neovim-flake.settings.vim = {
+}: let
+  inherit (config.modules.other.system) username;
+in {
+  home-manager.users.${username}.programs.neovim-flake.settings.vim = {
     languages = {
       enableLSP = true;
       enableFormat = true;

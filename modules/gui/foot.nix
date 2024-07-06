@@ -1,5 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.modules.programs.foot;
   inherit (config.modules.other.system) username;
 
@@ -11,7 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.sessionVariables = { TERM = "foot"; };
+    environment.sessionVariables = {TERM = "foot";};
     home-manager.users.${username} = {
       programs.foot = {
         enable = true;
@@ -36,8 +41,7 @@ in {
             pad = "5x5 center";
             resize-delay-ms = 100;
 
-            notify =
-              "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+            notify = "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
 
             bold-text-in-bright = "no";
             word-delimiters = '',│`|:"'()[]{}<>'';
@@ -59,8 +63,7 @@ in {
             launch = "${pkgs.xdg-utils}/bin/xdg-open \${url}";
             label-letters = "sadfjklewcmpgh";
             osc8-underline = "always";
-            protocols =
-              "http, https, ftp, ftps, file, gemini, gopher, irc, ircs";
+            protocols = "http, https, ftp, ftps, file, gemini, gopher, irc, ircs";
             uri-characters = ''
               abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+="'()[]'';
           };
@@ -93,7 +96,7 @@ in {
           #   bright6 = "94e2d5"; # teal
           #   bright7 = "a6adc8"; # Subtext 0
           # };
-          csd = { preferred = "server"; };
+          csd = {preferred = "server";};
           key-bindings = {
             show-urls-launch = "Control+Shift+u";
             unicode-input = "Control+Shift+i";

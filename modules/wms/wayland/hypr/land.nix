@@ -61,7 +61,6 @@ in {
           ];
           # Workspace config
           workspace = [
-
             "1,monitor:HDMI-A-1, default:true"
             "2,monitor:HDMI-A-1"
             "3,monitor:HDMI-A-1"

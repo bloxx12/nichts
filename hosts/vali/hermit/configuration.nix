@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Time Zone
@@ -8,17 +8,17 @@
   console.keyMap = "de";
   nix = {
     settings = {
-      substituters = [ "https://hyprland.cachix.org" ];
+      substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
       # enable flakes
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       # reduce file size used & automatic garbage collector
       auto-optimise-store = true;
     };
   };
-  security.sudo.package = pkgs.sudo.override { withInsults = true; };
+  security.sudo.package = pkgs.sudo.override {withInsults = true;};
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
@@ -81,7 +81,7 @@
       helix.enable = true;
       kakoune.enable = true;
       nixvim.enable = false; # broken at the moment
-#      neovim.enable = true;
+      #      neovim.enable = true;
     };
     services = {
       pipewire.enable = true;
@@ -91,14 +91,14 @@
       stylix = {
         enable = true;
         scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
-        cursor = { size = 16; };
+        cursor = {size = 16;};
         fontsizes = {
           terminal = 12;
           popups = 12;
         };
         image = ../../../assets/wallpapers/tiredgod.png;
       };
-      gtk = { enable = true; };
+      gtk = {enable = true;};
       qt = {
         enable = true;
         package = pkgs.kde-gruvbox;
