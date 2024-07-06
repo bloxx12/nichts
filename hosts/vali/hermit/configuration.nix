@@ -69,6 +69,7 @@
       spicetify.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
+      ags.enable = true;
     };
     editors = {
       emacs = {

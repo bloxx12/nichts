@@ -7,7 +7,9 @@
   hardware.graphics = {
     enable = true;
     package = pkgs.mesa.drivers;
-    #   driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      vpl-gpu-rt
+    ];
   };
   hardware.nvidia = {
     modesetting.enable = true;
