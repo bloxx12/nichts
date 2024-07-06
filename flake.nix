@@ -30,12 +30,12 @@
     };
     # Wayland packages
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-
+	neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     doomemacs = {
       url = "github:doomemacs/doomemacs";
       flake = false;
     };
-    nvf = {
+    neovim-flake = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
