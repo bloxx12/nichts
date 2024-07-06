@@ -1,6 +1,11 @@
 # Thank your Mr. poz! (https://git.jacekpoz.pl/jacekpoz/niksos)
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.modules.editors.neovim;
   inherit (config.modules.other.system) username;
 
@@ -9,10 +14,10 @@ in {
   options.modules.editors.neovim.enable = mkEnableOption "neovim";
 
   config = mkIf cfg.enable {
-    environment.sessionVariables = { EDITOR = "nvim"; };
+    environment.sessionVariables = {EDITOR = "nvim";};
 
     home-manager.users.${username} = {
-      imports = [ inputs.neovim-flake.homeManagerModules.default ];
+      imports = [inputs.neovim-flake.homeManagerModules.default];
 
       programs.nvf = {
         enable = true;
@@ -77,7 +82,7 @@ in {
             alwaysComplete = false;
           };
 
-          filetree.nvimTree = { enable = true; };
+          filetree.nvimTree = {enable = true;};
 
           terminal.toggleterm = {
             enable = true;
@@ -172,7 +177,7 @@ in {
             orgmode = {
               enable = true;
               setupOpts = {
-                org_agenda_files = [ "~/Notes/org" ];
+                org_agenda_files = ["~/Notes/org"];
                 org_default_notes_file = "~/Notes/org/refile.org";
               };
               treesitter.enable = true;

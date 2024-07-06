@@ -50,7 +50,7 @@ in {
           useSystemClipboard = true;
           spellcheck = {
             enable = true;
-            languages = ["en" "de" ];
+            languages = ["en" "de"];
           };
 
           enableLuaLoader = true;
