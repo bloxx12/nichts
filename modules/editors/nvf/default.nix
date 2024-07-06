@@ -1,6 +1,7 @@
 {
-  inputs,
+  config,
   lib,
+  inputs,
   ...
 }: let
   inherit (builtins) filter map toString elem;
@@ -10,7 +11,7 @@
 
   mkNeovimModule = {
     path,
-    ingoredPaths ? [./nvf.nix],
+    ingoredPaths ? [./nvf.nix ./plugins/sources/default.nix],
   }:
     filter (hasSuffix ".nix") (
       map toString (
@@ -20,9 +21,9 @@
 
   nvf = inputs.neovim-flake;
 in {
-  imports = concatLists [
+imports = concatLists [
     # neovim-flake home-manager module
-    [nvf.homeManagerModules.default]
+    [nvf.nixosModules.default]
 
     # construct this entore directory as a module
     # which means all default.nix files will be imported automtically
