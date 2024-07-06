@@ -36,10 +36,7 @@
       };
     };
   };
-  # boot.kernelModules = [ "v4l2loopback" ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
-  # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
-  #  services.picom.enable = true;
   modules = {
     other = {
       system = {

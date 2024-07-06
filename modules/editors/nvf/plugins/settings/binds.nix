@@ -1,10 +1,8 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_:{
   programs.neovim-flake.settings.vim = {
     binds = {
       whichKey.enable = true;
-      cheatsheet.enable = false;
+      cheatsheet.enable = true;
     };
   };
 }

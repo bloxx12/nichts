@@ -1,6 +1,4 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_:{
   programs.neovim-flake.settings.vim = {
     terminal = {
       toggleterm = {
@@ -12,6 +10,7 @@ in {
           lazygit = {
             enable = true;
             direction = "tab";
+            mappings.open = "<leader>gg";
           };
         };
       };

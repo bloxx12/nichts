@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (config.modules.other.system) username;
-in {
+_:{
   programs.neovim-flake.settings.vim = {
     languages = {
       enableLSP = true;
@@ -14,7 +7,6 @@ in {
       enableExtraDiagnostics = true;
 
       markdown.enable = true;
-      nix.enable = true;
       html.enable = true;
       css.enable = true;
       tailwind.enable = true;
@@ -33,6 +25,10 @@ in {
         lsp.neodev.enable = true;
       };
 
+      nix = {
+        enable = true;
+        lsp.enable = true;
+      };
       rust = {
         enable = true;
         crates.enable = true;

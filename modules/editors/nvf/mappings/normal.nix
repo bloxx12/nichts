@@ -4,10 +4,11 @@
       # General
       "<leader>fd".action = ":lua vim.g.formatsave = not vim.g.formatsave<CR>";
       "<leader>zt".action = ":<C-U>let g:default_terminal = v:count1<CR>";
-      "<leader>e".action = ":NvimTreeToggle<CR>";
+      "<leader>e".action = ":<leader>tf";
       "<leader>ld".action = ":lua vim.diagnostic.setqflist({open = true})<CR>";
       "<leader>lf".action = ":lua vim.lsp.buf.format()<CR>";
       "<leader>li".action = ":lua vim.lsp.buf.implementation()<CR>";
+      "<leader>;".action = "A;<esc>"; # Append #
 
       # Diffview
       "<leader>gdq".action = ":DiffviewClose<CR>";
@@ -27,6 +28,11 @@
       "<leader>gD".action = "<cmd>Gitsigns diffthis HEAD<CR>";
       "<leader>gw".action = "<cmd>Gitsigns toggle_word_diff<CR>";
 
+      # Movement
+      "<C-h>".action = "<C-W>h";
+      "<C-j>".action = "<C-W>j";
+      "<C-k>".action = "<C-W>k";
+      "<C-l>".action = "<C-W>l";
       # Telescope
       "<M-f>".action = ":Telescope resume<CR>";
       "<leader>fq".action = ":Telescope quickfix<CR>";

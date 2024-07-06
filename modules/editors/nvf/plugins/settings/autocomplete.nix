@@ -1,6 +1,4 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_:{
   programs.neovim-flake.settings.vim = {
     autocomplete = {
       enable = true;
@@ -12,6 +10,7 @@ in {
         previous = "<C-p>";
         scrollDocsDown = "<C-j>";
         scrollDocsUp = "<C-k>";
+      
       };
     };
   };
