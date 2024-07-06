@@ -4,11 +4,10 @@
   ...
 }: {
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     package = pkgs.mesa.drivers;
-    driSupport = true;
-    driSupport32Bit = true;
+ #   driSupport32Bit = true;
   };
   hardware.nvidia = {
     modesetting.enable = true;

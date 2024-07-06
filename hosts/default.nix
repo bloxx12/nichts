@@ -10,8 +10,8 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
+      inputs.nvf.nixosModules.default
       inputs.stylix.nixosModules.stylix
-      #inputs.nixvim.nixosModules.nixvim
     ];
   };
   hermit = lib.nixosSystem {
@@ -22,8 +22,8 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
+      inputs.nvf.nixosModules.default
       inputs.stylix.nixosModules.stylix
-      inputs.nixvim.nixosModules.nixvim
     ];
   };
 }

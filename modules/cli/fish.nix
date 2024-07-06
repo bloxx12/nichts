@@ -38,20 +38,12 @@ in {
           interactiveShellInit = "set fish_greeting";
           plugins = [
             {
-              name = "grc";
-              inherit (pkgs.fishPlugins.grc) src;
-            }
-            {
               name = "sponge";
               inherit (pkgs.fishPlugins.sponge) src;
             }
             {
               name = "done";
               inherit (pkgs.fishPlugins.done) src;
-            }
-            {
-              name = "colored_man_pages";
-              inherit (pkgs.fishPlugins.colored-man-pages) src;
             }
             {
               name = "tide";

@@ -4,25 +4,63 @@
   lib,
   ...
 }: let
-  cfg = config.modules.programs.stylix;
+  cfg = config.modules.themes.stylix;
+  inherit (config.modules.themes.stylix) scheme image;
+  inherit (config.modules.themes.stylix.cursor) size;
+  inherit (config.modules.themes.stylix.fontsizes) terminal popups;
   inherit (config.modules.other.system) username;
 in {
-  options.modules.programs.stylix.enable = lib.mkEnableOption "stylix";
+  options.modules.themes.stylix = {
+    enable = lib.mkEnableOption "stylix";
+    scheme = lib.mkOption {
+      description = " Color Scheme";
+      type = lib.types.str;
+    };
+    image = lib.mkOption {
+      description = "Image";
+      type = lib.types.path;
+    };
+    cursor = {
+      size = lib.mkOption {
+        description = "Cursor Size";
+        type = lib.types.int;
+      };
+      package = lib.mkOption {
+        description = "Cursor Package";
+        type = lib.types.package;
+      };
+      name = lib.mkOption {
+        description = "Cursor Name";
+        type = lib.type.str;
+      };
+    };
+    fontsizes = {
+      terminal = lib.mkOption {
+        description = "Terminal font size";
+        type = lib.types.int;
+      };
+      popups = lib.mkOption {
+        description = "Popup font size";
+        type = lib.types.int;
+      };
+    };
+  };
   config = lib.mkIf cfg.enable {
     stylix = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
-      image = ../../assets/wallpapers/tiredgod.png;
+      enable = true;
+      base16Scheme = scheme;
+      inherit image;
       polarity = "dark";
       autoEnable = true;
       cursor = {
+        inherit size;
+        #size = 16;
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
-        size = 24;
       };
       fonts = {
         sizes = {
-          terminal = 14;
-          popups = 14;
+          inherit terminal popups;
         };
         monospace = {
           package =

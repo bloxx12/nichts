@@ -10,7 +10,7 @@ with lib; let
     name = "Gruvbox-Dark-BL";
   };
   cfg = config.modules.themes.qt;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.themes.qt = {
     enable = mkEnableOption "qt theming";

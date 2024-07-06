@@ -7,7 +7,6 @@ _: {
     #    ./kakoune
     ./qt.nix
     ./zathura.nix
-    ./stylix.nix
     ./spicetify.nix
     ./anyrun
     ./rofi.nix

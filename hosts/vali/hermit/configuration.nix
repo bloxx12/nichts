@@ -22,6 +22,20 @@
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
+  services.thermald.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "auto";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
   # boot.kernelModules = [ "v4l2loopback" ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   # boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
@@ -53,7 +67,6 @@
       newsboat.enable = true;
       foot.enable = true;
       fish.enable = true;
-      stylix.enable = true;
       nh.enable = true;
       waybar.enable = true;
       spicetify.enable = true;
@@ -74,6 +87,18 @@
       dunst.enable = true;
     };
     themes = {
+      stylix = {
+        enable = true;
+        scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
+        cursor = {
+          size = 16;
+        };
+        fontsizes = {
+          terminal = 12;
+          popups = 12;
+        };
+        image = ../../../assets/wallpapers/tiredgod.png;
+      };
       gtk = {enable = true;};
       qt = {
         enable = true;
