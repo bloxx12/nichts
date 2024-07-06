@@ -62,6 +62,7 @@ in {
               kys = "shutdown now";
               lg = "lazygit";
               cd = "z";
+              "..." = "cd ../..";
               v = "nvim";
               h = "hx";
               k = "kak";

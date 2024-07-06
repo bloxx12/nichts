@@ -1,8 +1,13 @@
 # nichts
+
 My personal collection of NixOS configuration files
-# License 
-No Idea at this point 
-# Flake structure: 
+
+# License
+
+No Idea at this point
+
+# Flake structure:
+
 ```
 .
 ├── assets
@@ -12,8 +17,8 @@ No Idea at this point
 ├── hosts # My different hosts
 │   ├── default.nix # Where the different hosts are specified
 │   └── vali
-│       └── mars # My main computer 
-│           ├── configuration.nix # Main configuration file 
+│       └── mars # My main computer
+│           ├── configuration.nix # Main configuration file
 │           ├── default.nix
 │           ├── hardware-configuration.nix # Hardware config for my system
 │           ├── profile.nix # importing different system options
@@ -30,7 +35,7 @@ No Idea at this point
 │   │   └── nh.nix # nix helper config
 │   ├── default.nix
 │   ├── editors # My different editors
-│   │   ├── default.nix 
+│   │   ├── default.nix
 │   │   ├── emacs.nix # Emacs config
 │   │   ├── helix.nix # Helix config
 │   │   ├── kakoune.nix # Kakoune config
@@ -87,7 +92,7 @@ No Idea at this point
 │       │   │   └── default.nix
 │       │   ├── services.nix # Enabled services I need in wayland
 │       │   └── variables.nix # Wayland system variables
-│       └── x # My X window managers 
+│       └── x # My X window managers
 │           ├── awesome # Awesome window manager
 │           │   ├── awesome.nix # Awesome config
 │           │   └── rc.lua #  Awesome config file
@@ -109,12 +114,14 @@ No Idea at this point
 ├── overlay.nix # Overlays
 └── README.md # This file # This file
 ```
+
 # credits
+
 ```
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
 Sioodmy: https://github.com/sioodmy/dotfiles
 Heinrik Lissner: https://github.com/hlissner/dotfiles/
 Lokasku: https://github.com/lokasku/nix-config
-NotaShelf: https://github.com/notashelf/Nyx
+NotAShelf: https://github.com/notashelf/Nyx
 Wallpapers: https://github.com/zhichaoh/catppuccin-wallpapers?tab=readme-ov-file
 ```

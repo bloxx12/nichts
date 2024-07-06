@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  fenix = inputs.fenix.packages.${pkgs.system};
   nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
 in {
   environment.systemPackages = with pkgs; [
@@ -14,6 +13,7 @@ in {
     blueman
     bluetuith
     bluez
+    bun
     cmake
     difftastic
     dig
@@ -87,6 +87,7 @@ in {
     ventoy-full
     vlc
     weechat
+    wezterm
     wget
     wireguard-tools
     wl-clipboard
