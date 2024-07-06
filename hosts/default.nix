@@ -10,7 +10,6 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
-      inputs.nvf.nixosModules.default
       inputs.stylix.nixosModules.stylix
     ];
   };
@@ -22,7 +21,6 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
-      inputs.nvf.nixosModules.default
       inputs.stylix.nixosModules.stylix
     ];
   };
