@@ -35,6 +35,10 @@
       url = "github:doomemacs/doomemacs";
       flake = false;
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     doom-emacs-config = {
       url = "github:bloxx12/doom-emacs-config";
       flake = false;
@@ -50,6 +54,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ags.url = "github:Aylur/ags";
     schizofox = {
       url = "github:schizofox/schizofox";
       inputs = {

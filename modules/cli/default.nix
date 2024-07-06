@@ -1,1 +1,1 @@
-_: {imports = [./neovim.nix ./fish.nix ./nh.nix];}
+_: {imports = [./fish.nix ./nh.nix];}
