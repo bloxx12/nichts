@@ -8,7 +8,7 @@ in {
         openOnSetup = true;
 
         mappings = {
-          toggle = "<C-w>";
+          #toggle = "<C-w>";
         };
 
         setupOpts = {

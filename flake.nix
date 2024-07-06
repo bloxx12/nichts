@@ -1,10 +1,6 @@
 {
   description = "My NixOS config flake";
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    ...
-  }: {
+  outputs = inputs @ {nixpkgs, ...}: {
     inherit (nixpkgs) lib;
     nixosConfigurations = import ./hosts {inherit inputs;};
   };
