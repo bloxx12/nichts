@@ -62,7 +62,6 @@
       mpv.enable = true;
       kitty.enable = true;
       newsboat.enable = true;
-      foot.enable = true;
       fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
@@ -70,6 +69,10 @@
       schizofox.enable = true;
       anyrun.enable = true;
       ags.enable = true;
+      foot = {
+        enable = true;
+        server = false;
+      };
     };
     editors = {
       emacs = {
@@ -89,10 +92,11 @@
       stylix = {
         enable = true;
         scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
-        cursor = {size = 16;};
+        cursor = {size = 28;};
         fontsizes = {
-          terminal = 12;
-          popups = 12;
+          terminal = 14;
+          popups = 14;
+          applications = 14;
         };
         image = ../../../assets/wallpapers/tiredgod.png;
       };

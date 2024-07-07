@@ -1,5 +1,5 @@
 {config, ...}: let
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
   hmCfg = config.home-manager.users.${username};
 
   primary_browser = "Schizofox.desktop";
@@ -7,7 +7,7 @@
   file_manager = "nautilus.desktop";
   media_player = "mpv.desktop";
   image_viewer = "imv.desktop";
-  text_editor = "helix.desktop";
+  text_editor = "nvim.desktop";
   terminal = "foot.desktop";
 in {
   environment.sessionVariables = {TERMINAL = "${terminal}";};

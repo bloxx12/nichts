@@ -8,7 +8,8 @@
     enable = true;
     package = pkgs.mesa.drivers;
     extraPackages = with pkgs; [
-      vpl-gpu-rt
+      intel-compute-runtime
+      intel-media-driver
     ];
   };
   hardware.nvidia = {
