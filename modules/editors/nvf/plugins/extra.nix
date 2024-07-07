@@ -82,66 +82,66 @@
 in {
   programs.neovim-flake.settings.vim.extraPlugins = {
     # plugins that are pulled from nixpkgs
+    # direnv = {package = direnv-vim;};
+    friendly-snippets = {package = friendly-snippets;};
+    mkdir-nvim = {package = mkdir-nvim;};
+    lazygit-nvim = {package = lazygit-nvim;};
+    aerial = {
+      package = aerial-nvim;
+      setup = "require('aerial').setup {}";
+    };
+
+    nvim-surround = {
+      package = nvim-surround;
+      setup = "require('nvim-surround').setup {}";
+    };
     /*
-        direnv = {package = direnv-vim;};
-        friendly-snippets = {package = friendly-snippets;};
-        mkdir-nvim = {package = mkdir-nvim;};
-        lazygit-nvim = {package = lazygit-nvim;};
-        aerial = {
-          package = aerial-nvim;
-          setup = "require('aerial').setup {}";
-        };
+    undotree = {
+      package = undotree;
+      setup = ''
+        vim.g.undotree_ShortIndicators = true
+        vim.g.undotree_TreeVertShape = '│'
+      '';
+    };
+    */
+    ssr-nvim = {
+      package = ssr-nvim;
+      setup = "require('ssr').setup {}";
+    };
 
-        nvim-surround = {
-          package = nvim-surround;
-          setup = "require('nvim-surround').setup {}";
-        };
+    legendary = {
+      package = legendary-nvim;
+      setup = ''
+        require('legendary').setup {};
+      '';
+    };
 
-        undotree = {
-          package = undotree;
-          setup = ''
-            vim.g.undotree_ShortIndicators = true
-            vim.g.undotree_TreeVertShape = '│'
-          '';
-        };
-
-        ssr-nvim = {
-          package = ssr-nvim;
-          setup = "require('ssr').setup {}";
-        };
-
-        legendary = {
-          package = legendary-nvim;
-          setup = ''
-            require('legendary').setup {};
-          '';
-        };
-
-        # plugins that are built from their sources
-        regexplainer = {package = pluginSources.regexplainer;};
-        vim-nftables = {package = pluginSources.vim-nftables;};
+    # plugins that are built from their sources
+    #    regexplainer = {package = pluginSources.regexplainer;};
+    #    vim-nftables = {package = pluginSources.vim-nftables;};
     /*
-        data-view = {
-          package = pluginSources.data-viewer-nvim;
-          setup = ''
-            -- open data files in data-viewer.nvim
-            vim.api.nvim_exec([[
-              autocmd BufReadPost,BufNewFile *.sqlite,*.csv,*.tsv DataViewer
-            ]], false)
+    data-view = {
+      package = pluginSources.data-viewer-nvim;
+      setup = ''
+        -- open data files in data-viewer.nvim
+        vim.api.nvim_exec([[
+          autocmd BufReadPost,BufNewFile *.sqlite,*.csv,*.tsv DataViewer
+        ]], false)
 
 
-            -- keybinds
-            vim.api.nvim_set_keymap('n', '<leader>dv', ':DataViewer<CR>', {noremap = true})
-            vim.api.nvim_set_keymap('n', '<leader>dvn', ':DataViewerNextTable<CR>', {noremap = true})
-            vim.api.nvim_set_keymap('n', '<leader>dvp', ':DataViewerPrevTable<CR>', {noremap = true})
-            vim.api.nvim_set_keymap('n', '<leader>dvc', ':DataViewerClose<CR>', {noremap = true})
-          '';
-        };
+        -- keybinds
+        vim.api.nvim_set_keymap('n', '<leader>dv', ':DataViewer<CR>', {noremap = true})
+        vim.api.nvim_set_keymap('n', '<leader>dvn', ':DataViewerNextTable<CR>', {noremap = true})
+        vim.api.nvim_set_keymap('n', '<leader>dvp', ':DataViewerPrevTable<CR>', {noremap = true})
+        vim.api.nvim_set_keymap('n', '<leader>dvc', ':DataViewerClose<CR>', {noremap = true})
+      '';
+    };
+    */
     smart-splits = {
       package = pluginSources.smart-splits;
       setup = "require('smart-splits').setup {}";
     };
-
+    /*
     neotab-nvim = {
       package = pluginSources.neotab-nvim;
       setup = ''
@@ -173,7 +173,7 @@ in {
         }
       '';
     };
-
+    */
     specs-nvim = {
       package = pluginSources.specs-nvim;
       setup = ''
@@ -202,6 +202,5 @@ in {
         vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
       '';
     };
-    */
   };
 }
