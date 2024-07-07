@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
   cfg = config.modules.programs.anyrun;
 in {
   options.modules.programs.anyrun.enable = mkEnableOption "anyrun";
@@ -20,11 +20,12 @@ in {
           plugins = with inputs.anyrun.packages.${pkgs.system}; [
             applications
             dictionary
-            kidex
+            #   kidex
             rink
             shell
-            symbols
+            #   symbols
             translate
+            websearch
           ];
           hideIcons = false;
           ignoreExclusiveZones = false;
@@ -42,7 +43,13 @@ in {
           Config(
               desktop_actions: false,
               max_entries: 5,
-              terminal: Some("kitty"),
+              terminal: Some("foot"),
+          )
+        '';
+        extraConfigFiles."websearch.ron".text = ''
+          Config(
+              prefix: "?",
+              engines: [DuckDuckGo]
           )
         '';
       };

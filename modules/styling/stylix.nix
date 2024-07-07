@@ -7,8 +7,7 @@
   cfg = config.modules.themes.stylix;
   inherit (config.modules.themes.stylix) scheme image;
   inherit (config.modules.themes.stylix.cursor) size;
-  inherit (config.modules.themes.stylix.fontsizes) terminal popups;
-  inherit (config.modules.other.system) username;
+  inherit (config.modules.themes.stylix.fontsizes) terminal popups applications;
 in {
   options.modules.themes.stylix = {
     enable = lib.mkEnableOption "stylix";
@@ -43,38 +42,47 @@ in {
         description = "Popup font size";
         type = lib.types.int;
       };
+      applications = lib.mkOption {
+        description = "Application font size";
+        type = lib.types.int;
+      };
     };
   };
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
+      homeManagerIntegration.followSystem = true;
       base16Scheme = scheme;
       inherit image;
       polarity = "dark";
       autoEnable = true;
       cursor = {
         inherit size;
-        #size = 16;
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
       };
       fonts = {
         sizes = {
-          inherit terminal popups;
+          inherit terminal popups applications;
         };
         monospace = {
           package =
             pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
           name = "JetBrainsMono";
         };
-        serif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Serif";
-        };
-        sansSerif = {
-          package = pkgs.lexend;
-          name = "Lexend";
-        };
+
+        serif = config.stylix.fonts.monospace;
+        sansSerif = config.stylix.fonts.monospace;
+
+        # serif = {
+        #
+        #   package = pkgs.noto-fonts;
+        #   name = "Noto Serif";
+        # };
+        # sansSerif = {
+        #   package = pkgs.lexend;
+        #   name = "Lexend";
+        # };
         emoji = {
           package = pkgs.noto-fonts-emoji;
           name = "Noto Color Emoji";
@@ -95,6 +103,7 @@ in {
         lightdm.enable = true;
         nixos-icons.enable = true;
         nixvim.enable = true;
+        plymouth.enable = true;
         plymouth.logoAnimated = true;
       };
     };

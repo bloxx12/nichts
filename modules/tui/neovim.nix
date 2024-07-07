@@ -6,10 +6,10 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.neovim;
-  username = config.modules.other.system.username;
+  cfg = config.modules.programs.neovim-old;
+  inherit (config.modules.other.system) username;
 in {
-  options.modules.programs.neovim.enable = mkEnableOption "neovim";
+  options.modules.programs.neovim-old.enable = mkEnableOption "neovim-old";
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {

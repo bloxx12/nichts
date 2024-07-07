@@ -45,10 +45,10 @@ in {
               name = "done";
               inherit (pkgs.fishPlugins.done) src;
             }
-            {
-              name = "tide";
-              inherit (pkgs.fishPlugins.tide) src;
-            }
+            #           {
+            #             name = "tide";
+            #             inherit (pkgs.fishPlugins.tide) src;
+            #           }
           ];
           shellAbbrs =
             {
