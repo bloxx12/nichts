@@ -1,9 +1,7 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_: {
   programs.neovim-flake.settings.vim = {
     dashboard = {
-      alpha.enable = false;
+      alpha.enable = true;
     };
   };
 }
