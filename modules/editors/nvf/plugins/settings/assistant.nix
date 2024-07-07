@@ -1,8 +1,8 @@
 _:{
   programs.neovim-flake.settings.vim = {
     assistant.copilot = {
-      enable = true;
-      cmp.enable = true;
+      enable = false;
+      cmp.enable = false;
     };
   };
 }

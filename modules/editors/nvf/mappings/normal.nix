@@ -1,13 +1,14 @@
 {
   programs.neovim-flake.settings.vim.maps = {
     normal = {
+      /*
       # General
       "<leader>fd".action = ":lua vim.g.formatsave = not vim.g.formatsave<CR>";
       "<leader>zt".action = ":<C-U>let g:default_terminal = v:count1<CR>";
-      "<leader>e".action = ":NvimTreeToggle<CR>";
-      "<leader>ld".action = ":lua vim.diagnostic.setqflist({open = true})<CR>";
-      "<leader>lf".action = ":lua vim.lsp.buf.format()<CR>";
-      "<leader>li".action = ":lua vim.lsp.buf.implementation()<CR>";
+      #"<leader>e".action = ":NvimTreeToggle<CR>";
+      # "<leader>ld".action = ":lua vim.diagnostic.setqflist({open = true})<CR>";
+      # "<leader>lf".action = ":lua vim.lsp.buf.format()<CR>";
+      # "<leader>li".action = ":lua vim.lsp.buf.implementation()<CR>";
       "<leader>;".action = "A;<esc>"; # Append #
 
       # Diffview
@@ -44,9 +45,11 @@
       # vsnip
       #"<C-jn>".action = "<Plug>(vsnip-jump-next)";
       #"<C-jp>".action = "<Plug>(vsnip-jump-prev)";
+      */
     };
 
     normalVisualOp = {
+      /*
       "<leader>gs".action = ":Gitsigns stage_hunk<CR>";
       "<leader>gr".action = ":Gitsigns reset_hunk<CR>";
       "<leader>lr".action = "<cmd>lua vim.lsp.buf.references()<CR>";
@@ -60,6 +63,7 @@
         action = "':ToggleTermSendVisualLines ' . v:count == 0 ? g:default_terminal : v:count";
         expr = true;
       };
+      */
     };
   };
 }

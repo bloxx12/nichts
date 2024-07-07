@@ -1,4 +1,4 @@
-_:{
+_: {
   programs.neovim-flake.settings.vim = {
     lsp = {
       formatOnSave = true;
@@ -8,8 +8,8 @@ _:{
       lspsaga.enable = false;
       lspSignature.enable = true;
       nvimCodeActionMenu.enable = true;
-      trouble.enable = false;
-      nvim-docs-view.enable = true;
+      #     trouble.enable = false;
+      #     nvim-docs-view.enable = true;
     };
   };
 }

@@ -5,7 +5,7 @@ in {
     visuals = {
       enable = true;
       nvimWebDevicons.enable = true;
-      scrollBar.enable = true;
+      scrollBar.enable = false;
       smoothScroll.enable = false;
       cellularAutomaton.enable = false;
       highlight-undo.enable = true;

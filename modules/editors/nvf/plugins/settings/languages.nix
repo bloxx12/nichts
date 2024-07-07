@@ -1,4 +1,4 @@
-_:{
+_: {
   programs.neovim-flake.settings.vim = {
     languages = {
       enableLSP = true;

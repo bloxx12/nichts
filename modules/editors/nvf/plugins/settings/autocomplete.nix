@@ -5,7 +5,7 @@ _:{
       type = "nvim-cmp";
       mappings = {
         # close = "<C-e>";
-        confirm = "<C-y>";
+       # confirm = "<tab>";
         next = "<C-n>";
         previous = "<C-p>";
         scrollDocsDown = "<C-j>";

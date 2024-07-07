@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Time Zone
@@ -12,6 +16,7 @@
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
+      trusted-users = ["root" "${config.modules.other.system.username}"];
       # enable flakes
       experimental-features = ["nix-command" "flakes"];
       # reduce file size used & automatic garbage collector
@@ -81,7 +86,7 @@
       };
       helix.enable = true;
       kakoune.enable = true;
-      nixvim.enable = false; # broken at the moment
+      #      nixvim.enable = false; # broken at the moment
       neovim.enable = true;
     };
     services = {

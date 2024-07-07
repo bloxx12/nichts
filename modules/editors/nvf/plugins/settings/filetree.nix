@@ -1,6 +1,4 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_: {
   programs.neovim-flake.settings.vim = {
     filetree = {
       nvimTree = {
@@ -9,6 +7,7 @@ in {
 
         mappings = {
           #toggle = "<C-w>";
+          toggle = "<leader>e";
         };
 
         setupOpts = {

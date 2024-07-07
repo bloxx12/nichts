@@ -3,7 +3,7 @@
 in {
   programs.neovim-flake.settings.vim = {
     dashboard = {
-      alpha.enable = true;
+      alpha.enable = false;
     };
   };
 }
