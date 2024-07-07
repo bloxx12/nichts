@@ -1,8 +1,8 @@
-_:{
+_: {
   programs.neovim-flake.settings.vim = {
     terminal = {
       toggleterm = {
-        enable = true;
+        enable = false;
         mappings.open = "<C-t>";
 
         setupOpts = {
@@ -10,7 +10,6 @@ _:{
           lazygit = {
             enable = true;
             direction = "tab";
-            mappings.open = "<leader>gg";
           };
         };
       };

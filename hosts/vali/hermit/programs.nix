@@ -14,6 +14,7 @@ in {
     bluetuith
     bluez
     bun
+    cachix
     cmake
     difftastic
     dig
@@ -45,7 +46,6 @@ in {
     gnome.nautilus
     ncmpcpp
     neofetch
-    neovim
     networkmanagerapplet
     nextcloud-client
     nicotine-plus
