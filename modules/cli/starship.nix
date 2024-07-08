@@ -1,3 +1,4 @@
+# Credits to raf, his flake is in the README.md
 {
   config,
   lib,

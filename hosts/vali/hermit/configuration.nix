@@ -97,7 +97,8 @@
     themes = {
       stylix = {
         enable = true;
-        scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
+        #        scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
+        scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         cursor = {size = 28;};
         fontsizes = {
           terminal = 18;
