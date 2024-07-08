@@ -32,10 +32,10 @@ in {
             enabled = true;
             locations = {Zurich = "Europe/Zurich";};
             position = {
-              top = 1;
-              left = 1;
-              height = 1;
-              width = 1;
+              top = 0;
+              left = 0;
+              height = 2;
+              width = 3;
             };
             refreshInterval = 15;
             sort = "alphabetical";
@@ -51,14 +51,14 @@ in {
           git = {
             enabled = true;
             showModuleName = true;
-            commitCount = 5;
-            commitFormat = "[forestgreen]%h [%grey]%cd [white]%s [grey]%an[white]";
+            commitCount = 50;
+            commitFormat = "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]";
             dateFormat = "%H:%M %d %b %y";
             position = {
-              top = 1;
+              top = 0;
               left = 5;
-              height = 5;
-              width = 1;
+              height = 4;
+              width = 4;
             };
             refreshInterval = 10;
             repositories = [
@@ -68,12 +68,12 @@ in {
           };
           ipapi = {
             enabled = true;
-            refreshInterval = 150;
+            refreshInterval = 300;
             position = {
-              top = 1;
-              left = 2;
-              height = 1;
-              width = 1;
+              top = 6;
+              left = 0;
+              height = 3;
+              width = 3;
             };
             colors = {
               name = "red";
@@ -92,7 +92,7 @@ in {
             };
           };
           power = {
-            enabled = true;
+            enabled = false;
             refreshInterval = 15;
             position = {
               top = 5;
@@ -103,26 +103,27 @@ in {
           };
           resourceusage = {
             enabled = true;
+            showModuleName = false;
             refreshInterval = 1;
             showCPU = true;
             showMem = true;
             showSwp = true;
-            cpuCombined = false;
+            cpuCombined = true;
             position = {
-              top = 1;
-              left = 1;
-              height = 1;
-              width = 1;
+              top = 2;
+              left = 0;
+              height = 2;
+              width = 3;
             };
           };
           security = {
             enabled = true;
             refreshInterval = "1h";
             position = {
-              top = 1;
-              left = 2;
-              height = 1;
-              width = 1;
+              top = 0;
+              left = 3;
+              height = 3;
+              width = 2;
             };
           };
         };
