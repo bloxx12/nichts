@@ -56,9 +56,9 @@ in {
               cc = "cd ~ && clear";
               mv = "mv -iv";
               rm = "trash -v";
-              ls = "eza --icons";
-              l = "eza -a --icons";
-              la = "eza -lha --icons --git";
+              ls = "eza ";
+              l = "eza -a ";
+              la = "eza -lha --git";
               kys = "shutdown now";
               lg = "lazygit";
               cd = "z";

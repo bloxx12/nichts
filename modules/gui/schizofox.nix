@@ -66,7 +66,7 @@ in {
               Description = "Home Manager option search";
               Alias = "!hm";
               Method = "GET";
-              URLTemplate = "https://mipmip.github.io/home-manager-option-search?query={searchTerms}";
+              URLTemplate = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
             }
             {
               Name = "Arch Wiki";

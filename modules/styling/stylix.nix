@@ -67,8 +67,9 @@ in {
         };
         monospace = {
           package =
-            pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-          name = "JetBrainsMono";
+            pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "ComicShannsMono"];};
+          # name = "JetBrainsMono";
+          name = "ComicShannsMono Nerd Font";
         };
 
         serif = config.stylix.fonts.monospace;
