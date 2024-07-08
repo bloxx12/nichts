@@ -13,11 +13,15 @@ in {
     blueman
     bluetuith
     bluez
+    #botany
+    broot
+    browsh
     bun
     cachix
     cmake
     difftastic
     dig
+    discordo
     easyeffects
     element-desktop
     evince
@@ -26,24 +30,29 @@ in {
     feh
     ffmpeg-full
     fftw
-    grimblast
+    fzf
+    #gadacz
     gcc
     gdb
+    gnome.nautilus
     gnumake
     grc
     grimblast
     git
     helvum
+    hmm
     httpie
     imagemagick
     img2pdf
+    impala
     imv
+    inetutils
     keepassxc
     lazygit
     libtool
     links2
+    mapscii
     mars-mips
-    gnome.nautilus
     ncmpcpp
     neofetch
     networkmanagerapplet
@@ -63,6 +72,7 @@ in {
     pidgin
     playerctl
     polkit
+    pyradio
     python3
     qbittorrent
     ripgrep
@@ -72,7 +82,6 @@ in {
     sherlock
     signal-desktop-beta
     smartmontools
-    strawberry
     telegram-desktop
     texliveFull
     tldr
@@ -80,6 +89,7 @@ in {
     tor-browser-bundle-bin
     trash-cli
     tree
+    ttyper
     typst
     unzip
     util-linux

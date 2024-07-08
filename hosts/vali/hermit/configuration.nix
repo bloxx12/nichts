@@ -69,6 +69,7 @@
       newsboat.enable = true;
       fish.enable = true;
       nh.enable = true;
+      wtfutil.enable = true;
       waybar.enable = true;
       spicetify.enable = true;
       schizofox.enable = true;
@@ -99,7 +100,7 @@
         scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
         cursor = {size = 28;};
         fontsizes = {
-          terminal = 14;
+          terminal = 18;
           popups = 14;
           applications = 14;
         };
