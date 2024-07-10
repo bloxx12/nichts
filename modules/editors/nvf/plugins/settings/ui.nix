@@ -11,13 +11,13 @@ in {
       colorizer.enable = true;
       modes-nvim.enable = true;
       illuminate.enable = true;
-    
+
       breadcrumbs = {
         enable = true;
         source = "nvim-navic";
         navbuddy.enable = false;
       };
-    
+
       smartcolumn = {
         enable = true;
         setupOpts = {
@@ -30,7 +30,7 @@ in {
           };
         };
       };
-    
+
       borders = {
         enable = true;
         globalStyle = "rounded";

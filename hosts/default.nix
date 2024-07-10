@@ -2,9 +2,9 @@
   inherit (inputs) self;
   inherit (self) lib;
 in {
-  temperance = lib.nixosSystem {
+  temperance = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = {inherit lib inputs self;};
+    specialArgs = {inherit lib inputs self system;};
     modules = [
       ./vali/temperance
       ../modules
@@ -13,9 +13,9 @@ in {
       inputs.stylix.nixosModules.stylix
     ];
   };
-  hermit = lib.nixosSystem {
+  hermit = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = {inherit lib inputs self;};
+    specialArgs = {inherit lib inputs self system;};
     modules = [
       ./vali/hermit
       ../modules
