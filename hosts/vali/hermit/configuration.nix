@@ -89,7 +89,6 @@
       };
       helix.enable = true;
       kakoune.enable = true;
-      #      nixvim.enable = false; # broken at the moment
       neovim.enable = true;
     };
     services = {

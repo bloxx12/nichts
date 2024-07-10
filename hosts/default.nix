@@ -10,7 +10,6 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
-      inputs.stylix.nixosModules.stylix
     ];
   };
   hermit = lib.nixosSystem rec {
@@ -22,7 +21,6 @@ in {
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
       inputs.lix-module.nixosModules.default
-      inputs.stylix.nixosModules.stylix
       inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia
     ];
   };
