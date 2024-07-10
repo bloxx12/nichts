@@ -21,6 +21,8 @@
       experimental-features = ["nix-command" "flakes"];
       # reduce file size used & automatic garbage collector
       auto-optimise-store = true;
+      max-jobs = 3;
+      cores = 4;
     };
   };
   security.sudo.package = pkgs.sudo.override {withInsults = true;};
@@ -94,7 +96,8 @@
       pipewire.enable = true;
       dunst.enable = true;
     };
-    themes = {
+    theming = {
+      quickshell.enable = true;
       stylix = {
         enable = true;
         #        scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";

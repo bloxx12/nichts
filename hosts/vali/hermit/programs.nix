@@ -18,6 +18,7 @@ in {
     browsh
     bun
     cachix
+    calc
     cmake
     difftastic
     dig

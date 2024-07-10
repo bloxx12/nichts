@@ -25,11 +25,14 @@ in {
     # xdg Portal
     xdg.portal = {
       enable = true;
+      configPackages = [
+        hyprland
+      ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
         inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       ];
-      config.common.default = "*";
+      #config.common.default = "hyprland";
     };
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
@@ -123,6 +126,9 @@ in {
             follow_mouse = true;
             repeat_rate = 50;
             repeat_delay = 250;
+            touchpad = {
+              disable_while_typing = true;
+            };
           };
           general = {
             sensitivity = 1.0;

@@ -4,12 +4,12 @@
   lib,
   ...
 }: let
-  cfg = config.modules.themes.stylix;
-  inherit (config.modules.themes.stylix) scheme image;
-  inherit (config.modules.themes.stylix.cursor) size;
-  inherit (config.modules.themes.stylix.fontsizes) terminal popups applications;
+  cfg = config.modules.theming.stylix;
+  inherit (config.modules.theming.stylix) scheme image;
+  inherit (config.modules.theming.stylix.cursor) size;
+  inherit (config.modules.theming.stylix.fontsizes) terminal popups applications;
 in {
-  options.modules.themes.stylix = {
+  options.modules.theming.stylix = {
     enable = lib.mkEnableOption "stylix";
     scheme = lib.mkOption {
       description = " Color Scheme";

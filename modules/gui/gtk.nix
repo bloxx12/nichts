@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.themes.gtk;
-  username = config.modules.other.system.username;
+  cfg = config.modules.theming.gtk;
+  inherit (config.modules.other.system) username;
 in {
-  options.modules.themes.gtk = {
+  options.modules.theming.gtk = {
     enable = mkEnableOption "gtk theming";
     name = mkOption {
       description = "gtk theme name";

@@ -3518,6 +3518,26 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720478269,
+        "narHash": "sha256-53nF07+fPxLXfQ9bBuxVZ90UAgryG5WJVBmG1XXSuE0=",
+        "ref": "refs/heads/master",
+        "rev": "db23c0264a1c277b33698e115a9768caf4da4628",
+        "revCount": 240,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
@@ -3559,6 +3579,7 @@
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nixvim": "nixvim",
         "nur": "nur",
+        "quickshell": "quickshell",
         "schizofox": "schizofox",
         "spicetify-nix": "spicetify-nix",
         "split-monitor-workspaces": "split-monitor-workspaces",

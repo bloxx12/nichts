@@ -9,10 +9,10 @@ with lib; let
     package = pkgs.gruvbox-gtk-theme;
     name = "Gruvbox-Dark-BL";
   };
-  cfg = config.modules.themes.qt;
+  cfg = config.modules.theming.qt;
   inherit (config.modules.other.system) username;
 in {
-  options.modules.themes.qt = {
+  options.modules.theming.qt = {
     enable = mkEnableOption "qt theming";
     name = mkOption {
       description = "qt theme name";
