@@ -20,74 +20,74 @@ opt.cursorline = true
 opt.whichwrap:append('<,>,h,l,[,]')
 
 opt.list = true
--- haracters to fill the statuslines, vertical separators and special
+-- characters to fill the statuslines, vertical separators and special
 -- lines in the window.opt.whichwrap:append('<,>,h,l,[,]')
 opt.fillchars:append({
-  -- replace window border with slightly thicker characters
-  -- although taking a bit of more space, it helps me better
-  -- identify the window borders
-  horiz = '━',
-  horizup = '┻',
-  horizdown = '┳',
-  vert = '┃',
-  vertleft = '┫',
-  vertright = '┣',
-  verthoriz = '╋',
+    -- replace window border with slightly thicker characters
+    -- although taking a bit of more space, it helps me better
+    -- identify the window borders
+    horiz = '━',
+    horizup = '┻',
+    horizdown = '┳',
+    vert = '┃',
+    vertleft = '┫',
+    vertright = '┣',
+    verthoriz = '╋',
 
-  eob = ' ', -- suppress end of buffer lines (~)
-  diff = '╱', -- deleted lines of the 'diff' option
+    eob = ' ', -- suppress end of buffer lines (~)
+    diff = '╱', -- deleted lines of the 'diff' option
 
-  msgsep = '‾',
+    msgsep = '‾',
 
-  -- replace fold chars
-  fold = ' ',
-  foldopen = '',
-  foldclose = '',
+    -- replace fold chars
+    fold = ' ',
+    foldopen = '',
+    foldclose = '',
 })
 
 -- List chars that would b shown on all modes
 -- better kept simple, because it gets REALLY
 -- noisy in an average buffer
 local normal_listchars = {
-  extends = '›', -- Alternatives: … ,»
-  precedes = '‹', -- Alternatives: … ,«
+    extends = '›', -- Alternatives: … ,»
+    precedes = '‹', -- Alternatives: … ,«
 }
 
 opt.listchars = normal_listchars
 
 -- Show listchars while in Insert mode.
 local insert_listchars = {
-  eol = nil,
-  tab = '▎·',
-  lead = '·',
-  space = '·',
-  trail = '.',
-  multispace = '… ',
-  nbsp = '¤',
+    eol = nil,
+    tab = '▎·',
+    lead = '·',
+    space = '·',
+    trail = '.',
+    multispace = '… ',
+    nbsp = '¤',
 }
 
 -- Show listchars while in Insert mode.
 vim.api.nvim_create_augroup('InsertModeListChars', { clear = true })
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'InsertLeavePre' }, {
-  group = 'InsertModeListChars',
-  pattern = '*',
-  callback = function(args)
-    if vim.tbl_contains({ 'quickfix', 'prompt' }, args.match) then
-      return
-    end
+    group = 'InsertModeListChars',
+    pattern = '*',
+    callback = function(args)
+        if vim.tbl_contains({ 'quickfix', 'prompt' }, args.match) then
+            return
+        end
 
-    if args.event == 'InsertEnter' then
-      vim.opt_local.listchars = insert_listchars
-    else
-      vim.opt_local.listchars = normal_listchars
-    end
+        if args.event == 'InsertEnter' then
+            vim.opt_local.listchars = insert_listchars
+        else
+            vim.opt_local.listchars = normal_listchars
+        end
 
-    -- check if ibl is enabled
-    -- @diagnostic disable-next-line: no-unknown, unused-local
-    local status_ok, ibl = pcall(require, 'ibl')
-    if not status_ok then
-      return
-    end
-    require('ibl').debounced_refresh(0)
-  end,
+        -- check if ibl is enabled
+        -- @diagnostic disable-next-line: no-unknown, unused-local
+        local status_ok, ibl = pcall(require, 'ibl')
+        if not status_ok then
+            return
+        end
+        require('ibl').debounced_refresh(0)
+    end,
 })

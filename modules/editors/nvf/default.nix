@@ -1,3 +1,4 @@
+# credits to raf, his repo is in the README.md!
 {
   pkgs,
   config,
@@ -28,7 +29,7 @@ in {
   imports = concatLists [
     # neovim-flake home-manager module
     [nvf.nixosModules.default]
-    # construct this entore directory as a module
+    # construct this entire directory as a module
     # which means all default.nix files will be imported automtically
     (mkNeovimModule {path = ./.;})
   ];

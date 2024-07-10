@@ -47,6 +47,8 @@ in {
 
           preventJunkFiles = true;
           useSystemClipboard = true;
+          tabWidth = 4;
+          autoIndent = true;
           spellcheck = {
             enable = true;
             # TODO add de

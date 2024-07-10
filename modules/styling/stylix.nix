@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -9,6 +10,7 @@
   inherit (config.modules.theming.stylix.cursor) size;
   inherit (config.modules.theming.stylix.fontsizes) terminal popups applications;
 in {
+  imports = [inputs.stylix.nixosModules.stylix];
   options.modules.theming.stylix = {
     enable = lib.mkEnableOption "stylix";
     scheme = lib.mkOption {
@@ -93,7 +95,7 @@ in {
         applications = 0.9;
         popups = 0.9;
         desktop = 0.9;
-        terminal = 0.85;
+        terminal = 1.0;
       };
       targets = {
         console.enable = true;
