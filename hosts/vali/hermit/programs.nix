@@ -19,7 +19,10 @@ in {
     bun
     cachix
     calc
+    calcure
+    calibre
     cmake
+    cmus
     difftastic
     dig
     discordo
@@ -48,12 +51,15 @@ in {
     impala
     imv
     inetutils
+    jrnl
     keepassxc
     lazygit
     libtool
     links2
     mapscii
     mars-mips
+    moc
+    musikcube
     ncmpcpp
     neofetch
     networkmanagerapplet
@@ -106,6 +112,7 @@ in {
     xournalpp
     yt-dlp
     zapzap
+    zathura
     zip
     zoxide
   ];
