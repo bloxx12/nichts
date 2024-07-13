@@ -7,6 +7,7 @@
 with lib; let
   cfg = config.modules.programs.ncmpcpp;
   inherit (config.modules.other.system) username;
+  inherit (config.modules.services.mpd) musicDirectory;
 in {
   options.modules.programs.ncmpcpp.enable = mkEnableOption "ncmpcpp";
 
@@ -16,11 +17,8 @@ in {
       programs.ncmpcpp = {
         enable = true;
         package = pkgs.ncmpcpp.override {visualizerSupport = true;};
-        mpdMusicDir = "/home/${username}/Nextcloud/Media/Music";
+        mpdMusicDir = "${musicDirectory}";
         settings = {
-          mpd_host = "127.0.0.1";
-          mpd_port = "6600";
-          /*
           alternative_header_first_line_format = "$5{$b%t$/b}$9";
           alternative_header_second_line_format = "$3by $7{$b%a$/b}$9 $3from $7{$b%b$/b}$9 $5{(%y)}";
           song_list_format = "♫   $2%n$(end) $9 $3%a$(end) $(245)-$9 $(246)%t$9 $R{ $5%y$9}$(end)     $(246)%lq$(end)";
@@ -79,7 +77,6 @@ in {
           visualizer_data_source = "/tmp/mpd.fifo";
           visualizer_type = "wave_filled";
           visualizer_look = "▉▋";
-          */
         };
       };
     };
