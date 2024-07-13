@@ -9,6 +9,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # Hyprland, my main compositor
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=aquamarine";
     # Plugins for hyprland
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";

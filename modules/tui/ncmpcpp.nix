@@ -6,20 +6,21 @@
 }:
 with lib; let
   cfg = config.modules.programs.ncmpcpp;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.ncmpcpp.enable = mkEnableOption "ncmpcpp";
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      xdg.configFile."ncmpcpp/config".source = ./config;
+      #xdg.configFile."ncmpcpp/config".source = ./config;
       programs.ncmpcpp = {
         enable = true;
         package = pkgs.ncmpcpp.override {visualizerSupport = true;};
-        mpdMusicDir = "/home/vali/Nextcloud/Media/Music";
+        mpdMusicDir = "/home/${username}/Nextcloud/Media/Music";
         settings = {
           mpd_host = "127.0.0.1";
           mpd_port = "6600";
+          /*
           alternative_header_first_line_format = "$5{$b%t$/b}$9";
           alternative_header_second_line_format = "$3by $7{$b%a$/b}$9 $3from $7{$b%b$/b}$9 $5{(%y)}";
           song_list_format = "♫   $2%n$(end) $9 $3%a$(end) $(245)-$9 $(246)%t$9 $R{ $5%y$9}$(end)     $(246)%lq$(end)";
@@ -71,7 +72,6 @@ in {
           mouse_list_scroll_whole_page = "no";
           show_hidden_files_in_local_browser = "no";
           startup_screen = "playlist";
-          execute_on_song_change = "/home/dobbie/.bin/np";
           connected_message_on_startup = "no";
           playlist_separate_albums = "no";
           allow_for_physical_item_deletion = "no";
@@ -79,6 +79,7 @@ in {
           visualizer_data_source = "/tmp/mpd.fifo";
           visualizer_type = "wave_filled";
           visualizer_look = "▉▋";
+          */
         };
       };
     };

@@ -173,6 +173,9 @@ in {
 
           debug.disable_logs = false;
 
+          cursor = {
+            hide_on_key_press = true;
+          };
           misc = {
             enable_swallow = true;
             swallow_regex = "foot";

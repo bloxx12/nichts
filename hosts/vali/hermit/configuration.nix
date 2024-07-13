@@ -70,6 +70,7 @@
       kitty.enable = true;
       newsboat.enable = true;
       fish.enable = true;
+      ncmpcpp.enable = true;
       nh.enable = true;
       wtfutil.enable = true;
       waybar.enable = true;
@@ -94,6 +95,10 @@
     services = {
       pipewire.enable = true;
       dunst.enable = true;
+      mpd = {
+        enable = true;
+        musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/Media/Music";
+      };
     };
     theming = {
       quickshell.enable = true;

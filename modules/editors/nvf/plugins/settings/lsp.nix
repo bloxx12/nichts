@@ -4,7 +4,7 @@ _: {
       formatOnSave = true;
       lspkind.enable = true;
       lsplines.enable = true;
-      lightbulb.enable = true;
+      lightbulb.enable = false;
       lspsaga.enable = false;
       lspSignature.enable = true;
       nvimCodeActionMenu.enable = true;

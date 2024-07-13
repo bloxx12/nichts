@@ -20,7 +20,6 @@ in {
           plugins = with inputs.anyrun.packages.${pkgs.system}; [
             applications
             dictionary
-            #   kidex
             rink
             shell
             #   symbols
@@ -33,25 +32,51 @@ in {
           hidePluginInfo = true;
           closeOnClick = true;
           showResultsImmediately = true;
-          maxEntries = 50;
+          maxEntries = 10;
           width.fraction = 0.3;
           y.absolute = 15;
         };
-        extraCss = builtins.readFile (./. + "/style.css");
+        extraCss = builtins.readFile ./style.css;
 
-        extraConfigFiles."applications.ron".text = ''
-          Config(
-              desktop_actions: false,
+        extraConfigFiles = {
+          "applications.ron".text = ''
+            Config(
+                desktop_actions: true,
+                max_entries: 10,
+                terminal: Some("foot"),
+            )
+          '';
+          "websearch.ron".text = ''
+            Config(
+                prefix: "?",
+                engines: [DuckDuckGo]
+            )
+          '';
+
+          "symbols.ron".text = ''
+            Config(
+              // The prefix that the search needs to begin with to yield symbol results
+              prefix: ":sy",
+
+              // Custom user defined symbols to be included along the unicode symbols
+              symbols: {
+                // "name": "text to be copied"
+                "shrug": "¯\\_(ツ)_/¯",
+              },
+
+              // The number of entries to be displayed
               max_entries: 5,
-              terminal: Some("foot"),
-          )
-        '';
-        extraConfigFiles."websearch.ron".text = ''
-          Config(
-              prefix: "?",
-              engines: [DuckDuckGo]
-          )
-        '';
+            )
+          '';
+
+          "translate.ron".text = ''
+            Config(
+              prefix: ":tr",
+              language_delimiter: ">",
+              max_entries: 3,
+            )
+          '';
+        };
       };
     };
   };
