@@ -74,6 +74,7 @@
       nh.enable = true;
       wtfutil.enable = true;
       waybar.enable = true;
+      beets.enable = true;
       spicetify.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;

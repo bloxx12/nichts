@@ -28,10 +28,10 @@ in {
       user = username;
       extraConfig = ''
         user "${username}"
+        playlist_directory "${cfg.musicDirectory}/.playlists"
         restore_paused "yes"
 
-        follow_outside_symlinks "yes"
-        follow_inside_symlinks "yes"
+        volume_normalization "yes"
 
         audio_output {
             type "pipewire"

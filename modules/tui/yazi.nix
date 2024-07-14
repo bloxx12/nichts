@@ -5,7 +5,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.yazi;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.yazi = {enable = mkEnableOption "yazi";};
 
