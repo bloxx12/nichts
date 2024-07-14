@@ -14,7 +14,7 @@ _: {
     #./vivado.nix
     ./steam.nix
     ./waybar.nix
-    ./schizofox.nix
+    ./schizofox
     ./minecraft.nix
     #        ./emacs
   ];

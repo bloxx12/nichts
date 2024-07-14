@@ -15,10 +15,10 @@
       #    leap.enable = false;
       #  };
       #
-      #  preview = {
-      #    glow.enable = true;
-      #    markdownPreview.enable = true;
-      #  };
+      preview = {
+        glow.enable = true;
+        markdownPreview.enable = true;
+      };
     };
   };
 }

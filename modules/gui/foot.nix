@@ -69,7 +69,7 @@ in {
           };
           cursor = {
             style = "block";
-            blink = "true";
+            blink = "false";
           };
           mouse = {
             hide-when-typing = "yes";
