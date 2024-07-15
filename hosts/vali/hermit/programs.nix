@@ -52,6 +52,7 @@ in {
     impala
     imv
     inetutils
+    jetbrains.idea-community-bin
     jrnl
     keepassxc
     lazygit
@@ -73,6 +74,7 @@ in {
     notesnook
     obsidian
     onlyoffice-bin
+    openjdk17
     pamixer
     pavucontrol
     pdfarranger
@@ -104,6 +106,7 @@ in {
     v4l-utils
     ventoy-full
     vlc
+    vscodium
     weechat
     wezterm
     wget
