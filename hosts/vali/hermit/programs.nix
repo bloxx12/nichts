@@ -21,6 +21,7 @@ in {
     calc
     calcure
     calibre
+    cbonsai
     cmake
     cmus
     difftastic
@@ -112,7 +113,6 @@ in {
     xournalpp
     yt-dlp
     zapzap
-    zathura
     zip
     zoxide
   ];

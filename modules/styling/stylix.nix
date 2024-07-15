@@ -32,7 +32,7 @@ in {
       };
       name = lib.mkOption {
         description = "Cursor Name";
-        type = lib.type.str;
+        type = lib.types.str;
       };
     };
     fontsizes = {

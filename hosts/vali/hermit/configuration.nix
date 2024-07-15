@@ -78,6 +78,7 @@
       spicetify.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
+      zathura.enable = true;
       ags.enable = true;
       foot = {
         enable = true;
@@ -115,7 +116,7 @@
         };
         image = ../../../assets/wallpapers/tiredgod.png;
       };
-      gtk = {enable = true;};
+      gtk = {enable = false;};
       qt = {
         enable = true;
         package = pkgs.kde-gruvbox;

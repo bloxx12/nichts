@@ -92,7 +92,7 @@ in {
             {
               Name = "noogle";
               Descriptiom = "Noogle Search";
-              Alias = "!no";
+              Alias = "!ng";
               Method = "GET";
               URLTemplate = "https://noogle.dev/";
             }

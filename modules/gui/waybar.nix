@@ -16,14 +16,15 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = ["tray" "hyprland/window"];
+          modules-left = ["tray" "mpd" "hyprland/window"];
           modules-center = ["hyprland/workspaces"];
           modules-right = [
-            "mpd"
             "cpu"
             "memory"
             "pulseaudio"
             "clock"
+            "backlight"
+            "battery"
           ];
 
           pulseaudio = {
@@ -34,6 +35,7 @@ in {
             format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
             on-click = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           };
+
           "hyprland/workspaces" = {
             sort-by-name = true;
             sort-by-coordinates = false;
@@ -74,10 +76,12 @@ in {
               "30" = "10";
             };
           };
+
           tray = {
             icon-size = 12;
             spacing = 5;
           };
+
           # 󰃰
           clock = {
             interval = 1;
@@ -105,27 +109,39 @@ in {
               };
             };
           };
+
+          battery = {
+            interval = 10;
+            states = {
+              good = 75;
+              warning = 20;
+              critical = 10;
+            };
+            format = "{icon}{capacity}%";
+            format-charging = "󰚥{icon}{capacity}%";
+            format-discharging = "{icon}{capacity}%";
+            format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+            format-charging-icons = ["󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+          };
+
           cpu = {
             interval = 1;
             format = "󰻠 {}%";
             max-length = 10;
           };
+
           memory = {
             interval = 1;
             format = "󰍛 {}%";
             max-length = 10;
           };
-          "custom/launcher" = {
-            format = " ";
-            on-click = "anyrun";
-            on-click-right = "pkill anyrun";
-          };
           "hyprland/window" = {
             format = "{}";
             separate-outputs = true;
           };
+
           mpd = {
-            format = "󰝚 {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
+            format = "󰝚 {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
             format-disconnected = "󰝚 Disconnected";
             format-stopped = "󰝚 Stopped";
             interval = 1;
@@ -134,6 +150,7 @@ in {
             on-click = "mpc toggle";
           };
         };
+
         style = ''
           @define-color base   #1e1e2e;
           @define-color mantle #181825;

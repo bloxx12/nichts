@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.modules.services.mpd;
@@ -18,6 +19,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [mpc-cli];
     systemd.services.mpd.environment = {
       # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
       XDG_RUNTIME_DIR = "/run/user/1000";
