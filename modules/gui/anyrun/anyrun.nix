@@ -20,10 +20,10 @@ in {
           plugins = with inputs.anyrun.packages.${pkgs.system}; [
             applications
             dictionary
-            rink
+            #rink
             shell
             #   symbols
-            translate
+            #translate
             websearch
           ];
           hideIcons = false;
@@ -41,7 +41,6 @@ in {
         extraConfigFiles = {
           "applications.ron".text = ''
             Config(
-                desktop_actions: true,
                 max_entries: 10,
                 terminal: Some("foot"),
             )
