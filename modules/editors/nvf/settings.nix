@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  inherit (builtins) filter map toString path isPath throw;
+  inherit (builtins) filter map toString path;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix fileContents;
   inherit (lib.attrsets) genAttrs;
@@ -64,17 +64,19 @@ in {
           };
 
           additionalRuntimePaths = [
-            (mkRuntimeDir "after")
-            (mkRuntimeDir "spell")
+            #(mkRuntimeDir "after")
+            #(mkRuntimeDir "spell")
+            ./runtime/spell
+            ./runtime/after
           ];
 
           # while I should be doing this in luaConfigRC below
           # I have come to realise that spellfile contents are
           # actually **not** loaded when luaConfigRC is used.
           # as spellfile is a vim thing, this should be fine
-          configRC.spellfile = entryAnywhere ''
-            set spellfile=${toString ./spell/runtime/en.utf-8.add} "  toString sanitizes the path
-          '';
+          #     configRC.spellfile = entryAnywhere ''
+          #       set spellfile=${toString ./runtime/spell/en.utf-8.add} "  toString sanitizes the path
+          #     '';
 
           # additional lua configuration that I can append
           # or, to be more precise, randomly inject into

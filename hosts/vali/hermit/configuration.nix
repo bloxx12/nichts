@@ -88,7 +88,7 @@
     editors = {
       emacs = {
         enable = false;
-        doom.enable = false;
+        doom.enable = true;
       };
       helix.enable = true;
       kakoune.enable = true;
