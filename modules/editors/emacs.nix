@@ -48,10 +48,6 @@ in {
       # :tools editorconfig
       editorconfig-core-c # per-project style config
       # :tools lookup & :lang org +roam
-      sqlite
-      # :lang latex & :lang org (latex previews)
-      # :lang beancount
-      beancount
     ];
 
     environment.variables.PATH = ["/home/vali/.config/emacs/bin"];
