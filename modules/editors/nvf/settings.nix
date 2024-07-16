@@ -66,8 +66,8 @@ in {
           additionalRuntimePaths = [
             #(mkRuntimeDir "after")
             #(mkRuntimeDir "spell")
-            ./runtime/spell
-            ./runtime/after
+            ./runtime
+            ./runtime
           ];
 
           # while I should be doing this in luaConfigRC below
