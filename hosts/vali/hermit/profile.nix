@@ -7,6 +7,5 @@ _: {
     ../../../options/common/docs.nix
     ../../../options/common/gpu/nvidia.nix
     ../../../options/desktop/monitors.nix
-    ../../../overlay.nix
   ];
 }

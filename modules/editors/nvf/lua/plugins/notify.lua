@@ -1,12 +1,12 @@
-local noice = require('noice')
+--local noice = require('noice')
 local no_top_text = {
-  opts = {
-    border = {
-      text = { top = '' },
+    opts = {
+        border = {
+            text = { top = '' },
+        },
     },
-  },
 }
-
+--[[
 -- luacheck: ignore
 noice.setup({
   cmdline = {
@@ -18,7 +18,6 @@ noice.setup({
       search_up = no_top_text,
     },
   },
-
   lsp = {
     override = {
       ['cmp.entry.get_documentation'] = true,
@@ -70,3 +69,4 @@ noice.setup({
     },
   },
 })
+--]]

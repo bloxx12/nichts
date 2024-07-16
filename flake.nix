@@ -1,10 +1,13 @@
 {
   description = "My NixOS config flake";
-  outputs = inputs @ {nixpkgs, ...}: {
-    inherit (nixpkgs) lib;
+  outputs = inputs: {
+    inherit (inputs.nixpkgs) lib;
     nixosConfigurations = import ./hosts {inherit inputs;};
   };
   inputs = {
+    # what am I doing to this config help
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs for wayland

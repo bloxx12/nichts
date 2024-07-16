@@ -7,7 +7,7 @@
 in {
   programs.neovim-flake.settings.vim = {
     ui = {
-      noice.enable = true;
+      noice.enable = false;
       colorizer.enable = true;
       modes-nvim.enable = true;
       illuminate.enable = true;

@@ -8,7 +8,7 @@
 }:
 with lib; let
   cfg = config.modules.editors.emacs;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
   repoUrl = inputs.doomemacs;
   configRepoUrl = inputs.doom-emacs-config;
   emacs-desktop-symbol = pkgs.makeDesktopItem {
@@ -24,18 +24,17 @@ in {
 
   config = mkIf cfg.enable {
     ## Emacs itself as an overlay
-    nixpkgs.overlays = [inputs.emacs-overlay.overlay];
-
+    #nixpkgs.overlays = [inputs.emacs-overlay.overlay];
+    services.emacs = {
+      enable = true;
+      package = pkgs.emacs29-pgtk;
+    };
     environment.systemPackages = with pkgs; [
       binutils # native-comp needs 'as', provided by this
-      # 28.2 + native-comp
-      ((emacsPackagesFor emacsNativeComp).emacsWithPackages
-        (epkgs: [epkgs.vterm]))
-
       emacs-desktop-symbol
       ## Doom dependencies
       git
-      (ripgrep.override {withPCRE2 = true;})
+      ripgrep
       gnutls # for TLS connectivity
 
       ## Optional dependencies
@@ -45,20 +44,17 @@ in {
 
       ## Module dependencies
       # :checkers spell
-      (aspellWithDicts (ds: with ds; [en en-computers en-science]))
+      (aspellWithDicts (ds: with ds; [en en-computers en-science de]))
       # :tools editorconfig
       editorconfig-core-c # per-project style config
       # :tools lookup & :lang org +roam
       sqlite
       # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-medium
       # :lang beancount
       beancount
     ];
 
-    home-manager.users.${username}.home.sessionPath = ["/home/vali/.config/emacs/bin"];
-
-    # modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
+    environment.variables.PATH = ["/home/vali/.config/emacs/bin"];
 
     fonts.fonts = [pkgs.emacs-all-the-icons-fonts];
 
