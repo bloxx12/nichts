@@ -84,6 +84,7 @@
         };
       };
     in [
+      altert
       all-the-icons
       all-the-icons-dired
       autorevert
@@ -93,6 +94,8 @@
       company
       crux
       #cmake-font-lock
+      dimmer
+      dired-du
       direnv
       doom-modeline
       editorconfig
@@ -101,12 +104,15 @@
       evil-goggles
       # face-explorer
       flycheck
+      form-feed
       general
       # frames-only-mode
       # fussy
       # groovy-mode
+      hl-todo
       # just-mode
       kotlin-mode
+      ligature
       lsp-mode
       lsp-treemacs
       lsp-ui
@@ -116,10 +122,15 @@
       nasm-mode
       nix-mode
       reformatter # required by nix mode
+      pdf-tools
+      peep-dired
       projectile
       qml-ts-mode
+      rainbow-delimiters
       rainbow-mode
+      select
       string-inflection
+      tldr
       toc-org
       (treesit-grammars.with-grammars (grammars: tree-sitter-parsers grammars))
       treemacs
@@ -129,6 +140,8 @@
       undo-tree
       use-package
       vertico
+      vterm
+      vterm-toggle
       which-key
       wakatime-mode
       ws-butler
