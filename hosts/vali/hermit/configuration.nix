@@ -86,10 +86,7 @@
       };
     };
     editors = {
-      emacs = {
-        enable = true;
-        doom.enable = false;
-      };
+      emacs.enable = true;
       helix.enable = true;
       kakoune.enable = true;
       neovim.enable = true;

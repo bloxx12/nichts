@@ -10,6 +10,7 @@
       noto-fonts-emoji
       jetbrains-mono
       lexend
+      emacs-all-the-icons-fonts
     ];
     # What does this do?
     enableDefaultPackages = false;
