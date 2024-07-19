@@ -67,6 +67,7 @@
       tree-sitter-toml
       tree-sitter-tsx
       tree-sitter-typescript
+      tree-sitter-typst
       tree-sitter-vim
       tree-sitter-yaml
     ];
@@ -84,24 +85,27 @@
         };
       };
     in [
-      altert
+      alert
       all-the-icons
       all-the-icons-dired
-      autorevert
       avy
       beacon
       #better-jumper
+      catppuccin-theme
       company
       crux
       #cmake-font-lock
       dimmer
       dired-du
+      dired-open
       direnv
       doom-modeline
       editorconfig
       evil
       evil-collection
       evil-goggles
+      erc
+      erc-hl-nicks
       # face-explorer
       flycheck
       form-feed
@@ -121,6 +125,7 @@
       markdown-mode
       nasm-mode
       nix-mode
+      no-littering
       reformatter # required by nix mode
       pdf-tools
       peep-dired
@@ -128,7 +133,7 @@
       qml-ts-mode
       rainbow-delimiters
       rainbow-mode
-      select
+      smartparens
       string-inflection
       tldr
       toc-org
@@ -153,7 +158,7 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      home.packages = [custom-emacs];
+      home.packages = with pkgs; [custom-emacs clang-tools ripgrep fd ispell findutils graphviz djvulibre hunspell hunspellDicts.de_AT hunspellDicts.en_US];
       services.emacs = {
         enable = true;
         package = custom-emacs;
