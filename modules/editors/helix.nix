@@ -4,12 +4,11 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.editors.helix;
-  username = config.modules.other.system.username;
+  cfg = config.modules.system.programs.editors.helix;
+  inherit (config.modules.other.system) username;
+  inherit (lib) mkIf;
 in {
-  options.modules.editors.helix.enable = lib.mkEnableOption "helix";
-
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;

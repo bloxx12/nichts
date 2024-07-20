@@ -4,13 +4,11 @@
   lib,
   ...
 }: let
-  cfg = config.modules.programs.schizofox;
+  cfg = config.modules.system.programs.firefox;
   inherit (config.modules.other.system) username;
 
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in {
-  options.modules.programs.schizofox = {enable = mkEnableOption "schizofox";};
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       imports = [inputs.schizofox.homeManagerModule];
