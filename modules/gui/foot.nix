@@ -5,23 +5,17 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.programs.foot;
+  cfg = config.modules.system.programs.terminals.foot;
   inherit (config.modules.other.system) username;
 
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in {
-  options.modules.programs.foot = {
-    enable = mkEnableOption "foot";
-    server = mkEnableOption "foot server mode";
-  };
-
   config = mkIf cfg.enable {
     environment.sessionVariables = {TERM = "foot";};
     home-manager.users.${username} = {
       programs.foot = {
         enable = true;
         package = inputs.nixpkgs-wayland.packages.${pkgs.system}.foot;
-        server.enable = cfg.server;
         settings = {
           main = {
             term = "foot";
