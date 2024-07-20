@@ -8,12 +8,7 @@ _: {
       cellularAutomaton.enable = true;
       highlight-undo.enable = true;
 
-      indentBlankline = {
-        enable = true;
-        fillChar = null;
-        eolChar = null;
-        scope.enabled = true;
-      };
+      indentBlankline.enable = true;
 
       cursorline = {
         enable = true;
