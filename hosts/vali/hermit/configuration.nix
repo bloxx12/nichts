@@ -43,7 +43,7 @@
       };
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
     other = {
       system = {
@@ -62,28 +62,41 @@
         hyprland.enable = true;
       };
     };
+    system = {
+      programs = {
+        discord.enable = true;
+        firefox.enable = true;
+        zathura.enable = true;
+        terminals = {
+          foot.enable = true;
+          kitty.enable = true;
+        };
+      };
+    };
+    usrEnv = {
+      programs = {
+        launchers = {
+          anyrun.enable = true;
+        };
+      };
+      services = {
+        mpd.enable = true;
+      };
+    };
     programs = {
       vesktop.enable = true;
       ssh.enable = true;
       btop.enable = true;
       mpv.enable = true;
-      kitty.enable = true;
       newsboat.enable = true;
       fish.enable = true;
       ncmpcpp.enable = true;
       nh.enable = true;
-      wtfutil.enable = true;
       waybar.enable = true;
       beets.enable = true;
       spicetify.enable = true;
-      schizofox.enable = true;
       anyrun.enable = true;
-      zathura.enable = true;
       ags.enable = true;
-      foot = {
-        enable = true;
-        server = false;
-      };
     };
     editors = {
       emacs.enable = true;

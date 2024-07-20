@@ -7,7 +7,7 @@
 }:
 with lib; let
   cfg = config.modules.other.home-manager;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.other.home-manager = {
     enable = mkEnableOption "home-manager";
