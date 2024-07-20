@@ -158,7 +158,17 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      home.packages = with pkgs; [custom-emacs clang-tools ripgrep fd ispell findutils graphviz djvulibre hunspell hunspellDicts.de_AT hunspellDicts.en_US];
+      home.packages = with pkgs; [
+        custom-emacs
+        clang-tools
+        ripgrep
+        fd
+        ispell
+        findutils
+        graphviz
+        djvulibre
+        sqlite
+      ];
       services.emacs = {
         enable = true;
         package = custom-emacs;
