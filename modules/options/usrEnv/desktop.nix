@@ -11,7 +11,7 @@
 in {
   options.modules.usrEnv = {
     desktop = mkOption {
-      type = enum ["none" "Hyprland" "sway" "awesomewm" "i3"];
+      type = enum ["none" "Hyprland" "awesomewm" "i3"];
       default = "none";
       description = ''
         The desktop environment to be used.

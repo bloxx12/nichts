@@ -5,9 +5,8 @@
   inputs,
   ...
 }: let
-  cfg = config.modules.wms.wayland.hyprland;
+  cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
-  inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
   inherit
     (inputs.nixpkgs-wayland.packages.${pkgs.system})
@@ -20,13 +19,12 @@
     split-monitor-workspaces
     ;
 in {
-  options.modules.wms.wayland.hyprland.enable = lib.mkEnableOption "hyprland";
   config = lib.mkIf cfg.enable {
     # xdg Portal
     xdg.portal = {
       enable = true;
       configPackages = [
-        hyprland
+        # hyprland # TODO Fix hyprland package
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
@@ -37,7 +35,7 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        package = hyprland;
+        # package = hyprland; TODO Fix hyprland package
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
           split-monitor-workspaces
