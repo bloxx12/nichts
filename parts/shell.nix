@@ -6,16 +6,17 @@
   }: {
     devShells.default = pkgs.mkShellNoCC {
       name = "nichts";
+
+      shellHook = ''
+        ${config.pre-commit.installationScript}
+      '';
+
       DIRENV_LOG_FORMAT = "";
 
-      #inputsFrom = [config.treefmt.build.devShell];
-      packages = with pkgs; [
+      inputsFrom = [config.treefmt.build.devShell];
+      packages = [
         config.treefmt.build.wrapper # treewide formatter
-        nil # nix language server
-        alejandra
-        git # take a guess
-        statix # no idea
-        deadnix # clean up unused nix code
+        pkgs.git # take a guess
 
         (pkgs.writeShellApplication {
           name = "update";

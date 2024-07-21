@@ -8,6 +8,7 @@
     formatter = config.treefmt.build.wrapper;
     treefmt = {
       projectRootFile = "flake.nix";
+      enableDefaultExcludes = true;
       programs = {
         alejandra.enable = true;
 
