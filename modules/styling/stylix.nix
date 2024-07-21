@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  cfg = config.modules.theming.stylix;
+  cfg = config.modules.usrEnv.style.stylix;
   inherit (config.modules.usrEnv.style.stylix) scheme image cursor fontsizes;
   inherit (lib) mkIf;
 in {

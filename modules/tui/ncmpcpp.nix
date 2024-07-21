@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.modules.usrEnv.programs.media.ncmpcpp;
   inherit (config.modules.other.system) username;
-  inherit (config.modules.services.mpd) musicDirectory;
+  inherit (config.modules.usrEnv.services.media.mpd) musicDirectory;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
