@@ -5,9 +5,9 @@
   inputs,
   ...
 }: let
-  cfg = config.modules.editors.emacs;
+  cfg = config.modules.system.programs.editors.emacs;
   inherit (config.modules.other.system) username;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 
   newpkgs =
     pkgs.appendOverlays
@@ -152,10 +152,6 @@
       ws-butler
     ]));
 in {
-  options.modules.editors.emacs = {
-    enable = mkEnableOption "emacs";
-  };
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       home.packages = with pkgs; [

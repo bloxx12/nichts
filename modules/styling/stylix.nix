@@ -6,51 +6,11 @@
   ...
 }: let
   cfg = config.modules.theming.stylix;
-  inherit (config.modules.theming.stylix) scheme image;
-  inherit (config.modules.theming.stylix.cursor) size;
-  inherit (config.modules.theming.stylix.fontsizes) terminal popups applications;
+  inherit (config.modules.usrEnv.style.stylix) scheme image cursor fontsizes;
+  inherit (lib) mkIf;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
-  options.modules.theming.stylix = {
-    enable = lib.mkEnableOption "stylix";
-    scheme = lib.mkOption {
-      description = " Color Scheme";
-      type = lib.types.str;
-    };
-    image = lib.mkOption {
-      description = "Image";
-      type = lib.types.path;
-    };
-    cursor = {
-      size = lib.mkOption {
-        description = "Cursor Size";
-        type = lib.types.int;
-      };
-      package = lib.mkOption {
-        description = "Cursor Package";
-        type = lib.types.package;
-      };
-      name = lib.mkOption {
-        description = "Cursor Name";
-        type = lib.types.str;
-      };
-    };
-    fontsizes = {
-      terminal = lib.mkOption {
-        description = "Terminal font size";
-        type = lib.types.int;
-      };
-      popups = lib.mkOption {
-        description = "Popup font size";
-        type = lib.types.int;
-      };
-      applications = lib.mkOption {
-        description = "Application font size";
-        type = lib.types.int;
-      };
-    };
-  };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix = {
       enable = true;
       homeManagerIntegration.followSystem = true;
@@ -59,13 +19,13 @@ in {
       polarity = "dark";
       autoEnable = true;
       cursor = {
-        inherit size;
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
+        inherit (cursor) size package name;
+        # package = pkgs.bibata-cursors;
+        # name = "Bibata-Modern-Classic";
       };
       fonts = {
         sizes = {
-          inherit terminal popups applications;
+          inherit (fontsizes) terminal popups applications;
         };
         monospace = {
           package =

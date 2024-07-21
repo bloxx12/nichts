@@ -4,22 +4,11 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.services.mpd;
+  cfg = config.modules.usrEnv.services.media.mpd;
   inherit (config.modules.other.system) username;
-
-  inherit (lib) mkEnableOption mkIf mkOption;
-  inherit (lib.types) str;
+  inherit (lib) mkIf;
 in {
-  options.modules.services.mpd = {
-    enable = mkEnableOption "mpd";
-    musicDirectory = mkOption {
-      description = "music directory for mpd";
-      type = str;
-    };
-  };
-
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [mpc-cli];
     systemd.services.mpd.environment = {
       # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
       XDG_RUNTIME_DIR = "/run/user/1000";
@@ -48,6 +37,7 @@ in {
       '';
     };
     home-manager.users.${username} = {
+      home.Packages = with pkgs; [mpc-cli];
       services = {
         mpd-mpris = {
           enable = true;
