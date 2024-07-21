@@ -4,14 +4,16 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} (
       {withSystem, ...}: {
         systems = [
-          "x86-64_linux"
+          "x86_64-linux"
         ];
         imports = [
           inputs.treefmt-nix.flakeModule
-          #./flake/pre-commit
-          ./flake/shell.nix
-          ./flake/fmt.nix
+          #  inputs.flake-parts.flakeModules.easyOverlay
+          #  #./flake/pre-commit
+          ./parts/shell.nix
+          ./parts/fmt.nix
         ];
+
         flake = {
           nixosConfigurations = import ./hosts {inherit inputs withSystem;};
         };

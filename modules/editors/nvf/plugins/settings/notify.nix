@@ -3,7 +3,7 @@
 in {
   programs.neovim-flake.settings.vim = {
     notify = {
-            nvim-notify.enable = true;
+      nvim-notify.enable = true;
     };
   };
 }
