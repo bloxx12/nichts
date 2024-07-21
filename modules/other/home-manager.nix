@@ -16,8 +16,10 @@ in {
 
   config = mkIf cfg.enable {
     home-manager = {
+      verbose = true;
       useUserPackages = true;
       useGlobalPkgs = true;
+      backupFileExtension = "hm.old";
       extraSpecialArgs = {inherit inputs self;};
       users.${username} = {
         programs = {
@@ -32,6 +34,12 @@ in {
           inherit username;
           homeDirectory = "/home/${username}";
           stateVersion = lib.mkDefault "23.11";
+        };
+
+        manual = {
+          manpages.enable = false;
+          html.enable = false;
+          json.enable = false;
         };
       };
     };

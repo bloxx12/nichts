@@ -7,13 +7,13 @@ if vim.g.neovide then
     vim.g.neovide_transparency = 0.80
     vim.g.neovide_show_border = true
     vim.g.neovide_input_macos_alt_is_meta = true
-    vim.g.neovide_cursor_animate_command_line = true -- noice incompat
+    vim.g.neovide_cursor_animate_command_line = false -- noice incompat
     vim.g.neovide_cursor_smooth_blink = true
     vim.g.neovide_cursor_vfx_mode = 'ripple'
 
     -- keymaps
-    vks('v', '<D-c>', '"+y')           -- Copy
-    vks({ 'n', 'v' }, '<D-v>', '"+P')  -- Paste
+    vks('v', '<D-c>', '"+y')             -- Copy
+    vks({ 'n', 'v' }, '<D-v>', '"+P')    -- Paste
     vks({ 'i', 'c' }, '<D-v>', '<C-R>+') -- Paste
     vks('t', '<D-v>', [[<C-\><C-N>"+P]]) -- Paste
     vks('n', '<D-+>', function()

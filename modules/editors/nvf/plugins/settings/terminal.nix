@@ -2,7 +2,7 @@ _: {
   programs.neovim-flake.settings.vim = {
     terminal = {
       toggleterm = {
-        enable = false;
+        enable = true;
         mappings.open = "<C-t>";
 
         setupOpts = {

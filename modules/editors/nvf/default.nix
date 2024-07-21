@@ -24,11 +24,6 @@
 
   nvf = inputs.neovim-flake;
 in {
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      typstyle
-    ];
-  };
   imports = concatLists [
     # neovim-flake home-manager module
     [nvf.nixosModules.default]
