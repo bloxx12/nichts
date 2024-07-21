@@ -1,5 +1,5 @@
 {
-  inputs,
+  inputs',
   config,
   pkgs,
   lib,
@@ -34,7 +34,7 @@ in {
 
         package = mkOption {
           type = package;
-          default = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          default = inputs'.hyprland.packages.hyprland;
           description = ''
             The Hyprland package to be used.
           '';

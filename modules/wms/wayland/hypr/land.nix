@@ -2,20 +2,20 @@
   config,
   pkgs,
   lib,
-  inputs,
+  inputs',
   ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
-  inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
+  inherit (inputs'.anyrun.packages) anyrun;
   inherit
-    (inputs.nixpkgs-wayland.packages.${pkgs.system})
+    (inputs'.nixpkgs-wayland.packages)
     foot
     swww
     wlsunset
     ;
   inherit
-    (inputs.split-monitor-workspaces.packages.${pkgs.system})
+    (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
 in {
@@ -28,7 +28,7 @@ in {
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        inputs'.hyprland.packages.xdg-desktop-portal-hyprland
       ];
       #config.common.default = "hyprland";
     };
@@ -205,6 +205,7 @@ in {
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
+            #"$mainMod, D, exec, killall rofi || rofi -show drun"
             "$mainMod, SPACE, togglefloating, active"
 
             # workspaces
@@ -262,7 +263,7 @@ in {
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
 
             # File manager
-            "$mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus"
+            "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
             # Toggle the four different special workspaces.
             "$mainMod, B, togglespecialworkspace, btop"
             "$mainMod, V, togglespecialworkspace, pipewire"

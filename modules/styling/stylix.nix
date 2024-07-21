@@ -13,11 +13,14 @@ in {
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      homeManagerIntegration.followSystem = true;
+      autoEnable = true;
+      homeManagerIntegration = {
+        followSystem = true;
+        autoImport = true;
+      };
       base16Scheme = scheme;
       inherit image;
       polarity = "dark";
-      autoEnable = true;
       cursor = {
         inherit (cursor) size package name;
         # package = pkgs.bibata-cursors;
@@ -46,6 +49,7 @@ in {
         #   package = pkgs.lexend;
         #   name = "Lexend";
         # };
+
         emoji = {
           package = pkgs.noto-fonts-emoji;
           name = "Noto Color Emoji";
@@ -55,14 +59,14 @@ in {
         applications = 0.9;
         popups = 0.9;
         desktop = 0.9;
-        terminal = 1.0;
+        terminal = 0.9;
       };
       targets = {
         console.enable = true;
         fish.enable = true;
         grub.enable = false;
         grub.useImage = true;
-        gtk.enable = true;
+        #gtk.enable = true;
         lightdm.enable = true;
         nixos-icons.enable = true;
         nixvim.enable = true;

@@ -51,7 +51,10 @@
     usrEnv = {
       desktops.hyprland.enable = true;
       programs = {
-        launchers.anyrun.enable = false;
+        launchers = {
+          anyrun.enable = true;
+          rofi.enable = true;
+        };
         media = {
           beets.enable = true;
           mpv.enable = true;
@@ -106,9 +109,9 @@
     };
     theming = {
       quickshell.enable = true;
-      gtk = {enable = false;};
+      gtk.enable = false;
       qt = {
-        enable = true;
+        enable = false;
         package = pkgs.kde-gruvbox;
         name = "Gruvbox-Dark";
       };
