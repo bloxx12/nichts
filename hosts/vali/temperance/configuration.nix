@@ -59,10 +59,9 @@
       wtfutil.enable = true;
       foot.enable = true;
       fish.enable = true;
-      stylix.enable = true;
       nh.enable = true;
       waybar.enable = true;
-      spicetify.enable = true;
+      #spicetify.enable = true;
       schizofox.enable = true;
       anyrun.enable = true;
       zathura.enable = true;
@@ -89,7 +88,7 @@
         cursor.size = 28;
         fontsizes = {
           terminal = 18;
-          popups = 14;
+          popups = 18;
           applications = 14;
         };
         image = ../../../assets/wallpapers/tiredgod.png;

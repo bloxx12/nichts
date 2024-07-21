@@ -3,35 +3,35 @@
   pkgs,
   ...
 }: let
-  fenix = inputs.fenix.packages.${pkgs.system};
   nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
 in {
   environment.systemPackages = with pkgs; [
     abaddon
     alejandra
     alsa-utils
-    android-tools
     asciinema
     bibata-cursors
     blanket
+    broot
+    browsh
+    cachix
+    calc
+    calibre
+    cbonsai
     cmake
+    cmus
     difftastic
     dig
+    digikam
     easyeffects
     element-desktop
     evince
     eza
     fastfetch
     feh
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
     ffmpeg-full
     fftw
+    fzf
     grimblast
     gcc
     gdb
@@ -39,14 +39,19 @@ in {
     gnutls
     grc
     grimblast
+    gthumb
     git
     helvum
+    hmm
     heroic
     httpie
     i3lock
     imagemagick
     img2pdf
+    impala
     imv
+    inetutils
+    jrnl
     keepassxc
     krita
     lazygit
@@ -54,11 +59,13 @@ in {
     libtool
     links2
     lutris
+    mapscii
     mars-mips
-    gnome.nautilus
+    moc
+    musikcube
+    nautilus
     ncmpcpp
     neofetch
-    neovim
     nheko
     networkmanagerapplet
     nextcloud-client
@@ -80,10 +87,10 @@ in {
     python3
     qbittorrent
     ripgrep
-    rustdesk
     scc
     scummvm
     sherlock
+    shotwell
     signal-desktop-beta
     smartmontools
     steam
@@ -96,17 +103,19 @@ in {
     tor-browser-bundle-bin
     trash-cli
     tree
+    ttyper
     typst
     # typstfmt does not work either
     typstyle
-
     typst-lsp
     unzip
     util-linux
     v4l-utils
     ventoy-full
     vlc
+    vscodium
     weechat
+    wezterm
     wget
     wine
     winetricks

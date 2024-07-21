@@ -21,8 +21,9 @@ in {
         colorScheme = "mocha";
         enabledExtensions = with spicePkgs.extensions; [
           shuffle
-          hidePodcasts
           adblock
+          genre
+          playlistIcons
         ];
       };
     };
