@@ -1,9 +1,16 @@
 {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
     devShells.default = pkgs.mkShellNoCC {
       name = "nichts";
       DIRENV_LOG_FORMAT = "";
+
+      #inputsFrom = [config.treefmt.build.devShell];
       packages = with pkgs; [
+        config.treefmt.build.wrapper # treewide formatter
         nil # nix language server
         alejandra
         git # take a guess

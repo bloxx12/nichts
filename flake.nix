@@ -8,6 +8,7 @@
         ];
         imports = [
           inputs.treefmt-nix.flakeModule
+          #./flake/pre-commit
           ./flake/shell.nix
           ./flake/fmt.nix
         ];
