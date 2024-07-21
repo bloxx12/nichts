@@ -12,7 +12,7 @@ local options = {
     backspace = { 'indent', 'eol', 'start' }, -- backspace through everything in insert mode
     hidden = true,                            -- Enable background buffers
     history = 100,                            -- Remember N lines in history
-    lazyredraw = true,                        -- Faster scrolling if enabled, breaks noice
+    lazyredraw = false,                       -- Faster scrolling if enabled, breaks noice
     synmaxcol = 240,                          -- Max column for syntax highlight
     updatetime = 250,                         -- ms to wait for trigger an event
 

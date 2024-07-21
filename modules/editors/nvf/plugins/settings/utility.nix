@@ -9,12 +9,12 @@
         enable = true;
         cli-package = pkgs.wakatime-cli;
       };
-      #
-      #  motion = {
-      #    hop.enable = false;
-      #    leap.enable = false;
-      #  };
-      #
+
+      motion = {
+        hop.enable = false;
+        leap.enable = false;
+      };
+
       preview = {
         glow.enable = true;
         markdownPreview.enable = true;

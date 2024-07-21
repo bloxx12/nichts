@@ -9,6 +9,9 @@
     treefmt = {
       projectRootFile = "flake.nix";
       enableDefaultExcludes = true;
+      settings = {
+        global.excludes = ["*.png"];
+      };
       programs = {
         alejandra.enable = true;
 
@@ -17,10 +20,7 @@
         prettier = {
           enable = true;
           package = pkgs.prettierd;
-          excludes = ["*.age"];
-          settings = {
-            editorconfig = true;
-          };
+          settings.editorconfig = true;
         };
 
         shfmt = {

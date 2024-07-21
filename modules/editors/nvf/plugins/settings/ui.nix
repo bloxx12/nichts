@@ -1,15 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.modules.other.system) username;
-in {
+_: {
   programs.neovim-flake.settings.vim = {
     ui = {
-      noice.enable = false;
+      noice.enable = true;
       colorizer.enable = true;
-      modes-nvim.enable = true;
+      modes-nvim.enable = false;
       illuminate.enable = true;
 
       breadcrumbs = {

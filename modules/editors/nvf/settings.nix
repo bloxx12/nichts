@@ -10,7 +10,7 @@
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix fileContents;
   inherit (lib.attrsets) genAttrs;
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkIf;
 
   cfg = config.modules.system.programs.editors.neovim;
   nvf = inputs.neovim-flake;

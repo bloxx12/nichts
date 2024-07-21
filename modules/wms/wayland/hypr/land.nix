@@ -322,7 +322,7 @@ in {
             # "${waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/repos/nichts nvim"
+            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/projects/nichts nvim"
 
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 

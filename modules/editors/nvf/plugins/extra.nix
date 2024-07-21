@@ -82,7 +82,7 @@
 in {
   programs.neovim-flake.settings.vim.extraPlugins = {
     # plugins that are pulled from nixpkgs
-    # direnv = {package = direnv-vim;};
+    direnv = {package = direnv-vim;};
     friendly-snippets = {package = friendly-snippets;};
     mkdir-nvim = {package = mkdir-nvim;};
     lazygit-nvim = {package = lazygit-nvim;};
@@ -95,7 +95,7 @@ in {
       package = nvim-surround;
       setup = "require('nvim-surround').setup {}";
     };
-    /*
+
     undotree = {
       package = undotree;
       setup = ''
@@ -103,7 +103,7 @@ in {
         vim.g.undotree_TreeVertShape = '│'
       '';
     };
-    */
+
     ssr-nvim = {
       package = ssr-nvim;
       setup = "require('ssr').setup {}";
@@ -141,7 +141,7 @@ in {
       package = pluginSources.smart-splits;
       setup = "require('smart-splits').setup {}";
     };
-    /*
+
     neotab-nvim = {
       package = pluginSources.neotab-nvim;
       setup = ''
@@ -173,7 +173,7 @@ in {
         }
       '';
     };
-    */
+
     specs-nvim = {
       package = pluginSources.specs-nvim;
       setup = ''

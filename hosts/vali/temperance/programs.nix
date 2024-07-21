@@ -7,7 +7,6 @@
 in {
   environment.systemPackages = with pkgs; [
     abaddon
-    alejandra
     alsa-utils
     asciinema
     bibata-cursors
