@@ -12,7 +12,7 @@
   inherit (lib.attrsets) genAttrs;
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.modules.editors.neovim;
+  cfg = config.modules.system.programs.editors.neovim;
   nvf = inputs.neovim-flake;
   inherit (nvf.lib.nvim.dag) entryBefore entryAnywhere;
 
@@ -24,7 +24,6 @@
       path = toString finalPath;
     };
 in {
-  options.modules.editors.neovim.enable = mkEnableOption "neovim";
   config = mkIf cfg.enable {
     programs.neovim-flake = {
       enable = true;

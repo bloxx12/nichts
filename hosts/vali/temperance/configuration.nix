@@ -46,11 +46,12 @@
           kitty.enable = true;
         };
       };
+      sound.enable = true;
     };
     usrEnv = {
-      desktop.hyprland.enable = true;
+      desktops.hyprland.enable = true;
       programs = {
-        launchers.anyrun.enable = true;
+        launchers.anyrun.enable = false;
         media = {
           beets.enable = true;
           mpv.enable = true;
@@ -58,13 +59,20 @@
         };
       };
       services = {
-        mpd.enable = true;
+        media.mpd = {
+          enable = true;
+          musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/Media/Music";
+        };
       };
       style = {
         stylix = {
           enable = true;
           scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
-          cursor.size = 28;
+          cursor = {
+            size = 28;
+            package = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Classic";
+          };
           fontsizes = {
             terminal = 18;
             popups = 14;
@@ -93,19 +101,8 @@
       nh.enable = true;
       waybar.enable = true;
     };
-    editors = {
-      emacs.enable = true;
-      helix.enable = true;
-      kakoune.enable = true;
-      neovim.enable = true;
-    };
     services = {
-      pipewire.enable = true;
       dunst.enable = true;
-      mpd = {
-        enable = true;
-        musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/Media/Music";
-      };
     };
     theming = {
       quickshell.enable = true;

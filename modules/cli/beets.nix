@@ -5,7 +5,7 @@
 }: let
   cfg = config.modules.usrEnv.programs.media.beets;
   inherit (config.modules.other.system) username;
-  inherit (config.modules.services.mpd) musicDirectory;
+  inherit (config.modules.usrEnv.services.media.mpd) musicDirectory;
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {

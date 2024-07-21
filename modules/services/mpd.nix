@@ -37,7 +37,7 @@ in {
       '';
     };
     home-manager.users.${username} = {
-      home.Packages = with pkgs; [mpc-cli];
+      home.packages = with pkgs; [mpc-cli];
       services = {
         mpd-mpris = {
           enable = true;
