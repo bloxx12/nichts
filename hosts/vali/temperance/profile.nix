@@ -5,6 +5,5 @@ _: {
     ../../../options/common/networking.nix
     ../../../options/common/gpu/nvidia.nix
     ../../../options/desktop/monitors.nix
-    ../../../overlay.nix
   ];
 }

@@ -30,9 +30,5 @@ in {
       isNormalUser = true;
       extraGroups = ["wheel"];
     };
-    users.users.test = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-    };
   };
 }

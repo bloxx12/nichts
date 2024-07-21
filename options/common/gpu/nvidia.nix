@@ -6,15 +6,10 @@
   services.xserver.videoDrivers = ["nvidia"];
   hardware.graphics = {
     enable = true;
-    package = pkgs.mesa.drivers;
-    extraPackages = with pkgs; [
-      intel-compute-runtime
-      intel-media-driver
-    ];
   };
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true;
+    open = false;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     nvidiaSettings = false;

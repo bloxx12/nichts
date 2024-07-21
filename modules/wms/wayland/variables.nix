@@ -36,7 +36,7 @@ in {
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_DESKTOP = "Hyprland";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      #WLR_RENDERER_ALLOW_SOFTWARE = "1";
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
       # Needed anymore?
       LIBSEAT_BACKEND = "logind";
     };

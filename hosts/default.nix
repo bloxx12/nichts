@@ -10,6 +10,7 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.agenix.nixosModules.default
+      inputs.lix-module.nixosModules.default
     ];
   };
   hermit = lib.nixosSystem rec {

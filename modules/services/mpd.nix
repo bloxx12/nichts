@@ -28,24 +28,23 @@ in {
       enable = true;
       inherit (cfg) musicDirectory;
       user = username;
+      startWhenNeeded = true;
       extraConfig = ''
-        user "${username}"
-        playlist_directory "${cfg.musicDirectory}/.playlists"
         restore_paused "yes"
+        auto_update "yes"
+        playlist_directory "${cfg.musicDirectory}/.playlists"
 
-        volume_normalization "yes"
+          audio_output {
+              type "pipewire"
+              name "PipeWire Sound Server"
+          }
 
-        audio_output {
-            type "pipewire"
-            name "PipeWire Sound Server"
-        }
-
-         audio_output {
-            type   "fifo"
-            name   "FIFO"
-            path   "/tmp/mpd.fifo"
-            format "44100:16:2"
-        }
+           audio_output {
+              type   "fifo"
+              name   "FIFO"
+              path   "/tmp/mpd.fifo"
+              format "44100:16:2"
+          }
       '';
     };
     home-manager.users.${username} = {

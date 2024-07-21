@@ -42,7 +42,6 @@ in {
     home-manager.users.${username} = {
       qt = {
         enable = true;
-        platformTheme.name = "qt5ct";
         # style = {
         #     inherit (cfg) name package;
         # };

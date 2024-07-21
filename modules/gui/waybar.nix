@@ -16,7 +16,7 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = ["tray" "mpd" "hyprland/window"];
+          modules-left = ["custom/vpn" "tray" "mpd" "hyprland/window"];
           modules-center = ["hyprland/workspaces"];
           modules-right = [
             "cpu"
@@ -80,6 +80,11 @@ in {
           tray = {
             icon-size = 12;
             spacing = 5;
+          };
+          "custom/vpn" = {
+            interval = 10;
+            exec = ''if [[ $(systemctl is-active openvpn-air.service) == "active" ]]; then echo Vpn active; else echo Vpn inactive; fi'';
+            firmat = "{}";
           };
 
           # 󰃰

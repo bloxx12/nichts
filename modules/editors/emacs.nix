@@ -167,6 +167,7 @@ in {
         findutils
         graphviz
         djvulibre
+        hunspell
         sqlite
       ];
       services.emacs = {
