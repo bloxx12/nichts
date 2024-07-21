@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  system,
+  #system,
   inputs,
   pkgs,
   ...
@@ -17,7 +17,7 @@ in {
     environment.systemPackages = with pkgs; [
       qt6.qtimageformats
       qt6.qt5compat
-      quickshell.packages.${system}.default
+      #quickshell.packages.${system}.default
       pamtester
     ];
     home-manager.users.${username}.xdg.configFile."quickshell/manifest.conf".text = toKeyValue {} {

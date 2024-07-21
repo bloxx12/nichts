@@ -1,9 +1,9 @@
 {
-  inputs,
+  inputs',
   pkgs,
   ...
 }: let
-  nixpkgs-wayland = inputs.nixpkgs-wayland.packages.${pkgs.system};
+  nixpkgs-wayland = inputs'.nixpkgs-wayland.packages;
 in {
   environment.systemPackages = with pkgs; [
     abaddon
