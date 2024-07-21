@@ -7,9 +7,8 @@
 }:
 with lib; let
   inherit (config.modules.other.system) username;
-  cfg = config.modules.programs.anyrun;
+  cfg = config.modules.usrEnv.programs.launchers.anyrun;
 in {
-  options.modules.programs.anyrun.enable = mkEnableOption "anyrun";
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       imports = [inputs.anyrun.homeManagerModules.default];

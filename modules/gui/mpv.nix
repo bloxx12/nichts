@@ -3,13 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
-  cfg = config.modules.programs.mpv;
-  username = config.modules.other.system.username;
+}: let
+  cfg = config.modules.usrEnv.programs.media.mpv;
+  inherit (config.modules.other.system) username;
+  inherit (lib) mkIf;
 in {
-  options.modules.programs.mpv.enable = mkEnableOption "mpv";
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.mpv = {

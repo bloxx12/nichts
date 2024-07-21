@@ -3,12 +3,11 @@
   lib,
   ...
 }: let
-  cfg = config.modules.programs.beets;
-  inherit (lib) mkIf mkEnableOption;
+  cfg = config.modules.usrEnv.programs.media.beets;
   inherit (config.modules.other.system) username;
   inherit (config.modules.services.mpd) musicDirectory;
+  inherit (lib) mkIf;
 in {
-  options.modules.programs.beets.enable = mkEnableOption "beets";
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.beets = {
