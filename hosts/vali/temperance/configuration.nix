@@ -31,9 +31,48 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
     system = {
+      programs = {
+        editors = {
+          emacs.enable = true;
+          neovim.enable = true;
+          helix.enable = true;
+          kakoune.enable = true;
+        };
+        discord.enable = true;
+        firefox.enable = true;
+        zathura.enable = true;
+        terminals = {
+          foot.enable = true;
+          kitty.enable = true;
+        };
+      };
     };
     usrEnv = {
       desktop.hyprland.enable = true;
+      programs = {
+        launchers.anyrun.enable = true;
+        media = {
+          beets.enable = true;
+          mpv.enable = true;
+          ncmpcpp.enable = true;
+        };
+      };
+      services = {
+        mpd.enable = true;
+      };
+      style = {
+        stylix = {
+          enable = true;
+          scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
+          cursor.size = 28;
+          fontsizes = {
+            terminal = 18;
+            popups = 14;
+            applications = 14;
+          };
+          image = ../../../assets/wallpapers/tiredgod.png;
+        };
+      };
     };
     other = {
       system = {
@@ -46,31 +85,14 @@
         enableDirenv = true;
       };
     };
-    wms = {
-      wayland = {
-        enable = true;
-        hyprland.enable = true;
-      };
-    };
     programs = {
-      beets.enable = true;
-      vesktop.enable = true;
       ssh.enable = true;
       btop.enable = true;
-      mpv.enable = true;
-      kitty.enable = true;
       newsboat.enable = true;
-      ncmpcpp.enable = true;
-      wtfutil.enable = true;
-      foot.enable = true;
       fish.enable = true;
-      stylix.enable = true;
       nh.enable = true;
       waybar.enable = true;
       spicetify.enable = true;
-      schizofox.enable = true;
-      anyrun.enable = true;
-      zathura.enable = true;
     };
     editors = {
       emacs.enable = true;
@@ -90,14 +112,6 @@
       quickshell.enable = true;
       stylix = {
         enable = true;
-        scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
-        cursor.size = 28;
-        fontsizes = {
-          terminal = 18;
-          popups = 14;
-          applications = 14;
-        };
-        image = ../../../assets/wallpapers/tiredgod.png;
       };
       gtk = {enable = false;};
       qt = {
