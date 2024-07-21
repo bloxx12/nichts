@@ -1,6 +1,6 @@
 {
   config,
-  inputs,
+  inputs',
   lib,
   pkgs,
   ...
@@ -16,7 +16,7 @@ in {
     home-manager.users.${username} = {
       services.dunst = {
         enable = true;
-        package = inputs.nixpkgs-wayland.packages.${pkgs.system}.dunst;
+        package = inputs'.nixpkgs-wayland.packages.dunst;
         settings = {
           global = {
             monitor = 1;

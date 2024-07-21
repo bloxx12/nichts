@@ -9,6 +9,14 @@ with lib; let
   inherit (config.modules.other.system) username;
 in {
   options.modules.programs.ssh.enable = mkEnableOption "ssh";
-
-  config = mkIf cfg.enable {programs.ssh = {startAgent = true;};};
+  config = {
+    programs.ssh.startAgent = true;
+    services.openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+      };
+    };
+  };
 }

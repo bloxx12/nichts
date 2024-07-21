@@ -1,6 +1,6 @@
 {
   config,
-  inputs,
+  inputs',
   lib,
   pkgs,
   ...
@@ -15,7 +15,7 @@ in {
     home-manager.users.${username} = {
       programs.foot = {
         enable = true;
-        package = inputs.nixpkgs-wayland.packages.${pkgs.system}.foot;
+        package = inputs'.nixpkgs-wayland.packages.foot;
         settings = {
           main = {
             term = "foot";

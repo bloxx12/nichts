@@ -6,6 +6,11 @@
         systems = [
           "x86-64_linux"
         ];
+        imports = [
+          inputs.treefmt-nix.flakeModule
+          ./flake/shell.nix
+          ./flake/fmt.nix
+        ];
         flake = {
           nixosConfigurations = import ./hosts {inherit inputs withSystem;};
         };
@@ -51,6 +56,13 @@
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     neovim-flake = {

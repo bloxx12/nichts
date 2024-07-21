@@ -3,12 +3,12 @@
   pkgs,
   lib,
   inputs,
+  inputs',
   ...
 }: let
   cfg = config.modules.system.programs.spotify;
   inherit (config.modules.other.system) username;
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-  # inherit (inputs.spicetify-nix.packages.${pkgs.system}) spicetify-nix;
+  spicePkgs = inputs'.spicetify-nix.packages.default;
 in {
   config = lib.mkIf cfg.enable {
     home-manager.users.${username} = {
