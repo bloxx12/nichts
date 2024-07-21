@@ -8,7 +8,6 @@ _: {
     ./qt.nix
     ./zathura.nix
     ./spicetify.nix
-    ./rofi.nix
     ./kitty.nix
     #./vivado.nix
     ./steam.nix

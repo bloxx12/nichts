@@ -4,13 +4,11 @@
   lib,
   ...
 }: let
-  cfg = config.modules.programs.schizofox;
+  cfg = config.modules.system.programs.firefox;
   inherit (config.modules.other.system) username;
 
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkIf;
 in {
-  options.modules.programs.schizofox = {enable = mkEnableOption "schizofox";};
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       imports = [inputs.schizofox.homeManagerModule];
@@ -18,23 +16,13 @@ in {
       programs.schizofox = {
         enable = true;
         theme = {
-          #  colors = {
-          #    background-darker = "181825";
-          #    background = "1e1e2e";
-          #    foreground = "cdd6f4";
-          #  };
           colors = {
             background-darker = "1d2021";
             background = "282828";
             foreground = "ebdbb2";
           };
 
-          font = "Lexend";
-          extraUserChrome = ''
-            body {
-                color: red !important;
-            }
-          '';
+          font = "ComicShannsMono Nerd Font";
         };
         search = {
           defaultSearchEngine = "DuckDuckGo";
@@ -92,7 +80,7 @@ in {
             {
               Name = "noogle";
               Descriptiom = "Noogle Search";
-              Alias = "!no";
+              Alias = "!ng";
               Method = "GET";
               URLTemplate = "https://noogle.dev/";
             }
@@ -132,13 +120,13 @@ in {
         security = {
           sanitizeOnShutdown = false;
           sandbox = true;
+          noSessionRestore = false;
           userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
         };
 
         misc = {
           drm.enable = true;
-          disableWebgl = true;
-          #startPageURL = "file://${./src}/index.html";
+          disableWebgl = false;
         };
       };
     };

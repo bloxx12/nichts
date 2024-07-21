@@ -1,13 +1,13 @@
 {
   config,
-  pkgs,
   lib,
   inputs,
+  inputs',
   ...
-}:
-with lib; let
+}: let
   inherit (config.modules.other.system) username;
   cfg = config.modules.usrEnv.programs.launchers.anyrun;
+  inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
@@ -16,7 +16,7 @@ in {
       programs.anyrun = {
         enable = true;
         config = {
-          plugins = with inputs.anyrun.packages.${pkgs.system}; [
+          plugins = with inputs'.anyrun.packages; [
             applications
             dictionary
             #rink
@@ -42,6 +42,7 @@ in {
             Config(
                 max_entries: 10,
                 terminal: Some("foot"),
+                desktop_actions: false
             )
           '';
           "websearch.ron".text = ''

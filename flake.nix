@@ -1,9 +1,16 @@
 {
   description = "My NixOS config flake";
-  outputs = inputs: {
-    inherit (inputs.nixpkgs) lib;
-    nixosConfigurations = import ./hosts {inherit inputs;};
-  };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} (
+      {withSystem, ...}: {
+        systems = [
+          "x86-64_linux"
+        ];
+        flake = {
+          nixosConfigurations = import ./hosts {inherit inputs withSystem;};
+        };
+      }
+    );
   inputs = {
     # what am I doing to this config help
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -23,7 +30,7 @@
     };
     # Lix because fast rebuild times are cool
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

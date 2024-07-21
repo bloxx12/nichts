@@ -101,6 +101,7 @@
       direnv
       doom-modeline
       editorconfig
+      emacs-all-the-icons-fonts
       evil
       evil-collection
       evil-goggles

@@ -1,10 +1,40 @@
-{inputs, ...}: let
+{
+  inputs,
+  withSystem,
+  ...
+}: let
   inherit (inputs) self;
-  inherit (self) lib;
+  inherit (inputs.nixpkgs) lib;
+
+  mkSystem = {
+    withSystem,
+    system,
+    ...
+  } @ args:
+    withSystem system (
+      {
+        inputs',
+        self',
+        ...
+      }:
+        lib.nixosSystem {
+          inherit system;
+          specialArgs =
+            lib.recursiveUpdate
+            {
+              inherit lib;
+              inherit inputs inputs';
+              inherit self self';
+              inherit system;
+            }
+            (args.specialArgs or {});
+          inherit (args) modules;
+        }
+    );
 in {
-  temperance = lib.nixosSystem rec {
+  temperance = mkSystem {
+    inherit withSystem;
     system = "x86_64-linux";
-    specialArgs = {inherit lib inputs self system;};
     modules = [
       ./vali/temperance
       ../modules
@@ -13,6 +43,19 @@ in {
       inputs.lix-module.nixosModules.default
     ];
   };
+
+  # temperance =
+  #   lib.nixosSystem rec {
+  #     system = "x86_64-linux";
+  #     specialArgs = {
+  #       inherit lib;
+  #       inherit
+  #         inputs
+  #         self
+  #         system
+  #         ;
+  #     };
+  #   });
   hermit = lib.nixosSystem rec {
     system = "x86_64-linux";
     specialArgs = {inherit lib inputs self system;};

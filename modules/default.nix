@@ -7,6 +7,7 @@ _: {
     ./services
     ./editors
     ./wms
+    ./runners
     ./styling
     ./options
   ];
