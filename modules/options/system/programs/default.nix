@@ -23,7 +23,7 @@ in {
     git = {
       signingKey = mkOption {
         type = types.str;
-        default = "";
+        default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPiRe9OH/VtWFWyy5QbAVcN7CLxr4zUtRCwmxD6aeN6";
         description = "The default gpg key used for signing commits";
       };
     };

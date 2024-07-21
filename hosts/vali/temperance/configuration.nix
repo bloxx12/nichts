@@ -30,11 +30,16 @@
   programs.dconf.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
+    system = {
+    };
+    usrEnv = {
+      desktop.hyprland.enable = true;
+    };
     other = {
       system = {
         hostname = "temperance";
         username = "vali";
-        gitPath = "/home/vali/repos/nichts";
+        gitPath = "/home/vali/projects/nichts";
       };
       home-manager = {
         enable = true;

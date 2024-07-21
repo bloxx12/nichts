@@ -1,12 +1,7 @@
-{
-  lib,
-  pkgs,
-  config,
-}: let
-in {
+_: {
   imports = [
     ./stylix.nix
-    ./qt.nix
-    ./gtk.nix
+    #    ./qt.nix
+    #    ./gtk.nix
   ];
 }
