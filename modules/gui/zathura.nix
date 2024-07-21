@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.zathura;
+  cfg = config.modules.system.programs.zathura;
   inherit (config.modules.other.system) username;
   catppuccin = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -14,8 +14,6 @@ with lib; let
     hash = "sha256-/vD/hOi6KcaGyAp6Az7jL5/tQSGRzIrf0oHjAJf4QbI=";
   };
 in {
-  options.modules.programs.zathura.enable = mkEnableOption "zathura";
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       xdg.configFile."zathura/catppuccin-mocha".source = "${catppuccin}/src/catppuccin-mocha";

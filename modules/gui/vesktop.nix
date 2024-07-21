@@ -5,11 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.vesktop;
-  username = config.modules.other.system.username;
+  cfg = config.modules.system.programs.discord;
+  inherit (config.modules.other.system) username;
 in {
-  options.modules.programs.vesktop = {enable = mkEnableOption "vesktop";};
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       home.packages = with pkgs; [vesktop];

@@ -5,12 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.ncmpcpp;
+  cfg = config.modules.usrEnv.programs.media.ncmpcpp;
   inherit (config.modules.other.system) username;
   inherit (config.modules.services.mpd) musicDirectory;
 in {
-  options.modules.programs.ncmpcpp.enable = mkEnableOption "ncmpcpp";
-
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.ncmpcpp = {

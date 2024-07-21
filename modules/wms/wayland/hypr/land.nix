@@ -5,9 +5,8 @@
   inputs,
   ...
 }: let
-  cfg = config.modules.wms.wayland.hyprland;
+  cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
-  inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
   inherit (inputs.anyrun.packages.${pkgs.system}) anyrun;
   inherit
     (inputs.nixpkgs-wayland.packages.${pkgs.system})
@@ -20,13 +19,12 @@
     split-monitor-workspaces
     ;
 in {
-  options.modules.wms.wayland.hyprland.enable = lib.mkEnableOption "hyprland";
   config = lib.mkIf cfg.enable {
     # xdg Portal
     xdg.portal = {
       enable = true;
       configPackages = [
-        hyprland
+        cfg.package # TODO Fix hyprland package
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
@@ -37,7 +35,7 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        package = hyprland;
+        inherit (cfg) package;
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
           split-monitor-workspaces
@@ -208,7 +206,7 @@ in {
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
             "$mainMod, SPACE, togglefloating, active"
-            "$mainMod, O, exec, obsidian --ozone-platform=wayland --enable-features=UseOzonePlatform --enable-features=WaylandWindowDecorations --enable-features=WebRTCPipeWireCpaturer --disable-gpu"
+
             # workspaces
             # split-workspace is because of the split-workspace plugin
             #  "$mainMod, 1, workspace, 1"
@@ -259,8 +257,10 @@ in {
             "$mainMod SHIFT, J, movewindow, d"
             "$mainMod SHIFT, K, movewindow, u"
             "$mainMod SHIFT, L, movewindow, r"
+
             # Screenshotting
             "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+
             # File manager
             "$mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus"
             # Toggle the four different special workspaces.
@@ -270,7 +270,7 @@ in {
             "$mainMod, X, togglespecialworkspace, keepassxc"
 
             # Reload hyprland
-            "$mainMod, R, exec, ${hyprland}/bin/hyprctl reload"
+            "$mainMod, R, exec, ${cfg.package}/bin/hyprctl reload"
             # Restart waybar
             "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
           ];
