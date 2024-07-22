@@ -39,10 +39,8 @@ in {
     #gadacz
     gcc
     gdb
-    gnome.nautilus
     gnumake
     grc
-    grimblast
     git
     helvum
     hmm
@@ -52,7 +50,6 @@ in {
     impala
     imv
     inetutils
-    jetbrains.idea-community-bin
     jrnl
     keepassxc
     lazygit
@@ -61,7 +58,6 @@ in {
     mapscii
     mars-mips
     moc
-    musikcube
     ncmpcpp
     neofetch
     networkmanagerapplet
@@ -86,6 +82,7 @@ in {
     python3
     qbittorrent
     ripgrep
+    rnote
     rustdesk
     scc
     scummvm

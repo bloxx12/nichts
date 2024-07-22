@@ -102,6 +102,7 @@
       newsboat.enable = true;
       fish.enable = true;
       nh.enable = true;
+      steam.enable = true;
       waybar.enable = true;
     };
     services = {
@@ -109,7 +110,7 @@
     };
     theming = {
       quickshell.enable = true;
-      gtk.enable = false;
+      gtk.enable = true;
       qt = {
         enable = false;
         package = pkgs.kde-gruvbox;

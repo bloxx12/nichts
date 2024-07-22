@@ -17,12 +17,12 @@ in {
         enable = true;
         spotifyPackage = pkgs.spotify;
         #theme = spicePkgs.themes.Onepunch;
-        colorScheme = "mocha";
+        #colorScheme = "mocha";
         enabledExtensions = with spicePkgs.extensions; [
-          shuffle
+          #shuffle
           adblock
-          genre
-          playlistIcons
+          #genre
+          #playlistIcons
         ];
       };
     };

@@ -27,11 +27,9 @@ in {
     evince
     eza
     fastfetch
-    feh
     ffmpeg-full
     fftw
     fzf
-    grimblast
     gcc
     gdb
     gnumake
@@ -41,11 +39,9 @@ in {
     gthumb
     git
     helvum
-    hmm
     heroic
     httpie
-    i3lock
-    imagemagick
+    imagemagickBig
     img2pdf
     impala
     imv
@@ -86,13 +82,13 @@ in {
     python3
     qbittorrent
     ripgrep
+    rnote
     scc
     scummvm
     sherlock
     shotwell
     signal-desktop-beta
     smartmontools
-    steam
     strawberry
     teamspeak_client
     telegram-desktop
@@ -113,8 +109,6 @@ in {
     ventoy-full
     vlc
     vscodium
-    weechat
-    wezterm
     wget
     wine
     winetricks

@@ -20,6 +20,11 @@
     ;
 in {
   config = lib.mkIf cfg.enable {
+    programs.hyprland = {
+      enable = true;
+      inherit (cfg) package;
+      portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+    };
     # xdg Portal
     xdg.portal = {
       enable = true;
@@ -30,16 +35,21 @@ in {
         pkgs.xdg-desktop-portal-gtk
         inputs'.hyprland.packages.xdg-desktop-portal-hyprland
       ];
+      config = {
+        common.default = ["hyprland"];
+      };
       #config.common.default = "hyprland";
     };
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
         inherit (cfg) package;
+
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
           split-monitor-workspaces
         ];
+
         # Xwayland for X applications
         xwayland.enable = true;
         # No idea why I set this
@@ -122,21 +132,25 @@ in {
             kb_rules = "";
 
             follow_mouse = true;
+
             repeat_rate = 50;
             repeat_delay = 250;
+
             touchpad = {
               disable_while_typing = true;
             };
           };
           general = {
             sensitivity = 1.0;
-            gaps_in = 0;
-            gaps_out = 0;
+            gaps_in = 5;
+            gaps_out = 2;
             border_size = 2;
+
+            no_border_on_floating = true;
           };
           #Decoration settings
           decoration = {
-            rounding = 0;
+            rounding = 10;
             blur = {
               enabled = true;
               size = 3;
@@ -169,8 +183,6 @@ in {
           };
           dwindle = {no_gaps_when_only = true;};
 
-          debug.disable_logs = false;
-
           cursor = {
             hide_on_key_press = true;
             no_hardware_cursors = true;
@@ -201,7 +213,7 @@ in {
           ];
           # Keybinds
           bind = [
-            "$mainMod, RETURN, exec, ${foot}/bin/foot -D ~"
+            "$mainMod, RETURN, exec, ${foot}/bin/foot"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
@@ -264,6 +276,7 @@ in {
 
             # File manager
             "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
+
             # Toggle the four different special workspaces.
             "$mainMod, B, togglespecialworkspace, btop"
             "$mainMod, V, togglespecialworkspace, pipewire"
@@ -272,9 +285,11 @@ in {
 
             # Reload hyprland
             "$mainMod, R, exec, ${cfg.package}/bin/hyprctl reload"
+
             # Restart waybar
             "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
           ];
+
           binde = [
             # window focus
             "$mainMod, H, movefocus, l"
@@ -282,6 +297,7 @@ in {
             "$mainMod, K, movefocus, u"
             "$mainMod, L, movefocus, r"
           ];
+
           # Media controls
           bindl = let
             play-pause = "${pkgs.playerctl}/bin/playerctl play-pause";
@@ -311,6 +327,7 @@ in {
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+
           # Some more movement-related settings
           binds = {
             pass_mouse_when_bound = false;
@@ -319,16 +336,16 @@ in {
           # Programs which get executed at Hyprland start.
           exec-once = [
             #start waybar
-            # "${waybar}/bin/waybar"
+            "${pkgs.waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/projects/nichts nvim"
+            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/projects/nichts nix develop"
 
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
             "${swww}/bin/swww-daemon"
+
             "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
-            "${pkgs.waybar}/bin/waybar"
           ];
 
           exec = [
@@ -336,7 +353,7 @@ in {
             "${pkgs.procps}/bin/pkill btop"
             "${pkgs.procps}/bin/pkill pavucontrol"
             # and run it all again
-            "[workspace special:btop;silent;tile] ${foot}/bin/foot ${pkgs.btop}/bin/btop"
+            "[workspace special:btop silent;tile] ${foot}/bin/foot -e ${pkgs.btop}/bin/btop"
 
             #            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
@@ -345,6 +362,5 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [libnotify];
   };
 }

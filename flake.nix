@@ -8,7 +8,6 @@
         ];
         imports = [
           inputs.treefmt-nix.flakeModule
-          #  inputs.flake-parts.flakeModules.easyOverlay
           #  #./flake/pre-commit
           ./parts/shell.nix
           ./parts/fmt.nix
