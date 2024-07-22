@@ -1,7 +1,7 @@
 {
   programs.neovim-flake.settings.vim.maps = {
     normal = {
-      "<leader>gg".action = "<cmd>LazyGit<CR>";
+      #      "<leader>gg".action = "<cmd>LazyGit<CR>";
       # General
       "<leader>fd".action = "<cmd>lua vim.g.formatsave = not vim.g.formatsave<CR>";
       "<leader>zt".action = ":<C-U>let g:default_terminal = v:count1<CR>";

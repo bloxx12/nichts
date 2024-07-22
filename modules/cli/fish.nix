@@ -29,7 +29,6 @@ in {
     };
 
     home-manager.users.${username} = {
-      home.packages = with pkgs; [nix-output-monitor];
       programs = {
         zoxide.enable = true;
         zoxide.enableFishIntegration = true;
@@ -45,10 +44,10 @@ in {
               name = "done";
               inherit (pkgs.fishPlugins.done) src;
             }
-            #           {
-            #             name = "tide";
-            #             inherit (pkgs.fishPlugins.tide) src;
-            #           }
+            {
+              name = "puffer";
+              inherit (pkgs.fishPlugins.puffer) src;
+            }
           ];
           shellAbbrs =
             {
@@ -62,13 +61,10 @@ in {
               kys = "shutdown now";
               lg = "lazygit";
               cd = "z";
-              "..." = "cd ../..";
               v = "nvim";
               h = "hx";
               k = "kak";
               e = "emacs";
-              update = ''nh os switch "${gitPath}"'';
-              flake = "cd '${gitPath}'";
             }
             // cfg.extraAliases;
         };
