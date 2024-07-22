@@ -2,11 +2,13 @@
   fonts = {
     packages = with pkgs; [
       material-design-icons
+      xfce.xfce4-icon-theme
+      papirus-icon-theme
       (nerdfonts.override {fonts = ["JetBrainsMono" "ComicShannsMono"];})
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       corefonts
     ];
     # What does this do?

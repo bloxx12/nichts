@@ -1,1 +1,12 @@
-_: {imports = [./pipewire.nix ./ssh.nix ./greetd.nix ./dunst.nix ./mpd.nix ./firewall.nix ./vpn.nix];}
+_: {
+  imports = [
+    ./pipewire.nix
+    ./locate.nix
+    ./ssh.nix
+    ./greetd.nix
+    ./dunst.nix
+    ./mpd.nix
+    ./firewall.nix
+    ./vpn.nix
+  ];
+}
