@@ -21,7 +21,7 @@ in {
       gamescopeSession.enable = mkIf cfg.gamescope true;
     };
     programs.gamemode.enable = true;
-    environment.systemPackages = [pkgs.protonup];
+    environment.systemPackages = [pkgs.protonup-ng];
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/${username}/.steam/root/compatibilitytoolds.d";
     };

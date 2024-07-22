@@ -95,7 +95,7 @@ in {
     texliveFull
     tldr
     thunderbird
-    tor-browser-bundle-bin
+    tor-browser
     trash-cli
     tree
     ttyper

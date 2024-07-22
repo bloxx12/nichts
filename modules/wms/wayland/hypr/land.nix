@@ -172,7 +172,7 @@ in {
           ];
           # Hyprland anomations, using the above bezier curves
           animations = {
-            enabled = false;
+            enabled = true;
             animation = [
               "windows, 1, 4, dupa, popin"
               "windowsOut, 1, 4, dupa, slide"
@@ -359,6 +359,12 @@ in {
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
             # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
+          plugin = {
+            split-monitor-workspaces = {
+              keep-focued = true;
+              count = 10;
+            };
+          };
         };
       };
     };
