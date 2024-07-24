@@ -17,17 +17,14 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
       # enable flakes
-      experimental-features = ["nix-command" "flakes"];
       # reduce file size used & automatic garbage collector
-      auto-optimise-store = true;
-      max-jobs = 3;
-      cores = 4;
     };
   };
   security.sudo.package = pkgs.sudo.override {withInsults = true;};
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
+  virtualisation.docker.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
     system = {
@@ -63,6 +60,7 @@
       };
       services = {
         locate.enable = true;
+        wpaperd.enable = true;
         media.mpd = {
           enable = true;
           musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/Media/Music";

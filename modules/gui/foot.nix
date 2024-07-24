@@ -62,8 +62,8 @@ in {
               abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+="'()[]'';
           };
           cursor = {
-            style = "block";
-            blink = "false";
+            style = "beam";
+            blink = "true";
           };
           mouse = {
             hide-when-typing = "yes";
