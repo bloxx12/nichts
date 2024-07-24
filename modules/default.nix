@@ -10,6 +10,6 @@ _: {
     ./runners
     ./styling
     ./options
-    #./system/nix/module.nix
+    ./system/nix/module.nix
   ];
 }

@@ -6,17 +6,12 @@
   nixpkgs-wayland = inputs'.nixpkgs-wayland.packages;
 in {
   environment.systemPackages = with pkgs; [
-    abaddon
     alsa-utils
     asciinema
-    bibata-cursors
     blanket
-    broot
-    browsh
-    cachix
-    calc
     calibre
     cbonsai
+    coreutils
     cmake
     cmus
     difftastic
@@ -69,6 +64,7 @@ in {
     nitch
     nixpkgs-wayland.swww
     nmap
+    nodejs_20
     notesnook
     obsidian
     onlyoffice-bin
@@ -89,26 +85,18 @@ in {
     shotwell
     signal-desktop-beta
     smartmontools
-    strawberry
     teamspeak_client
     telegram-desktop
-    texliveFull
     tldr
     thunderbird
     tor-browser
     trash-cli
     tree
     ttyper
-    typst
-    # typstfmt does not work either
-    typstyle
-    typst-lsp
     unzip
     util-linux
     v4l-utils
-    ventoy-full
     vlc
-    vscodium
     wget
     wine
     winetricks
@@ -116,9 +104,7 @@ in {
     wl-clipboard
     xdg-utils
     xournalpp
-    yt-dlp
     zapzap
     zip
-    zoxide
   ];
 }

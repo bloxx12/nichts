@@ -118,7 +118,6 @@ in {
             "30, monitor:DP-2"
 
             # scratchpads
-            "special:btop, decorate:false"
             "special:pipewire, decorate:false"
             "special:nixos, decorate:false"
             "special:keepassxc, decorate:false"
@@ -278,7 +277,6 @@ in {
             "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
             # Toggle the four different special workspaces.
-            "$mainMod, B, togglespecialworkspace, btop"
             "$mainMod, V, togglespecialworkspace, pipewire"
             "$mainMod, N, togglespecialworkspace, nixos"
             "$mainMod, X, togglespecialworkspace, keepassxc"
@@ -350,14 +348,12 @@ in {
 
           exec = [
             # kill (almost) everything on special workspaces
-            "${pkgs.procps}/bin/pkill btop"
             "${pkgs.procps}/bin/pkill pavucontrol"
-            # and run it all again
-            "[workspace special:btop silent;tile] ${foot}/bin/foot -e ${pkgs.btop}/bin/btop"
+            "${pkgs.procps}/bin/pkill helvum"
 
-            #            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
+            # and run it all again
+            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
             "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
-            # "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
           ];
           plugin = {
             split-monitor-workspaces = {
