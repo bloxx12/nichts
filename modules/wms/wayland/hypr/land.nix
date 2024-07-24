@@ -341,7 +341,7 @@ in {
 
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
-            "${swww}/bin/swww-daemon"
+            #"${swww}/bin/swww-daemon"
 
             "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
           ];
