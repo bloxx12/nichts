@@ -87,6 +87,7 @@ in {
     smartmontools
     teamspeak_client
     telegram-desktop
+    temurin-bin-17
     tldr
     thunderbird
     tor-browser

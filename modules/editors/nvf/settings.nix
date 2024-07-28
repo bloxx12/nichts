@@ -14,15 +14,7 @@
 
   cfg = config.modules.system.programs.editors.neovim;
   nvf = inputs.neovim-flake;
-  inherit (nvf.lib.nvim.dag) entryBefore entryAnywhere;
-
-  mkRuntimeDir = name: let
-    finalPath = ./runtime + /${name};
-  in
-    path {
-      name = "nvim-runtime-${name}";
-      path = toString finalPath;
-    };
+  inherit (nvf.lib.nvim.dag) entryBefore;
 in {
   config = mkIf cfg.enable {
     programs.neovim-flake = {

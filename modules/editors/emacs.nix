@@ -90,11 +90,9 @@
       all-the-icons-dired
       avy
       beacon
-      #better-jumper
       catppuccin-theme
       company
       crux
-      #cmake-font-lock
       dimmer
       dired-du
       dired-open
@@ -107,15 +105,10 @@
       evil-goggles
       erc
       erc-hl-nicks
-      # face-explorer
       flycheck
       form-feed
       general
-      # frames-only-mode
-      # fussy
-      # groovy-mode
       hl-todo
-      # just-mode
       kotlin-mode
       ligature
       lsp-mode

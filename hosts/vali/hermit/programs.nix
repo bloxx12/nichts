@@ -90,7 +90,7 @@ in {
     signal-desktop-beta
     smartmontools
     telegram-desktop
-    texliveFull
+    temurin-jre-bin-17
     tldr
     thunderbird
     tor-browser-bundle-bin
