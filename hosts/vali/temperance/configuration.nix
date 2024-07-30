@@ -79,7 +79,7 @@
             popups = 14;
             applications = 14;
           };
-          image = ../../../assets/wallpapers/tiredgod.png;
+          image = ../../../assets/wallpapers/wholefoods.jpg;
         };
       };
     };
