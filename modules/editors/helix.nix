@@ -24,7 +24,6 @@ in {
           };
           keys.normal = {
             C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
-            C-t = [":new" ":insert-output fish" ":buffer-close!" ":redraw"];
             esc = ["collapse_selection" "keep_primary_selection"];
             A-H = "goto_previous_buffer";
             A-L = "goto_next_buffer";
@@ -35,7 +34,8 @@ in {
           {
             name = "nix";
             auto-format = true;
-            formatter.command = "${pkgs.nixfmt-classic}/bin/nixfmt";
+            formatter.command = "${pkgs.alejandra}/bin/alejandra";
+            language-servers = ["${pkgs.nil}/bin/nil"];
           }
         ];
       };

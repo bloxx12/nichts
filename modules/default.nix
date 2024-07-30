@@ -11,5 +11,6 @@ _: {
     ./styling
     ./options
     ./system/nix/module.nix
+    ./system
   ];
 }

@@ -75,8 +75,10 @@ in {
     pidgin
     playerctl
     polkit
+    prismlauncher
     python3
     qbittorrent
+    r2modman
     ripgrep
     rnote
     scc

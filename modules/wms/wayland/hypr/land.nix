@@ -20,11 +20,11 @@
     ;
 in {
   config = lib.mkIf cfg.enable {
-    programs.hyprland = {
-      enable = true;
-      inherit (cfg) package;
-      portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
-    };
+    #  programs.hyprland = {
+    #    enable = true;
+    #    inherit (cfg) package;
+    #    portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+    #  };
     # xdg Portal
     xdg.portal = {
       enable = true;
@@ -124,16 +124,16 @@ in {
           ];
           # Input settings
           input = {
-            kb_layout = "de";
-            kb_variant = "";
-            kb_model = "";
-            kb_options = "";
-            kb_rules = "";
+            kb_layout = "de,us";
+            kb_variant = ",cmk_ed_dh";
+            kb_model = ",pc105awide";
+            kb_options = "grp:alt_shift_toggle,misc:extend,lv5:caps_switch_lock,compose:menu";
+            kb_rules = ",evdev";
 
             follow_mouse = true;
 
             repeat_rate = 50;
-            repeat_delay = 250;
+            repeat_delay = 200;
 
             touchpad = {
               disable_while_typing = true;

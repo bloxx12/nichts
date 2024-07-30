@@ -1,22 +1,18 @@
 {
   description = "My NixOS config flake";
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} (
-      {withSystem, ...}: {
-        systems = [
-          "x86_64-linux"
-        ];
-        imports = [
-          inputs.treefmt-nix.flakeModule
-          ./parts/shell.nix
-          ./parts/fmt.nix
-        ];
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+      systems = ["x86_64-linux"];
+      imports = [
+        inputs.treefmt-nix.flakeModule
+        ./parts/shell.nix
+        ./parts/fmt.nix
+      ];
 
-        flake = {
-          nixosConfigurations = import ./hosts {inherit inputs withSystem;};
-        };
-      }
-    );
+      flake = {
+        nixosConfigurations = import ./hosts {inherit inputs withSystem;};
+      };
+    });
   inputs = {
     # what am I doing to this config help
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -31,7 +27,6 @@
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
-
     };
 
     home-manager = {
@@ -77,9 +72,8 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-   
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
