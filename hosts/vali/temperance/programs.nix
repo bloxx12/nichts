@@ -16,8 +16,6 @@ in {
     cmus
     difftastic
     dig
-    digikam
-    easyeffects
     element-desktop
     evince
     eza
@@ -65,7 +63,6 @@ in {
     nixpkgs-wayland.swww
     nmap
     nodejs_20
-    notesnook
     obsidian
     onlyoffice-bin
     pamixer

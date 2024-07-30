@@ -2,18 +2,39 @@
   config,
   lib,
   pkgs,
+  inputs',
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe makeBinPath;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
+        package = inputs'.helix.packages.default.overrideAttrs (previousAttrs: {
+          makeWrapperArgs = with pkgs;
+            previousAttrs.makeWrapperArgs
+            or []
+            ++ [
+              "--suffix"
+              "PATH"
+              ":"
+              (makeBinPath [
+                clang-tools
+                marksman
+                nil
+                bash-language-server
+                shellcheck
+              ])
+            ];
+        });
         settings = {
+          theme = "catppuccin_mocha";
           editor = {
+            indent-guides.render = true;
+            lsp.display-inlay-hints = true;
             line-number = "relative";
             mouse = false;
             bufferline = "multiple";
@@ -30,14 +51,14 @@ in {
             A-w = ":buffer-close";
           };
         };
-        languages.language = [
-          {
-            name = "nix";
-            auto-format = true;
-            formatter.command = "${pkgs.alejandra}/bin/alejandra";
-            language-servers = ["${pkgs.nil}/bin/nil"];
-          }
-        ];
+        languages = {
+          language-server = {
+            nil = {
+              command = getExe pkgs.nil;
+              config.nil.formatting.command = ["${getExe pkgs.alejandra}" "-q"];
+            };
+          };
+        };
       };
     };
   };

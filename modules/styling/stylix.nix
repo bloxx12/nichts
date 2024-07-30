@@ -7,6 +7,7 @@
 }: let
   cfg = config.modules.usrEnv.style.stylix;
   inherit (config.modules.usrEnv.style.stylix) scheme image cursor fontsizes;
+  inherit (config.modules.other.system) username;
   inherit (lib) mkIf;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
@@ -66,12 +67,24 @@ in {
         fish.enable = true;
         grub.enable = false;
         grub.useImage = true;
-        #gtk.enable = true;
+        gtk.enable = true;
         lightdm.enable = true;
         nixos-icons.enable = true;
-        nixvim.enable = true;
         plymouth.enable = true;
         plymouth.logoAnimated = true;
+      };
+    };
+    home-manager.users.${username} = {
+      stylix.targets = {
+        btop.enable = true;
+        helix.enable = false;
+        dunst.enable = true;
+        firefox.enable = true;
+        foot.enable = true;
+        fzf.enable = true;
+        hyprland.enable = true;
+        lazygit.enable = true;
+        zellij.enable = true;
       };
     };
   };

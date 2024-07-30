@@ -43,6 +43,8 @@
     # Hardware for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # Helix my beloved
+    helix.url = "github:helix-editor/helix";
     # Secret management
     agenix.url = "github:ryantm/agenix";
 
