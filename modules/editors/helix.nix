@@ -31,12 +31,12 @@ in {
             ];
         });
         settings = {
-          theme = "catppuccin_mocha";
+          # theme = "catppuccin_mocha";
           editor = {
             indent-guides.render = true;
             lsp.display-inlay-hints = true;
             line-number = "relative";
-            mouse = false;
+            mouse = true;
             bufferline = "multiple";
             soft-wrap.enable = true;
             lsp.display-messages = true;

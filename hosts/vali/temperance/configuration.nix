@@ -30,14 +30,15 @@
     system = {
       programs = {
         editors = {
-          emacs.enable = true;
-          neovim.enable = true;
+          emacs.enable = false;
+          neovim.enable = false;
           helix.enable = true;
-          kakoune.enable = true;
+          kakoune.enable = false;
         };
         discord.enable = true;
         firefox.enable = true;
         zathura.enable = true;
+        zellij.enable = true;
         terminals = {
           foot.enable = true;
           kitty.enable = true;

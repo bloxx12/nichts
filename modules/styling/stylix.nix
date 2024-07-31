@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      autoEnable = true;
+      autoEnable = false;
       homeManagerIntegration = {
         followSystem = true;
         autoImport = true;
@@ -77,7 +77,7 @@ in {
     home-manager.users.${username} = {
       stylix.targets = {
         btop.enable = true;
-        helix.enable = false;
+        helix.enable = true;
         dunst.enable = true;
         firefox.enable = true;
         foot.enable = true;

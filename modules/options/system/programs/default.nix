@@ -14,6 +14,7 @@ in {
     zathura.enable = mkEnableOption "Zathura pdf viewer";
     nextcloud.enable = mkEnableOption "Nextcloud sync client";
     firefox.enable = mkEnableOption "Firefox web browser";
+    zellij.enable = mkEnableOption "Zellij terminal multiplexer";
 
     terminals = {
       foot.enable = mkEnableOption "Foot terminal emulator";
