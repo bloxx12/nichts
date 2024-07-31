@@ -141,15 +141,15 @@ in {
           };
           general = {
             sensitivity = 1.0;
-            gaps_in = 5;
-            gaps_out = 2;
+            gaps_in = 0;
+            gaps_out = 0;
             border_size = 2;
 
             no_border_on_floating = true;
           };
           #Decoration settings
           decoration = {
-            rounding = 10;
+            rounding = 0;
             blur = {
               enabled = true;
               size = 3;

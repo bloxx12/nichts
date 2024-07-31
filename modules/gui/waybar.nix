@@ -16,7 +16,8 @@ in {
         settings.mainBar = {
           gtk-layer-shell = true;
           layer = "top";
-          modules-left = ["custom/vpn" "tray" "mpd" "hyprland/window"];
+          position = "bottom";
+          modules-left = ["tray" "mpd"];
           modules-center = ["hyprland/workspaces"];
           modules-right = [
             "cpu"
@@ -81,38 +82,11 @@ in {
             icon-size = 12;
             spacing = 5;
           };
-          "custom/vpn" = {
-            interval = 10;
-            exec = ''if [[ $(systemctl is-active openvpn-air.service) == "active" ]]; then echo Vpn active; else echo Vpn inactive; fi'';
-            firmat = "{}";
-          };
 
           # 󰃰
           clock = {
             interval = 1;
             format = " {:%a  %d %b %H:%M:%S}";
-            tooltip-format = "<tt><small>{calendar}</small></tt>";
-            calendar = {
-              mode = "year";
-              mode-mon-col = 3;
-              weeks-pos = "right";
-              on-scroll = 1;
-              on-click-right = "mode";
-              format = {
-                months = "<span color='#EBDBB2'><b>{}</b></span>";
-                days = "<span color='#B16286'><b>{}</b></span>";
-                weeks = "<span color='#458588'><b>T{:%W}</b></span>";
-                weekdays = "<span color='#D79921'><b>{}</b></span>";
-                today = "<span color='#CC241D'><b><u>{}</u></b></span>";
-              };
-              actions = {
-                on-click-right = "mode";
-                on-cck-forward = "tz_up";
-                on-click-backward = "tz_down";
-                on-scroll-up = "shift_up";
-                on-scroll-down = "shift_down";
-              };
-            };
           };
 
           battery = {
@@ -157,47 +131,21 @@ in {
         };
 
         style = ''
-          @define-color base   #1e1e2e;
-          @define-color mantle #181825;
-          @define-color crust  #11111b;
+          @define-color base   #000000;
+          @define-color inactive #ab8f44;
+          @define-color active #1565c0;
 
-          @define-color text     #cdd6f4;
-          @define-color subtext0 #a6adc8;
-          @define-color subtext1 #bac2de;
+          @define-color text     #ffffff;
 
-          @define-color surface0 #313244;
-          @define-color surface1 #45475a;
-          @define-color surface2 #585b70;
-
-          @define-color overlay0 #6c7086;
-          @define-color overlay1 #7f849c;
-          @define-color overlay2 #9399b2;
-
-          @define-color blue      #89b4fa;
-          @define-color lavender  #b4befe;
-          @define-color sapphire  #74c7ec;
-          @define-color sky       #89dceb;
-          @define-color teal      #94e2d5;
-          @define-color green     #a6e3a1;
-          @define-color yellow    #f9e2af;
-          @define-color peach     #fab387;
-          @define-color maroon    #eba0ac;
-          @define-color red       #f38ba8;
-          @define-color mauve     #cba6f7;
-          @define-color pink      #f5c2e7;
-          @define-color flamingo  #f2cdcd;
-          @define-color rosewater #f5e0dc;
-
-          * {
+                    * {
               border-radius: 1px;
-              font-family: JetBrains Mono;
-              /* font-family: Material Design Icons; */
+              font-family: ComicShannsMono Nerd Font;
 
               font-size: 16px;
           }
 
           window#waybar {
-              background-color: alpha(@base, 0.0);
+              background-color: alpha(@base, 1.0);
               border-radius: 0px;
           }
 
@@ -210,9 +158,9 @@ in {
               margin-bottom: 2px;
               padding-left: 2px;
               padding-right: 2px;
-              background: @mantle;
-              color: @teal;
-              font-family: JetBrains Mono;
+              background: @base;
+              color: @text;
+              font-family: ComicShannsMono Nerd Font;
           }
 
           #workspaces {
@@ -225,11 +173,11 @@ in {
               padding-right: 0px;
               padding-bottom: 0px;
               padding-left: 0px;
-              margin-top: 4px;
-              margin-right: 3px;
-              margin-bottom: 4px;
-              margin-left: 3px;
-              background-color: @mantle;
+              margin-top: 2px;
+              margin-right: 2px;
+              margin-bottom: 2px;
+              margin-left: 2px;
+              background-color: @inactive;
               color: @text;
               min-width: 15px;
           }
@@ -239,24 +187,13 @@ in {
               padding-bottom: 0px;
               padding-right: 0px;
               padding-left: 0px;
-              margin-top: 4px;
-              margin-right: 3px;
-              margin-bottom: 4px;
-              margin-left: 3px;
-              background-color: @blue;
-              color: @mantle;
+              margin-top: 2px;
+              margin-right: 2px;
+              margin-bottom: 2px;
+              margin-left: 2px;
+              background-color: @active;
+              color: @base;
               min-width: 15px;
-          }
-
-          #workspaces button:hover {
-              background: alpha(@mantle, 0.7);
-              transition-property: background, min-width;
-              transition-duration: 0.5s;
-              transition-timing-function: ease;
-          }
-
-          #workspaces button.focused {
-              background-color: @yellow;
           }
 
           #workspaces button.urgent {
@@ -272,30 +209,15 @@ in {
           }
 
           #pulseaudio {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 0px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-              color: @peach;
-              /*border-top-left-radius: 0;
-              border-bottom-left-radius: 0;*/
-          }
-
-          #cava {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              margin-right: 0px;
-              padding-left: 10px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              margin-left: 2px;
+              margin-right: 2px;
+              padding-left: 0px;
               padding-right: 0px;
               transition: none;
-              background: @mantle;
-              color: @peach;
-              border-top-right-radius: 0;
-              border-bottom-right-radius: 0;
+              background: @base;
+              color: @text;
           }
 
           #battery {
@@ -305,8 +227,8 @@ in {
               padding-left: 10px;
               padding-right: 10px;
               transition: none;
-              background: @mantle;
-              color: @teal;
+              background: @base;
+              color: @text;
           }
 
           @keyframes blink {
@@ -316,11 +238,11 @@ in {
           }
 
           #battery.charging, #battery.plugged {
-              background-color: @mantle;
+              background-color: @base;
           }
 
           #battery.critical:not(.charging) {
-              background-color: @mantle;
+              background-color: @base;
               animation-name: blink;
               animation-duration: 0.5s;
               animation-timing-function: linear;
@@ -335,7 +257,7 @@ in {
               padding-left: 10px;
               padding-right: 10px;
               transition: none;
-              background: @mantle;
+              background: @base;
               color: @yellow;
           }
           #clock {
@@ -346,41 +268,18 @@ in {
               padding-right: 10px;
               transition-property: min-width;
               transition-duration: 0.5s;
-              background: @mantle;
-              color: @pink;
-          }
-
-          #custom-power_profile {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-              color: @rosewater;
+              background: @base;
+              color: @text;
           }
 
           #tray {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              margin-left: 2px;
+              padding-left: 2px;
+              padding-right: 2px;
               transition: none;
-              background: @mantle;
-          }
-
-          #custom-launcher {
-              font-size: 16px;
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 5px;
-              transition: none;
-              background: @mantle;
-              color: @blue;
+              background: @base;
           }
 
           #custom-power {
@@ -392,29 +291,11 @@ in {
               padding-left: 10px;
               padding-right: 10px;
               transition: none;
-              background: @mantle;
+              background: @base;
               color: @red;
           }
 
-          #custom-wallpaper {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-          }
 
-          #custom-updates {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-          }
 
           #custom-media {
               margin-top: 3px;
@@ -426,28 +307,6 @@ in {
               background: @mantle;
           }
 
-          #custom-dnd {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-              color: @flamingo;
-          }
-
-          #custom-xwayland {
-              margin-top: 3px;
-              margin-bottom: 3px;
-              margin-left: 8px;
-              padding-left: 10px;
-              padding-right: 10px;
-              transition: none;
-              background: @mantle;
-              color: @green;
-          }
-
           #mpd {
               margin-top: 3px;
               margin-bottom: 3px;
@@ -455,8 +314,8 @@ in {
               padding-left: 10px;
               padding-right: 10px;
               transition: none;
-              background: @mantle;
-              color: @green;
+              background: @base;
+              color: @text;
           }
         '';
       };
