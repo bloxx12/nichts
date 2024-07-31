@@ -73,6 +73,7 @@ in {
     playerctl
     polkit
     prismlauncher
+    pulsemixer
     python3
     qbittorrent
     r2modman
@@ -104,6 +105,7 @@ in {
     wl-clipboard
     xdg-utils
     xournalpp
+    yazi
     zapzap
     zip
   ];

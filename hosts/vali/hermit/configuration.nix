@@ -96,10 +96,10 @@
       beets.enable = true;
     };
     editors = {
-      emacs.enable = true;
+      emacs.enable = false;
       helix.enable = true;
-      kakoune.enable = true;
-      neovim.enable = true;
+      kakoune.enable = false;
+      neovim.enable = false;
     };
     services = {
       pipewire.enable = true;

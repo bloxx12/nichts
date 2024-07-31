@@ -7,7 +7,7 @@
   file_manager = "nautilus.desktop";
   media_player = "mpv.desktop";
   image_viewer = "imv.desktop";
-  text_editor = "nvim.desktop";
+  text_editor = "helix.desktop";
   terminal = "foot.desktop";
 in {
   environment.sessionVariables = {TERMINAL = "${terminal}";};
