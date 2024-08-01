@@ -19,7 +19,28 @@ in {
         followSystem = true;
         autoImport = true;
       };
-      base16Scheme = scheme;
+      # base16Scheme = scheme;
+      base16Scheme = {
+        scheme = "3024-custom";
+        # base00 = "090300"; #  ----
+        base00 = "000000"; # Black 
+        base01 = "3a3432"; #  Dark grey
+        base02 = "4a4543"; #  Lighter grey
+        base03 = "5c5855"; #  Light greLight grey
+        base04 = "807d7c"; #  +
+        base05 = "a5a2a2"; #  ++
+        base06 = "d6d5d4"; #  +++
+        base07 = "f7f7f7"; #  ++++
+        base08 = "db2d20"; #	red
+        base09 = "e8bbd0"; #	orange
+        base0A = "fded02"; #	yellow
+        base0B = "01a252"; #	green
+        base0C = "b5e4f4"; #	aqua
+        base0D = "01a0e4"; #	blue
+        base0E = "a16a94"; #	purple
+        base0F = "cdab53"; #	brown
+      };
+
       inherit image;
       polarity = "dark";
       cursor = {
@@ -40,16 +61,6 @@ in {
 
         serif = config.stylix.fonts.monospace;
         sansSerif = config.stylix.fonts.monospace;
-
-        # serif = {
-        #
-        #   package = pkgs.noto-fonts;
-        #   name = "Noto Serif";
-        # };
-        # sansSerif = {
-        #   package = pkgs.lexend;
-        #   name = "Lexend";
-        # };
 
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
@@ -84,6 +95,9 @@ in {
         fzf.enable = true;
         hyprland.enable = true;
         lazygit.enable = true;
+        emacs.enable = true;
+        kde.enable = true;
+        yazi.enable = true;
         zellij.enable = true;
       };
     };

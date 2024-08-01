@@ -17,9 +17,9 @@ in {
         enable = true;
         theme = {
           colors = {
-            background-darker = "1d2021";
-            background = "282828";
-            foreground = "ebdbb2";
+            background-darker = "000000";
+            background = "3a3432";
+            foreground = "f7f7f7";
           };
 
           font = "ComicShannsMono Nerd Font";

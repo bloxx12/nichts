@@ -30,7 +30,7 @@
     system = {
       programs = {
         editors = {
-          emacs.enable = false;
+          emacs.enable = true;
           neovim.enable = false;
           helix.enable = true;
           kakoune.enable = false;
@@ -69,7 +69,7 @@
       style = {
         stylix = {
           enable = true;
-          scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
+          scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
           cursor = {
             size = 28;
             package = pkgs.bibata-cursors;
