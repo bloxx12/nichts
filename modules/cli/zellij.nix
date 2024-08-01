@@ -11,7 +11,7 @@ in {
     home-manager.users.${username} = {
       programs.zellij = {
         enable = true;
-        enableFishIntegration = true;
+        enableFishIntegration = false;
         on_force_close = "quit";
         layout_dir = "${./layouts}";
         settings = {
