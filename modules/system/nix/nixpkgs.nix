@@ -27,7 +27,7 @@
       # distributions easier, or for convenience's sake. Even though the manual
       # and the description for this option recommends this to be true, I prefer
       # explicit naming conventions, i.e., no aliases.
-      allowAliases = true;
+      allowAliases = false;
 
       # Enable parallel building by default. This, in theory, should speed up building
       # derivations, especially rust ones. However setting this to true causes a mass rebuild
