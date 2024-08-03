@@ -27,6 +27,7 @@ in {
                 nil
                 bash-language-server
                 shellcheck
+                typst-lsp
               ])
             ];
         });

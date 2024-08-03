@@ -11,7 +11,7 @@ in {
     blanket
     calibre
     cbonsai
-    coreutils
+    coreutils-full
     cmake
     cmus
     difftastic
@@ -43,7 +43,7 @@ in {
     keepassxc
     krita
     lazygit
-    #librewolf
+    librewolf
     libtool
     links2
     lutris
@@ -53,6 +53,7 @@ in {
     musikcube
     nautilus
     ncmpcpp
+    nettools
     neofetch
     nheko
     networkmanagerapplet
@@ -69,7 +70,6 @@ in {
     pavucontrol
     pdfarranger
     pfetch
-    pidgin
     playerctl
     polkit
     prismlauncher

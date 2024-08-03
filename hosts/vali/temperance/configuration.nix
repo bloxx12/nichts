@@ -31,12 +31,13 @@
       programs = {
         editors = {
           emacs.enable = true;
-          neovim.enable = false;
+          neovim.enable = true;
           helix.enable = true;
-          kakoune.enable = false;
+          kakoune.enable = true;
         };
         discord.enable = true;
         firefox.enable = true;
+      spotify.enable = true;
         zathura.enable = true;
         zellij.enable = true;
         terminals = {
