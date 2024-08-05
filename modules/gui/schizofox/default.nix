@@ -15,6 +15,7 @@ in {
 
       programs.schizofox = {
         enable = true;
+
         theme = {
           colors = {
             background-darker = "000000";
@@ -23,7 +24,22 @@ in {
           };
 
           font = "ComicShannsMono Nerd Font";
+
+          extraUserChrome = ''
+            @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+            /*
+             * Hide tab bar, navigation bar and scrollbars
+             * !important may be added to force override, but not necessary
+             * #content is not necessary to hide scroll bars
+             */
+
+            #TabsToolbar {visibility: collapse;}
+            /* #navigator-toolbox {visibility: collapse;} */
+            browser {margin-right: -14px; margin-bottom: -14px;}
+          '';
         };
+
         search = {
           defaultSearchEngine = "DuckDuckGo";
           removeEngines = ["Google" "Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia"];
@@ -87,7 +103,7 @@ in {
           ];
         };
         extensions = {
-          simplefox.enable = true;
+          # simplefox.enable = true;
           darkreader.enable = true;
           extraExtensions = let
             mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
