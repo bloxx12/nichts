@@ -82,7 +82,6 @@ in {
     scc
     scummvm
     sherlock
-    shotwell
     signal-desktop-beta
     smartmontools
     teamspeak_client

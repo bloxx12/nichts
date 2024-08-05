@@ -13,6 +13,7 @@ in {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
+        # thanks fuf, this is great!
         package = inputs'.helix.packages.default.overrideAttrs (previousAttrs: {
           makeWrapperArgs = with pkgs;
             previousAttrs.makeWrapperArgs
@@ -32,7 +33,6 @@ in {
             ];
         });
         settings = {
-          # theme = "catppuccin_mocha";
           editor = {
             indent-guides.render = true;
             lsp.display-inlay-hints = true;

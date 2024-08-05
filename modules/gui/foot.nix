@@ -35,12 +35,11 @@ in {
             pad = "5x5 center";
             resize-delay-ms = 100;
 
-            notify = "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
-
             bold-text-in-bright = "no";
             word-delimiters = '',│`|:"'()[]{}<>'';
             selection-target = "primary";
           };
+          desktop-notifications.command = "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           bell = {
             urgent = "yes";
             notify = "yes";
