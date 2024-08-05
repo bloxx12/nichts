@@ -37,7 +37,7 @@
         };
         discord.enable = true;
         firefox.enable = true;
-      spotify.enable = true;
+        # spotify.enable = true;
         zathura.enable = true;
         zellij.enable = true;
         terminals = {
