@@ -2,12 +2,14 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.modules.system.programs.firefox;
   inherit (config.modules.other.system) username;
 
   inherit (lib) mkIf;
+  inherit (builtins) listToAttrs;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
@@ -23,7 +25,7 @@ in {
             foreground = "f7f7f7";
           };
 
-          font = "ComicShannsMono Nerd Font";
+          font = "Lexend";
 
           extraUserChrome = ''
             @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
@@ -103,18 +105,35 @@ in {
           ];
         };
         extensions = {
-          # simplefox.enable = true;
+          simplefox.enable = true;
           darkreader.enable = true;
+          enableExtraExtensions = true;
+          enableDefaultExtensions = true;
           extraExtensions = let
-            mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
             extensions = [
-              {
-                id = "1018e4d6-728f-4b20-ad56-37578a4de76";
-                name = "flagfox";
-              }
               {
                 id = "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}";
                 name = "auto-tab-discard";
+              }
+              {
+                id = "{74145f27-f039-47ce-a470-a662b129930a}";
+                name = "clearurls";
+              }
+              {
+                id = "DontFuckWithPaste@raim.ist";
+                name = "dont-fuck-with-paste";
+              }
+              {
+                id = "{96ef5869-e3ba-4d21-b86e-21b163096400}";
+                name = "font-fingerprint-defender";
+              }
+              {
+                id = "uBlock0@raymondhill.net";
+                name = "uBlock Origin";
+              }
+              {
+                id = "{d7742d87-e61d-4b78-b8a1-b469842139fa}";
+                name = "vimium-ff";
               }
               {
                 id = "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}";
@@ -125,14 +144,24 @@ in {
                 name = "sponsorblock";
               }
               {
-                id = "uBlock0@raymondhill.net";
-                name = "UBlock Origin";
+                id = "treestyletab@piro.sakura.ne.jp";
+                name = "Tree Style Tab";
               }
             ];
-            extraExtensions = builtins.foldl' (acc: ext: acc // {ext.id = {install_url = mkUrl ext.name;};}) {} extensions;
+
+            # shamelessly stolen from raf, thanks.
+            mappedExtensions =
+              map (extension: {
+                name = extension.id;
+                value = {
+                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/${extension.name}/latest.xpi";
+                };
+              })
+              extensions;
           in
-            extraExtensions;
+            listToAttrs mappedExtensions;
         };
+
         security = {
           sanitizeOnShutdown = false;
           sandbox = true;
@@ -142,7 +171,26 @@ in {
 
         misc = {
           drm.enable = true;
-          disableWebgl = false;
+          contextMenu.enable = true;
+        };
+
+        # taken from diniamo
+        settings = {
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
+          "media.rdd-ffmpeg.enabled" = true;
+          "media.av1.enabled" = true;
+          "gfx.x11-egl.force-enabled" = true;
+          "widget.dmabuf.force-enabled" = true;
+
+          "browser.ctrlTab.sortByRecentlyUsed" = true;
+          # This makes websites prefer a dark theme (in theory)
+          "layout.css.prefers-color-scheme.content-override" = 0;
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+          # Leaving this on breaks a lot
+          # "privacy.resistFingerprinting" = false;
+          "permissions.fullscreen.allowed" = true;
+          "dom.webnotifications.enabled" = true;
         };
       };
     };
