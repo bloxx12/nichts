@@ -42,7 +42,7 @@ in {
             sort-by-coordinates = false;
             on-click = "activate";
             #on-scroll = "~/Scripts/cycle_workspace.sh 1";
-            active-only = false;
+            active-only = true;
             format = "{icon}";
             format-icons = {
               "1" = "1";
