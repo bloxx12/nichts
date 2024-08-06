@@ -105,7 +105,7 @@ in {
           ];
         };
         extensions = {
-          simplefox.enable = true;
+          simplefox.enable = false;
           darkreader.enable = true;
           enableExtraExtensions = true;
           enableDefaultExtensions = true;
