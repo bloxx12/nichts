@@ -13,7 +13,7 @@ in {
     home-manager.users.${username} = {
       programs.yazi = {
         enable = true;
-        enableZshIntegration = true;
+        enableFishIntegration = true;
       };
     };
   };
