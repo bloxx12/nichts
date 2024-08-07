@@ -41,20 +41,6 @@ in {
         line_break.disabled = false;
 
         format = "${elemsConcatted}\n$character";
-        # format = concatStrings [
-        #   "$hostname"
-        #   #"$username"
-        #   "$directory"
-        #   "$shell"
-        #   "$nix_shell"
-        #   "$git_branch"
-        #   "$git_commit"
-        #   "$git_state"
-        #   "$git_status"
-        #   "$jobs"
-        #   "$cmd_duration"
-        #   "\n$character"
-        # ];
 
         hostname = {
           ssh_only = true;
