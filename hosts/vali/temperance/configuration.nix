@@ -3,8 +3,6 @@
   config,
   ...
 }: {
-  # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   # Time Zone
   time.timeZone = "Europe/Zurich";
   # Select internationalisation properties.
@@ -38,7 +36,6 @@
         discord.enable = true;
         firefox.enable = true;
         # spotify.enable = true;
-        zathura.enable = true;
         zellij.enable = true;
         terminals = {
           foot.enable = true;

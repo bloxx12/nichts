@@ -18,8 +18,9 @@
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
+    inherit (lib) mkIf;
 in {
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     #  programs.hyprland = {
     #    enable = true;
     #    inherit (cfg) package;
@@ -127,8 +128,6 @@ in {
             kb_layout = "de";
             kb_variant = "";
             kb_model = "";
-            # kb_options = "grp:alt_shift_toggle,misc:extend,lv5:caps_switch_lock,compose:menu";
-            # kb_rules = ",evdev";
 
             follow_mouse = true;
 
@@ -139,6 +138,7 @@ in {
               disable_while_typing = true;
             };
           };
+
           general = {
             sensitivity = 1.0;
             gaps_in = 0;
@@ -147,6 +147,7 @@ in {
 
             no_border_on_floating = true;
           };
+
           #Decoration settings
           decoration = {
             rounding = 0;
@@ -166,8 +167,6 @@ in {
           # Generate your own at https://www.cssportal.com/css-cubic-bezier-generator/
           bezier = [
             "dupa, 0.1, 0.9, 0.1, 1.05"
-            "apf,0.76,0,0.24,1"
-            "fast,0.34,1.56,0.64,1"
           ];
           # Hyprland anomations, using the above bezier curves
           animations = {
@@ -180,12 +179,14 @@ in {
               "workspaces, 1, 5, dupa, slidevert"
             ];
           };
+
           dwindle = {no_gaps_when_only = true;};
 
           cursor = {
             hide_on_key_press = true;
             no_hardware_cursors = true;
           };
+
           misc = {
             enable_swallow = true;
             swallow_regex = "foot";
@@ -196,6 +197,7 @@ in {
             animate_mouse_windowdragging = false;
             force_default_wallpaper = 0;
           };
+
           # Window rules for some programs.
           windowrulev2 = [
             "float, class:^(Tor Browser)$"
@@ -210,6 +212,7 @@ in {
             "center, class: ^(code), title: ^(Open*)"
             "float, class:^(org.keepassxc.KeePassXC)$"
           ];
+
           # Keybinds
           bind = [
             "$mainMod, RETURN, exec, ${foot}/bin/foot"
@@ -351,9 +354,10 @@ in {
             "${pkgs.procps}/bin/pkill helvum"
 
             # and run it all again
-            "[workspace special:pipewire silent;tile] ${pkgs.helvum}/bin/helvum"
-            "[workspace special:pipewire;silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
+            "[workspace special:pipewire; silent;tile] ${pkgs.helvum}/bin/helvum"
+            "[workspace special:pipewire; silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
           ];
+
           plugin = {
             split-monitor-workspaces = {
               keep-focued = true;

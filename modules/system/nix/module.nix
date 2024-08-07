@@ -1,12 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs',
+  ...
+}: {
   imports = [
     ./documentation.nix # nixos documentation
     # ./nixpkgs.nix # global nixpkgs configuration.nix
   ];
 
   nix = {
-    # Lix, Nix but gay!
-    package = pkgs.lix;
+    package = inputs'.nix-super.packages.default;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.
