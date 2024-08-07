@@ -29,14 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix but better
+    nix-super.url = "github:privatevoid-net/nix-super";
+
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Lix because fast rebuild times are cool
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,8 +42,6 @@
 
     # Helix my beloved
     helix.url = "github:helix-editor/helix";
-    # Secret management
-    agenix.url = "github:ryantm/agenix";
 
     # Hyprland, my main compositor
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -74,8 +69,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
