@@ -93,7 +93,6 @@ in {
     temurin-jre-bin-17
     tldr
     thunderbird
-    tor-browser-bundle-bin
     trash-cli
     tree
     ttyper
