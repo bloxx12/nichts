@@ -216,7 +216,6 @@ in {
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
-            #"$mainMod, D, exec, killall rofi || rofi -show drun"
             "$mainMod, SPACE, togglefloating, active"
 
             # workspaces
@@ -276,7 +275,7 @@ in {
             # File manager
             "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
-            # Toggle the four different special workspaces.
+            # Toggle the three different special workspaces.
             "$mainMod, V, togglespecialworkspace, pipewire"
             "$mainMod, N, togglespecialworkspace, nixos"
             "$mainMod, X, togglespecialworkspace, keepassxc"

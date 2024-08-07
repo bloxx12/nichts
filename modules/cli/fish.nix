@@ -20,6 +20,7 @@ in {
   config = mkIf cfg.enable {
     programs.fish.enable = true;
 
+    users.users.${username}.shell = pkgs.fish;
 
     environment = {
       shells = [pkgs.fish];
@@ -27,7 +28,6 @@ in {
     };
 
     home-manager.users.${username} = {
-      shell = pkgs.fish;
       programs = {
         zoxide.enable = true;
         zoxide.enableFishIntegration = true;

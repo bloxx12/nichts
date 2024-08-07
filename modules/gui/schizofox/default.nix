@@ -163,7 +163,7 @@ in {
 
         security = {
           sanitizeOnShutdown = false;
-          sandbox = false;
+          sandbox = true;
           noSessionRestore = false;
           userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
         };
@@ -185,11 +185,13 @@ in {
           "browser.ctrlTab.sortByRecentlyUsed" = true;
           # This makes websites prefer a dark theme (in theory)
           "layout.css.prefers-color-scheme.content-override" = 0;
-          # "widget.use-xdg-desktop-portal.file-picker" = 1;
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
           # Leaving this on breaks a lot
           # "privacy.resistFingerprinting" = false;
-          # "permissions.fullscreen.allowed" = true;
-          # "dom.webnotifications.enabled" = true;
+          "permissions.fullscreen.allowed" = true;
+          "dom.webnotifications.enabled" = true;
+
+          "browser.startup.page" = 3;
         };
       };
     };
