@@ -14,9 +14,7 @@
       allowBroken = false;
       allowUnsupportedSystem = true;
 
-      # Really a pain in the ass to deal with when disabled. True means
-      # we are able to build unfree packages without explicitly allowing
-      # each unfree package.
+      # Allow unfree packages since it's sadly necessary
       allowUnfree = true;
 
       # Default to none, add more as necessary. This is usually where

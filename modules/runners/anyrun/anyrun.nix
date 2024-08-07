@@ -19,10 +19,7 @@ in {
           plugins = with inputs'.anyrun.packages; [
             applications
             dictionary
-            #rink
             shell
-            #   symbols
-            #translate
             websearch
           ];
           hideIcons = false;
@@ -45,6 +42,7 @@ in {
                 desktop_actions: false
             )
           '';
+
           "websearch.ron".text = ''
             Config(
                 prefix: "?",
@@ -52,29 +50,6 @@ in {
             )
           '';
 
-          "symbols.ron".text = ''
-            Config(
-              // The prefix that the search needs to begin with to yield symbol results
-              prefix: ":sy",
-
-              // Custom user defined symbols to be included along the unicode symbols
-              symbols: {
-                // "name": "text to be copied"
-                "shrug": "¯\\_(ツ)_/¯",
-              },
-
-              // The number of entries to be displayed
-              max_entries: 5,
-            )
-          '';
-
-          "translate.ron".text = ''
-            Config(
-              prefix: ":tr",
-              language_delimiter: ">",
-              max_entries: 3,
-            )
-          '';
         };
       };
     };
