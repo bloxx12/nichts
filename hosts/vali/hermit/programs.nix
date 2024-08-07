@@ -103,7 +103,6 @@ in {
     v4l-utils
     ventoy-full
     vlc
-    vscodium
     weechat
     wezterm
     wget

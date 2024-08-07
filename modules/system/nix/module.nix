@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./documentation.nix # nixos documentation
-    # ./nixpkgs.nix # global nixpkgs configuration.nix
+    ./nixpkgs.nix # global nixpkgs configuration.nix
   ];
 
   nix = {
