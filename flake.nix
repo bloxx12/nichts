@@ -32,7 +32,6 @@
     # Nix but better
     nix-super = {
       url = "github:privatevoid-net/nix-super";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
