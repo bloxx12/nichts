@@ -20,7 +20,7 @@ in {
         theme = {
           colors = {
             background-darker = "000000";
-            background = "3a3432";
+            background = "000000";
             foreground = "f7f7f7";
           };
 
