@@ -10,7 +10,7 @@
   ];
 
   nix = {
-    package = inputs'.nix-super.packages.default;
+    # package = inputs'.nix-super.packages.default;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.
@@ -124,18 +124,18 @@
       # make sure the substituters listed here are trusted.
       substituters = [
         "https://cache.nixos.org" # funny binary cache
-        "https://cache.privatevoid.net" # for nix-super
+        # "https://cache.privatevoid.net" # for nix-super
         "https://nix-community.cachix.org" # nix-community cache
         "https://hyprland.cachix.org" # hyprland
         "https://nixpkgs-unfree.cachix.org" # unfree-package cache
         "https://anyrun.cachix.org" # anyrun program launcher
-        "https://neovim-flake.cachix.org" # a cache for my neovim flake
+        "https://neovim-flake.cachix.org" # a cache for nvf
         "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
+        # "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs="
