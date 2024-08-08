@@ -1,3 +1,4 @@
+# taken from raf
 {
   # Global nixpkgs configuration. This is ignored if nixpkgs.pkgs is set
   # which is a case that should be avoided. Everything that is set to configure
