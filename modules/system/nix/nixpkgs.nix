@@ -31,7 +31,7 @@
       # Enable parallel building by default. This, in theory, should speed up building
       # derivations, especially rust ones. However setting this to true causes a mass rebuild
       # of the *entire* system closure, so it must be handled with proper care.
-      enableParallelBuildingByDefault = true;
+      enableParallelBuildingByDefault = false;
 
       # List of derivation warnings to display while rebuilding.
       #  See: <https://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/check-meta.nix>
