@@ -127,7 +127,7 @@ in {
           input = {
             kb_layout = "de,us";
             kb_variant = ",colemak_dh_wide";
-            kb_options = "grp:alt_shift_toggle";
+            kb_options = "grp:rctrl_rshift_toggle";
 
             follow_mouse = true;
 
