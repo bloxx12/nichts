@@ -18,7 +18,7 @@
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
-    inherit (lib) mkIf;
+  inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
     #  programs.hyprland = {
@@ -125,9 +125,9 @@ in {
           ];
           # Input settings
           input = {
-            kb_layout = "de";
-            kb_variant = "";
-            kb_model = "";
+            kb_layout = "de,us";
+            kb_variant = ",colemak_dh_wide";
+            kb_options = "grp:alt_shift_toggle";
 
             follow_mouse = true;
 
