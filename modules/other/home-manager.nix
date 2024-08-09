@@ -3,6 +3,7 @@
   inputs,
   lib,
   self,
+  impurity,
   ...
 }:
 with lib; let
@@ -20,7 +21,7 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       backupFileExtension = "hm.old";
-      extraSpecialArgs = {inherit inputs self;};
+      extraSpecialArgs = {inherit inputs self impurity;};
       users.${username} = {
         programs = {
           home-manager.enable = true;

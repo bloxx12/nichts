@@ -3,6 +3,7 @@
   lib,
   inputs,
   pkgs,
+  impurity,
   ...
 }: let
   inherit (inputs) quickshell;
@@ -20,7 +21,8 @@ in {
       pamtester
     ];
     home-manager.users.${username}.xdg.configFile."quickshell/manifest.conf".text = toKeyValue {} {
-      bar = "${./bar}";
+      bar = "${impurity.link ./bar}";
+      # bar = "${./bar}";
     };
   };
 }

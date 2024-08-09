@@ -38,6 +38,14 @@ in {
       ./vali/temperance
       ../modules
       inputs.home-manager.nixosModules.home-manager
+
+      {
+        imports = [inputs.impurity.nixosModules.impurity];
+        impurity = {
+          enable = true;
+          configRoot = self;
+        };
+      }
     ];
   };
 
