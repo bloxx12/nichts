@@ -36,7 +36,7 @@ in {
              */
 
             #TabsToolbar {visibility: collapse;}
-            /* #navigator-toolbox {visibility: collapse;} 
+            /* #navigator-toolbox {visibility: collapse;}
             browser {margin-right: -14px; margin-bottom: -14px;} */
           '';
         };
@@ -181,6 +181,7 @@ in {
           "media.av1.enabled" = true;
           "gfx.x11-egl.force-enabled" = true;
           "widget.dmabuf.force-enabled" = true;
+          "layers.acceleration.force-enabled" = true;
 
           "browser.ctrlTab.sortByRecentlyUsed" = true;
           # This makes websites prefer a dark theme (in theory)

@@ -5,13 +5,14 @@
   ...
 }: let
   inherit (config.modules.other.system) username;
-  cfg = config.modules.editors.kakoune;
+  cfg = config.modules.system.programs.editors.kakoune;
   inherit (lib) mkIf mkEnableOption;
 in {
   imports = [./mappings.nix];
   options.modules.editors.kakoune.enable = mkEnableOption "kakoune";
   config.home-manager.users.${username}.programs.kakoune = mkIf cfg.enable {
     enable = true;
+    package = pkgs.kakoune-unwrapped;
     config = {
       autoComplete = ["insert"];
       autoReload = "yes";
@@ -41,12 +42,24 @@ in {
         statusLine = "bottom";
       };
     };
+
     plugins = with pkgs.kakounePlugins; [
+      active-window-kak
       auto-pairs-kak
+      byline-kak # ope
+      prelude-kak # dependency of byline
       fzf-kak
-      powerline-kak
-      byline-kak
+      kakboard
+      kakoune-buffer-switcher
+      kakoune-buffers
       kakoune-lsp
+      kakoune-rainbow
+      kakoune-registers
+      kakoune-vertical-selection
+      powerline-kak
+      quickscope-kak
+      smarttab-kak
+      zig-kak
     ];
     # extraConfig = ./kakrc;
   };
