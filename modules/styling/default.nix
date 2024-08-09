@@ -1,7 +1,8 @@
 _: {
   imports = [
-    ./ags.nix
     ./stylix.nix
     ./quickshell
+    ./qt.nix
+    ./gtk.nix
   ];
 }

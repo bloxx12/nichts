@@ -1,10 +1,8 @@
 _: {
   imports = [
     ./vesktop.nix
-    ./gtk.nix
     ./foot.nix
     ./mpv.nix
-    ./qt.nix
     ./zathura.nix
     ./spicetify.nix
     ./kitty.nix

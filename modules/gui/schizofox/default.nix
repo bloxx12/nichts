@@ -161,7 +161,7 @@ in {
 
         security = {
           sanitizeOnShutdown = false;
-          sandbox = true;
+          sandbox = false;
           noSessionRestore = false;
           userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
         };
@@ -173,14 +173,14 @@ in {
 
         # taken from diniamo
         settings = {
-          # "gfx.webrender.all" = true;
-          # "media.ffmpeg.vaapi.enabled" = true;
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
           # "media.rdd-ffmpeg.enabled" = true;
           # "media.av1.enabled" = true;
           # "gfx.x11-egl.force-enabled" = true;
           # "widget.dmabuf.force-enabled" = true;
 
-          # "layers.acceleration.force-enabled" = true;
+          "layers.acceleration.force-enabled" = true;
 
           "browser.ctrlTab.sortByRecentlyUsed" = true;
           # This makes websites prefer a dark theme (in theory)
