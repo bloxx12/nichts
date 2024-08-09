@@ -23,7 +23,7 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   virtualisation.docker.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   modules = {
     system = {
       programs = {

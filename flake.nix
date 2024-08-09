@@ -85,9 +85,6 @@
     # Stylix my beloved
     stylix.url = "github:danth/stylix";
 
-    # Aylur's gtk shell. Nice but I hate JS.
-    ags.url = "github:Aylur/ags";
-
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
