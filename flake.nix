@@ -45,6 +45,9 @@
     # Helix my beloved
     helix.url = "github:helix-editor/helix";
 
+    # Impurity, ruining my nice pure system
+    impurity.url = "github:outfoxxed/impurity.nix";
+
     # Hyprland, my main compositor
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 

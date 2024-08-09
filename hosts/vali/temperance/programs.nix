@@ -43,6 +43,7 @@ in {
     keepassxc
     krita
     lazygit
+    libreoffice
     librewolf
     libtool
     links2

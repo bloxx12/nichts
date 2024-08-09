@@ -3,8 +3,6 @@ import Quickshell.Io // For Processes
 import QtQuick // For Text
 
 Scope {
-    id: root
-    property string time;
 
     Variants {
         model: Quickshell.screens
@@ -14,37 +12,16 @@ Scope {
             screen: modelData
 
             anchors {
-                top: true
+                bottom: true
                 left: true
                 right: true
             }
 
             height: 30
 
-            Text {
+            ClockWidget {
                 anchors.centerIn: parent
-
-                // now just time instead of root.time
-                text: time
             }
         }
-    }
-
-    Process {
-        id: dateProc
-        command: ["date"]
-        running: true
-
-        stdout: SplitParser {
-          // now just time instead of root.time
-          onRead: data => time = data
-        }
-    }
-
-    Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: dateProc.running = true
     }
 }

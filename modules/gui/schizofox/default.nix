@@ -36,8 +36,8 @@ in {
              */
 
             #TabsToolbar {visibility: collapse;}
-            /* #navigator-toolbox {visibility: collapse;} */
-            browser {margin-right: -14px; margin-bottom: -14px;}
+            /* #navigator-toolbox {visibility: collapse;} 
+            browser {margin-right: -14px; margin-bottom: -14px;} */
           '';
         };
 
