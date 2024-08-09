@@ -21,7 +21,7 @@ in {
       pamtester
     ];
     home-manager.users.${username}.xdg.configFile."quickshell/manifest.conf".text = toKeyValue {} {
-      bar = "${impurity.link ./bar}";
+      # bar = "${impurity.link ./bar}";
       # bar = "${./bar}";
     };
   };
