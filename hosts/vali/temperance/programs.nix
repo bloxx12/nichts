@@ -9,6 +9,7 @@ in {
     alsa-utils
     asciinema
     blanket
+    calc
     calibre
     cbonsai
     coreutils-full
@@ -34,6 +35,7 @@ in {
     helvum
     heroic
     httpie
+    hyperfine
     imagemagickBig
     img2pdf
     impala

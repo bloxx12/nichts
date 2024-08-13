@@ -25,7 +25,6 @@ in {
           ];
 
           plugins = [
-            # "acousticbrainz" # DEPRECATED
             "mpdupdate"
             "lyrics"
             "thumbnails"
@@ -34,11 +33,8 @@ in {
             "chroma"
             "fromfilename"
             "lastgenre"
-            #"absubmit" # DEPRECATED
             "duplicates"
             "edit"
-            #"mbcollection" # not set up yet
-            # "mbsync"
             "replaygain"
             "scrub"
           ];

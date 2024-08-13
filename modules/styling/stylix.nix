@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.modules.usrEnv.style.stylix;
-  inherit (config.modules.usrEnv.style.stylix) scheme image cursor fontsizes;
+  inherit (config.modules.usrEnv.style.stylix) image cursor fontsizes;
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf;
 in {
@@ -23,7 +23,7 @@ in {
       base16Scheme = {
         scheme = "3024-custom";
         # base00 = "090300"; #  ----
-        base00 = "000000"; # Black 
+        base00 = "000000"; # Black
         base01 = "3a3432"; #  Dark grey
         base02 = "4a4543"; #  Lighter grey
         base03 = "5c5855"; #  Light greLight grey

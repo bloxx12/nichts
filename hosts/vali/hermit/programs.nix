@@ -45,6 +45,7 @@ in {
     helvum
     hmm
     httpie
+    hyperfine
     imagemagick
     img2pdf
     impala
