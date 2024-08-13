@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   config,
   ...
@@ -122,7 +123,7 @@
           popups = 14;
           applications = 14;
         };
-        image = ../../../assets/wallpapers/tiredgod.png;
+        image = self + "assets/wallpapers/tiredgod.png";
       };
       gtk = {enable = false;};
       qt = {

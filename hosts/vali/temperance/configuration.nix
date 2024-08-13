@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   config,
   ...
@@ -78,7 +79,7 @@
             popups = 14;
             applications = 14;
           };
-          image = ../../../assets/wallpapers/wholefoods.jpg;
+          image = self + "assets/wallpapers/wholefoods.jpg";
         };
       };
     };
