@@ -48,23 +48,21 @@ in {
               inherit (pkgs.fishPlugins.puffer) src;
             }
           ];
-          shellAbbrs =
-            {
-              c = "clear";
-              cc = "cd ~ && clear";
-              mv = "mv -iv";
-              rm = "trash -v";
-              ls = "eza ";
-              l = "eza -a ";
-              la = "eza -lha --git";
-              lg = "lazygit";
-              cd = "z";
-              v = "nvim";
-              h = "hx";
-              k = "kak";
-              e = "emacs";
-            }
-            // cfg.extraAliases;
+          shellAbbrs = {
+            c = "clear";
+            cc = "cd ~ && clear";
+            mv = "mv -iv";
+            rm = "trash -v";
+            ls = "eza ";
+            l = "eza -a ";
+            la = "eza -lha --git";
+            lg = "lazygit";
+            cd = "z";
+            v = "nvim";
+            h = "hx";
+            k = "kak";
+            e = "emacs";
+          };
         };
       };
     };
