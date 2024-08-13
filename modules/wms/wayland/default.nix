@@ -1,14 +1,6 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+_: {
   imports = [
-    # inputs.niri.nixosModules.niri
-
     ./hypr
     ./variables.nix
   ];
-  # programs.niri.enable = true;
 }
