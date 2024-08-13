@@ -7,10 +7,6 @@
     devShells.default = pkgs.mkShellNoCC {
       name = "nichts";
 
-      # shellHook = ''
-      #   #  ${config.pre-commit.installationScript}
-      # '';
-
       DIRENV_LOG_FORMAT = "";
 
       inputsFrom = [config.treefmt.build.devShell];
