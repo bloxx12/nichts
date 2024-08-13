@@ -32,7 +32,6 @@ in {
       XDG_SESSION_TYPE = "wayland";
 
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      WLR_RENDERER_ALLOW_SOFTWARE = "1";
 
       LIBSEAT_BACKEND = "logind";
     };
