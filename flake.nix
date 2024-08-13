@@ -82,7 +82,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Stylix my beloved
+    # I do not like stylix, but have no time to get rid of it.
     stylix.url = "github:danth/stylix";
 
     quickshell = {
