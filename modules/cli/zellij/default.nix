@@ -15,7 +15,6 @@ in {
         enableFishIntegration = true;
 
         settings = {
-          layout_dir = "${./layouts}";
           on_force_close = "quit";
           pane_frames = false;
           default_layout = "compact";
