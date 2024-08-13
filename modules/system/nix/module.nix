@@ -22,7 +22,7 @@
 
     # Collect garbage
     gc = {
-      automatic = true;
+      automatic = false;
       dates = "20:00";
       options = "--delete-older-than 7d";
       persistent = false; # don't try to catch up on missed GC runs
