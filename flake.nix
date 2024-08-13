@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix but better
+    # Nix but better or something
     nix-super = {
       url = "github:privatevoid-net/nix-super";
     };

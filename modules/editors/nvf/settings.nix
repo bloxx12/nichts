@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  inherit (builtins) filter map toString path;
+  inherit (builtins) filter map toString;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix fileContents;
   inherit (lib.attrsets) genAttrs;

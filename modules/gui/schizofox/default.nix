@@ -175,23 +175,17 @@ in {
         settings = {
           "gfx.webrender.all" = true;
           "media.ffmpeg.vaapi.enabled" = true;
-          # "media.rdd-ffmpeg.enabled" = true;
-          # "media.av1.enabled" = true;
-          # "gfx.x11-egl.force-enabled" = true;
-          # "widget.dmabuf.force-enabled" = true;
+          "media.rdd-ffmpeg.enabled" = true;
+          "media.av1.enabled" = true;
+          "gfx.x11-egl.force-enabled" = true;
+          "widget.dmabuf.force-enabled" = true;
 
           "layers.acceleration.force-enabled" = true;
 
+          "browser.startup.page" = 3;
           "browser.ctrlTab.sortByRecentlyUsed" = true;
           # This makes websites prefer a dark theme (in theory)
-          # "layout.css.prefers-color-scheme.content-override" = 0;
-          # "widget.use-xdg-desktop-portal.file-picker" = 1;
-          # Leaving this on breaks a lot
-          # "privacy.resistFingerprinting" = false;
-          # "permissions.fullscreen.allowed" = true;
-          # "dom.webnotifications.enabled" = true;
-
-          "browser.startup.page" = 3;
+          "layout.css.prefers-color-scheme.content-override" = 0;
         };
       };
     };
