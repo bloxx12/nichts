@@ -24,15 +24,15 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   virtualisation.docker.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
     system = {
       programs = {
         editors = {
           emacs.enable = false;
           neovim.enable = true;
-          helix.enable = true;
-          kakoune.enable = true;
+          helix.enable = false;
+          kakoune.enable = false;
         };
         discord.enable = true;
         firefox.enable = true;

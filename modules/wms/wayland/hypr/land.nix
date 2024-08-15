@@ -8,6 +8,7 @@
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
   inherit (inputs'.anyrun.packages) anyrun;
+  inherit (config.modules.style) cursor;
   inherit
     (inputs'.nixpkgs-wayland.packages)
     foot
@@ -19,13 +20,14 @@
     split-monitor-workspaces
     ;
   inherit (lib) mkIf;
+  inherit (builtins) toString;
 in {
   config = mkIf cfg.enable {
-    #  programs.hyprland = {
-    #    enable = true;
-    #    inherit (cfg) package;
-    #    portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
-    #  };
+    programs.hyprland = {
+      enable = true;
+      inherit (cfg) package;
+      portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+    };
     # xdg Portal
     xdg.portal = {
       enable = true;
@@ -44,7 +46,7 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        inherit (cfg) package;
+        # inherit (cfg) package;
 
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
@@ -335,6 +337,7 @@ in {
           };
           # Programs which get executed at Hyprland start.
           exec-once = [
+            "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
             #start waybar
             "${pkgs.waybar}/bin/waybar"
 
