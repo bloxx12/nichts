@@ -15,7 +15,7 @@ _: {
       go.enable = true;
       python.enable = true;
       bash.enable = true;
-      typst.enable = true;
+      typst.enable = false;
       zig.enable = true;
       dart.enable = false;
       elixir.enable = false;

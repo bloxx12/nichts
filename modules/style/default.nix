@@ -4,5 +4,6 @@ _: {
     ./quickshell
     ./qt.nix
     ./gtk.nix
+    ./module.nix
   ];
 }

@@ -8,7 +8,7 @@ _: {
     ./editors
     ./wms
     ./runners
-    ./styling
+    ./style
     ./options
     ./system/nix/module.nix
     ./system
