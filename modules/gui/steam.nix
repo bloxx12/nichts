@@ -15,8 +15,6 @@ in {
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
-      # remotePlay.openFirewall = true;
-      # dedicatedServer.openFirewall = true;
       gamescopeSession.enable = mkIf cfg.gamescope true;
       extraCompatPackages = with pkgs; [proton-ge-bin];
     };

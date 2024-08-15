@@ -42,7 +42,6 @@ in {
           autoIndent = true;
           spellcheck = {
             enable = true;
-            # TODO add de
             languages = ["en" "de"];
           };
 
@@ -72,7 +71,7 @@ in {
           # additional lua configuration that I can append
           # or, to be more precise, randomly inject into
           # the lua configuration of my Neovim configuration
-          # wrapper. this is recursively read from the lua
+          # wrapper. This is recursively read from the lua
           # directory, so we do not need to use require
 
           luaConfigRC = let

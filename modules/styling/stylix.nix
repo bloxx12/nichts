@@ -13,7 +13,7 @@ in {
   imports = [inputs.stylix.nixosModules.stylix];
   config = mkIf cfg.enable {
     stylix = {
-      enable = true;
+      enable = false;
       autoEnable = false;
       homeManagerIntegration = {
         followSystem = true;
