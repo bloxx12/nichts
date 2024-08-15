@@ -66,6 +66,7 @@
         };
       };
       style = {
+        gtk.enable = true;
         stylix = {
           enable = true;
           scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
@@ -108,7 +109,6 @@
     };
     theming = {
       quickshell.enable = true;
-      gtk.enable = true;
       qt = {
         enable = false;
         package = pkgs.kde-gruvbox;

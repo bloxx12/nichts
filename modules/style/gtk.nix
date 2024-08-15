@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.theming.gtk;
+  cfg = config.modules.usrEnv.style.gtk;
   inherit (config.modules.other.system) username;
-  inherit (config.modules.style.gtk) theme iconTheme;
+  inherit (config.modules.usrEnv.style.gtk) theme iconTheme;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
@@ -16,7 +16,7 @@ in {
           inherit (theme) name package;
         };
         iconTheme = {
-          inherit (iconTheme) name Package;
+          inherit (iconTheme) name package;
         };
       };
     };

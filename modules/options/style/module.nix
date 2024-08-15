@@ -9,7 +9,7 @@ in {
   imports = [
     ./stylix.nix
     #    ./qt.nix
-    #    ./gtk.nix
+    ./gtk.nix
   ];
 
   options.modules.style = {
