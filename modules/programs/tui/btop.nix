@@ -5,7 +5,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.btop;
-  username = config.modules.other.system.username;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.btop.enable = mkEnableOption "btop";
 

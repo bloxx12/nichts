@@ -49,7 +49,6 @@ in {
                 engines: [DuckDuckGo]
             )
           '';
-
         };
       };
     };
