@@ -1,11 +1,10 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: let
   inherit (lib) mkOption mkEnableOption;
-  inherit (lib.types) str package submodule;
+  inherit (lib.types) str package;
 in {
   options.modules.usrEnv.style.gtk = {
     enable = mkEnableOption "Wether to enable GTK theming";
