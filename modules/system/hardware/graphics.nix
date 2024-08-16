@@ -4,8 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.system.hardware;
-  inherit (cfg) amd nvidia;
+  inherit (config.modules.system.hardware) nvidia amd;
   inherit (lib) mkIf;
 in {
   config = {
@@ -16,7 +15,7 @@ in {
           mkIf amd.enable [
             mesa
             libva
-            vaapiVdpau
+            vaapiVdpa
           ];
       };
     };
@@ -27,7 +26,7 @@ in {
         enable = true;
         finegrained = false;
         nvidiaSettings = false;
-        package = config.boot.kernelPackges.nvidiaPackages.beta;
+        package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
     };
     boot.initrd.kernelModules = mkIf amd.enable ["amdgpu"];

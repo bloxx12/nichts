@@ -25,6 +25,7 @@
   programs.dconf.enable = true;
   virtualisation.docker.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
   modules = {
     system = {
       hardware = {
@@ -108,7 +109,6 @@
       newsboat.enable = true;
       fish.enable = true;
       nh.enable = true;
-      steam.enable = true;
       waybar.enable = true;
     };
     services = {
@@ -116,11 +116,6 @@
     };
     theming = {
       quickshell.enable = true;
-      qt = {
-        enable = false;
-        package = pkgs.kde-gruvbox;
-        name = "Gruvbox-Dark";
-      };
     };
   };
   system.stateVersion = "23.11";
