@@ -35,6 +35,9 @@ in {
 
     # systemd-nspawn containers
     #  ./containers.nix
+
+    # monitor configuration
+    ./monitors.nix
   ];
   config = {
     warnings = mkMerge [
@@ -89,6 +92,8 @@ in {
 
     video = {
       enable = mkEnableOption "video drivers and programs that require a graphical user interface";
+      nvidia = mkOption "Nvidia graphics drivers";
+      amd = mkOption "AMD graphics drivers";
     };
 
     bluetooth = {

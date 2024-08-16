@@ -46,7 +46,7 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        # inherit (cfg) package;
+        inherit (cfg) package;
 
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
