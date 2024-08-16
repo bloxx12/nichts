@@ -29,7 +29,6 @@
     };
 
     # Automatically optimize nix store by removing hard links
-    # do it after the gc.
     optimise = {
       automatic = true;
       dates = ["21:00"];
@@ -55,17 +54,15 @@
       # the same as the number of cores your CPU has.
       max-jobs = "auto";
 
-      # Always build inside sandboxed environments
+      # If set, Nix will perform builds in a sandboxed environment
+      # that it will set up automatically for each build.
+      # This prevents impurities in builds by disallowing access
+      # to dependencies outside of the Nix store by using network
+      # and mount namespaces in a chroot environment.
       sandbox = true;
-      sandbox-fallback = false;
 
       # Continue building derivations even if one fails
       keep-going = true;
-
-      # Fallback to local builds after remote builders are unavailable.
-      # Setting this too low on a slow network may cause remote builders
-      # to be discarded before a connection can be established.
-      connect-timeout = 5;
 
       # If we haven't received data for >= 20s, retry the download
       stalled-download-timeout = 20;
@@ -120,8 +117,7 @@
       # external builders can also pick up those substituters
       builders-use-substitutes = true;
 
-      # Substituters to pull from. While sigs are disabled, we must
-      # make sure the substituters listed here are trusted.
+      # Substituters to pull from.
       substituters = [
         "https://cache.nixos.org" # funny binary cache
         "https://cache.privatevoid.net" # for nix-super
@@ -146,12 +142,8 @@
     };
   };
 
-  # By default nix-gc makes no effort to respect battery life by avoiding
-  # GC runs on battery and fully commits a few cores to collecting garbage.
-  # This will drain the battery faster than you can say "Nix, what the hell?"
-  # and contribute heavily to you wanting to get a new desktop.
-  # For those curious (such as myself) desktops are always seen as "AC powered"
-  # so the system will not fail to fire if you are on a desktop system.
+  # Do not run garbage collection on AC power.
+  # This makes a quite nice difference in battery life.
   systemd.services.nix-gc = {
     unitConfig.ConditionACPower = true;
   };
