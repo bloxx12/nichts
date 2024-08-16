@@ -5,7 +5,7 @@
     exec = "${pkgs.nur.repos.Nick1296.vivado-2019-2}/bin/vivado";
   };
 in {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     # this propietary software is huge, but I need it for
     # university
     pkgs.nur.repos.Nick1296.vivado-2019-2

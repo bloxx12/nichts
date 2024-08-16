@@ -18,13 +18,13 @@ in {
         spotifyPackage = pkgs.spotify;
         theme = spicePkgs.themes.catppuccin;
         colorScheme = "mocha";
-        # enabledExtensions = with spicePkgs.extensions; [
-        #   shuffle
-        #   popupLyrics
-        #   adblock
-        #   betterGenres
-        #   playlistIcons
-        # ];
+        enabledExtensions = with spicePkgs.extensions; [
+          #   shuffle
+          #   popupLyrics
+          adblock
+          #   betterGenres
+          #   playlistIcons
+        ];
       };
     };
   };

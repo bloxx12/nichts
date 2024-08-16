@@ -5,17 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.steam;
+  cfg = config.modules.system.programs.steam;
 in {
-  options.modules.programs.steam = {
-    enable = mkEnableOption "steam";
-    gamescope = mkEnableOption "gamescope";
-  };
-
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
-      gamescopeSession.enable = mkIf cfg.gamescope true;
+      gamescopeSession.enable = true;
       extraCompatPackages = with pkgs; [proton-ge-bin];
     };
     # See

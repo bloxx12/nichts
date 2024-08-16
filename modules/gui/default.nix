@@ -5,10 +5,9 @@ _: {
     ./mpv.nix
     ./zathura.nix
     ./spicetify.nix
-    ./kitty.nix
     ./steam.nix
     ./waybar.nix
-    ./schizofox
+    ./schizofox.nix
     ./minecraft.nix
   ];
 }
