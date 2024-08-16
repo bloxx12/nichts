@@ -9,7 +9,7 @@ with lib; let
     package = pkgs.gruvbox-gtk-theme;
     name = "Gruvbox-Dark-BL";
   };
-  cfg = config.modules.style.qt;
+  cfg = config.modules.usrEnv.style.qt;
   inherit (config.modules.other.system) username;
 in {
   config = mkIf cfg.enable {
@@ -38,7 +38,6 @@ in {
           qt6Packages.qtstyleplugin-kvantum
           libsForQt5.qtstyleplugin-kvantum
           libsForQt5.qt5ct
-          breeze-icons
         ];
 
         sessionVariables = {

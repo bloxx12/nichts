@@ -97,12 +97,6 @@ in {
       nvidia = mkEnableOption "Nvidia graphics drivers";
       amd = mkEnableOption "AMD graphics drivers";
     };
-    hardware = {
-      nvidia = {
-        enable = mkEnableOption "Nvidia Nvidia graphics drivers";
-      };
-      amd.enable = mkEnableOption "AMD graphics drivers";
-    };
 
     hardware.bluetooth = {
       enable = mkEnableOption "bluetooth modules, drivers and configuration program(s)";

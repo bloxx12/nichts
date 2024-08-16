@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (config.modules.system.hardware) nvidia amd;
+  cfg = config.modules.system.hardware;
   inherit (lib) mkIf;
 in {
   config = {
@@ -12,24 +12,24 @@ in {
       graphics = {
         enable = true;
         extraPackages = with pkgs;
-          mkIf amd.enable [
+          mkIf cfg.amd.enable [
             mesa
             libva
             vaapiVdpa
           ];
       };
-    };
-    nvidia = mkIf nvidia.enable {
-      modesetting.enable = true;
-      open = false;
-      powerManagement = {
-        enable = true;
-        finegrained = false;
+      nvidia = mkIf cfg.nvidia.enable {
+        modesetting.enable = true;
+        open = false;
+        powerManagement = {
+          enable = true;
+          finegrained = false;
+        };
         nvidiaSettings = false;
         package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
     };
-    boot.initrd.kernelModules = mkIf amd.enable ["amdgpu"];
-    services.xserver.videoDrivers = mkIf nvidia.enable ["nvidia"];
+    boot.initrd.kernelModules = mkIf cfg.amd.enable ["amdgpu"];
+    services.xserver.videoDrivers = mkIf cfg.nvidia.enable ["nvidia"];
   };
 }

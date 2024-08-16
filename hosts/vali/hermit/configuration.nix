@@ -29,7 +29,6 @@
   modules = {
     system = {
       hardware = {
-        nvidia.enable = true;
         bluetooth = {
           enable = true;
           powerOnBoot = false;
@@ -75,6 +74,7 @@
       };
       style = {
         gtk.enable = true;
+        qt.enable = true;
         stylix = {
           enable = false;
           scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";

@@ -14,7 +14,7 @@ in {
       powerOnBoot = mkIf cfg.powerOnBoot true;
     };
 
-    home-manager.users.${username}.home.Packages = with pkgs; [
+    home-manager.users.${username}.home.packages = with pkgs; [
       bluetuith
     ];
   };
