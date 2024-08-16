@@ -15,6 +15,7 @@ in {
     nextcloud.enable = mkEnableOption "Nextcloud sync client";
     firefox.enable = mkEnableOption "Firefox web browser";
     zellij.enable = mkEnableOption "Zellij terminal multiplexer";
+    steam.enable = mkEnableOption "Steam games platform";
 
     terminals = {
       foot.enable = mkEnableOption "Foot terminal emulator";

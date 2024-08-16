@@ -11,8 +11,8 @@
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
-    environment.sessionVariables = {TERM = "foot";};
     home-manager.users.${username} = {
+      home.sessionVariables.TERM = "foot";
       programs.foot = {
         enable = true;
         package = inputs'.nixpkgs-wayland.packages.foot;
@@ -71,7 +71,7 @@ in {
           };
 
           mouse = {
-            hide-when-typing = "yes";
+            hide-when-typing = "yes"; # not really needed since we already enable this in Hyprland
             alternate-scroll-mode = "yes";
           };
 
