@@ -5,6 +5,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.nh;
+  inherit (config.modules.other.system) username;
 in {
   options.modules.programs.nh.enable = mkEnableOption "nh";
 
@@ -13,7 +14,7 @@ in {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/vali/projects/nichts";
+      flake = "/home/${username}/projects/nichts";
     };
   };
 }
