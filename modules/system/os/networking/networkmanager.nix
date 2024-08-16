@@ -13,7 +13,7 @@ in {
     ];
     wifi = {
       # Generate a randomized value upon each connect
-      macAdress = "random";
+      macAddress = "random";
 
       # Enable Wi-Fi power saving
       powersave = true;
