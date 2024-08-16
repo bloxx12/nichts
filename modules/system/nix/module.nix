@@ -7,6 +7,7 @@
   imports = [
     ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration.nix
+    ./registry.nix
   ];
 
   nix = {
