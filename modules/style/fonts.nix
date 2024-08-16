@@ -20,4 +20,13 @@ in {
       corefonts
     ]
     ++ optional (extraFonts != null) extraFonts;
+  # this fixes emoji stuff
+  fontconfig = {
+    defaultFonts = {
+      monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+      sansSerif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+      serif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+      emoji = ["Noto Color Emoji"];
+    };
+  };
 }

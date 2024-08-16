@@ -48,25 +48,7 @@ in {
         # package = pkgs.bibata-cursors;
         # name = "Bibata-Modern-Classic";
       };
-      fonts = {
-        sizes = {
-          inherit (fontsizes) terminal popups applications;
-        };
-        monospace = {
-          package =
-            pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "ComicShannsMono"];};
-          # name = "JetBrainsMono";
-          name = "ComicShannsMono Nerd Font";
-        };
 
-        serif = config.stylix.fonts.monospace;
-        sansSerif = config.stylix.fonts.monospace;
-
-        emoji = {
-          package = pkgs.noto-fonts-color-emoji;
-          name = "Noto Color Emoji";
-        };
-      };
       opacity = {
         applications = 1.0;
         popups = 1.0;
