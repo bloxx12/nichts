@@ -8,7 +8,7 @@
 in {
   imports = [
     ./stylix.nix
-    #    ./qt.nix
+    ./qt.nix
     ./gtk.nix
   ];
 

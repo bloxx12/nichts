@@ -14,12 +14,8 @@ in {
     bluetuith
     bluez
     #botany
-    broot
-    browsh
-    bun
     cachix
     calc
-    calcure
     calibre
     cbonsai
     cmake
