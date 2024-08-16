@@ -6,6 +6,7 @@
 }: let
   inherit (lib.types) optional;
   inherit (config.modules.system.fonts) extraFonts;
+  inherit (config.modules.other.system) username;
 in {
   # A (somewhat) sane list of default fonts to be installed.
   fonts.packages = with pkgs;
@@ -21,12 +22,14 @@ in {
     ]
     ++ optional (extraFonts != null) extraFonts;
   # this fixes emoji stuff
-  fontconfig = {
-    defaultFonts = {
-      monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-      sansSerif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-      serif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
+  home-manager.users.${username} = {
+    fontconfig = {
+      defaultFonts = {
+        monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+        sansSerif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+        serif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 }

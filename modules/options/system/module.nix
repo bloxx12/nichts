@@ -38,6 +38,8 @@ in {
 
     # monitor configuration
     ./monitors.nix
+
+    ./hardware.nix
   ];
   config = {
     warnings = mkMerge [
@@ -92,12 +94,13 @@ in {
 
     video = {
       enable = mkEnableOption "video drivers and programs that require a graphical user interface";
-      nvidia = mkOption "Nvidia graphics drivers";
-      amd = mkOption "AMD graphics drivers";
+      nvidia = mkEnableOption "Nvidia graphics drivers";
+      amd = mkEnableOption "AMD graphics drivers";
     };
 
-    bluetooth = {
+    hardware.bluetooth = {
       enable = mkEnableOption "bluetooth modules, drivers and configuration program(s)";
+      powerOnBoot = mkEnableOption "Enable bluetooth on boot";
     };
 
     # should the device enable printing module and try to load common printer modules
