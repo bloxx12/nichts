@@ -39,6 +39,11 @@ in {
             The Hyprland package to be used.
           '';
         };
+        portalPackage = mkOption {
+          type = package;
+          default = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+          description = "The hyprland portal package";
+        };
       };
 
       awesomwm.enable = mkOption {

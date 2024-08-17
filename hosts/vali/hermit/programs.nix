@@ -22,8 +22,7 @@ in {
     cmus
     difftastic
     dig
-    discordo
-    easyeffects
+    # easyeffects #broken
     element-desktop
     evince
     eza
@@ -75,14 +74,9 @@ in {
     pidgin
     playerctl
     polkit
-    pyradio
     python3
-    qbittorrent
     ripgrep
-    rnote
-    rustdesk
     scc
-    scummvm
     sherlock
     signal-desktop-beta
     smartmontools
@@ -100,7 +94,6 @@ in {
     ventoy-full
     vlc
     weechat
-    wezterm
     wget
     wireguard-tools
     wl-clipboard
