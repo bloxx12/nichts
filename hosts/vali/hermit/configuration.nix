@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   config,
   ...
@@ -9,16 +8,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
-  nix = {
-    settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      ];
-      # enable flakes
-      # reduce file size used & automatic garbage collector
-    };
-  };
   security.sudo.package = pkgs.sudo.override {withInsults = true;};
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
@@ -74,21 +63,6 @@
       style = {
         gtk.enable = true;
         qt.enable = true;
-        stylix = {
-          enable = false;
-          scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
-          cursor = {
-            size = 28;
-            package = pkgs.bibata-cursors;
-            name = "Bibata-Modern-Classic";
-          };
-          fontsizes = {
-            terminal = 18;
-            popups = 14;
-            applications = 14;
-          };
-          image = self + "assets/wallpapers/wholefoods.jpg";
-        };
       };
     };
     other = {

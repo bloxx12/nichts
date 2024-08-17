@@ -7,7 +7,6 @@
   inherit (lib.types) package str int;
 in {
   imports = [
-    ./stylix.nix
     ./qt.nix
     ./gtk.nix
   ];

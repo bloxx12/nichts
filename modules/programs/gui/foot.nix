@@ -23,6 +23,8 @@ in {
             title = "foot";
             locked-title = "no";
 
+            font = "ComicShannsMono Nerd Font:size=14";
+
             # line-height = 20;
             letter-spacing = 0;
             horizontal-letter-offset = 0;
