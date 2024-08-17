@@ -81,7 +81,6 @@ in {
     signal-desktop-beta
     smartmontools
     telegram-desktop
-    temurin-jre-bin-17
     tldr
     thunderbird
     trash-cli

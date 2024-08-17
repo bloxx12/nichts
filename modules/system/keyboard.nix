@@ -1,7 +1,9 @@
 {
   services.xserver = {
-    xkb.layout = "de,us";
-    xkbVariant = ",colemak_dh_wide";
-    xkbOptions = "grp:rctrl_rshift_toggle";
+    xkb = {
+      layout = "de, us";
+      variant = "colemak_dh_wide";
+      options = "grp:rctrl_rshift_toggle";
+    };
   };
 }
