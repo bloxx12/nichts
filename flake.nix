@@ -23,7 +23,7 @@
     # nixpkgs for wayland
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
-    # Sandboxing
+    # # Sandboxing
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,12 +41,6 @@
 
     # Hardware for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # Helix my beloved
-    helix.url = "github:helix-editor/helix";
-
-    # Impurity, ruining my nice pure system
-    impurity.url = "github:outfoxxed/impurity.nix";
 
     # Hyprland, my main compositor
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs',
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
@@ -14,7 +13,7 @@ in {
       programs.helix = {
         enable = true;
         # thanks fuf, this is great!
-        package = inputs'.helix.packages.default.overrideAttrs (previousAttrs: {
+        package = pkgs.helix.overrideAttrs (previousAttrs: {
           makeWrapperArgs = with pkgs;
             previousAttrs.makeWrapperArgs
             or []
