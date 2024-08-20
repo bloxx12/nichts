@@ -9,7 +9,8 @@ in {
   options.modules.system.fonts = {
     # This defines extra fonts to be installed on the system.
     extraFonts = mkOption {
-      type = nullOr (listOf package);
+      type = listOf package;
+      default = [];
     };
   };
 }

@@ -51,7 +51,7 @@
         locate.enable = true;
         media.mpd = {
           enable = true;
-          musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/Media/Music";
+          musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
         };
       };
       style = {

@@ -9,6 +9,7 @@ in {
   imports = [
     ./qt.nix
     ./gtk.nix
+    ./fonts.nix
   ];
 
   options.modules.style = {
