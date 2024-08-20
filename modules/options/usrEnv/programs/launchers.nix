@@ -5,5 +5,6 @@ in {
     anyrun.enable = mkEnableOption "anyrun application launcher";
     rofi.enable = mkEnableOption "rofi application launcher";
     tofi.enable = mkEnableOption "tofi application launcher";
+    fuzzel.enable = mkEnableOption "fuzzel application launcher";
   };
 }
