@@ -24,7 +24,7 @@
       };
       programs = {
         editors = {
-          emacs.enable = false;
+          emacs.enable = true;
           neovim.enable = true;
           helix.enable = false;
           kakoune.enable = false;

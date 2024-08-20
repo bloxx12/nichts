@@ -9,139 +9,92 @@
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf;
 
+  # Taken from outfoxxed since figuring this out is really annoying.
   newpkgs =
     pkgs.appendOverlays
     (with inputs.emacs-overlay.overlays; [
       emacs
       package
-
-      (final: prev: {
-        tree-sitter = prev.tree-sitter.override {
-          extraGrammars = {
-            tree-sitter-qmljs = {
-              version = "master";
-              src = pkgs.fetchFromGitHub {
-                owner = "yuja";
-                repo = "tree-sitter-qmljs";
-                rev = "35ead5b9955cdb29bcf709d622fa960ff33992b6";
-                sha256 = "jT47lEGuk6YUjcHB0ZMyL3i5PqyUaCQmt0j78cUpy8Q=";
-              };
-            };
-          };
-        };
-      })
     ]);
 
   tree-sitter-parsers = grammars:
     with grammars; [
-      tree-sitter-bash
-      tree-sitter-c
-      tree-sitter-c-sharp
-      tree-sitter-cmake
-      tree-sitter-cpp
-      tree-sitter-css
       tree-sitter-dot
       tree-sitter-elisp
-      tree-sitter-glsl
-      tree-sitter-html
-      tree-sitter-java
-      tree-sitter-javascript
-      tree-sitter-json
-      tree-sitter-json5
-      tree-sitter-kotlin
-      tree-sitter-latex
-      tree-sitter-llvm
-      tree-sitter-lua
-      tree-sitter-make
       tree-sitter-markdown
       tree-sitter-markdown-inline
-      tree-sitter-nickel
-      tree-sitter-nix
-      tree-sitter-prisma
-      tree-sitter-python
-      tree-sitter-qmljs
-      tree-sitter-regex
-      tree-sitter-rust
-      tree-sitter-scss
-      tree-sitter-sql
-      tree-sitter-toml
-      tree-sitter-tsx
-      tree-sitter-typescript
-      tree-sitter-typst
-      tree-sitter-vim
-      tree-sitter-yaml
     ];
 
   custom-emacs = with newpkgs; ((emacsPackagesFor (emacs29-pgtk.override {withNativeCompilation = true;})).emacsWithPackages (epkgs:
-    with epkgs; let
-      qml-ts-mode = trivialBuild {
-        pname = "qml-ts-mode";
-        version = "master";
-        src = fetchFromGitHub {
-          owner = "outfoxxed";
-          repo = "qml-ts-mode";
-          rev = "b24b9e78305ed045baa136782623ad16de01b7b8";
-          sha256 = "PgXm/a92cX5zjA9blTrIRH7DfOUczRwb9oBcMMEzF2I=";
-        };
-      };
-    in [
+    with epkgs; [
       alert
       all-the-icons
       all-the-icons-dired
       avy
       beacon
       catppuccin-theme
+      cask-mode
       company
       crux
       dimmer
       dired-du
       dired-open
       direnv
+      dirvish
       doom-modeline
       editorconfig
       emacs-all-the-icons-fonts
       evil
       evil-collection
+      evil-commentary
       evil-goggles
-      erc
-      erc-hl-nicks
       flycheck
+      flycheck-relint
+      flymake
       form-feed
       general
       hl-todo
-      kotlin-mode
       ligature
       lsp-mode
       lsp-treemacs
       lsp-ui
-      lsp-java
+      macrostep
       magit
       markdown-mode
-      nasm-mode
-      nix-mode
+      modus-themes
+      move-text
+      org-cliplink
+      org-contacts
+      org-pomodoro
+      nano-theme
       no-littering
-      reformatter # required by nix mode
-      pdf-tools
+      nov
+      paredit
       peep-dired
       projectile
-      qml-ts-mode
       rainbow-delimiters
       rainbow-mode
+      relint
+      ripgrep
       smartparens
       string-inflection
+      svg-lib
       tldr
       toc-org
-      (treesit-grammars.with-grammars (grammars: tree-sitter-parsers grammars))
+      (treesit-grammars.with-grammars tree-sitter-parsers)
       treemacs
       treemacs-evil
       treemacs-projectile
       treemacs-magit
+      tree-sitter
       undo-tree
       use-package
       vertico
+      vertico-posframe
       vterm
       vterm-toggle
       which-key
+      whitespace-cleanup-mode
       wakatime-mode
       ws-butler
     ]));
@@ -153,12 +106,16 @@ in {
         clang-tools
         ripgrep
         fd
+        imagemagick
         ispell
+        mediainfo
         findutils
         graphviz
         djvulibre
         hunspell
+        poppler
         sqlite
+        unzip
       ];
       services.emacs = {
         enable = true;
