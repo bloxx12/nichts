@@ -23,7 +23,6 @@ in {
     difftastic
     dig
     # easyeffects #broken
-    element-desktop
     evince
     eza
     fastfetch
@@ -58,6 +57,7 @@ in {
     neofetch
     networkmanagerapplet
     nextcloud-client
+    #nheko
     nicotine-plus
     nil
     nitch
