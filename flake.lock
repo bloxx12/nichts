@@ -179,22 +179,6 @@
         "type": "github"
       }
     },
-    "flake-compat_5": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -3011,26 +2995,6 @@
         "type": "github"
       }
     },
-    "quickshell": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1723280380,
-        "narHash": "sha256-KicfxuuGOA1kHT/S5nmJmLTYCXEfJxE3QpxJ741FzKQ=",
-        "ref": "refs/heads/master",
-        "rev": "683d92a05f600c347433108f713c349507dccc18",
-        "revCount": 294,
-        "type": "git",
-        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
-      }
-    },
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
@@ -3067,9 +3031,7 @@
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-wayland": "nixpkgs-wayland",
-        "quickshell": "quickshell",
         "schizofox": "schizofox",
-        "spicetify-nix": "spicetify-nix",
         "split-monitor-workspaces": "split-monitor-workspaces",
         "treefmt-nix": "treefmt-nix_2"
       }
@@ -3174,27 +3136,6 @@
       "original": {
         "owner": "schizofox",
         "repo": "searx-randomizer",
-        "type": "github"
-      }
-    },
-    "spicetify-nix": {
-      "inputs": {
-        "flake-compat": "flake-compat_5",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1723695359,
-        "narHash": "sha256-rd11mcaXHfXGSHqD3BRfHa1paLl/jF+Ro7lv6Vx01z0=",
-        "owner": "gerg-l",
-        "repo": "spicetify-nix",
-        "rev": "44d1726de15a4a3df3935cb0098ef2b8322d328c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gerg-l",
-        "repo": "spicetify-nix",
         "type": "github"
       }
     },
