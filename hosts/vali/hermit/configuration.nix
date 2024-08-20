@@ -44,8 +44,7 @@
       desktops.hyprland.enable = true;
       programs = {
         launchers = {
-          anyrun.enable = true;
-          rofi.enable = true;
+          fuzzel.enable = true;
         };
         media = {
           beets.enable = true;

@@ -218,7 +218,7 @@ in {
             "$mainMod, RETURN, exec, ${foot}/bin/foot"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
-            "$mainMod, D, exec, ${pkgs.procps}/bin/pkill anyrun || ${anyrun}/bin/anyrun"
+            "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${anyrun}/bin/fuzzel"
             "$mainMod, SPACE, togglefloating, active"
 
             # workspaces
