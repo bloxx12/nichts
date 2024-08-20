@@ -77,27 +77,12 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     schizofox = {
       url = "github:schizofox/schizofox";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpak.follows = "nixpak";
       };
-    };
-
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

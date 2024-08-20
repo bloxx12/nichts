@@ -10,6 +10,7 @@
 in {
   config = {
     home-manager.users.${username}.programs.fuzzel = mkIf cfg.enable {
+      # enable schizo dnklware!
       enable = true;
       package = pkgs.fuzzel;
       settings = {
