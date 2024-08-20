@@ -7,7 +7,6 @@
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
-  inherit (inputs'.anyrun.packages) anyrun;
   inherit (config.modules.style) cursor;
   inherit
     (inputs'.nixpkgs-wayland.packages)
@@ -218,7 +217,7 @@ in {
             "$mainMod, RETURN, exec, ${foot}/bin/foot"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
-            "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${anyrun}/bin/fuzzel"
+            "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
             "$mainMod, SPACE, togglefloating, active"
 
             # workspaces

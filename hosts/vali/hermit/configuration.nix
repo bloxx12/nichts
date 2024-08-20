@@ -86,9 +86,6 @@
     services = {
       dunst.enable = true;
     };
-    theming = {
-      quickshell.enable = true;
-    };
   };
   system.stateVersion = "23.11";
 }

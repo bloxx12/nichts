@@ -82,7 +82,6 @@
       dunst.enable = true;
     };
     theming = {
-      quickshell.enable = true;
       qt = {
         enable = false;
         package = pkgs.kde-gruvbox;

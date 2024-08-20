@@ -4,7 +4,6 @@ _: {
     ./foot.nix
     ./mpv.nix
     ./zathura.nix
-    ./spicetify.nix
     ./steam.nix
     ./waybar.nix
     ./schizofox.nix
