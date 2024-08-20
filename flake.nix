@@ -59,10 +59,10 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    devshell = {
-      url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # devshell = {
+    #   url = "github:numtide/devshell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     neovim-flake = {
       url = "github:notashelf/nvf";
