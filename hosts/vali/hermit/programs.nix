@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  nixpkgs-wayland = inputs'.nixpkgs-wayland.packages;
 in {
   environment.systemPackages = with pkgs; [
     alejandra
@@ -61,7 +60,7 @@ in {
     nicotine-plus
     nil
     nitch
-    nixpkgs-wayland.swww
+    swww
     nmap
     notesnook
     obsidian

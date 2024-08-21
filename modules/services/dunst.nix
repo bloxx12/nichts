@@ -16,7 +16,7 @@ in {
     home-manager.users.${username} = {
       services.dunst = {
         enable = true;
-        package = inputs'.nixpkgs-wayland.packages.dunst;
+        package = pkgs.dunst;
         settings = {
           global = {
             monitor = 1;

@@ -1,9 +1,4 @@
-{
-  inputs',
-  pkgs,
-  ...
-}: let
-  nixpkgs-wayland = inputs'.nixpkgs-wayland.packages;
+{pkgs, ...}: let
 in {
   environment.systemPackages = with pkgs; [
     alsa-utils
@@ -64,7 +59,7 @@ in {
     nicotine-plus
     nil
     nitch
-    nixpkgs-wayland.swww
+    swww
     nmap
     nodejs_20
     obsidian

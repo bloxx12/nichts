@@ -8,12 +8,7 @@
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
   inherit (config.modules.style) cursor;
-  inherit
-    (inputs'.nixpkgs-wayland.packages)
-    foot
-    swww
-    wlsunset
-    ;
+
   inherit
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
@@ -118,7 +113,6 @@ in {
             # "30, monitor:DP-2"
             #
             # scratchpads
-            "special:pipewire, decorate:false"
             "special:nixos, decorate:false"
             "special:keepassxc, decorate:false"
           ];
@@ -214,7 +208,7 @@ in {
 
           # Keybinds
           bind = [
-            "$mainMod, RETURN, exec, ${foot}/bin/foot"
+            "$mainMod, RETURN, exec, ${pkgs.foot}/bin/foot"
             "$mainMod, Q, killactive"
             "$mainMod, F, fullscreen, 0"
             "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
@@ -278,7 +272,6 @@ in {
             "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
             # Toggle the three different special workspaces.
-            "$mainMod, V, togglespecialworkspace, pipewire"
             "$mainMod, N, togglespecialworkspace, nixos"
             "$mainMod, X, togglespecialworkspace, keepassxc"
 
@@ -339,23 +332,16 @@ in {
             "${pkgs.waybar}/bin/waybar"
 
             # run persistent special workspace windows
-            "[workspace special:nixos; silent;tile] ${foot}/bin/foot -D ~/projects/nichts"
+            "[workspace special:nixos; silent;tile] ${pkgs.foot}/bin/foot -D ~/projects/nichts"
 
             "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
 
-            "${swww}/bin/swww-daemon"
+            "${pkgs.swww}/bin/swww-daemon"
 
-            "${wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
+            "${pkgs.wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
           ];
 
           exec = [
-            # kill (almost) everything on special workspaces
-            "${pkgs.procps}/bin/pkill pavucontrol"
-            "${pkgs.procps}/bin/pkill helvum"
-
-            # and run it all again
-            "[workspace special:pipewire; silent;tile] ${pkgs.helvum}/bin/helvum"
-            "[workspace special:pipewire; silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
           ];
 
           plugin = {
