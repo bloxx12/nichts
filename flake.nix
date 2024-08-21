@@ -20,10 +20,7 @@
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # nixpkgs for wayland
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-
-    # # Sandboxing
+    # Sandboxing
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -15,7 +15,7 @@ in {
       home.sessionVariables.TERM = "foot";
       programs.foot = {
         enable = true;
-        package = inputs'.nixpkgs-wayland.packages.foot;
+        package = pkgs.foot;
         settings = {
           main = {
             term = "foot";
