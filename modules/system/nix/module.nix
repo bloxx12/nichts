@@ -1,9 +1,5 @@
 # credits to raf
-{
-  pkgs,
-  inputs',
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration.nix
@@ -11,7 +7,7 @@
   ];
 
   nix = {
-    package = inputs'.nix-super.packages.default;
+    package = pkgs.lix;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.

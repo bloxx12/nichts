@@ -38,7 +38,7 @@ in {
       ./vali/temperance
       ../modules
       inputs.home-manager.nixosModules.home-manager
-
+      inputs.lix-module.nixosModules.default
       {
         imports = [inputs.impurity.nixosModules.impurity];
         impurity = {
