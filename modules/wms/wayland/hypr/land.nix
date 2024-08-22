@@ -122,6 +122,7 @@ in {
             kb_variant = ",colemak_dh_wide";
             kb_options = "grp:rctrl_rshift_toggle";
 
+            sensitivity = 1.0;
             follow_mouse = true;
 
             repeat_rate = 50;
@@ -133,7 +134,6 @@ in {
           };
 
           general = {
-            sensitivity = 1.0;
             gaps_in = 0;
             gaps_out = 0;
             border_size = 2;
