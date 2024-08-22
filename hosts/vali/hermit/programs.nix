@@ -63,9 +63,7 @@ in {
     swww
     nmap
     notesnook
-    obsidian
     onlyoffice-bin
-    openjdk17
     pamixer
     pavucontrol
     pdfarranger
