@@ -24,8 +24,6 @@ in {
   };
 
   config = {
-    networking.hostName = cfg.hostname;
-
     users.users.${cfg.username} = {
       isNormalUser = true;
       extraGroups = ["wheel" "networking"];

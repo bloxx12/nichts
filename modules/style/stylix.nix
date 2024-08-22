@@ -1,12 +1,11 @@
 {
   config,
   inputs,
-  pkgs,
   lib,
   ...
 }: let
   cfg = config.modules.usrEnv.style.stylix;
-  inherit (config.modules.usrEnv.style.stylix) image cursor fontsizes;
+  inherit (config.modules.usrEnv.style.stylix) image cursor;
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf;
 in {

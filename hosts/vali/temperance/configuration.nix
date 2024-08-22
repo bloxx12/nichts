@@ -10,8 +10,6 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  programs.dconf.enable = true;
-  virtualisation.docker.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   modules = {
     system = {
