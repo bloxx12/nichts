@@ -4,9 +4,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
       systems = ["x86_64-linux"];
       imports = [
-        # inputs.treefmt-nix.flakeModule
-        ./parts/shell.nix
-        # ./parts/fmt.nix
+        ./parts
       ];
 
       flake = {
