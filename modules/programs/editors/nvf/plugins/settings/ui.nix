@@ -17,7 +17,7 @@ _: {
         setupOpts = {
           columnAt.languages = {
             markdown = [80];
-            nix = [150];
+            nix = [120];
             ruby = 110;
             java = 120;
             go = [130];
