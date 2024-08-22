@@ -122,7 +122,7 @@ in {
             kb_variant = ",colemak_dh_wide";
             kb_options = "grp:rctrl_rshift_toggle";
 
-            sensitivity = 1.0;
+            sensitivity = 0.0;
             follow_mouse = true;
 
             repeat_rate = 50;
