@@ -39,13 +39,6 @@ in {
       ../modules
       inputs.home-manager.nixosModules.home-manager
       inputs.lix-module.nixosModules.default
-      {
-        imports = [inputs.impurity.nixosModules.impurity];
-        impurity = {
-          enable = true;
-          configRoot = self;
-        };
-      }
     ];
   };
 
@@ -56,6 +49,7 @@ in {
       ./vali/hermit
       ../modules
       inputs.home-manager.nixosModules.home-manager
+      # inputs.lix-module.nixosModules.default
       inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia
     ];
   };

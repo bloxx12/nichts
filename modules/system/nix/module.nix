@@ -1,9 +1,15 @@
 # credits to raf
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration.nix
     ./registry.nix
+
+    inputs.lix-module.nixosModules.default
   ];
 
   nix = {
