@@ -8,7 +8,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
-  security.sudo.package = pkgs.sudo.override {withInsults = true;};
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
