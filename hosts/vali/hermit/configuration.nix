@@ -1,6 +1,7 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }: {
   # Time Zone
@@ -14,6 +15,7 @@
   programs.dconf.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   services.thermald.enable = true;
+  services.fstrim.enable = lib.mkDefault true;
 
   modules = {
     system = {
