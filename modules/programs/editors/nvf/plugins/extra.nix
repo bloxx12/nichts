@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.modules.other.system) username;
+{pkgs, ...}: let
   inherit (pkgs.vimPlugins) friendly-snippets aerial-nvim nvim-surround undotree mkdir-nvim ssr-nvim direnv-vim legendary-nvim lazygit-nvim;
   inherit (pkgs) fetchFromGitHub;
   inherit (pkgs.vimUtils) buildVimPlugin;
