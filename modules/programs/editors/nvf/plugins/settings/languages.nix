@@ -7,9 +7,9 @@ _: {
       enableExtraDiagnostics = true;
 
       markdown.enable = true;
-      # html.enable = false;
-      # java.enable = true;
-      # css.enable = true;
+      html.enable = true;
+      java.enable = true;
+      css.enable = true;
       # tailwind.enable = false;
       # ts.enable = true;
       # go.enable = true;
