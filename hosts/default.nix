@@ -38,7 +38,6 @@ in {
       ./vali/temperance
       ../modules
       inputs.home-manager.nixosModules.home-manager
-      inputs.lix-module.nixosModules.default
     ];
   };
 
@@ -49,8 +48,6 @@ in {
       ./vali/hermit
       ../modules
       inputs.home-manager.nixosModules.home-manager
-      # inputs.lix-module.nixosModules.default
-      inputs.nixos-hardware.nixosModules.dell-xps-15-7590-nvidia
     ];
   };
 }

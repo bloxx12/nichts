@@ -39,9 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hardware for my laptop
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     # Hyprland, my main compositor
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 

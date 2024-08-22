@@ -55,7 +55,7 @@
       # Let the system decide the number of max jobs
       # based on available system specs. Usually this is
       # the same as the number of cores your CPU has.
-      max-jobs = "auto";
+      max-jobs = 2;
 
       # If set, Nix will perform builds in a sandboxed environment
       # that it will set up automatically for each build.

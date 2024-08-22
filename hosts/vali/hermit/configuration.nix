@@ -13,6 +13,7 @@
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  services.thermald.enable = true;
 
   modules = {
     system = {
