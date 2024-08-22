@@ -15,20 +15,27 @@ in {
     enableDirenv = mkEnableOption "direnv";
   };
 
+  # NOTE: to keep this configuration sane and simple,
+  # we import the NixOS home manager module instead of the
+  # standalone one.
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   config = mkIf cfg.enable {
     home-manager = {
+      # Verbosity is great, give me verbosity.
       verbose = true;
+
       useUserPackages = true;
       useGlobalPkgs = true;
+
+      #
       backupFileExtension = "hm.old";
-      extraSpecialArgs = {inherit inputs self impurity;};
+      extraSpecialArgs = {inherit inputs self;};
       users.${username} = {
         programs = {
           home-manager.enable = true;
-          direnv = mkIf cfg.enableDirenv {
-            enable = true;
-            nix-direnv.enable = true;
-          };
         };
 
         home = {

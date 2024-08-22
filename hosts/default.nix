@@ -37,7 +37,6 @@ in {
     modules = [
       ./vali/temperance
       ../modules
-      inputs.home-manager.nixosModules.home-manager
     ];
   };
 
@@ -47,7 +46,6 @@ in {
     modules = [
       ./vali/hermit
       ../modules
-      inputs.home-manager.nixosModules.home-manager
     ];
   };
 }

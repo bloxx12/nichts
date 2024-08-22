@@ -4,5 +4,6 @@ _: {
     ./gui
     ./tui
     ./editors
+    ./other/module.nix
   ];
 }
