@@ -5,6 +5,7 @@ in {
     ./networkmanager.nix
   ];
   networking = {
+    hostname = username;
     enableIPv6 = true;
     nameservers = [
       # quad9 DNS

@@ -3,7 +3,6 @@
   inputs,
   lib,
   self,
-  impurity,
   ...
 }:
 with lib; let
