@@ -6,7 +6,6 @@ _: {
         openOnSetup = true;
 
         mappings = {
-          #toggle = "<C-w>";
           toggle = "<leader>e";
         };
 
