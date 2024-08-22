@@ -786,22 +786,6 @@
         "type": "github"
       }
     },
-    "nixos-hardware": {
-      "locked": {
-        "lastModified": 1724067415,
-        "narHash": "sha256-WJBAEFXAtA41RMpK8mvw0cQ62CJkNMBtzcEeNIJV7b0=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "b09c46430ffcf18d575acf5c339b38ac4e1db5d2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixos-hardware",
-        "type": "github"
-      }
-    },
     "nixpak": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -2624,7 +2608,6 @@
         "hyprland-plugins": "hyprland-plugins",
         "lix-module": "lix-module",
         "neovim-flake": "neovim-flake",
-        "nixos-hardware": "nixos-hardware",
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_5",
         "schizofox": "schizofox",
