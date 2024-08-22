@@ -1,6 +1,4 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_: {
   programs.neovim-flake.settings.vim = {
     notify = {
       nvim-notify.enable = true;
