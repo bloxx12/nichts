@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.modules.other.system) username;
-in {
+{pkgs, ...}: {
   programs.neovim-flake.settings.vim = {
     treesitter = {
       fold = true;

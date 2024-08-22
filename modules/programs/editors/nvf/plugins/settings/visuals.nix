@@ -3,15 +3,13 @@ _: {
     visuals = {
       enable = true;
       nvimWebDevicons.enable = true;
-      scrollBar.enable = false;
-      smoothScroll.enable = false;
       cellularAutomaton.enable = true;
       highlight-undo.enable = true;
 
       indentBlankline.enable = true;
 
       cursorline = {
-        enable = true;
+        enable = false;
         lineTimeout = 0;
       };
 
@@ -21,7 +19,7 @@ _: {
           notification.window = {
             winblend = 0;
             border = "none";
-            render_limit = 10;
+            render_limit = 7;
           };
         };
       };
