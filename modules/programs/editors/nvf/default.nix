@@ -1,16 +1,12 @@
 {
-  pkgs,
-  config,
   lib,
   inputs,
   ...
 }: let
-  cfg = config.modules.system.programs.editors.neovim;
   inherit (builtins) filter map toString elem;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix;
   inherit (lib.lists) concatLists;
-  inherit (lib) mkIf;
 
   mkNeovimModule = {
     path,
