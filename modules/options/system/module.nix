@@ -5,8 +5,6 @@
 }: let
   inherit (builtins) elemAt;
   inherit (lib.options) mkOption mkEnableOption;
-  inherit (lib.modules) mkMerge;
-  inherit (lib.lists) optionals;
   inherit (lib.types) enum listOf str nullOr bool package;
 in {
   imports = [
@@ -25,33 +23,15 @@ in {
     # filesystems
     #  ./fs.nix
 
-    # emulation and virtualization
-    #  ./emulation.nix
-    #  ./virtualization.nix
-
     # package and program related options
     #  ./services
     ./programs
-
-    # systemd-nspawn containers
-    #  ./containers.nix
 
     # monitor configuration
     ./monitors.nix
 
     ./hardware.nix
   ];
-  config = {
-    warnings = mkMerge [
-      (optionals (config.modules.system.users == []) [
-        ''
-          You have not added any users to be supported by your system. You may end up with an unbootable system!
-
-          Consider setting {option}`config.modules.system.users` in your configuration
-        ''
-      ])
-    ];
-  };
 
   options.modules.system = {
     mainUser = mkOption {
