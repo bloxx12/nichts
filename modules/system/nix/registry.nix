@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{inputs, ...}: let
   inherit (inputs) nixpkgs;
   nixpkgsPath = nixpkgs.outPath;
 in {
