@@ -11,6 +11,7 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.dconf.enable = true; # NOTE: we need this or gtk breaks
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   services.thermald.enable = true;
   services.fstrim.enable = lib.mkDefault true;
