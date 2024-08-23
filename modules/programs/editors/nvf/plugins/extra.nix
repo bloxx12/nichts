@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inherit (pkgs.vimPlugins) friendly-snippets aerial-nvim nvim-surround undotree mkdir-nvim ssr-nvim direnv-vim legendary-nvim lazygit-nvim;
+  inherit (pkgs.vimPlugins) friendly-snippets aerial-nvim nvim-surround undotree mkdir-nvim harpoon ssr-nvim direnv-vim legendary-nvim lazygit-nvim;
   inherit (pkgs) fetchFromGitHub;
   inherit (pkgs.vimUtils) buildVimPlugin;
 
@@ -43,17 +43,6 @@
         hash = "sha256-nanNQEtpjv0YKEkkrPmq/5FPxq+Yj/19cs0Gf7YgKjU=";
       };
     };
-    /*
-    data-viewer-nvim = buildVimPlugin {
-      name = "data-viewer.nvim";
-      src = fetchFromGitHub {
-        owner = "VidocqH";
-        repo = "data-viewer.nvim";
-        rev = "40ddf37bb7ab6c04ff9e820812d1539afe691668";
-        hash = "sha256-D5hvLhsYski11H9qiDDL2zlZMtYmbpHgpewiWR6C7rE=";
-      };
-    };
-    */
     vim-nftables = buildVimPlugin {
       name = "vim-nftables";
       src = fetchFromGitHub {
@@ -77,6 +66,10 @@
 in {
   programs.neovim-flake.settings.vim.extraPlugins = {
     # plugins that are pulled from nixpkgs
+    harpoon = {
+      package = harpoon;
+      setup = "require('harpoon').setup {}";
+    };
     direnv = {package = direnv-vim;};
     friendly-snippets = {package = friendly-snippets;};
     mkdir-nvim = {package = mkdir-nvim;};
@@ -113,25 +106,6 @@ in {
 
     # plugins that are built from their sources
     #    regexplainer = {package = pluginSources.regexplainer;};
-    #    vim-nftables = {package = pluginSources.vim-nftables;};
-    /*
-    data-view = {
-      package = pluginSources.data-viewer-nvim;
-      setup = ''
-        -- open data files in data-viewer.nvim
-        vim.api.nvim_exec([[
-          autocmd BufReadPost,BufNewFile *.sqlite,*.csv,*.tsv DataViewer
-        ]], false)
-
-
-        -- keybinds
-        vim.api.nvim_set_keymap('n', '<leader>dv', ':DataViewer<CR>', {noremap = true})
-        vim.api.nvim_set_keymap('n', '<leader>dvn', ':DataViewerNextTable<CR>', {noremap = true})
-        vim.api.nvim_set_keymap('n', '<leader>dvp', ':DataViewerPrevTable<CR>', {noremap = true})
-        vim.api.nvim_set_keymap('n', '<leader>dvc', ':DataViewerClose<CR>', {noremap = true})
-      '';
-    };
-    */
     smart-splits = {
       package = pluginSources.smart-splits;
       setup = "require('smart-splits').setup {}";
