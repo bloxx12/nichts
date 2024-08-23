@@ -1,11 +1,11 @@
 {config, ...}: let
-  inherit (config.modules.other.system) username;
+  inherit (config.modules.other.system) hostname username;
 in {
   imports = [
     ./networkmanager.nix
   ];
   networking = {
-    hostName = username;
+    hostName = hostname;
     enableIPv6 = true;
     nameservers = [
       # quad9 DNS
