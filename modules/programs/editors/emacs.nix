@@ -58,7 +58,7 @@
         # modus-themes
         # move-text
         # org-cliplink
-        # org-contacts
+        org-contacts
         # org-pomodoro
         # nano-theme
         # no-littering
