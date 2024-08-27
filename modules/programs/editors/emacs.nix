@@ -94,6 +94,7 @@
       ]));
 in {
   config = mkIf cfg.enable {
+    environment.variables.PATH = ["$XDG_CONFIG_HOME/emacs/bin"];
     home-manager.users.${username} = {
       home.packages = with pkgs; [
         # needed my native-comp
@@ -113,7 +114,7 @@ in {
         #   pinentry-emacs) # in-emacs gnupg prompts
         zstd # for undo-fu-session/undo-tree compression
 
-        ## Module dependencies
+        # Module dependencies
         # :checkers spell
         (aspellWithDicts (ds: with ds; [de en en-computers en-science]))
         # :tools editorconfig
@@ -121,15 +122,13 @@ in {
         # :tools lookup & :lang org +roam
         sqlite
         # :lang latex & :lang org (latex previews)
-        texlive.combined.scheme-medium
+        # texlive.combined.scheme-medium
         # :lang beancount
-        beancount
-        fava
+        # beancount
+        # fava
         # :lang nix
         age
       ];
-
-      environment.variables.PATH = ["$XDG_CONFIG_HOME/emacs/bin"];
 
       services.emacs = {
         enable = true;
