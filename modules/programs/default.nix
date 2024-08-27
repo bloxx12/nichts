@@ -5,5 +5,6 @@ _: {
     ./tui
     ./editors
     ./other/module.nix
+    ./launchers/module.nix
   ];
 }
