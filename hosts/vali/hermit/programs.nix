@@ -61,6 +61,7 @@ in {
     nil
     nitch
     swww
+    microfetch
     nmap
     notesnook
     onlyoffice-bin
