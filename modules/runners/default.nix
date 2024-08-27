@@ -2,6 +2,6 @@ _: {
   imports = [
     ./rofi
     ./anyrun
-    ./fuzzel/module.nix
+    # ./fuzzel/module.nix
   ];
 }
