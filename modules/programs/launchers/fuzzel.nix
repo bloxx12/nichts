@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ...
 }: let
   inherit (lib) mkIf;
   inherit (config.modules.other.system) username;
@@ -13,12 +14,14 @@ in {
         enable = true;
         package = pkgs.fuzzel;
         settings = {
-          icon-theme = "Papirus-Dark";
-          font = "ComicShannsMono:weight=bold:size=36";
-          terminal = "foot -e";
-          # make fuzzel appear on fullscreen windows
-          layer = "overlay";
-          background = "000000";
+          main = {
+            terminal = "${pkgs.foot}/bin/foot -e";
+            # make fuzzel appear on fullscreen windows
+            layer = "overlay";
+            icon-theme = "Papirus-Dark";
+            font = "ComicShannsMono:weight=regular:size=14";
+          };
+          # background = "000000";
         };
       };
     };
