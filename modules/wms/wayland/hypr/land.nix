@@ -14,8 +14,8 @@
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
-  inherit (lib) flatten mkIf mkDefault mapAttrsToList;
-  inherit (builtins) toString;
+  inherit (lib) imap0 flatten optionalString mkIf mkDefault mapAttrsToList;
+  inherit (builtins) map genList attrNames toString;
 in {
   config = mkIf cfg.enable {
     programs.hyprland = {
@@ -83,65 +83,42 @@ in {
             )
             monitors;
 
-          workspace = flatten ()
-
-          # Workspace config
-          workspace = [
-            "1,monitor:eDP-1, default:true"
-            "2,monitor:eDP-1"
-            "3,monitor:eDP-1"
-            "4,monitor:eDP-1"
-            "5,monitor:eDP-1"
-            "6,monitor:eDP-1"
-            "7,monitor:eDP-1"
-            "8,monitor:eDP-1"
-            "9,monitor:eDP-1"
-            "10,monitor:eDP-1"
-
-            # "1,monitor:HDMI-A-1, default:true"
-            # "2,monitor:HDMI-A-1"
-            # "3,monitor:HDMI-A-1"
-            # "4,monitor:HDMI-A-1"
-            # "5,monitor:HDMI-A-1"
-            # "6,monitor:HDMI-A-1"
-            # "7,monitor:HDMI-A-1"
-            # "8,monitor:HDMI-A-1"
-            # "9,monitor:HDMI-A-1"
-            # "10,monitor:HDMI-A-1"
-            #
-            # "11, monitor:HDMI-A-2, default:true"
-            # "12, monitor:HDMI-A-2"
-            # "13, monitor:HDMI-A-2"
-            # "14, monitor:HDMI-A-2"
-            # "15, monitor:HDMI-A-2"
-            # "16, monitor:HDMI-A-2"
-            # "17, monitor:HDMI-A-2"
-            # "18, monitor:HDMI-A-2"
-            # "19, monitor:HDMI-A-2"
-            # "20, monitor:HDMI-A-2"
-            #
-            # "21, monitor:DP-2, default:true"
-            # "22, monitor:DP-2"
-            # "23, monitor:DP-2"
-            # "24, monitor:DP-2"
-            # "25, monitor:DP-2"
-            # "26, monitor:DP-2"
-            # "27, monitor:DP-2"
-            # "28, monitor:DP-2"
-            # "29, monitor:DP-2"
-            # "30, monitor:DP-2"
-            #
-            # scratchpads
-            "special:nixos, decorate:false"
-            "special:keepassxc, decorate:false"
-          ];
+          # INFO: This is a custom function to map all of my monitors to workspaces.
+          # Since I use split-monitor-workspaces, I map 10 workspaces to each monitor
+          # and set the first one to be the default one.
+          # To be able to use this for a varying amount of monitors we do some nasty trickery:
+          workspace =
+            # We're creating several lists of workspace assignments, one for each monitor,
+            # and have to merge them into one big list.
+            (flatten
+              # We then use imap0 insted of map because imap0 starts indexing at zero as oppsed to one with map.
+              (imap0 (monitorIndex: monitorName: (
+                  map (
+                    i: let
+                      # we define our own modulo operation for this,
+                      # since only the first workspace on each monitor is the default workspace.
+                      mod = a: b: a - (b * (a / b));
+                      workspace = toString i;
+                      isDefault = (mod i 10) == 1; # 11, 21, 31, ...
+                    in "${workspace}, monitor:${monitorName}${optionalString isDefault ", default:true"}"
+                  )
+                  # we generate a list of 10 elements for each monitor. We have to add 1 each time since genList starts indexing at 0.
+                  # also, we add the monitorIndex * 10 to get 10 workspaces for each individual monitor.
+                  (genList (i: i + 1 + (10 * monitorIndex)) 10)
+                ))
+                # our attrSet of different monitors
+                (attrNames monitors)))
+            # These are my two special workspaces
+            ++ [
+              "special:nixos, decorate:false"
+              "special:keepassxc, decorate:false"
+            ];
           # Input settings
           input = {
             kb_layout = "de,us";
             kb_variant = ",colemak_dh_wide";
             kb_options = "grp:rctrl_rshift_toggle";
 
-            sensitivity = 0.0;
             follow_mouse = true;
 
             repeat_rate = 50;
@@ -226,80 +203,53 @@ in {
           ];
 
           # Keybinds
-          bind = [
-            "$mainMod, RETURN, exec, ${pkgs.foot}/bin/foot"
-            "$mainMod, Q, killactive"
-            "$mainMod, F, fullscreen, 0"
-            "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
-            "$mainMod, SPACE, togglefloating, active"
-
+          bind =
             # workspaces
             # split-workspace is because of the split-workspace plugin
-            "$mainMod, 1, workspace, 1"
-            "$mainMod, 2, workspace, 2"
-            "$mainMod, 3, workspace, 3"
-            "$mainMod, 4, workspace, 4"
-            "$mainMod, 5, workspace, 5"
-            "$mainMod, 6, workspace, 6"
-            "$mainMod, 7, workspace, 7"
-            "$mainMod, 8, workspace, 8"
-            "$mainMod, 9, workspace, 9"
-            "$mainMod, 0, workspace, 10"
-            "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
-            "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
-            "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
-            "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
-            "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
-            "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
-            "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
-            "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
-            "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
-            "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+            map (
+              i: let
+                mod = a: b: a - (b * (a / b));
+                key = toString (mod i 10);
+                workspace = toString i;
+              in "$mainMod, ${key}, split-workspace, ${workspace}"
+            ) (genList (i: i + 1) 10)
+            # split-movetoworkspacesilent
+            ++ map (
+              i: let
+                mod = a: b: a - (b * (a / b));
+                key = toString (mod i 10);
+                workspace = toString i;
+              in "$mainMod SHIFT, ${key}, split-movetoworkspacesilent, ${workspace}"
+            ) (genList (i: i + 1) 10)
+            ++ [
+              "$mainMod, RETURN, exec, ${pkgs.foot}/bin/foot"
+              "$mainMod, Q, killactive"
+              "$mainMod, F, fullscreen, 0"
+              "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
+              "$mainMod, SPACE, togglefloating, active"
 
-            # split-workspace is because of the split-workspace plugin
-            # "$mainMod, 1, split-workspace, 1"
-            # "$mainMod, 2, split-workspace, 2"
-            # "$mainMod, 3, split-workspace, 3"
-            # "$mainMod, 4, split-workspace, 4"
-            # "$mainMod, 5, split-workspace, 5"
-            # "$mainMod, 6, split-workspace, 6"
-            # "$mainMod, 7, split-workspace, 7"
-            # "$mainMod, 8, split-workspace, 8"
-            # "$mainMod, 9, split-workspace, 9"
-            # "$mainMod, 0, split-workspace, 10"
-            # "$mainMod SHIFT, 1, split-movetoworkspacesilent, 1"
-            # "$mainMod SHIFT, 2, split-movetoworkspacesilent, 2"
-            # "$mainMod SHIFT, 3, split-movetoworkspacesilent, 3"
-            # "$mainMod SHIFT, 4, split-movetoworkspacesilent, 4"
-            # "$mainMod SHIFT, 5, split-movetoworkspacesilent, 5"
-            # "$mainMod SHIFT, 6, split-movetoworkspacesilent, 6"
-            # "$mainMod SHIFT, 7, split-movetoworkspacesilent, 7"
-            # "$mainMod SHIFT, 8, split-movetoworkspacesilent, 8"
-            # "$mainMod SHIFT, 9, split-movetoworkspacesilent, 9"
-            # "$mainMod SHIFT, 0, split-movetoworkspacesilent, 10"
-            #
-            # Move Windows
-            "$mainMod SHIFT, H, movewindow, l"
-            "$mainMod SHIFT, J, movewindow, d"
-            "$mainMod SHIFT, K, movewindow, u"
-            "$mainMod SHIFT, L, movewindow, r"
+              # Move Windows
+              "$mainMod SHIFT, H, movewindow, l"
+              "$mainMod SHIFT, J, movewindow, d"
+              "$mainMod SHIFT, K, movewindow, u"
+              "$mainMod SHIFT, L, movewindow, r"
 
-            # Screenshotting
-            "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+              # Screenshotting
+              "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
 
-            # File manager
-            "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
+              # File manager
+              "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
 
-            # Toggle the three different special workspaces.
-            "$mainMod, N, togglespecialworkspace, nixos"
-            "$mainMod, X, togglespecialworkspace, keepassxc"
+              # Toggle the three different special workspaces.
+              "$mainMod, N, togglespecialworkspace, nixos"
+              "$mainMod, X, togglespecialworkspace, keepassxc"
 
-            # Reload hyprland
-            "$mainMod, R, exec, ${cfg.package}/bin/hyprctl reload"
+              # Reload hyprland
+              "$mainMod, R, exec, ${cfg.package}/bin/hyprctl reload"
 
-            # Restart waybar
-            "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
-          ];
+              # Restart waybar
+              "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
+            ];
 
           binde = [
             # window focus
@@ -329,10 +279,15 @@ in {
           bindle = let
             volume_up = "${pkgs.pamixer}/bin/pamixer -ui 5";
             volume_down = "${pkgs.pamixer}/bin/pamixer -ud 5";
+            brightness_up = "${pkgs.brighnessctl}/bin/brighnessctl set +5%";
+            brightness_down = "${pkgs.brighnessctl}/bin/brighnessctl set 5%-";
           in [
             ", XF86AudioRaiseVolume, exec, ${volume_up}"
             ", XF86AudioLowerVolume, exec, ${volume_down}"
+            ", XF86MonBrighnessUp, exec, ${brightness_up}"
+            ", XF86MonBrighnessDown, exec, ${brightness_down}"
           ];
+
           # Mouse settings
           bindm = [
             "$mainMod, mouse:272, movewindow"
