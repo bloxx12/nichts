@@ -8,13 +8,13 @@
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
   inherit (config.modules.style) cursor;
-  inherit (config.modules.hardware) monitors;
+  inherit (config.modules.system.hardware) monitors;
 
   inherit
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) flatten mkIf mkDefault mapAttrsToList;
   inherit (builtins) toString;
 in {
   config = mkIf cfg.enable {
@@ -68,11 +68,22 @@ in {
           #   "Unknown-1,disable"
           # ];
 
+          # Thanks Poz for inspiration, using an attrset is actually much smarter
+          # than using a normal list.
           monitor =
-            map (
-              m: "${m.device},${toString m.resolution.x}x${toString m.resolution.y}@${toString m.refresh_rate},${toString m.position.x}x${toString m.position.y},${toString m.scale},transform,${toString m.transform}"
+            mapAttrsToList (
+              name: m: let
+                w = toString m.resolution.x;
+                h = toString m.resolution.y;
+                refreshRate = toString m.refreshRate;
+                x = toString m.position.x;
+                y = toString m.position.y;
+                scale = toString m.scale;
+              in "${name},${w}x${h}@${refreshRate},${x}x${y},${scale}"
             )
-            monitors; #TODO: default value
+            monitors;
+
+          workspace = flatten ()
 
           # Workspace config
           workspace = [
