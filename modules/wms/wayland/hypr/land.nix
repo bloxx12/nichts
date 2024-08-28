@@ -9,7 +9,6 @@
   inherit (config.modules.other.system) username;
   inherit (config.modules.style) cursor;
   inherit (config.modules.system.hardware) monitors;
-
   inherit
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
@@ -17,25 +16,29 @@
   inherit (lib) imap0 flatten optionalString mkIf mkDefault mapAttrsToList;
   inherit (builtins) map genList attrNames toString;
 in {
+  # we disable the default hyprland module
+  disabledModules = ["programs/hyprland.nix"];
+
   config = mkIf cfg.enable {
     programs.hyprland = {
-      enable = false;
+      enable = true;
       inherit (cfg) package portalPackage;
     };
     # xdg Portal
     xdg.portal = {
       enable = true;
       configPackages = mkDefault [
-        inputs'.hyprland.packages.xdg-desktop-portal-hyprland
+        cfg.portalPackage
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        inputs'.hyprland.packages.xdg-desktop-portal-hyprland
+        cfg.portalPackage
       ];
       config = {
         common.default = ["hyprland"];
       };
     };
+
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
@@ -68,7 +71,7 @@ in {
           #   "Unknown-1,disable"
           # ];
 
-          # Thanks Poz for inspiration, using an attrset is actually much smarter
+          # Thanks Poz for inspiration, using an attrSet is actually much smarter
           # than using a normal list.
           monitor =
             mapAttrsToList (
@@ -315,9 +318,6 @@ in {
             "${pkgs.swww}/bin/swww-daemon"
 
             "${pkgs.wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
-          ];
-
-          exec = [
           ];
 
           plugin = {
