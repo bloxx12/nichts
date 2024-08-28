@@ -19,7 +19,7 @@
       # Whether to generate the manual page index caches
       # if true, it becomes possible to search for a page or keyword
       # using utilities like apropos(1) and the -k option of man(1).
-      generateCaches = true;
+      generateCaches = false;
 
       # Whether to enable mandoc as the default man page viewer.
       mandoc.enable = false; # my default manpage viewer is Neovim, so this isn't necessary
