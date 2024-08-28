@@ -1,16 +1,13 @@
 {
   description = "My NixOS config flake";
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       imports = [
         ./parts
+        ./hosts
       ];
-
-      flake = {
-        nixosConfigurations = import ./hosts {inherit inputs withSystem;};
-      };
-    });
+    };
   inputs = {
     # what am I doing to this config help
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -58,6 +55,7 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
+    # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
       url = "github:schizofox/schizofox";
       inputs = {

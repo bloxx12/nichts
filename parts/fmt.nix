@@ -1,4 +1,5 @@
-{
+{inputs, ...}: {
+  imports = [inputs.treefmt-nix.flakeModule];
   perSystem = {
     config,
     pkgs,
@@ -15,7 +16,7 @@
       programs = {
         alejandra.enable = true;
 
-        shellcheck.enable = true; # cannot be configured, errors on basic bash convention
+        shellcheck.enable = true;
 
         prettier = {
           enable = true;
