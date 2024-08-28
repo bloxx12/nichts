@@ -113,6 +113,7 @@ in {
               "special:nixos, decorate:false"
               "special:keepassxc, decorate:false"
             ];
+
           # Input settings
           input = {
             kb_layout = "de,us";
@@ -279,13 +280,13 @@ in {
           bindle = let
             volume_up = "${pkgs.pamixer}/bin/pamixer -ui 5";
             volume_down = "${pkgs.pamixer}/bin/pamixer -ud 5";
-            brightness_up = "${pkgs.brighnessctl}/bin/brighnessctl set +5%";
-            brightness_down = "${pkgs.brighnessctl}/bin/brighnessctl set 5%-";
+            brightness_up = "${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+            brightness_down = "${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
           in [
             ", XF86AudioRaiseVolume, exec, ${volume_up}"
             ", XF86AudioLowerVolume, exec, ${volume_down}"
-            ", XF86MonBrighnessUp, exec, ${brightness_up}"
-            ", XF86MonBrighnessDown, exec, ${brightness_down}"
+            ", XF86MonBrightnessUp, exec, ${brightness_up}"
+            ", XF86MonBrightnessDown, exec, ${brightness_down}"
           ];
 
           # Mouse settings
@@ -299,6 +300,7 @@ in {
             pass_mouse_when_bound = false;
             movefocus_cycles_fullscreen = false;
           };
+
           # Programs which get executed at Hyprland start.
           exec-once = [
             "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
