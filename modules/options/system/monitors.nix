@@ -1,22 +1,12 @@
 {lib, ...}: let
   inherit (lib) mkOption;
-  inherit (lib.types) str submodule int ints number listOf;
+  inherit (lib.types) str submodule int ints number attrsOf listOf;
 in {
-  options.modules.system.monitors = mkOption {
+  options.modules.system.hardware.monitors = mkOption {
     description = "\n      List of monitors to use\n    ";
-    default = [];
-    type = listOf (submodule {
+    default = {};
+    type = attrsOf (submodule {
       options = {
-        name = mkOption {
-          type = str;
-          description = "Give your monitor a cute name";
-          default = "";
-        };
-        device = mkOption {
-          type = str;
-          description = "The actual device name of the monitor";
-          default = "eDP-1";
-        };
         resolution = mkOption {
           type = submodule {
             options = {
@@ -38,7 +28,7 @@ in {
           description = "monitor scale";
           default = 1.0;
         };
-        refresh_rate = mkOption {
+        refreshRate = mkOption {
           type = int;
           description = "monitor refresh rate (in Hz)";
           default = 60;
