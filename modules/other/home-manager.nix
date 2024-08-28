@@ -11,7 +11,6 @@ with lib; let
 in {
   options.modules.other.home-manager = {
     enable = mkEnableOption "home-manager";
-    enableDirenv = mkEnableOption "direnv";
   };
 
   # NOTE: to keep this configuration sane and simple,
@@ -29,7 +28,6 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
 
-      #
       backupFileExtension = "hm.old";
       extraSpecialArgs = {inherit inputs self;};
       users.${username} = {
