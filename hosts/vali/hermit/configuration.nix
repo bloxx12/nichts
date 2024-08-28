@@ -11,7 +11,6 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
-  programs.dconf.enable = true; # NOTE: we need this or gtk breaks
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   services.thermald.enable = true;
   services.fstrim.enable = lib.mkDefault true;
@@ -44,10 +43,12 @@
     };
     usrEnv = {
       desktops.hyprland.enable = true;
+
       programs = {
         launchers = {
           fuzzel.enable = true;
         };
+
         media = {
           beets.enable = true;
           mpv.enable = true;
@@ -56,11 +57,13 @@
       };
       services = {
         locate.enable = true;
+
         media.mpd = {
           enable = true;
           musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
         };
       };
+
       style = {
         gtk.enable = true;
         qt.enable = true;
@@ -72,9 +75,9 @@
         username = "vali";
         gitPath = "/home/vali/projects/nichts";
       };
+
       home-manager = {
         enable = true;
-        enableDirenv = true;
       };
     };
     programs = {
@@ -85,6 +88,7 @@
       nh.enable = true;
       waybar.enable = true;
     };
+
     services = {
       dunst.enable = true;
     };
