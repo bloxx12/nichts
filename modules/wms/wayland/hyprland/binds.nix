@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;

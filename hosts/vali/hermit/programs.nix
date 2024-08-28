@@ -24,14 +24,12 @@
     ffmpeg-full
     fftw
     fzf
-    #gadacz
     gcc
     gdb
     gnumake
     grc
     git
     helvum
-    hmm
     httpie
     hyperfine
     imagemagick
@@ -45,7 +43,6 @@
     libtool
     links2
     mapscii
-    mars-mips
     moc
     ncmpcpp
     neofetch
@@ -79,7 +76,6 @@
     trash-cli
     tree
     ttyper
-    typst
     unzip
     util-linux
     v4l-utils
