@@ -3,5 +3,6 @@ _: {
     ./configuration.nix
     ./programs.nix
     ./hardware-configuration.nix
+    ./hardware
   ];
 }

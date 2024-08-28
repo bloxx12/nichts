@@ -8,6 +8,7 @@
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.modules.other.system) username;
   inherit (config.modules.style) cursor;
+  inherit (config.modules.hardware) monitors;
 
   inherit
     (inputs'.split-monitor-workspaces.packages)
@@ -58,14 +59,21 @@ in {
           "$mainMod" = "SUPER";
 
           # Monitor config
-          monitor = [
-            "eDP-1,1920x1080,0x0,1"
-            # "DP-2,1920x1080,0x0,1"
-            # "HDMI-A-2,1920x1080,1920x0,1"
-            # "HDMI-A-1,1920x1080,3840x0,1"
-            # Had the shadow monitor bug, so had to disable all unknown monitors.
-            "Unknown-1,disable"
-          ];
+          # monitor = [
+          #   "eDP-1,1920x1080,0x0,1"
+          #   # "DP-2,1920x1080,0x0,1"
+          #   # "HDMI-A-2,1920x1080,1920x0,1"
+          #   # "HDMI-A-1,1920x1080,3840x0,1"
+          #   # Had the shadow monitor bug, so had to disable all unknown monitors.
+          #   "Unknown-1,disable"
+          # ];
+
+          monitor =
+            map (
+              m: "${m.device},${toString m.resolution.x}x${toString m.resolution.y}@${toString m.refresh_rate},${toString m.position.x}x${toString m.position.y},${toString m.scale},transform,${toString m.transform}"
+            )
+            monitors; #TODO: default value
+
           # Workspace config
           workspace = [
             "1,monitor:eDP-1, default:true"
@@ -163,7 +171,7 @@ in {
           ];
           # Hyprland anomations, using the above bezier curves
           animations = {
-            enabled = true;
+            enabled = false;
             animation = [
               "windows, 1, 4, dupa, popin"
               "windowsOut, 1, 4, dupa, slide"
