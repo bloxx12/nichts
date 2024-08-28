@@ -4,7 +4,7 @@ My personal collection of NixOS configuration files
 
 # License
 
-No Idea at this point
+GNU GPL3
 
 # credits
 
@@ -13,6 +13,7 @@ Below are all the repositories I took inspiration from, check them out!
 
 ```
 *heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
+Dragyx: https://github.com/dragyx/nichts
 Sioodmy: https://github.com/sioodmy/dotfiles
 Heinrik Lissner: https://github.com/hlissner/dotfiles/
 Diniamo: https://github.com/diniamo/niqs
