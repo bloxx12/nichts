@@ -1,9 +1,4 @@
-{
-  inputs',
-  pkgs,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     alejandra
     alsa-utils
