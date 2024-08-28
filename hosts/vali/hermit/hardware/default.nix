@@ -1,1 +1,1 @@
-_: {imports = [./monitors.nix];}
+_: {imports = [./monitors.nix ./fs.nix];}
