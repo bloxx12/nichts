@@ -61,10 +61,7 @@
         username = "vali";
         gitPath = "/home/vali/projects/nichts";
       };
-      home-manager = {
-        enable = true;
-        enableDirenv = true;
-      };
+      home-manager.enable = true;
     };
     programs = {
       ssh.enable = true;
