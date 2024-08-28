@@ -9,6 +9,7 @@ with lib; let
   inherit (config.modules.usrEnv.style.gtk) theme iconTheme;
 in {
   config = mkIf cfg.enable {
+    programs.dconf.enable = true; # NOTE: we need this or gtk breaks
     home-manager.users.${username} = {
       gtk = {
         enable = true;
