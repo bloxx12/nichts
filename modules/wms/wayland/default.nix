@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./hypr
+    ./hyprland/module.nix
     ./variables.nix
   ];
 }
