@@ -1,1 +1,1 @@
-_: {imports = [./wayland ./x];}
+_: {imports = [./wayland];}
