@@ -1,9 +1,10 @@
 {
-  lib,
   inputs,
-  self,
+  lib,
   ...
-}: {
+}: let
+  inherit (inputs) self;
+in {
   mkSystem = {
     withSystem,
     system,
