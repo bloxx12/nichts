@@ -1,17 +1,19 @@
-{
-  inputs,
-  lib,
-  self,
-  ...
-}: let
-  callLibs = path: import path {inherit inputs lib self;};
-  sussyLib = inputs.nixpkgs.lib.extend (final: prev: {
+{inputs, ...}: let
+  callLibs = path:
+    import path {
+      inherit inputs;
+      inherit lib;
+    };
+  lib = inputs.nixpkgs.lib.extend {
     builders = callLibs ./builders.nix;
-  });
+  };
 in {
+  perSystem = {
+    _module.args.lib = lib;
+  };
   flake = {
-    lib = sussyLib;
+    inherit lib;
     # raf what the hell does this do you made me set it
-    _module.args.lib = sussyLib;
+    _module.args.lib = lib;
   };
 }
