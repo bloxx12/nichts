@@ -1,9 +1,6 @@
-{
-  inputs,
-  lib,
-  ...
-}: let
-  inherit (inputs) self;
+{inputs, ...}: let
+  inherit (inputs) self nixpkgs;
+  inherit (nixpkgs) lib;
 in {
   mkSystem = {
     withSystem,

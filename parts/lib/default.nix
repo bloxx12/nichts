@@ -19,12 +19,13 @@
       builders = callLibs ./builders.nix;
     };
 
-    # This makes mkSysytem available *in addition* to `lib.extendedLib.builders.mkSystem`.
+    # This makes mkSytem available *in addition* to `lib.extendedLib.builders.mkSystem`.
     # The syntax is a matter of preference, but it is good to make sure all custom attribute
     # sets (e.g., builders) are defined and taken from a separate attrset (extendedLib) to make
     # absolutely sure we *never* conflict with nixpkgs. Likewise, the function names inherited
     # here should also be different from ones available under `lib` by default, i.e., you cannot
     # re-define functions.
+    inherit (self.extendedLib) builders;
     inherit (self.extendedLib.builders) mkSystem;
   };
 
