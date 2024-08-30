@@ -21,16 +21,16 @@
     devShells = forEachSystem (system: {
       default = pkgsForEach.${system}.mkShellNoCC {
         packages = [
-          quickshell.packages.${system}.default.override
-          {
-            withJemalloc = true;
-            withQtSvg = true;
-            withWayland = true;
-            withX11 = false;
-            withPipewire = true;
-            withPam = true;
-            withHyprland = true;
-          }
+          (quickshell.packages.${system}.default.override
+            {
+              withJemalloc = true;
+              withQtSvg = true;
+              withWayland = true;
+              withX11 = false;
+              withPipewire = true;
+              withPam = true;
+              withHyprland = true;
+            })
         ];
       };
     });
