@@ -2,18 +2,17 @@
   callLibs = path:
     import path {
       inherit inputs;
-      inherit lib;
+      lib = extendedLib;
     };
-  lib = inputs.nixpkgs.lib.extend {
+  extendedLib = inputs.nixpkgs.lib.extend {
     builders = callLibs ./builders.nix;
   };
 in {
-  perSystem = {
-    _module.args.lib = lib;
-  };
+  # perSystem = {
+  #   _module.args.lib = lib;
+  # };
   flake = {
-    inherit lib;
-    # raf what the hell does this do you made me set it
-    _module.args.lib = lib;
+    lib = extendedLib;
+    _module.args.lib = extendedLib;
   };
 }
