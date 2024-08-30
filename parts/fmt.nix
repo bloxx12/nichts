@@ -7,6 +7,7 @@
   }: {
     # https://github.com/numtide/treefmt-nix?tab=readme-ov-file#flake-parts
     formatter = config.treefmt.build.wrapper;
+
     treefmt = {
       projectRootFile = "flake.nix";
       enableDefaultExcludes = true;
