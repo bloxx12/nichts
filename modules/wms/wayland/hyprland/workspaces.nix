@@ -23,7 +23,8 @@ in {
       # INFO: This is a custom function to map all of my monitors to workspaces.
       # Since I use split-monitor-workspaces, I map 10 workspaces to each monitor
       # and set the first one to be the default one.
-      # To be able to use this for a varying amount of monitors we do some nasty trickery:
+      # To be able to use this for a varying amount of monitors we do some nasty trickery.
+      # This was inspired by jacekpoz, whose configuration is linked in this project's README.md.
       workspace =
         # We're creating several lists of workspace assignments, one for each monitor,
         # and have to merge them into one big list.
