@@ -44,6 +44,6 @@ in {
   # `flake.lib` is set.
   flake = {
     lib = extendedLib;
-    _module.args.lib = extendedLib;
+    # _module.args.lib = extendedLib;
   };
 }
