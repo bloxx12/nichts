@@ -1,6 +1,6 @@
 _: {
   flake.templates = {
-    qs = {
+    quickshell = {
       path = ./quickshell;
       description = "QuickShell developement flake";
     };
