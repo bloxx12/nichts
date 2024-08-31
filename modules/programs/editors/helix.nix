@@ -12,7 +12,7 @@ in {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
-        # thanks fuf, this is great!
+        # thanks fufexan, this is great!
         package = pkgs.helix.overrideAttrs (previousAttrs: {
           makeWrapperArgs = with pkgs;
             previousAttrs.makeWrapperArgs
@@ -27,7 +27,7 @@ in {
                 nil
                 bash-language-server
                 shellcheck
-                typst-lsp
+                # typst-lsp
               ])
             ];
         });

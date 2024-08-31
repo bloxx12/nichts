@@ -27,7 +27,7 @@
         editors = {
           emacs.enable = true;
           neovim.enable = true;
-          helix.enable = false;
+          helix.enable = true;
           kakoune.enable = false;
         };
         discord.enable = true;
