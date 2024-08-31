@@ -1,3 +1,3 @@
 _: {
-  imports = [./fuzzel/module.nix];
+  imports = [./fuzzel];
 }
