@@ -48,6 +48,7 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
+    helix.url = "github:helix-editor/helix";
     neovim-flake = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
