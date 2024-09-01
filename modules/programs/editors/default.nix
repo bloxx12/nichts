@@ -1,1 +1,8 @@
-_: {imports = [./emacs.nix ./helix.nix ./kakoune ./nvf];}
+_: {
+  imports = [
+    ./emacs/module.nix
+    ./helix/module.nix
+    ./kakoune
+    ./nvf
+  ];
+}
