@@ -9,12 +9,13 @@
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf getExe makeBinPath;
 in {
+  imports = [./languages.nix];
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
         # thanks fufexan, this is great!
-        package = inputs'.helix.packages.default.helix.overrideAttrs (previousAttrs: {
+        package = inputs'.helix.packages.default.overrideAttrs (previousAttrs: {
           makeWrapperArgs = with pkgs;
             previousAttrs.makeWrapperArgs
             or []
@@ -58,14 +59,6 @@ in {
             A-L = "goto_next_buffer";
             A-w = ":buffer-close";
             A-f = ":format";
-          };
-        };
-        languages = {
-          language-server = {
-            nil = {
-              command = getExe pkgs.nil;
-              config.nil.formatting.command = ["${getExe pkgs.alejandra}" "-q"];
-            };
           };
         };
       };
