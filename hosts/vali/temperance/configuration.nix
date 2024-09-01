@@ -1,6 +1,7 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }: {
   # Time Zone
@@ -11,13 +12,15 @@
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  services.fstrim.enable = lib.mkDefault true;
+
   modules = {
     system = {
       programs = {
         editors = {
-          emacs.enable = false;
+          emacs.enable = true;
           neovim.enable = true;
-          helix.enable = false;
+          helix.enable = true;
           kakoune.enable = false;
         };
         discord.enable = true;
@@ -26,17 +29,17 @@
         zellij.enable = true;
         terminals = {
           foot.enable = true;
-          kitty.enable = true;
+          kitty.enable = false;
         };
       };
       sound.enable = true;
     };
     usrEnv = {
       desktops.hyprland.enable = true;
+
       programs = {
         launchers = {
-          anyrun.enable = true;
-          rofi.enable = true;
+          fuzzel.enable = true;
         };
         media = {
           beets.enable = true;
@@ -46,6 +49,7 @@
       };
       services = {
         locate.enable = true;
+
         media.mpd = {
           enable = true;
           musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
@@ -53,6 +57,7 @@
       };
       style = {
         gtk.enable = true;
+        qt.enable = true;
       };
     };
     other = {
@@ -74,13 +79,6 @@
     };
     services = {
       dunst.enable = true;
-    };
-    theming = {
-      qt = {
-        enable = false;
-        package = pkgs.kde-gruvbox;
-        name = "Gruvbox-Dark";
-      };
     };
   };
   system.stateVersion = "23.11";
