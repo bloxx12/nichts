@@ -7,13 +7,13 @@ _: {
       illuminate.enable = true;
 
       breadcrumbs = {
-        enable = true;
+        enable = false;
         source = "nvim-navic";
         navbuddy.enable = false;
       };
 
       smartcolumn = {
-        enable = true;
+        enable = false;
         setupOpts = {
           columnAt.languages = {
             markdown = [80];
@@ -26,7 +26,7 @@ _: {
       };
 
       borders = {
-        enable = true;
+        enable = false;
         globalStyle = "rounded";
       };
     };

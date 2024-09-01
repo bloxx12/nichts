@@ -4,13 +4,12 @@ _: {
       toggleterm = {
         enable = true;
         mappings.open = "<C-t>";
-
+        lazygit = {
+          enable = true;
+          direction = "tab";
+        };
         setupOpts = {
           direction = "tab";
-          lazygit = {
-            enable = true;
-            direction = "tab";
-          };
         };
       };
     };
