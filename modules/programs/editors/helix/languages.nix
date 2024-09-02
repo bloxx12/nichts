@@ -1,13 +1,12 @@
 {
   config,
-  inputs',
   lib,
   pkgs,
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
-  inherit (lib) mkIf getExe makeBinPath;
+  inherit (lib) mkIf getExe ;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
