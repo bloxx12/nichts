@@ -50,6 +50,8 @@
 
     helix.url = "github:helix-editor/helix";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     neovim-flake = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
