@@ -48,9 +48,10 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    helix.url = "github:helix-editor/helix";
-
     impermanence.url = "github:nix-community/impermanence";
+
+    # I use nvim, helix *and* emacs, cry about it.
+    helix.url = "github:helix-editor/helix";
 
     neovim-flake = {
       url = "github:notashelf/nvf";
