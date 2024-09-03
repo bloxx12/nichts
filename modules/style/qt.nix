@@ -44,16 +44,16 @@ in {
           # Scaling factor for QT applications
           QT_AUTO_SCREEN_SCALE_FACTOR = "1";
 
-          # Use wayland as the default backend, fall back to xcb if not available
-          QT_QPA_PLATFORM = "wayland;xcb";
+          # Use wayland as the default backend.
+          QT_QPA_PLATFORM = "wayland";
 
-          # Disable window decorations for qt applications
+          # Disable window decorations for qt applications.
           QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
-          # Remain compatible with QT5 whenever possible
+          # Remain compatible with QT5 whenever possible.
           DISABLE_QT_COMPAT = "0";
 
-          # Tell Calibre to use the dark theme, because the light one hurts my eyes.
+          # Tell Calibre to use the dark theme.
           CALIBRE_USE_DARK_PALETTE = "1";
         };
       };
