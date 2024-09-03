@@ -11,7 +11,7 @@ _: {
       java.enable = true;
       css.enable = true;
       # tailwind.enable = false;
-      # ts.enable = true;
+      ts.enable = true;
       # go.enable = true;
       # python.enable = true;
       bash.enable = true;
