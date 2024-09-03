@@ -11,7 +11,9 @@
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      home.sessionVariables.TERM = "foot";
+      home.packages = with pkgs; [
+        libsixel # for displaying images
+      ];
       programs.foot = {
         enable = true;
         package = pkgs.foot;
@@ -27,7 +29,6 @@ in {
             font-bold = "Iosevka Nerd Font:size=14";
 
             dpi-aware = false;
-
             pad = "0x0 center";
           };
 
