@@ -19,7 +19,7 @@ in {
             # make fuzzel appear on fullscreen windows
             layer = "overlay";
             icon-theme = "Papirus-Dark";
-            font = "ComicShannsMono:weight=regular:size=14";
+            font = "Lexend:weight=regular:size=14";
           };
           # background = "000000";
         };
