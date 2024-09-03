@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  inherit (config.modules.other.system) username;
   inherit (builtins) mapAttrs;
 in {
   # A (somewhat) sane list of fonts to be installed.
@@ -57,16 +56,6 @@ in {
       # Whether to decompress fonts in
       # /run/current-system/sw/share/X11/fonts
       decompressFonts = true;
-    };
-  };
-  # this fixes emoji stuff
-  home-manager.users.${username} = {
-    fonts.fontconfig = {
-      defaultFonts = {
-        monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-        sansSerif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-        serif = ["ComicShannsMono Nerd Font" "Noto Color Emoji"];
-      };
     };
   };
 }
