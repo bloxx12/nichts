@@ -19,7 +19,7 @@ in {
         package = pkgs.foot;
         settings = {
           main = {
-            term = "xterm-256color";
+            term = "foot";
             app-id = "foot";
             title = "foot";
             locked-title = "no";
@@ -28,6 +28,7 @@ in {
             font = "Iosevka Nerd Font:size=14";
             font-bold = "Iosevka Nerd Font:size=14";
 
+            selection-target = "primary";
             dpi-aware = false;
             pad = "0x0 center";
           };
