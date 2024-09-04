@@ -8,6 +8,12 @@ _: {
 
       fidget-nvim = {
         enable = true;
+        setupOpts = {
+          notification.window = {
+            winblend = 0;
+            border = "none";
+          };
+        };
       };
     };
   };
