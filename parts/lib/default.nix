@@ -17,6 +17,7 @@
   in {
     extendedLib = {
       builders = callLibs ./builders.nix;
+      modules = callLibs ./modules.nix;
     };
 
     # This makes mkSytem available *in addition* to `lib.extendedLib.builders.mkSystem`.
@@ -25,12 +26,20 @@
     # absolutely sure we *never* conflict with nixpkgs. Likewise, the function names inherited
     # here should also be different from ones available under `lib` by default, i.e., you cannot
     # re-define functions.
-    inherit (self.extendedLib) builders;
-    inherit (self.extendedLib.builders) mkSystem;
+    # inherit (self.extendedLib) builders;
+    # inherit (self.extendedLib.builders) mkSystem;
   };
+  # Merge layers of libraries into one as a subject of convenience
+  # and easy access.
+  extensions = lib.composeManyExtensions [
+    (_: _: inputs.nixpkgs.lib)
+    (_: _: inputs.flake-parts.lib)
+    (_: _: inputs.neovim-flake.lib)
+  ];
 
+  # Extend default library
+  extendedLib = (lib.makeExtensible lib0).extend extensions;
   # This can be used with `.extend` to extend the extended library.
-  extendedLib = lib.makeExtensible lib0;
 in {
   # Set the `lib` argument in `perSystem`, for example:
   # ```
@@ -44,6 +53,5 @@ in {
   # `flake.lib` is set.
   flake = {
     lib = extendedLib;
-    # _module.args.lib = extendedLib;
   };
 }

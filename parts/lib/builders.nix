@@ -1,9 +1,12 @@
-{inputs, ...}: let
-  inherit (inputs) self nixpkgs;
-  inherit (nixpkgs) lib;
-  inherit (lib) mkDefault nixosSystem recursiveUpdate singleton;
-  inherit (builtins) concatLists;
-in {
+{
+  inputs,
+  lib,
+  ...
+}: let
+  inherit (inputs) self;
+  inherit (lib) mkDefault nixosSystem recursiveUpdate;
+  inherit (lib.lists) singleton concatLists flatten;
+  inherit (lib.extendedLib.modules) mkModuleTree';
   mkSystem = {
     withSystem,
     system,
@@ -38,4 +41,18 @@ in {
           ];
         }
     );
+  mkModulesForSystem = {
+    hostname,
+    modulePath ? ./modules,
+    ...
+  } @ args:
+    flatten (
+      concatLists [
+        (self.outPath + ./.)
+        (mkModuleTree' {path = self.outPath + modulePath;})
+        # singleton
+      ]
+    );
+in {
+  inherit mkSystem mkModulesForSystem;
 }
