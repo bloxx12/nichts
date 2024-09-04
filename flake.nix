@@ -59,6 +59,10 @@
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "";
+    };
 
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
