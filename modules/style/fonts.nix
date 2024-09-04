@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   inherit (builtins) mapAttrs;
 in {
   # A (somewhat) sane list of fonts to be installed.
