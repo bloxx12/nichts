@@ -14,15 +14,6 @@ in {
       "$mainMod" = "SUPER";
 
       # Monitor config
-      # monitor = [
-      #   "eDP-1,1920x1080,0x0,1"
-      #   # "DP-2,1920x1080,0x0,1"
-      #   # "HDMI-A-2,1920x1080,1920x0,1"
-      #   # "HDMI-A-1,1920x1080,3840x0,1"
-      #   # Had the shadow monitor bug, so had to disable all unknown monitors.
-      #   "Unknown-1,disable"
-      # ];
-
       # Thanks Poz for inspiration, using an attrSet is actually much smarter
       # than using a normal list.
       monitor =
