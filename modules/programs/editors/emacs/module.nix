@@ -18,84 +18,38 @@
     ]);
 
   custom-emacs = with pkgswithemacs; ((emacsPackagesFor
-      (emacs29-pgtk.override {withNativeCompilation = true;}))
+      (emacs29-pgtk.override {
+        withNativeCompilation = true;
+        withTreeSitter = true;
+      }))
     .emacsWithPackages (epkgs:
       with epkgs; [
-        # alert
-        # all-the-icons
-        # all-the-icons-dired
-        # avy
-        # beacon
-        # catppuccin-theme
-        # cask-mode
-        # company
-        # crux
-        # dimmer
-        # dired-du
-        # dired-open
-        # direnv
-        # dirvish
-        # doom-modeline
-        # editorconfig
-        # emacs-all-the-icons-fonts
-        # evil
-        # evil-collection
-        # evil-commentary
-        # evil-goggles
-        # flycheck
-        # flycheck-relint
-        # flymake
-        # form-feed
-        # general
-        # hl-todo
-        # ligature
-        # lsp-mode
-        # lsp-treemacs
-        # lsp-ui
-        # macrostep
-        # magit
-        # markdown-mode
-        # modus-themes
-        # move-text
-        # org-cliplink
-        org-contacts
-        # org-pomodoro
-        # nano-theme
-        # no-littering
-        # nov
-        # paredit
-        # peep-dired
-        # projectile
-        # rainbow-delimiters
-        # rainbow-mode
-        # relint
-        # ripgrep
-        # smartparens
-        # string-inflection
-        # svg-lib
-        # tldr
-        # toc-org
-        # treesit-grammars.with-all-grammars
-        # treemacs
-        # treemacs-evil
-        # treemacs-projectile
-        # treemacs-magit
-        # tree-sitter
-        # undo-tree
-        # use-package
-        # vertico
-        # vertico-posframe
+        treesit-grammars.with-all-grammars
         vterm
-        # vterm-toggle
-        # which-key
-        # whitespace-cleanup-mode
-        # wakatime-mode
-        # ws-butler
       ]));
 in {
   config = mkIf cfg.enable {
-    environment.variables.PATH = ["$XDG_CONFIG_HOME/emacs/bin"];
     home-manager.users.${username} = {
+      imports = [inputs.nix-doom-emacs-unstraightened.hmModule];
+      programs.doom-emacs = {
+        enable = true;
+        # doomDir = ./doom;
+        emacs = custom-emacs;
+        extraBinPackages = with pkgs; [git python3 pinentry-tty];
+        extraPackages = epkgs:
+          with epkgs; [
+            vterm
+            treesit-grammars.with-all-grammars
+            eshell-prompt-extras
+            esh-autosuggest
+            fish-completion
+            esh-help
+            eshell-syntax-highlighting
+            pinentry
+          ];
+        provideEmacs = true;
+        # experimentalFetchTree = true;
+      };
       home.packages = with pkgs; [
         # needed my native-comp
         binutils
@@ -113,7 +67,7 @@ in {
         # (mkIf (config.programs.gnupg.agent.enable)
         #   pinentry-emacs) # in-emacs gnupg prompts
         zstd # for undo-fu-session/undo-tree compression
-
+        nodePackages.prettier
         # Module dependencies
         # :checkers spell
         (aspellWithDicts (ds: with ds; [de en en-computers en-science]))
@@ -122,18 +76,13 @@ in {
         # :tools lookup & :lang org +roam
         sqlite
         # :lang latex & :lang org (latex previews)
-        # texlive.combined.scheme-medium
+        texlive.combined.scheme-medium
         # :lang beancount
         # beancount
         # fava
         # :lang nix
         age
       ];
-
-      services.emacs = {
-        enable = true;
-        package = custom-emacs;
-      };
     };
   };
 }
