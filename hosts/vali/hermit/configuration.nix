@@ -11,6 +11,7 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.nix-ld.enable = false;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   services.thermald.enable = true;
   services.fstrim.enable = lib.mkDefault true;
@@ -29,7 +30,7 @@
           # only emacs for me, right now.
           neovim.enable = false;
           # sadly just not advanced enough, yet.
-          helix.enable = false;
+          helix.enable = true;
           kakoune.enable = false;
         };
         discord.enable = true;
