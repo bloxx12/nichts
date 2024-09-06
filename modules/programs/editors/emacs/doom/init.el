@@ -21,7 +21,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company +childframe )           ; the ultimate code completion backend
+       ;; (company +childframe )           ; the ultimate code completion backend
+       (corfu +orderless +dabbrev)
        (vertico +icons)           ; the search engine of the future
 
        :ui
@@ -33,7 +34,7 @@
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;indent-guides     ; highlighted indent columns
        (ligatures +iosevka +extra)         ; ligatures and symbols to make your code pretty again
-       modeline          ; snazzy, Atom-inspired modeline, plus API
+       (modeline +light)          ; snazzy, Atom-inspired modeline, plus API
        ophints           ; highlight the region an operation acts on
        (popup +all +defaults)   ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs

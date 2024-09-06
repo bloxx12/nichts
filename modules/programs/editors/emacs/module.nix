@@ -10,70 +10,72 @@
   inherit (lib) mkIf;
 
   # Taken from outfoxxed since figuring this out is really annoying.
-  pkgswithemacs =
+  newpkgs =
     pkgs.appendOverlays
     (with inputs.emacs-overlay.overlays; [
       emacs
       package
     ]);
 
-  custom-emacs = with pkgswithemacs; ((emacsPackagesFor
-      (emacs29-pgtk.override {
-        withNativeCompilation = true;
-        withTreeSitter = true;
-      }))
+  custom-emacs = with newpkgs; ((emacsPackagesFor (emacs30-pgtk.override {
+      withNativeCompilation = true;
+      withTreeSitter = true;
+    }))
     .emacsWithPackages (epkgs:
       with epkgs; [
+        avy
+        better-jumper
+        catppuccin-theme
+        company
+        crux
+        cmake-font-lock
+        direnv
+        doom-modeline
+        editorconfig
+        face-explorer
+        flycheck
+        frames-only-mode
+        fussy
+        groovy-mode
+        just-mode
+        kotlin-mode
+        lsp-mode
+        lsp-treemacs
+        lsp-ui
+        lsp-java
+        magit
+        markdown-mode
+        meow
+        meow-tree-sitter
+        nasm-mode
+        nix-mode
+        reformatter # required by nix mode
+        projectile
+        peep-dired
+        rainbow-mode
+        no-littering
+        string-inflection
+        tldr
         treesit-grammars.with-all-grammars
+        treemacs
+        treemacs-evil
+        treemacs-projectile
+        treemacs-magit
+        undo-tree
+        use-package
+        vertico
         vterm
-        eshell-prompt-extras
-        esh-autosuggest
-        fish-completion
-        esh-help
-        eshell-syntax-highlighting
-        pinentry
+        which-key
+        ws-butler
       ]));
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      imports = [inputs.nix-doom-emacs-unstraightened.hmModule];
-      programs.doom-emacs = {
+      home.packages = [custom-emacs];
+
+      services.emacs = {
         enable = true;
-        doomDir = ./doom;
-        emacs = custom-emacs;
-        extraBinPackages = with pkgs; [
-          python3
-          pinentry-tty
-          pinentry-emacs
-          # needed by native-comp
-          binutils
-
-          # Doom dependencies
-          git
-          ripgrep
-          gnutls
-
-          ## Optional dependencies
-          fd # faster projectile indexing
-          imagemagick # for image-dired
-          zstd # for undo-fu-session/undo-tree compression
-          nodePackages.prettier
-
-          # Module dependencies
-          # spell
-          (aspellWithDicts (ds: with ds; [de en en-computers en-science]))
-          # editorconfig
-          editorconfig-core-c # per-project style config
-          # lookup & org +roam
-          sqlite
-          # latex & org (latex previews)
-          texlive.combined.scheme-medium
-          # :lang beancount
-          # beancount
-          # fava
-          # :lang nix
-          age
-        ];
+        package = custom-emacs;
       };
     };
   };
