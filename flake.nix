@@ -15,12 +15,13 @@
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Sandboxing
+    # Sandboxing for schizofox
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Lix, a faster nix fork.
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,8 +47,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # Treefmt provides formatting for all files in my flake.
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
+    # Still have to set up imerimpermanence, that's a thing for the future.
     impermanence.url = "github:nix-community/impermanence";
 
     # I use nvim, helix *and* emacs, cry about it.
@@ -59,12 +62,6 @@
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-
-    nix-doom-emacs-unstraightened = {
-      url = "github:marienz/nix-doom-emacs-unstraightened";
-      inputs.nixpkgs.follows = "";
-      inputs.doomemacs.url = "github:doomemacs/doomemacs?ref=559e5b6a966fa82bf8322f89d78a00ef4181812a";
-    };
 
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
