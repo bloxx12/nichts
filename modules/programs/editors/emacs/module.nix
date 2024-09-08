@@ -26,8 +26,9 @@
         avy
         better-jumper
         catppuccin-theme
-        company
+        cape
         corfu
+        consult
         crux
         cmake-font-lock
         diminish
@@ -47,6 +48,7 @@
         editorconfig
         face-explorer
         flycheck
+        fontaine
         frames-only-mode
         fussy
         gcmh
