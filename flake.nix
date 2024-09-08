@@ -15,12 +15,6 @@
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Sandboxing for schizofox
-    nixpak = {
-      url = "github:nixpak/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Lix, a faster nix fork.
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
@@ -66,10 +60,7 @@
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
       url = "github:schizofox/schizofox";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpak.follows = "nixpak";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

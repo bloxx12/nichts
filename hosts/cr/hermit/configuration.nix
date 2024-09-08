@@ -30,7 +30,7 @@
           # only emacs for me, right now.
           neovim.enable = true;
           # sadly just not advanced enough, yet.
-          helix.enable = true;
+          helix.enable = false;
           kakoune.enable = false;
         };
         discord.enable = true;
