@@ -6,7 +6,7 @@
 }: let
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
-  inherit (lib) mkIf getExe ;
+  inherit (lib) mkIf getExe;
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {

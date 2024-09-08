@@ -1,1 +1,1 @@
-_: {imports = [./bluetooth.nix ./graphics.nix];}
+_: {imports = [./bluetooth.nix ./keyboard ./graphics.nix];}
