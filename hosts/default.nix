@@ -8,13 +8,15 @@
   inherit (lib.extendedLib.modules) mkModuleTree';
   inherit (lib.lists) concatLists flatten singleton;
 
+  # NOTE: This was inspired by raf, and I find this
+  # to be quite a sane way of managing all modules in my flake.
+
   mkModulesFor = hostname:
     flatten (
       concatLists [
         # Derive host specific module path from the first argument of the
         # function. Should be a string, obviously.
-        (singleton ./vali/${hostname}/default.nix)
-
+        (singleton ./cr/${hostname}/default.nix)
 
         # Recursively import all module trees (i.e. directories with a `module.nix`)
         # for given moduleTree directories, and in addition, roles.
