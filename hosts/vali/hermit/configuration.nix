@@ -28,7 +28,7 @@
         editors = {
           emacs.enable = true;
           # only emacs for me, right now.
-          neovim.enable = false;
+          neovim.enable = true;
           # sadly just not advanced enough, yet.
           helix.enable = true;
           kakoune.enable = false;
