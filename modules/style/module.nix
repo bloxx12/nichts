@@ -3,6 +3,7 @@
   inherit (config.modules.other.system) username;
 in {
   home-manager.users.${username} = {
+  imports = [./default.nix];
     home.pointerCursor = {
       # inherit the default values set in the options,
       # since these are the once I need on all my systems.

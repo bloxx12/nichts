@@ -91,7 +91,10 @@
 in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
-      home.packages = [custom-emacs];
+      home.packages = with pkgs; [
+        custom-emacs
+        clang-tools
+      ];
 
       services.emacs = {
         enable = true;

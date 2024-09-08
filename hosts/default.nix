@@ -5,24 +5,34 @@
 }: let
   inherit (inputs.self) lib;
   inherit (lib.extendedLib.builders) mkSystem;
+  inherit (lib.extendedLib.modules) mkModuleTree';
+  inherit (lib.lists) concatLists flatten singleton;
+
+  mkModulesFor = hostname:
+    flatten (
+      concatLists [
+        # Derive host specific module path from the first argument of the
+        # function. Should be a string, obviously.
+        (singleton ./vali/${hostname}/default.nix)
+
+
+        # Recursively import all module trees (i.e. directories with a `module.nix`)
+        # for given moduleTree directories, and in addition, roles.
+        (mkModuleTree' {path = ../modules;})
+      ]
+    );
 in {
   flake.nixosConfigurations = {
     temperance = mkSystem {
       inherit withSystem;
       system = "x86_64-linux";
-      modules = [
-        ./vali/temperance
-        ../modules
-      ];
+      modules = mkModulesFor "temperance";
     };
 
     hermit = mkSystem {
       inherit withSystem;
       system = "x86_64-linux";
-      modules = [
-        ./vali/hermit
-        ../modules
-      ];
+      modules = mkModulesFor "hermit";
     };
   };
 }

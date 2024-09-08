@@ -1,18 +1,27 @@
-# nichts
+* nichts
+This is my personal collection of NixOS configuration files, made to be simple to understand and *sane*.
+** Goals of this configuraton
+This projects pursues some main goals:
+1.
+** Layout of this configuraton
+This configuraton is split up into *three* important parts:
+- hosts
+  The configuraton for my different host systems.
+- modules
 
-My personal collection of NixOS configuration files
+- parts
 
-# License
+* License
 
 GNU GPL3
 
-# credits
+* credits
 
-This configuration was made possible through the help of some amazing people!
+This configuration was only made possible through the help of some amazing people!
 Below are all the repositories I took inspiration from, check them out!
 
 ```
-*heavily* inspired by https://git.jacekpoz.pl/jacekpoz/niksos.git !
+Jacekpoz: https://git.jacekpoz.pl/jacekpoz/niksos.git !
 Dragyx: https://github.com/dragyx/nichts
 Sioodmy: https://github.com/sioodmy/dotfiles
 Heinrik Lissner: https://github.com/hlissner/dotfiles/
