@@ -1,4 +1,6 @@
-# Credits to raf aka Notashelf, link to his repo is in the README.md
+# NOTE: Credits go to raf aka Notashelf, who wrote not only nvf
+# but also most of this configuration, the
+# link to his repo is in the README.md
 {
   config,
   lib,
@@ -29,7 +31,7 @@ in {
           # alternatively, neovim-nightly from the neovim-nightly overlay
           # via inputs.neovim-nightly.packages.${pkgs.stdenv.system}.neovim
           package = pkgs.neovim-unwrapped;
-          viAlias = true;
+          viAlias = false;
           vimAlias = true;
 
           withNodeJs = false;
@@ -54,24 +56,14 @@ in {
           };
 
           additionalRuntimePaths = [
-            #(mkRuntimeDir "after")
-            #(mkRuntimeDir "spell")
             ./runtime
             ./runtime
           ];
 
-          # while I should be doing this in luaConfigRC below
-          # I have come to realise that spellfile contents are
-          # actually **not** loaded when luaConfigRC is used.
-          # as spellfile is a vim thing, this should be fine
-          #     configRC.spellfile = entryAnywhere ''
-          #       set spellfile=${toString ./runtime/spell/en.utf-8.add} "  toString sanitizes the path
-          #     '';
-
           # additional lua configuration that I can append
           # or, to be more precise, randomly inject into
-          # the lua configuration of my Neovim configuration
-          # wrapper. This is recursively read from the lua
+          # the lua configuration of nvf.
+          # This is recursively read from the lua
           # directory, so we do not need to use require
 
           luaConfigRC = let

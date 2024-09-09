@@ -4,10 +4,10 @@ _: {
       enable = true;
       nvimWebDevicons.enable = true;
 
-      indentBlankline.enable = true;
+      indentBlankline.enable = false;
 
       fidget-nvim = {
-        enable = true;
+        enable = false;
         setupOpts = {
           notification.window = {
             winblend = 0;

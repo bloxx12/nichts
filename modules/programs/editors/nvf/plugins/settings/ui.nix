@@ -26,7 +26,7 @@ _: {
       };
 
       borders = {
-        enable = false;
+        enable = true;
         globalStyle = "rounded";
       };
     };
