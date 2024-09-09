@@ -167,27 +167,6 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "nixpak",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1725234343,
-        "narHash": "sha256-+ebgonl3NbiKD2UD0x4BszCZQ6sTfL4xioaM49o5B3Y=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "567b938d64d4b4112ee253b9274472dc3a346eb6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_4": {
-      "inputs": {
-        "nixpkgs-lib": [
           "schizofox",
           "nixpkgs"
         ]
@@ -206,7 +185,7 @@
         "type": "github"
       }
     },
-    "flake-parts_5": {
+    "flake-parts_4": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_3"
       },
@@ -350,10 +329,12 @@
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": [
+          "schizofox",
           "nixpak",
           "flake-parts"
         ],
         "nixpkgs": [
+          "schizofox",
           "nixpak",
           "nixpkgs"
         ]
@@ -863,9 +844,13 @@
     },
     "nixpak": {
       "inputs": {
-        "flake-parts": "flake-parts_3",
+        "flake-parts": [
+          "schizofox",
+          "flake-parts"
+        ],
         "hercules-ci-effects": "hercules-ci-effects",
         "nixpkgs": [
+          "schizofox",
           "nixpkgs"
         ]
       },
@@ -2701,7 +2686,6 @@
         "impermanence": "impermanence",
         "lix-module": "lix-module",
         "neovim-flake": "neovim-flake",
-        "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_6",
         "schizofox": "schizofox",
         "split-monitor-workspaces": "split-monitor-workspaces",
@@ -2763,11 +2747,9 @@
     "schizofox": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "flake-parts": "flake-parts_4",
+        "flake-parts": "flake-parts_3",
         "home-manager": "home-manager_2",
-        "nixpak": [
-          "nixpak"
-        ],
+        "nixpak": "nixpak",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -2791,7 +2773,7 @@
     "searx-randomizer": {
       "inputs": {
         "crane": "crane_2",
-        "flake-parts": "flake-parts_5",
+        "flake-parts": "flake-parts_4",
         "nixpkgs": [
           "schizofox",
           "nixpkgs"
