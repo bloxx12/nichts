@@ -12,11 +12,12 @@ in {
     home-manager.users.${username} = {
       programs.oh-my-posh = {
         enable = true;
-        package = pkgs.eza;
+        package = pkgs.oh-my-posh;
         enableNushellIntegration = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
         enableZshIntegration = true;
+        useTheme = "zash";
         settings = {
         };
       };
