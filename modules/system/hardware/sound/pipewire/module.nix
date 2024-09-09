@@ -3,10 +3,10 @@
   lib,
   ...
 }: let
-  inherit (config.modules.system.hardware.sound) pipewire;
+  cfg = config.modules.system.hardware.sound.pipewire;
   inherit (lib) mkIf;
 in {
-  config = mkIf pipewire.enable {
+  config = mkIf cfg.enable {
     services.pipewire = {
       enable = true;
       audio.enable = true;

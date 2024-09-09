@@ -1,9 +1,12 @@
 _: {
   imports = [
-    ./fish.nix
+    # ./fish.nix
     ./nh.nix
-    ./starship.nix
+    # ./starship.nix
     ./beets.nix
     ./zellij
+    ./oh-my-posh.nix
+    ./nushell.nix
+    ./eza.nix
   ];
 }
