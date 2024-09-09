@@ -34,10 +34,13 @@
           # only emacs for me, right now.
           neovim.enable = true;
           # sadly just not advanced enough, yet.
-          helix.enable = false;
+          helix.enable = true;
           kakoune.enable = false;
         };
         discord.enable = true;
+        nushell.enable = true;
+        oh-my-posh.enable = true;
+        eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
         zellij.enable = true;
@@ -91,7 +94,7 @@
       ssh.enable = true;
       btop.enable = true;
       newsboat.enable = true;
-      fish.enable = true;
+      # fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
     };
