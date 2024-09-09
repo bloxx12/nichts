@@ -13,8 +13,11 @@
   programs.kdeconnect.enable = true;
   programs.nix-ld.enable = false;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  services.thermald.enable = true;
-  services.fstrim.enable = lib.mkDefault true;
+  services = {
+    fstrim.enable = lib.mkDefault true;
+    thermald.enable = true;
+    auto-cpufreq.enable = true;
+  };
 
   modules = {
     system = {
