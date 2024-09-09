@@ -16,10 +16,10 @@
       concatLists [
         # Derive host specific module path from the first argument of the
         # function. Should be a string, obviously.
-        (singleton ./cr/${hostname}/default.nix)
+        (singleton ./${hostname}/default.nix)
 
         # Recursively import all module trees (i.e. directories with a `module.nix`)
-        # for given moduleTree directories, and in addition, roles.
+        # for given moduleTree directories
         (mkModuleTree' {path = ../modules;})
       ]
     );

@@ -17,6 +17,7 @@
     fstrim.enable = lib.mkDefault true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
+    printing.enable = true;
   };
 
   modules = {
