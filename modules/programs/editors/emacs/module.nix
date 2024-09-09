@@ -97,7 +97,7 @@ in {
       ];
 
       services.emacs = {
-        enable = true;
+        enable = false;
         package = custom-emacs;
       };
     };
