@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  cfg = config.modules.system.hardware.sound.pipewire;
+  cfg = config.modules.system.sound;
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
