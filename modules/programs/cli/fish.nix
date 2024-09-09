@@ -20,17 +20,15 @@ in {
   config = mkIf cfg.enable {
     programs.fish.enable = true;
 
-    users.users.${username}.shell = pkgs.fish;
+    # users.users.${username}.shell = pkgs.fish;
 
     environment = {
-      shells = [pkgs.fish];
-      pathsToLink = ["/share/fish"];
+      # shells = [pkgs.fish];
+      # pathsToLink = ["/share/fish"];
     };
 
     home-manager.users.${username} = {
       programs = {
-        zoxide.enable = true;
-        zoxide.enableFishIntegration = true;
         fish = {
           enable = true;
           interactiveShellInit = "set fish_greeting";

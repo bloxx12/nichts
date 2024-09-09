@@ -17,6 +17,9 @@ in {
     zellij.enable = mkEnableOption "Zellij terminal multiplexer";
     steam.enable = mkEnableOption "Steam games platform";
 
+    eza.enable = mkEnableOption "eza";
+    oh-my-posh.enable = mkEnableOption "oh-my-posh";
+    nushell.enable = mkEnableOption "nushell";
     terminals = {
       foot.enable = mkEnableOption "Foot terminal emulator";
       kitty.enable = mkEnableOption "Kitty terminal emulator";
