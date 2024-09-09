@@ -13,22 +13,15 @@ in {
       programs.nushell = {
         enable = true;
         package = pkgs.nushell;
-        settings = {
-          aliases = {
-            c = "clear";
-            cc = "cd ~ && clear";
-            mv = "mv -iv";
-            rm = "trash -v";
-            ls = "eza ";
-            l = "eza -a ";
-            la = "eza -lha --git";
-            lg = "lazygit";
-            # cd = "z";
-            v = "nvim";
-            h = "hx";
-            k = "kak";
-            e = "emacs";
-          };
+        shellAliases = {
+          c = "clear";
+          cc = "cd; clear";
+          mv = "mv -iv";
+          rm = "trash -v";
+          lg = "lazygit";
+          v = "nvim";
+          h = "hx";
+          e = "emacs";
         };
       };
     };
