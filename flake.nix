@@ -62,5 +62,8 @@
       url = "github:schizofox/schizofox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Wrapper-manager for safely wrapping some packages.
+    wrapper-manager.url = "github:viperML/wrapper-manager";
   };
 }
