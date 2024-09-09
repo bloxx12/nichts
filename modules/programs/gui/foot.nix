@@ -16,6 +16,7 @@ in {
       ];
       programs.foot = {
         enable = true;
+        server.enable = false;
         package = pkgs.foot;
         settings = {
           main = {
@@ -23,7 +24,7 @@ in {
             app-id = "foot";
             title = "foot";
             locked-title = "no";
-            shell = "fish";
+            shell = "nu";
 
             font = "Iosevka Nerd Font:size=14";
             font-bold = "Iosevka Nerd Font:size=14";
