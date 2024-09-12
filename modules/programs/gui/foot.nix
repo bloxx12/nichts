@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  self',
   ...
 }: let
   cfg = config.modules.system.programs.terminals.foot;
@@ -24,7 +25,7 @@ in {
             app-id = "foot";
             title = "foot";
             locked-title = "no";
-            shell = "nu";
+            shell = "${self'.packages.nushell}/bin/nu";
 
             font = "Iosevka Nerd Font:size=14";
             font-bold = "Iosevka Nerd Font:size=14";
