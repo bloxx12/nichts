@@ -34,7 +34,7 @@ iputils
             asciinema
             inetutils
             scc
-            oefetch
+            onefetch
             wget
             cpufetch
             yt-dlp

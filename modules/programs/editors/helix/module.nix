@@ -1,37 +1,20 @@
 {
   config,
-  inputs',
   lib,
-  pkgs,
+  self',
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
-  inherit (lib) mkIf makeBinPath;
+  inherit (lib) mkIf;
 in {
   imports = [./languages.nix];
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
-        # thanks fufexan, this is great!
-        package = inputs'.helix.packages.default.overrideAttrs (previousAttrs: {
-          makeWrapperArgs = with pkgs;
-            previousAttrs.makeWrapperArgs
-            or []
-            ++ [
-              "--suffix"
-              "PATH"
-              ":"
-              (makeBinPath [
-                clang-tools
-                marksman
-                nil
-                bash-language-server
-                shellcheck
-              ])
-            ];
-        });
+        package = self'.packages.helix;
+
         settings = {
           theme = "catppuccin_mocha";
           editor = {
