@@ -8,7 +8,6 @@
     pkgs,
     ...
   }: {
-
     # Attributes to add to overlays.default.
     # The overlays.default overlay will re-evaluate perSystem with the “prev” (or “super”) overlay argument value
     # as the pkgs module argument. The easyOverlay module also adds the final module argument, for the result of applying the overlay.
@@ -17,12 +16,10 @@
     # This requires Nixpkgs to be re-evaluated, which is more expensive than setting
     # pkgs to a Nixpkgs that already includes the necessary overlays that are required
     # for the flake itself.
-    overlayAttrs = config.extraPackages;
+    overlayAttrs = config.packages;
 
-    # https://noogle.dev/f/lib/filesystem/packagesFromDirectoryRecursive
-    extraPackages = lib.packagesFromDirectoryRecursive {
-      inherit (pkgs) callPackage;
-      directory = ./extraPackages;
+    packages = {
+      nushell = import ./extraPackages/nushell-wrapped.nix {inherit inputs lib pkgs;};
     };
   };
 }
