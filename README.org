@@ -1,3 +1,4 @@
+[[file:.github/logo.svg]]
 * nichts
 This is my personal collection of NixOS configuration files, made to be simple to understand and *sane*.
 ** Goals of this configuraton
@@ -20,6 +21,7 @@ GNU GPL3
 This configuration was only made possible through the help of some amazing people!
 Below are all the repositories I took inspiration from, check them out!
 
+The nix logo was designed by jacekpoz, see his works at [[link:https://jacekpoz.pl]]
 ```
 Jacekpoz: https://git.jacekpoz.pl/jacekpoz/niksos.git !
 Dragyx: https://github.com/dragyx/nichts
