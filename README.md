@@ -1,4 +1,5 @@
-![Nix cursed logo](.github/logo.svg)
+<!-- ![Nix cursed logo](.github/logo.svg) -->
+<img src=./github/logo.svg align="center" size = "100px" />
 
 # nichts
 
