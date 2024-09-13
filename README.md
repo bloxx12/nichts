@@ -34,11 +34,11 @@ people! Below are all the repositories I took inspiration from, check them out!
 
 The nix logo was designed by ![jacekpoz](https://jacekpoz.pl)!
 
-![Jacekpoz](https://git.jacekpoz.pl/jacekpoz/niksos.git)
-![Dragyx](https://github.com/dragyx/nichts)
-![Sioodmy](https://github.com/sioodmy/dotfiles)
+![jacekpoz](https://git.jacekpoz.pl/jacekpoz/niksos.git)
+![dragyx](https://github.com/dragyx/nichts)
+![sioodmy](https://github.com/sioodmy/dotfiles)
 ![Henrik Lissner](https://github.com/hlissner/dotfiles)
-![Diniamo](https://github.com/diniamo/niqs)
-![Fufexan](https://github.com/fufexan)
-![Lokasku](https://github.com/lokasku/nix-config)
+![diniamo](https://github.com/diniamo/niqs)
+![fufexan](https://github.com/fufexan)
+![lokasku](https://github.com/lokasku/nix-config)
 ![NotAShelf](https://github.com/notashelf/nyx)
