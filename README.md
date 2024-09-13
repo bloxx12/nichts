@@ -1,4 +1,4 @@
-[]()
+![Nix cursed logo](https://raw.githubusercontent.com/bloxx12/nichts/.github/logo.svg)
 
 # nichts
 
@@ -8,14 +8,15 @@ future be a work in progress, so expect regular and big changes and instability.
 
 ## Layout of this configuraton
 
-This configuraton is split up into _three_ sections:
+This configuraton is split up into three sections:
 
-- **hosts** The configuratons for my different host systems.
+- **hosts** \\ The configuratons for my different host systems.
 
 - **modules**
 
-- **parts** I heavily rely on flake-parts and store a lot of stuff related to it
-  in there. Also, here you can find me extended lib and all the packages I wrap.
+- **parts** \\ I heavily rely on flake-parts and store a lot of stuff related to
+  it in there. Also, here you can find me extended lib and all the packages I
+  wrap.
 
 # License
 
