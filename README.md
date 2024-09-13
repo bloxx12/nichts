@@ -1,4 +1,4 @@
-![Nix cursed logo](https://raw.githubusercontent.com/bloxx12/nichts/.github/logo.svg)
+![Nix cursed logo](.github/logo.svg)
 
 # nichts
 
