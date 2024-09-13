@@ -1,5 +1,8 @@
-<!-- ![Nix cursed logo](.github/logo.svg) -->
-<img src=./.github/logo.svg align="center" size = "200px" />
+<p align="center">
+<a href = "https://jacekpoz.pl">
+<img src=./.github/logo.svg  />
+</a>
+</p>
 
 # nichts
 
