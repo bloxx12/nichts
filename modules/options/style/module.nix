@@ -10,6 +10,7 @@ in {
     ./qt.nix
     ./gtk.nix
     ./fonts.nix
+    ./colors.nix
   ];
 
   options.modules.style = {
