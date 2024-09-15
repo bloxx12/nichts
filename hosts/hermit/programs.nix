@@ -17,6 +17,8 @@
     difftastic
     dig
     # easyeffects #broken
+    element
+    element-desktop
     evince
     eza
     fastfetch
@@ -29,6 +31,7 @@
     gnumake
     grc
     git
+    halloy
     helvum
     httpie
     hyperfine
