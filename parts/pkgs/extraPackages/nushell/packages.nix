@@ -18,7 +18,6 @@
 
   fzf
 
-  cpc
   difftastic
   hexyl
   gitui

@@ -18,9 +18,7 @@
       {
         wrappers.nushell-wrapped = {
           basePackage = pkgs.nushell;
-          pathAdd = [
-            packages
-          ];
+          pathAdd = packages;
         };
       }
     ];

@@ -20,7 +20,7 @@
     overlayAttrs = config.packages;
 
     packages = {
-      nushell = import ./extraPackages/nushell-wrapped.nix {inherit inputs lib pkgs;};
+      nushell = import ./extraPackages/nushell {inherit inputs lib pkgs;};
       helix = import ./extraPackages/helix-wrapped.nix {inherit inputs inputs' lib pkgs;};
     };
   };
