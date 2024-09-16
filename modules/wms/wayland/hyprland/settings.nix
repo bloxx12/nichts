@@ -7,6 +7,7 @@
   inherit (config.modules.system.hardware) monitors;
   inherit (lib) mapAttrsToList;
   inherit (builtins) toString;
+  inherit (config.modules.style.colorScheme) colors;
 in {
   home-manager.users.${username} = {
     wayland.windowManager.hyprland.settings = {
@@ -50,6 +51,8 @@ in {
         gaps_out = 0;
         border_size = 2;
 
+
+      "col.active_border" = "0xff${colors.base07}";
         no_border_on_floating = true;
       };
 
