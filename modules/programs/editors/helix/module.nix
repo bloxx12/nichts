@@ -2,6 +2,7 @@
   config,
   lib,
   self',
+  pkgs,
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
@@ -38,7 +39,7 @@ in {
             };
           };
           keys.normal = {
-            C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
+            C-g = [":new" ":insert-output ${pkgs.gitui}" ":buffer-close!" ":redraw"];
             esc = ["collapse_selection" "keep_primary_selection"];
             A-H = "goto_previous_buffer";
             A-L = "goto_next_buffer";
