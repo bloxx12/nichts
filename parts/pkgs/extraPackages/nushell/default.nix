@@ -10,6 +10,7 @@
   aliasesAsString =
     concatStringsSep "\n"
     (mapAttrsToList (k: v: "alias ${k}=\"${v}\"") aliases);
+
   packages = import ./packages.nix {inherit pkgs;};
 
   nushell-wrapped = inputs.wrapper-manager.lib.build {
@@ -19,6 +20,17 @@
         wrappers.nushell-wrapped = {
           basePackage = pkgs.nushell;
           pathAdd = packages;
+          env.STARSHIP_CONFIG = {
+            force = true;
+            value = ./starship.toml;
+          };
+          flags = [
+            "--env-config"
+            ./env.nu
+
+            "--config"
+            ./config.nu
+          ];
         };
       }
     ];

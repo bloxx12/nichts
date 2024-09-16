@@ -27,6 +27,7 @@
   asciinema
   inetutils
   scc
+  starship
   onefetch
   wget
   cpufetch
