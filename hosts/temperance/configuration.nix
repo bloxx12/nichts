@@ -11,25 +11,33 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   programs.kdeconnect.enable = true;
+  programs.nix-ld.enable = false;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  services.fstrim.enable = lib.mkDefault true;
+  services = {
+    fstrim.enable = lib.mkDefault true;
+  };
 
   modules = {
     system = {
       programs = {
         editors = {
           emacs.enable = true;
+          # only emacs for me, right now.
           neovim.enable = true;
+          # sadly just not advanced enough, yet.
           helix.enable = true;
           kakoune.enable = false;
         };
         discord.enable = true;
+        nushell.enable = true;
+        oh-my-posh.enable = true;
+        eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
         zellij.enable = true;
         terminals = {
           foot.enable = true;
-          kitty.enable = false;
+          kitty.enable = true;
         };
       };
       sound.enable = true;
@@ -41,6 +49,7 @@
         launchers = {
           fuzzel.enable = true;
         };
+
         media = {
           beets.enable = true;
           mpv.enable = true;
@@ -55,6 +64,7 @@
           musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
         };
       };
+
       style = {
         gtk.enable = true;
         qt.enable = true;
@@ -66,17 +76,21 @@
         username = "vali";
         gitPath = "/home/vali/projects/nichts";
       };
-      home-manager.enable = true;
+
+      home-manager = {
+        enable = true;
+      };
     };
     programs = {
       ssh.enable = true;
       btop.enable = true;
       newsboat.enable = true;
-      fish.enable = true;
+      # fish.enable = true;
       nh.enable = true;
-      steam.enable = true;
       waybar.enable = true;
+      # steam.enable = true;
     };
+
     services = {
       dunst.enable = true;
     };

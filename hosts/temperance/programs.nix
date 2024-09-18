@@ -1,73 +1,56 @@
-{pkgs, ...}: let
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     alsa-utils
     asciinema
-    blanket
+    blueman
+    bluetuith
+    bluez
+    cachix
     calc
     calibre
     cbonsai
-    coreutils-full
-    cmake
     cmus
     difftastic
-    dig
+    element
     element-desktop
     evince
     eza
-    fastfetch
-    ffmpeg-full
     fftw
-    fzf
-    gcc
-    gdb
-    gnumake
-    gnutls
     grc
-    grimblast
-    gthumb
     git
+    halloy
     helvum
-    heroic
     httpie
     hyperfine
-    imagemagickBig
+    imagemagick
     img2pdf
     impala
     imv
     inetutils
     jrnl
     keepassxc
-    krita
     lazygit
-    libreoffice
-    librewolf
     libtool
     links2
-    lutris
     mapscii
-    mars-mips
     moc
-    musikcube
-    nautilus
     ncmpcpp
-    nettools
     neofetch
-    nheko
     networkmanagerapplet
     nextcloud-client
     nicotine-plus
     nil
     nitch
     swww
+    microfetch
     nmap
-    nodejs_20
-    obsidian
+    notesnook
     onlyoffice-bin
     pamixer
     pavucontrol
     pdfarranger
     pfetch
+    pidgin
     playerctl
     polkit
     prismlauncher
@@ -76,34 +59,24 @@ in {
     qbittorrent
     r2modman
     ripgrep
-    rnote
-    scc
-    scummvm
-    sherlock
     signal-desktop-beta
     smartmontools
-    teamspeak_client
     telegram-desktop
-    temurin-bin-17
     tldr
     thunderbird
     tor-browser
     trash-cli
-    tree
-    ttyper
-    unzip
     util-linux
     v4l-utils
     vlc
+    weechat
     wget
-    wine
-    winetricks
     wireguard-tools
     wl-clipboard
     xdg-utils
     xournalpp
-    yazi
     zapzap
     zip
+    zoxide
   ];
 }
