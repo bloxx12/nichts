@@ -1,34 +1,21 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    alejandra
     alsa-utils
     asciinema
-    bibata-cursors
     blueman
     bluetuith
     bluez
-    #botany
     cachix
     calc
     calibre
     cbonsai
-    cmake
     cmus
     difftastic
-    dig
-    # easyeffects #broken
     element
     element-desktop
     evince
     eza
-    fastfetch
-    feh
-    ffmpeg-full
     fftw
-    fzf
-    gcc
-    gdb
-    gnumake
     grc
     git
     halloy
@@ -51,7 +38,6 @@
     neofetch
     networkmanagerapplet
     nextcloud-client
-    #nheko
     nicotine-plus
     nil
     nitch
@@ -69,20 +55,14 @@
     polkit
     python3
     ripgrep
-    scc
-    sherlock
     signal-desktop-beta
     smartmontools
     telegram-desktop
     tldr
     thunderbird
     trash-cli
-    tree
-    ttyper
-    unzip
     util-linux
     v4l-utils
-    ventoy-full
     vlc
     weechat
     wget
@@ -90,7 +70,6 @@
     wl-clipboard
     xdg-utils
     xournalpp
-    yt-dlp
     zapzap
     zip
     zoxide
