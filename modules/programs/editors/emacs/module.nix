@@ -32,7 +32,7 @@ in {
       ];
 
       services.emacs = {
-        enable = false;
+        enable = true;
         package = custom-emacs;
       };
     };

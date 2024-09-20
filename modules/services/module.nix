@@ -7,6 +7,5 @@ _: {
     ./dunst.nix
     ./mpd.nix
     ./firewall.nix
-    ./vpn.nix
   ];
 }

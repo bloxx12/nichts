@@ -1,6 +1,17 @@
 let starship_installed = not (which starship | is-empty)
+let direnv_installed = not (which direnv | is-empty)
+
 $env.config = {
   show_banner: false
+
+  
+  hooks: {
+    pre_prompt: [{ ||
+    if $direnv_installed {
+      direnv export json | from json | default {} | load-env
+    } else { return }
+    }]
+  }
 }
 
 

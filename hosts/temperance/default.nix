@@ -4,5 +4,6 @@ _: {
     ./programs.nix
     ./hardware-configuration.nix
     ./hardware
+    ./filesystem
   ];
 }

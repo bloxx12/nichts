@@ -125,8 +125,7 @@
         "https://cache.nixos.org" # funny binary cache
         "https://nix-community.cachix.org" # nix-community cache
         "https://hyprland.cachix.org" # hyprland
-        "https://nixpkgs-unfree.cachix.org" # unfree-package cache
-        "https://neovim-flake.cachix.org" # a cache for nvf
+        # "https://nixpkgs-unfree.cachix.org" # unfree-package cache
         "https://helix.cachix.org" # a chache for helix
       ];
 

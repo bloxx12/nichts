@@ -73,8 +73,7 @@
     other = {
       system = {
         hostname = "temperance";
-        username = "vali";
-        gitPath = "/home/vali/projects/nichts";
+        username = "cr";
       };
 
       home-manager = {

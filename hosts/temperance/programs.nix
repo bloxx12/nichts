@@ -3,8 +3,6 @@
     alsa-utils
     asciinema
     blueman
-    bluetuith
-    bluez
     cachix
     calc
     calibre
@@ -55,6 +53,7 @@
     polkit
     prismlauncher
     pulsemixer
+    pavucontrol
     python3
     qbittorrent
     r2modman
