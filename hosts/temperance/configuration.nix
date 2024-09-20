@@ -35,6 +35,7 @@
         firefox.enable = true;
         spotify.enable = true;
         zellij.enable = true;
+        steam.enable = true;
         terminals = {
           foot.enable = true;
           kitty.enable = true;
