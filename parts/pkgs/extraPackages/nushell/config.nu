@@ -1,5 +1,6 @@
 let starship_installed = not (which starship | is-empty)
 let direnv_installed = not (which direnv | is-empty)
+let carapace_installed = not (which carapace | is-empty)
 
 $env.config = {
   show_banner: false
@@ -26,7 +27,7 @@ $env.config = {
     partial: true
     case_sensitive: false
     algorithm: "fuzzy"
-    external: (if ((which carapace | length) > 0) {
+    external: (if $carapace_installed {
       {
         enable: true
         completer: { |spans| carapace $spans.0 nushell $spans | from json }

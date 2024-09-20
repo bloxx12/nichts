@@ -18,6 +18,7 @@
 
   fzf
 
+carapace
   difftastic
   hexyl
   gitui
