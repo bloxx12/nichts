@@ -14,16 +14,16 @@ in {
   ];
   users = {
     mutableUsers = true;
-    # users = {
-    #   cr = {
-    #     initialHashedPassword = "";
-    #     hashedPasswordFile = "/persist/passwords/cr";
-    #   };
-    #   root.hashedPasswordFile = "/persist/passwords/root";
-    # };
+    users = {
+      cr = {
+        hashedPasswordFile = "/persist/passwords/cr";
+      };
+      root.hashedPasswordFile = "/persist/passwords/root";
+    };
   };
 
   environment.persistence."/persist" = {
+    hideMounts = true;
     directories = [
       "/etc/nixos"
       "/etc/nix"
@@ -44,17 +44,16 @@ in {
         [
           "cloud"
           "repos"
-          ".config/nicotine"
         ]
         ++ map (
           dir: ".config/${dir}"
-        ) ["nicotine" "Signal"]
+        ) ["nicotine" "Signal" "Nextcloud"]
         ++ map (
           dir: ".cache/${dir}"
         ) ["tealdeer" "keepassxc" "nix" "starship" "nix-index" "mozilla" "zsh" "nvim"]
         ++ map (
           dir: ".local/share/${dir}"
-        ) ["direnv" "TelegramDesktop" "PrismLauncher" "nicotine" "zoxide"];
+        ) ["direnv" "Steam" "TelegramDesktop" "PrismLauncher" "nicotine" "zoxide" ".ssh" ".keepass"];
     };
   };
 
@@ -65,16 +64,16 @@ in {
     "L /var/lib/NetworkManager/timestamps - - - - /persist/var/lib/NetworkManager/timestamps"
   ];
 
-  # services.openssh.hostKeys = mkForce [
-  #   {
-  #     bits = 4096;
-  #     path = "/persist/etc/ssh/ssh_host_rsa_key";
-  #     type = "rsa";
-  #   }
-  #   {
-  #     bits = 4096;
-  #     path = "/persist/etc/ssh/ssh_host_ed25519_key";
-  #     type = "ed25519";
-  #   }
-  # ];
+  services.openssh.hostKeys = mkForce [
+    {
+      bits = 4096;
+      path = "/persist/etc/ssh/ssh_host_rsa_key";
+      type = "rsa";
+    }
+    {
+      bits = 4096;
+      path = "/persist/etc/ssh/ssh_host_ed25519_key";
+      type = "ed25519";
+    }
+  ];
 }
