@@ -10,8 +10,19 @@ in {
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
+      package = pkgs.steam-small.override {
+        extraEnv = {
+          MANGOHUD = true;
+          SDL_VIDEODRIVER = "x11";
+        };
+
+        extraLibraries = p:
+          with p; [
+            atk
+          ];
+      };
       gamescopeSession.enable = true;
-      # extraCompatPackages = with pkgs; [proton-ge-bin];
+      extraCompatPackages = with pkgs; [proton-ge-bin.steamcompattool];
     };
     # See
     # https://wiki.nixos.org/wiki/GameMode
