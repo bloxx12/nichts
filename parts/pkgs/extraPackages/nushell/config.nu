@@ -12,7 +12,30 @@ $env.config = {
     } else { return }
     }]
   }
-}
+
+  rm: {
+    always_trash: true
+  }
+
+  table: {
+    mode: compact
+    index_mode: auto
+  }
+  completions: {
+    quick: true
+    partial: true
+    case_sensitive: false
+    algorithm: "fuzzy"
+    external: (if ((which carapace | length) > 0) {
+      {
+        enable: true
+        completer: { |spans| carapace $spans.0 nushell $spans | from json }
+        max_results: 100
+      }
+    } else {
+        {}
+      })
+  }}
 
 
 if $starship_installed {
