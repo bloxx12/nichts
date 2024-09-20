@@ -36,7 +36,10 @@
       };
     };
     swapDevices = [
-      {device = "";}
+      {
+        device = "/swap/swapfile";
+        size = (1024 * 16) + (1024 * 2);
+      }
     ];
   };
 }
