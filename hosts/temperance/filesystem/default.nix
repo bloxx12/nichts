@@ -1,5 +1,6 @@
 {
   config = {
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk-by-uuid/";
     fileSystems = {
       "/boot" = {
         device = "";
