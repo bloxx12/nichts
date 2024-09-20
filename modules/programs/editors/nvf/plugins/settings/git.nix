@@ -5,7 +5,7 @@ _: {
       vim-fugitive.enable = true;
       gitsigns = {
         enable = true;
-        codeActions.enable = true;
+        # codeActions.enable = true;
       };
     };
   };

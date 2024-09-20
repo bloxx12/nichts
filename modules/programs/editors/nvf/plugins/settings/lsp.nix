@@ -7,7 +7,7 @@ _: {
       lightbulb.enable = false;
       lspsaga.enable = false;
       lspSignature.enable = true;
-      nvimCodeActionMenu.enable = true;
+      # nvimCodeActionMenu.enable = true;
       #     trouble.enable = false;
       #     nvim-docs-view.enable = true;
     };
