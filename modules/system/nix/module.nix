@@ -1,9 +1,13 @@
 # credits to raf
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (lib) mapAttrsToList;
+in {
   imports = [
     ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration.nix
@@ -14,6 +18,10 @@
 
   nix = {
     package = pkgs.lix;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well
+    nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.
@@ -63,6 +71,7 @@
       # to dependencies outside of the Nix store by using network
       # and mount namespaces in a chroot environment.
       sandbox = true;
+      sandbox-fallback = false;
 
       # Continue building derivations even if one fails
       keep-going = true;
@@ -88,7 +97,7 @@
       # Ensures that the result of Nix expressions is fully determined by
       # explicitly declared inputs, and not influenced by external state.
       # In other words, fully stateless evaluation by Nix at all times.
-      pure-eval = true;
+      pure-eval = false;
 
       # Don't warn me that my git tree is dirty, I know.
       warn-dirty = false;
@@ -125,7 +134,6 @@
         "https://cache.nixos.org" # funny binary cache
         "https://nix-community.cachix.org" # nix-community cache
         "https://hyprland.cachix.org" # hyprland
-        # "https://nixpkgs-unfree.cachix.org" # unfree-package cache
         "https://helix.cachix.org" # a chache for helix
       ];
 
@@ -133,7 +141,7 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ3m4myogDm4OgU2ru6lIwPvuCVs="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
     };
   };
