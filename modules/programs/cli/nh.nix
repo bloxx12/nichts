@@ -1,6 +1,7 @@
 {
-  lib,
   config,
+  lib,
+  self,
   ...
 }:
 with lib; let
@@ -14,7 +15,7 @@ in {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/${username}/projects/nichts";
+      flake = "/home/${username}/repos/projects/nichts";
     };
   };
 }
