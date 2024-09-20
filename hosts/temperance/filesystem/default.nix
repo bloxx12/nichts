@@ -1,6 +1,6 @@
 {
   config = {
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk-by-uuid/";
+    boot.initrd.luks.devices."cryptroot".device = "/dev/disk-by-uuid/";
     fileSystems = {
       "/boot" = {
         device = "";
@@ -27,6 +27,12 @@
         device = "";
         fsType = "btrfs";
         options = ["subvol=home" "compress=zstd" "noatime"];
+      };
+      "/swap" = {
+        device = "";
+        fsType = "btrfs";
+
+        options = ["subvol=swap" "compress=lzo" "noatime"];
       };
     };
     swapDevices = [
