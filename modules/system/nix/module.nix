@@ -146,9 +146,19 @@ in {
     };
   };
 
+  systemd.services = {
+
+  # WE DONT WANT TO BUILD STUFF ON TMPFS
+  # ITS NOT A GOOD IDEA
+  nix-daemon = {
+    
+    environment.TMPDIR = "/var/tmp";
+  };
+
   # Do not run garbage collection on AC power.
   # This makes a quite nice difference in battery life.
-  systemd.services.nix-gc = {
+  nix-gc = {
     unitConfig.ConditionACPower = true;
+  };
   };
 }
