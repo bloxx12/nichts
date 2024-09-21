@@ -26,7 +26,7 @@ in {
             app-id = "foot";
             title = "foot";
             locked-title = "no";
-            shell = "${self'.packages.nushell}/bin/nu";
+            shell = "${self'.packages.fish}/bin/fish";
 
             font = "Iosevka Nerd Font:size=14";
             font-bold = "Iosevka Nerd Font:size=14";
