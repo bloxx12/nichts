@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mapAttrsToList;
+  inherit (lib) mapAttrsToList mkForce;
 in {
   imports = [
     ./documentation.nix # nixos documentation
@@ -16,8 +16,13 @@ in {
     inputs.lix-module.nixosModules.default
   ];
 
+  # link a copy of our nixpkgs input as the nixpkgs channel
+  # environment.etc."nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
   nix = {
     package = pkgs.lix;
+
+    # fuck channels, no thanks
+    channel.enable = mkForce false;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well
@@ -147,18 +152,16 @@ in {
   };
 
   systemd.services = {
+    # WE DONT WANT TO BUILD STUFF ON TMPFS
+    # ITS NOT A GOOD IDEA
+    nix-daemon = {
+      environment.TMPDIR = "/var/tmp";
+    };
 
-  # WE DONT WANT TO BUILD STUFF ON TMPFS
-  # ITS NOT A GOOD IDEA
-  nix-daemon = {
-    
-    environment.TMPDIR = "/var/tmp";
-  };
-
-  # Do not run garbage collection on AC power.
-  # This makes a quite nice difference in battery life.
-  nix-gc = {
-    unitConfig.ConditionACPower = true;
-  };
+    # Do not run garbage collection on AC power.
+    # This makes a quite nice difference in battery life.
+    nix-gc = {
+      unitConfig.ConditionACPower = true;
+    };
   };
 }
