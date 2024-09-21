@@ -21,6 +21,7 @@
 
     packages = {
       nushell = import ./extraPackages/nushell {inherit inputs lib pkgs;};
+      fish = import ./extraPackages/fish {inherit inputs lib pkgs;};
       helix = import ./extraPackages/helix-wrapped.nix {inherit inputs inputs' lib pkgs;};
     };
   };
