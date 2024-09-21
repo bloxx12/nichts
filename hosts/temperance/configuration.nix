@@ -23,7 +23,7 @@
         editors = {
           emacs.enable = true;
           # only emacs for me, right now.
-          neovim.enable = true;
+          neovim.enable = false;
           # sadly just not advanced enough, yet.
           helix.enable = true;
           kakoune.enable = false;
@@ -42,6 +42,7 @@
         };
       };
       sound.enable = true;
+      hardware.nvidia.enable = true;
     };
     usrEnv = {
       desktops.hyprland.enable = true;
@@ -95,5 +96,4 @@
       dunst.enable = true;
     };
   };
-  system.stateVersion = "23.11";
 }
