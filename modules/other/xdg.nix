@@ -10,7 +10,10 @@
   text_editor = "helix.desktop";
   terminal = "foot.desktop";
 in {
-  environment.sessionVariables = {TERMINAL = "${terminal}";};
+  environment.sessionVariables = {
+    TERMINAL = "${terminal}";
+    XDG_CACHE_HOME = hmCfg.xdg.cacheHome;
+  };
 
   home-manager.users.${username} = {
     xdg = {
