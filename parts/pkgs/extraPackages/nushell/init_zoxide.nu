@@ -44,6 +44,18 @@ def --env --wrapped __zoxide_zi [...rest:string] {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-alias cd = __zoxide_z
-alias ci = __zoxide_zi
+alias z = __zoxide_z
+alias zi = __zoxide_zi
+
 # =============================================================================
+#
+# Add this to your env file (find it by running `$nu.env-path` in Nushell):
+#
+#   zoxide init nushell | save -f ~/.zoxide.nu
+#
+# Now, add this to the end of your config file (find it by running
+# `$nu.config-path` in Nushell):
+#
+#   source ~/.zoxide.nu
+#
+# Note: zoxide only supports Nushell v0.89.0+.
