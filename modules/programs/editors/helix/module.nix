@@ -22,7 +22,10 @@ in {
             cursorline = true;
             color-modes = true;
             indent-guides.render = true;
-            lsp.display-inlay-hints = true;
+            lsp = {
+              display-inlay-hints = true;
+              display-messages = true;
+            };
             line-number = "relative";
             true-color = true;
             auto-format = true;
@@ -30,9 +33,12 @@ in {
             mouse = true;
             bufferline = "multiple";
             soft-wrap.enable = true;
-            lsp.display-messages = true;
             cursor-shape = {insert = "bar";};
-            statusline.left = ["spinner" "version-control" "file-name"];
+            statusline = {
+              left = ["spinner" "version-control" "diagnostics" "file-name"];
+              right = ["file-base-name" "file-type" "selections" "position" "file-encoding"];
+            };
+            gutters.layout = ["diff" "diagnostics" "line-numbers" "spacer"];
             inline-diagnostics = {
               cursor-line = "hint";
               other-lines = "error";
@@ -40,7 +46,7 @@ in {
           };
           keys.normal = {
             C-g = [":new" ":insert-output ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
-            esc = ["collapse_selection" "keep_primary_selection"];
+            esc = ["collapse_selection" "keep_primary_selection" "normal_mode"];
             A-H = "goto_previous_buffer";
             A-L = "goto_next_buffer";
             A-w = ":buffer-close";
