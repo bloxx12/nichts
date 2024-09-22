@@ -1,3 +1,3 @@
 _: {
-  imports = [./direnv.nix];
+  imports = [./direnv.nix ./nix-index.nix];
 }
