@@ -10,13 +10,14 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
   security.polkit.enable = true;
-  programs.kdeconnect.enable = true;
-  programs.nix-ld.enable = false;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   services = {
     fstrim.enable = lib.mkDefault true;
   };
 
+  meta = {
+    mainUser.gitSigningKey = "";
+  };
   modules = {
     system = {
       programs = {
@@ -63,7 +64,7 @@
 
         media.mpd = {
           enable = true;
-          musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
+          musicDirectory = "/home/${config.modules.other.system.username}/cloud/media/Music";
         };
       };
 
@@ -74,7 +75,7 @@
     };
     other = {
       system = {
-        hostname = "temperance";
+        # hostname = "temperance";
         username = "cr";
       };
 
@@ -86,7 +87,7 @@
       ssh.enable = true;
       btop.enable = true;
       newsboat.enable = true;
-      # fish.enable = true;
+      fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
       # steam.enable = true;
