@@ -53,18 +53,21 @@
     polkit
     prismlauncher
     pulsemixer
-    pavucontrol
     python3
+    pwvucontrol
     qbittorrent
+    qutebrowser
     r2modman
     ripgrep
     signal-desktop-beta
     smartmontools
+    strawberry
     telegram-desktop
     tldr
     thunderbird
     tor-browser
     trash-cli
+    ungoogled-chromium
     util-linux
     v4l-utils
     vlc
