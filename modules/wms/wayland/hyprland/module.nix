@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
-  inherit (config.modules.other.system) username;
+  inherit (config.meta.mainUser) username;
   inherit
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
@@ -39,7 +39,7 @@ in {
         cfg.portalPackage
       ];
       config = {
-        common.default = ["hyprland"];
+        common.default = ["gtk" "hyprland"];
       };
     };
 

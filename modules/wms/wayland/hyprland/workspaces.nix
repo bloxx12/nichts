@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (config.modules.other.system) username;
+  inherit (config.meta.mainUser) username;
   inherit (config.modules.system.hardware) monitors;
   inherit (lib) imap0 flatten optionalString;
   inherit (builtins) map genList attrNames toString;
@@ -50,6 +50,7 @@ in {
         ++ [
           "special:nixos, decorate:false"
           "special:keepassxc, decorate:false"
+          "special:audio, decorate:false"
         ];
     };
   };

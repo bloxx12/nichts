@@ -20,7 +20,10 @@ in {
         "[workspace special:nixos; silent;tile] ${pkgs.foot}/bin/foot -D ~/projects/nichts"
 
         "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
+        "[workspace special:audio; silent;tile] ${pkgs.pavucontrol}/bin/pavucontrol"
+        "[workspace special:audio; silent;tile] ${pkgs.pwvucontrol}/bin/pwvucontrol"
 
+ 
         "${pkgs.swww}/bin/swww-daemon"
 
         "${pkgs.wlsunset}/bin/wlsunset -S 06:00 -s 20:00"

@@ -49,6 +49,7 @@ in {
         # Toggle the three different special workspaces.
         "$mainMod, N, togglespecialworkspace, nixos"
         "$mainMod, X, togglespecialworkspace, keepassxc"
+        "$mainMod, V, togglespecialworkspace, audio"
 
         # Reload hyprland
         "$mainMod, R, exec, ${cfg.package}/bin/hyprctl reload"
