@@ -1,4 +1,8 @@
-{inputs, inputs', ...}: {
+{
+  inputs,
+  inputs',
+  ...
+}: {
   # NOTE: We use flake-parts' easyOverlay module to extend our default packages with some extra packages I want to have.
   #
   imports = [inputs.flake-parts.flakeModules.easyOverlay];
@@ -20,7 +24,6 @@
     overlayAttrs = config.packages;
 
     packages = {
-      nushell = import ./extraPackages/nushell {inherit inputs lib pkgs;};
       fish = import ./extraPackages/fish {inherit inputs lib pkgs;};
       helix = import ./extraPackages/helix-wrapped.nix {inherit inputs inputs' lib pkgs;};
     };
