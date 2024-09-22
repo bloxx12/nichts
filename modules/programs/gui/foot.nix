@@ -95,6 +95,8 @@ in {
             bright5 = base0F; # pink
             bright6 = base0C; # teal
             bright7 = base07; # Subtext 0
+
+            alpha = 0.85;
           };
         };
       };
