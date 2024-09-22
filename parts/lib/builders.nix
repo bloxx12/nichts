@@ -10,6 +10,7 @@
   mkSystem = {
     withSystem,
     system,
+    hostname,
     ...
   } @ args:
     withSystem system (
@@ -30,9 +31,9 @@
             (args.specialArgs or {});
           modules = concatLists [
             # This is used to pre-emptively set the hostPlatform for nixpkgs.
-            # We need a singleton here since we concatenate lists, and a singleton
-            # generates a list with a single element.
+            # Also, we set the system hostname here.
             (singleton {
+              networking.hostName = args.hostname;
               nixpkgs.hostPlatform = mkDefault args.system;
             })
 

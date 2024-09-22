@@ -28,12 +28,16 @@ in {
     temperance = mkSystem {
       inherit withSystem;
       system = "x86_64-linux";
+
+      hostname = "temperance";
       modules = mkModulesFor "temperance";
     };
 
     hermit = mkSystem {
       inherit withSystem;
       system = "x86_64-linux";
+
+      hostname = "hermit";
       modules = mkModulesFor "hermit";
     };
   };
