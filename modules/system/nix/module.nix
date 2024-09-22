@@ -10,8 +10,7 @@
 in {
   imports = [
     ./documentation.nix # nixos documentation
-    ./nixpkgs.nix # global nixpkgs configuration.nix
-    ./registry.nix
+    ./nixpkgs.nix # global nixpkgs configuration
 
     inputs.lix-module.nixosModules.default
   ];
@@ -23,6 +22,10 @@ in {
 
     # fuck channels, no thanks
     channel.enable = mkForce false;
+
+    # this is taken from sioodmy.
+    # pin the registry to avoid downloading and evaling a new nixpkgs version every time
+    registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well
