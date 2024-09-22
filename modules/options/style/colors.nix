@@ -93,6 +93,13 @@ in {
           Whether the scheme is dark or light
         '';
       };
+      alpha = mkOption {
+        type = str;
+        default = 0.85;
+        description = ''
+          The alpha value for the colorscheme
+        '';
+      };
     };
   };
 }
