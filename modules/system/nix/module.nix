@@ -162,7 +162,7 @@ in {
     };
 
     # Do not run garbage collection on AC power.
-    # This makes a quite nice difference in battery life.
+    # This makes for a quite nice difference in battery life.
     nix-gc = {
       unitConfig.ConditionACPower = true;
     };
