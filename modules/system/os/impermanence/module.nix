@@ -47,7 +47,7 @@ in {
         ]
         ++ map (
           dir: ".config/${dir}"
-        ) ["nicotine" "Signal" "Nextcloud"]
+        ) ["nicotine" "Signal" "Nextcloud" "emacs" "doom"]
         ++ map (
           dir: ".cache/${dir}"
         ) ["tealdeer" "keepassxc" "nix" "starship" "nix-index" "mozilla" "zsh" "nvim"]
