@@ -1,21 +1,17 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # FIXME: temporary
+    # libayatana-appindicator-gtk3
+    libayatana-appindicator
     alsa-utils
     asciinema
-    blueman
     cachix
     calc
     calibre
-    cbonsai
-    cmus
     difftastic
-    element
     element-desktop
     evince
     eza
-    fftw
-    grc
-    git
     halloy
     helvum
     httpie
@@ -25,60 +21,33 @@
     impala
     imv
     inetutils
-    jrnl
     keepassxc
     lazygit
     libtool
-    links2
-    mapscii
-    moc
-    ncmpcpp
-    neofetch
-    networkmanagerapplet
     nextcloud-client
     nicotine-plus
-    nil
-    nitch
     swww
     microfetch
     nmap
-    notesnook
     onlyoffice-bin
-    pamixer
     pavucontrol
     pdfarranger
-    pfetch
-    pidgin
-    playerctl
     polkit
-    prismlauncher
     pulsemixer
     python3
     pwvucontrol
     qbittorrent
-    qutebrowser
     r2modman
     ripgrep
     signal-desktop-beta
-    smartmontools
-    strawberry
     telegram-desktop
-    tldr
     thunderbird
     tor-browser
     trash-cli
-    ungoogled-chromium
-    util-linux
-    v4l-utils
-    vlc
-    weechat
-    wget
     wireguard-tools
-    wl-clipboard
     xdg-utils
     xournalpp
     zapzap
-    zip
     zoxide
   ];
 }

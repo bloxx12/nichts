@@ -65,10 +65,7 @@
     v4l-utils
     vlc
     weechat
-    wget
     wireguard-tools
-    wl-clipboard
-    xdg-utils
     xournalpp
     zapzap
     zip
