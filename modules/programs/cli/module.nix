@@ -7,7 +7,6 @@ _: {
     ./zoxide.nix
     ./beets.nix
     ./zellij
-    ./nushell.nix
     ./eza.nix
   ];
 }
