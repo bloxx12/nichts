@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config.modules.other.system) username;
   hmCfg = config.home-manager.users.${username};
 
@@ -16,6 +20,7 @@ in {
   };
 
   home-manager.users.${username} = {
+    home.packages = [pkgs.xdg-utils];
     xdg = {
       cacheHome = "${hmCfg.home.homeDirectory}/.cache";
       configHome = "${hmCfg.home.homeDirectory}/.config";
