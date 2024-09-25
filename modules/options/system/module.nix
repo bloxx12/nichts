@@ -71,7 +71,9 @@ in {
     sound = {
       enable = mkEnableOption "sound related programs and audio-dependent programs";
     };
-
+    impermanence = {
+      enable = mkEnableOption "Enable Impermanence";
+    };
     video = {
       enable = mkEnableOption "video drivers and programs that require a graphical user interface";
       nvidia = mkEnableOption "Nvidia graphics drivers";
