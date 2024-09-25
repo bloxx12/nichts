@@ -20,7 +20,7 @@
 
             # Nix
             nil
-
+            lldb_19
             # Bash
             bash-language-server
 
