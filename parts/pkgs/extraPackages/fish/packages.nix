@@ -17,8 +17,9 @@
   microfetch
 
   fzf
-
-carapace
+  lldb_19
+  element
+  carapace
   difftastic
   hexyl
   gitui

@@ -21,7 +21,6 @@
           basePackage = pkgs.fish;
           pathAdd = packages;
           flags = [
-
           ];
         };
       }
