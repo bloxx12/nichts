@@ -29,7 +29,7 @@
     swww
     microfetch
     nmap
-    onlyoffice-bin
+    # onlyoffice-bin
     pavucontrol
     pdfarranger
     polkit

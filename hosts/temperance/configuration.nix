@@ -45,6 +45,7 @@
       sound.enable = true;
       hardware.nvidia.enable = true;
     };
+    style.colorScheme.name = "Zenburn";
     usrEnv = {
       desktops.hyprland.enable = true;
 
@@ -69,6 +70,7 @@
       };
 
       style = {
+
         gtk.enable = true;
         qt.enable = true;
       };
