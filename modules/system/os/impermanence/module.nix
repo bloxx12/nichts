@@ -13,7 +13,7 @@ in {
     inputs.impermanence.nixosModules.impermanence
   ];
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users = {
       cr = {
         hashedPasswordFile = "/persist/passwords/cr";
@@ -23,6 +23,7 @@ in {
   };
 
   environment.persistence."/persist" = {
+    enable = true;
     hideMounts = true;
     directories = [
       "/etc/nixos"
