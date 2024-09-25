@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
     ./wayland.nix
-    ./media.nix
+    # ./media.nix
   ];
   # These are some standard packages I want to have installed on every system, regardless of type or use case.
   environment.systemPackages = with pkgs; [
