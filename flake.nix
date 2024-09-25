@@ -14,7 +14,6 @@
 
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     # Lix, a faster nix fork.
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";

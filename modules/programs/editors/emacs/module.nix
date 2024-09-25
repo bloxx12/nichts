@@ -22,6 +22,7 @@
     .emacsWithPackages (epkgs:
       with epkgs; [
         vterm
+        treesit-grammars.with-all-grammars
       ]);
 in {
   config = mkIf cfg.enable {

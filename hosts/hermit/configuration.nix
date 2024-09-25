@@ -20,6 +20,10 @@
     printing.enable = true;
   };
 
+  meta = {
+    users = ["vali"];
+    # mainUser = "vali";
+  };
   modules = {
     system = {
       hardware = {
@@ -43,6 +47,7 @@
         eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
+        starship.enable = true;
         zellij.enable = true;
         terminals = {
           foot.enable = true;
