@@ -19,9 +19,9 @@ in {
 
         theme = {
           colors = {
-            background-darker = "000000";
-            background = "000000";
-            foreground = "f7f7f7";
+            background-darker = "383838";
+            background = "afaf8f";
+            foreground = "ffffff";
           };
 
           font = "Lexend";
