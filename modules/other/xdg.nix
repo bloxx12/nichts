@@ -13,6 +13,7 @@
   image_viewer = "imv.desktop";
   text_editor = "helix.desktop";
   terminal = "foot.desktop";
+  pdf_viewer = "org.gnome.Evince.desktop";
 in {
   environment.sessionVariables = {
     TERMINAL = "${terminal}";
@@ -65,6 +66,7 @@ in {
           "image/tiff" = [image_viewer];
           "image/webp" = [image_viewer];
           "text/plain" = [text_editor];
+          "application/pdf" = [pdf_viewer];
         };
       };
     };
