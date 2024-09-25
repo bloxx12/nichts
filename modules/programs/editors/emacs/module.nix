@@ -22,6 +22,7 @@
     .emacsWithPackages (epkgs:
       with epkgs; [
         vterm
+        treesit-grammars.with-all-grammars
       ]);
 in {
   config = mkIf cfg.enable {
@@ -43,7 +44,6 @@ in {
         (mkIf (config.programs.gnupg.agent.enable)
           pinentry-emacs) # in-emacs gnupg prompts
         zstd # for undo-fu-session/undo-tree compression
-
         ## Module dependencies
         # :email mu4e
         mu
