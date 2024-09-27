@@ -20,6 +20,7 @@
   };
   modules = {
     system = {
+      impermanence.enable = true;
       programs = {
         editors = {
           emacs.enable = true;
@@ -70,7 +71,6 @@
       };
 
       style = {
-
         gtk.enable = true;
         qt.enable = true;
       };
