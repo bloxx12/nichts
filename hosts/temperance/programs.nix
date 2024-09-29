@@ -15,7 +15,6 @@
     halloy
     helvum
     httpie
-    hyperfine
     imagemagick
     img2pdf
     impala
