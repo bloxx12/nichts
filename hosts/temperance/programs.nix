@@ -44,6 +44,7 @@
     thunderbird
     tor-browser
     trash-cli
+    tutanota-desktop
     wireguard-tools
     xdg-utils
     xournalpp
