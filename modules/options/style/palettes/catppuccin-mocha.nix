@@ -16,7 +16,7 @@
       base09 = "#fab387"; # peach
       base0A = "#a6e3a1"; # yellow
       base0B = "#94e2d5"; # green
-      base0C = "#94e2d5"; # teal
+      base0C = "#a6e3a1"; # teal
       base0D = "#89b4fa"; # blue
       base0E = "#cba6f7"; # mauve
       base0F = "#f2cdcd"; # flamingo

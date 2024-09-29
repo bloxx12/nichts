@@ -17,7 +17,7 @@ in {
         package = self'.packages.helix;
 
         settings = {
-          theme = "zenburn";
+          theme = "catppuccin_mocha";
           editor = {
             cursorline = true;
             color-modes = true;

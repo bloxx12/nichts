@@ -46,7 +46,7 @@
       sound.enable = true;
       hardware.nvidia.enable = true;
     };
-    style.colorScheme.name = "Zenburn";
+    # style.colorScheme.name = "Zenburn";
     usrEnv = {
       desktops.hyprland.enable = true;
 
