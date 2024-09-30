@@ -1,8 +1,8 @@
 _: {
   flake.templates = {
-    quickshell = {
-      path = ./quickshell;
-      description = "QuickShell developement flake";
-    };
+    # somelang = {
+    #   path = ./somelang;
+    #   description = "QuickShell developement flake";
+    # };
   };
 }
