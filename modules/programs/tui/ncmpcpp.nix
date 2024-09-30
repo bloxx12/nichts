@@ -45,7 +45,7 @@ in {
           allow_for_physical_item_deletion = "no";
           lines_scrolled = "0";
           follow_now_playing_lyrics = "yes";
-          lyrics_fetchers = "musixmatch";
+          # lyrics_fetchers = "musixmatch";
           connected_message_on_startup = "no";
           mouse_support = "yes";
 
