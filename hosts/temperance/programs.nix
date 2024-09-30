@@ -5,6 +5,7 @@
     libayatana-appindicator
     alsa-utils
     asciinema
+    bottles
     cachix
     calc
     calibre
@@ -23,6 +24,7 @@
     keepassxc
     lazygit
     libtool
+    lutris
     nextcloud-client
     nicotine-plus
     swww
@@ -44,6 +46,7 @@
     tor-browser
     trash-cli
     tutanota-desktop
+    typst
     wireguard-tools
     xdg-utils
     xournalpp
