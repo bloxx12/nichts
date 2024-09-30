@@ -13,6 +13,8 @@
     element-desktop
     evince
     eza
+    gcc
+    gnumake
     halloy
     helvum
     httpie
