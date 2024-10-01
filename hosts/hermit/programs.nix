@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    ladybird
     alsa-utils
     asciinema
     blueman
@@ -45,7 +46,6 @@
     microfetch
     nmap
     notesnook
-    onlyoffice-bin
     pamixer
     pavucontrol
     pdfarranger

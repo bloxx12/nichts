@@ -47,7 +47,7 @@
         eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
-        starship.enable = true;
+        # starship.enable = true;
         zellij.enable = true;
         terminals = {
           foot.enable = true;
