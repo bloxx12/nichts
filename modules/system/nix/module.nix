@@ -15,8 +15,6 @@ in {
     inputs.lix-module.nixosModules.default
   ];
 
-  # link a copy of our nixpkgs input as the nixpkgs channel
-  # environment.etc."nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
   nix = {
     package = pkgs.lix;
 
