@@ -47,6 +47,7 @@ in {
       };
 
       general = {
+        layout = "hy3";
         gaps_in = 0;
         gaps_out = 0;
         border_size = 2;

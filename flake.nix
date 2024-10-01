@@ -26,7 +26,7 @@
     };
 
     # Hyprland, my main compositor
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Plugins for hyprland
     hyprland-plugins = {
@@ -37,6 +37,12 @@
     # Plugin to get split monitor workspaces
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    # much better than sway
+    hy3 = {
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
 
