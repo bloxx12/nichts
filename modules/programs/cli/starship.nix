@@ -65,12 +65,6 @@ in {
 
           # removes the read_only symbol from the format, it doesn't play nicely with my folder icon
           format = "[ ](bold green) [$path]($style) ";
-
-          # the following removes tildes from the path, and substitutes some folders with shorter names
-          substitutions = {
-            "~/Dev" = "Dev";
-            "~/Documents" = "Docs";
-          };
         };
 
         # git
