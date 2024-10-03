@@ -75,10 +75,10 @@ in {
 
     binde = [
       # window focus
-      "$mainMod, H, hy3:movefocus, l"
-      "$mainMod, J, hy3:movefocus, d"
-      "$mainMod, K, hy3:movefocus, u"
-      "$mainMod, L, hy3:movefocus, r"
+      "$mainMod, H, movefocus, l"
+      "$mainMod, J, movefocus, d"
+      "$mainMod, K, movefocus, u"
+      "$mainMod, L, movefocus, r"
     ];
 
     # Media controls
