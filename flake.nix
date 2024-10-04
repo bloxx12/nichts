@@ -68,6 +68,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix = {
+      url = "github:gerg-l/spicetify-nix";
+    };
     # Wrapper-manager for safely wrapping some packages.
     wrapper-manager.url = "github:viperML/wrapper-manager";
   };

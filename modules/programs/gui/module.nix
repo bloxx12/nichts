@@ -2,6 +2,7 @@ _: {
   imports = [
     ./vesktop.nix
     ./foot.nix
+    ./spicetify.nix
     ./mpv.nix
     ./zathura.nix
     ./steam.nix
