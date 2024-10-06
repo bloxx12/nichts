@@ -15,6 +15,7 @@ in {
         "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
         #start waybar
         "${pkgs.waybar}/bin/waybar"
+        # "${pkgs.ianny}/bin/ianny"
 
         # run persistent special workspace windows
         "[workspace special:nixos; silent;tile] ${pkgs.foot}/bin/foot -D ~/projects/nichts"

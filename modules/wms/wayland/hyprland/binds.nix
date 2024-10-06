@@ -42,13 +42,13 @@ in {
         "$mainMod, SPACE, togglefloating, active"
 
         # Move Windows
-        "$mainMod SHIFT, H, hy3:movewindow, l, once"
-        "$mainMod SHIFT, J, hy3:movewindow, d, once"
-        "$mainMod SHIFT, K, hy3:movewindow, u, once"
-        "$mainMod SHIFT, L, hy3:movewindow, r, once"
+        "$mainMod SHIFT, H, movewindow, l"
+        "$mainMod SHIFT, J, movewindow, d"
+        "$mainMod SHIFT, K, movewindow, u"
+        "$mainMod SHIFT, L, movewindow, r"
 
         # Screenshotting
-        "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+        "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast save area - | ${pkgs.swappy}/bin/swappy -f -"
 
         # File manager
         "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
