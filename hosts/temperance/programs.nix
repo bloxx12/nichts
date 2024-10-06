@@ -23,6 +23,7 @@
     impala
     imv
     inetutils
+    jujutsu
     keepassxc
     lazygit
     libtool
