@@ -52,7 +52,6 @@ in {
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
           split-monitor-workspaces
-          hy3
         ];
 
         # Xwayland for X applications

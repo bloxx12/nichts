@@ -27,16 +27,9 @@ in {
           workspace = toString i;
         in "$mainMod SHIFT, ${key}, split-movetoworkspacesilent, ${workspace}"
       ) (genList (i: i + 1) 10)
-      ++ map (
-        i: let
-          mod = a: b: a - (b * (a / b));
-          key = toString (mod i 10);
-          index = toString i;
-        in "$mainMod CONTROL, ${key}, hy3:focustab, index, ${index}"
-      ) (genList (i: i + 1) 10)
       ++ [
         "$mainMod, RETURN, exec, ${pkgs.foot}/bin/foot"
-        "$mainMod, Q, hy3:killactive"
+        "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen, 0"
         "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
         "$mainMod, SPACE, togglefloating, active"
@@ -63,14 +56,6 @@ in {
 
         # Restart waybar
         "$mainMod CONTROL, B, exec, ${pkgs.procps}/bin/pkill waybar || ${pkgs.waybar}/bin/waybar"
-
-        # hy3 group settings
-        "$mainMod, Z, hy3:makegroup, h"
-        "$mainMod SHIFT, Z, hy3:makegroup, v"
-        "$mainMod, U, hy3:makegroup, tab"
-        "$mainMod, A, hy3:changefocus, raise"
-        "$mainMod SHIFT, A, hy3:changefocus, lower"
-        "$mainMod, C, hy3:changegroup, opposite"
       ];
 
     binde = [
