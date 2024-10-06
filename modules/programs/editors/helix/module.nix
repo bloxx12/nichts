@@ -19,7 +19,7 @@ in {
         settings = {
           theme = "catppuccin_mocha";
           editor = {
-            cursorline = true;
+            cursorline = false;
             color-modes = true;
             indent-guides.render = true;
             lsp = {
