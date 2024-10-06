@@ -40,16 +40,9 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    # much better than sway
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     # Treefmt provides formatting for all files in my flake.
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    # Still have to set up imerimpermanence, that's a thing for the future.
     impermanence.url = "github:nix-community/impermanence";
 
     # I use nvim, helix *and* emacs, cry about it.
@@ -59,8 +52,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
