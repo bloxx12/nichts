@@ -38,8 +38,8 @@ in {
 
         follow_mouse = true;
 
-        repeat_rate = 50;
-        repeat_delay = 200;
+        repeat_rate = 70;
+        repeat_delay = 150;
 
         touchpad = {
           disable_while_typing = true;
