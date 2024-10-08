@@ -41,7 +41,8 @@ in {
         "$mainMod SHIFT, L, movewindow, r"
 
         # Screenshotting
-        "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast save area - | ${pkgs.swappy}/bin/swappy -f -"
+        "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area" # only copy
+        "$mainMod SHIFT, S, exec, ${pkgs.grimblast}/bin/grimblast save area - | ${pkgs.satty}/bin/satty -f -" # edit with satty
 
         # File manager
         "$mainMod, E, exec, ${pkgs.xfce.thunar}/bin/thunar"
