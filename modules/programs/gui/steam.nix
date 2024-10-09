@@ -10,7 +10,6 @@ in {
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
-      protontricks.enable = true;
       package = pkgs.steam.override {
         extraEnv = {
           MANGOHUD = true;
