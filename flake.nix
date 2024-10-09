@@ -53,6 +53,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
       url = "github:schizofox/schizofox";
