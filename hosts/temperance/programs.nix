@@ -1,11 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # FIXME: temporary
-    # libayatana-appindicator-gtk3
-    libayatana-appindicator
     alsa-utils
+    anki
     asciinema
-    bottles
     cachix
     calc
     calibre
@@ -28,12 +25,12 @@
     keepassxc
     lazygit
     libtool
-    lutris
     nextcloud-client
     nicotine-plus
     swww
     microfetch
     nmap
+    nyxt
     # onlyoffice-bin
     pavucontrol
     pdfarranger
@@ -45,6 +42,7 @@
     r2modman
     ripgrep
     signal-desktop-beta
+    strawberry
     telegram-desktop
     thunderbird
     tor-browser
