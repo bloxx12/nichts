@@ -64,5 +64,10 @@
     };
     # Wrapper-manager for safely wrapping some packages.
     wrapper-manager.url = "github:viperML/wrapper-manager";
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

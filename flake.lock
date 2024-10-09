@@ -2678,6 +2678,26 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728201439,
+        "narHash": "sha256-l2asnx4nJb2iFFuoGHKkSHaCmeg4IITFSmT2JF/IbzA=",
+        "ref": "refs/heads/master",
+        "rev": "8e40112d143f805a3fdcc967c50500e2c035ff12",
+        "revCount": 353,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
@@ -2709,6 +2729,7 @@
         "lix-module": "lix-module",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs_4",
+        "quickshell": "quickshell",
         "schizofox": "schizofox",
         "spicetify-nix": "spicetify-nix",
         "split-monitor-workspaces": "split-monitor-workspaces",
