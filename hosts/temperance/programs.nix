@@ -10,7 +10,6 @@
     element-desktop
     evince
     eza
-    emacs30-pgtk
     gcc
     gnumake
     halloy
