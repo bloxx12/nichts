@@ -32,9 +32,9 @@ in {
 
       # Input settings
       input = {
-        kb_layout = "de,us";
-        kb_variant = ",colemak_dh_wide";
-        kb_options = "grp:rctrl_rshift_toggle";
+        kb_layout = "de,ru";
+        kb_variant = ",phonetic_winkeys";
+        kb_options = "grp:rctrl_rshift_toggle ctrl:nocaps";
 
         follow_mouse = true;
 
