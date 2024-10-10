@@ -11,6 +11,7 @@
   console.keyMap = "de";
   security.polkit.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  programs.nix-ld.enable = true;
   services = {
     fstrim.enable = lib.mkDefault true;
   };

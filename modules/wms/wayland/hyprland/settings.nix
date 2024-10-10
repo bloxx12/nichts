@@ -34,7 +34,7 @@ in {
       input = {
         kb_layout = "de,ru";
         kb_variant = ",phonetic_winkeys";
-        kb_options = "grp:rctrl_rshift_toggle ctrl:nocaps";
+        kb_options = "grp:rctrl_rshift_toggle";
 
         follow_mouse = true;
 
