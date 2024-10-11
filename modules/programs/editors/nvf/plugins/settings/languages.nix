@@ -11,11 +11,11 @@ _: {
       java.enable = true;
       css.enable = true;
       # tailwind.enable = false;
-      ts.enable = true;
+      # ts.enable = true;
       # go.enable = true;
       # python.enable = true;
       bash.enable = true;
-      # typst.enable = false;
+      typst.enable = true;
       zig.enable = true;
       # dart.enable = false;
       # elixir.enable = false;
