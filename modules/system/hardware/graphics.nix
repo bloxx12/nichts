@@ -20,7 +20,7 @@ in {
       };
       nvidia = mkIf cfg.nvidia.enable {
         modesetting.enable = true;
-        open = true;
+        open = false;
         powerManagement = {
           enable = true;
           finegrained = false;
