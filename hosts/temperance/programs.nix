@@ -48,6 +48,7 @@
     trash-cli
     tutanota-desktop
     typst
+    ungoogled-chromium
     wireguard-tools
     xdg-utils
     xournalpp
