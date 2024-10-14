@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (builtins) map;
-  inherit (config.modules.other.system) username;
+  inherit (config.meta.mainUser) username;
   hmCfg = config.home-manager.users.${username};
 
   inherit (lib.strings) concatStrings;
