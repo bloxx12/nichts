@@ -32,14 +32,14 @@ in {
 
       # Input settings
       input = {
-        kb_layout = "de,ru";
-        kb_variant = ",phonetic_winkeys";
+        kb_layout = "de,ru, us";
+        kb_variant = ",phonetic_winkeys,workman";
         kb_options = "grp:rctrl_rshift_toggle";
 
         follow_mouse = true;
 
-        repeat_rate = 70;
-        repeat_delay = 150;
+        repeat_rate = 60;
+        repeat_delay = 200;
 
         touchpad = {
           disable_while_typing = true;
