@@ -64,6 +64,7 @@ in {
       home.packages = with pkgs; [
         emaks
 
+        nil
         clang-tools
         # emacs30-pgtk
         binutils
