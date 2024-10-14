@@ -20,13 +20,11 @@
     printing.enable = true;
   };
 
-  meta = {
-    users = ["vali"];
-    # mainUser = "vali";
-  };
   modules = {
     system = {
+      impermanence.enable = true;
       hardware = {
+        nvidia.enable = true;
         bluetooth = {
           enable = true;
           powerOnBoot = false;
@@ -39,11 +37,9 @@
           neovim.enable = true;
           # sadly just not advanced enough, yet.
           helix.enable = true;
-          kakoune.enable = false;
         };
         discord.enable = true;
-        nushell.enable = true;
-        oh-my-posh.enable = true;
+        # nushell.enable = true;
         eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
@@ -51,7 +47,6 @@
         zellij.enable = true;
         terminals = {
           foot.enable = true;
-          kitty.enable = true;
         };
       };
       sound.enable = true;
@@ -75,7 +70,7 @@
 
         media.mpd = {
           enable = true;
-          musicDirectory = "/home/${config.modules.other.system.username}/Nextcloud/media/Music";
+          musicDirectory = "/home/${config.modules.other.system.username}/cloud/media/Music";
         };
       };
 
@@ -87,8 +82,7 @@
     other = {
       system = {
         hostname = "hermit";
-        username = "vali";
-        gitPath = "/home/vali/projects/nichts";
+        username = "cr";
       };
 
       home-manager = {
@@ -99,7 +93,7 @@
       ssh.enable = true;
       btop.enable = true;
       newsboat.enable = true;
-      # fish.enable = true;
+      fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
     };

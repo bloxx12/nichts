@@ -18,6 +18,7 @@
     eza
     fftw
     grc
+    gparted
     git
     halloy
     helvum

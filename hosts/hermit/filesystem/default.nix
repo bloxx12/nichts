@@ -1,9 +1,9 @@
 {
   config = {
-    boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/96e8f3d6-8d2d-4e2d-abd9-3eb7f48fed02";
+    boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/70952ef8-1d73-49ae-bd86-b7614f01fa86";
     fileSystems = {
       "/boot" = {
-        device = "/dev/disk/by-uuid/7825-451F";
+        device = "/dev/disk/by-uuid/466A-F45E";
         fsType = "vfat";
       };
       # root on tmpfs
@@ -13,23 +13,23 @@
         options = ["defaults" "size=25%" "mode=755"];
       };
       "/nix" = {
-        device = "/dev/disk/by-uuid/f0569993-722e-4721-b0d9-8ac537a7a548";
+        device = "/dev/disk/by-uuid/7fd4eb96-c9e6-450d-a7d6-1b2ef137a9f5";
         fsType = "btrfs";
         options = ["subvol=nix" "compress=zstd" "noatime"];
       };
       "/persist" = {
-        device = "/dev/disk/by-uuid/f0569993-722e-4721-b0d9-8ac537a7a548";
+        device = "/dev/disk/by-uuid/7fd4eb96-c9e6-450d-a7d6-1b2ef137a9f5";
         neededForBoot = true;
         fsType = "btrfs";
         options = ["subvol=persist" "compress=zstd" "noatime"];
       };
       "/home" = {
-        device = "/dev/disk/by-uuid/f0569993-722e-4721-b0d9-8ac537a7a548";
+        device = "/dev/disk/by-uuid/7fd4eb96-c9e6-450d-a7d6-1b2ef137a9f5";
         fsType = "btrfs";
         options = ["subvol=home" "compress=zstd" "noatime"];
       };
       "/swap" = {
-        device = "/dev/disk/by-uuid/f0569993-722e-4721-b0d9-8ac537a7a548";
+        device = "/dev/disk/by-uuid/7fd4eb96-c9e6-450d-a7d6-1b2ef137a9f5";
         fsType = "btrfs";
 
         options = ["subvol=swap" "compress=lzo" "noatime"];
