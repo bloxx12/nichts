@@ -78,7 +78,7 @@
     };
     other = {
       system = {
-        # hostname = "temperance";
+        hostname = "temperance";
         username = "cr";
       };
 
