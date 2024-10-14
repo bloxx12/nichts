@@ -3,9 +3,6 @@
     ladybird
     alsa-utils
     asciinema
-    blueman
-    bluetuith
-    bluez
     cachix
     calc
     calibre
