@@ -14,7 +14,7 @@ in {
         enable = true;
         package = pkgs.eza;
         git = true;
-        icons = true;
+        icons = "auto";
         enableNushellIntegration = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
