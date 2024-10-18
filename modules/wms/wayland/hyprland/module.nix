@@ -11,6 +11,7 @@
     (inputs'.split-monitor-workspaces.packages)
     split-monitor-workspaces
     ;
+  inherit (inputs'.hyprsplit.packages) hyprsplit;
   inherit (inputs'.hy3.packages) hy3;
   inherit (lib) mkIf mkDefault;
 in {
@@ -51,7 +52,8 @@ in {
 
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
-          split-monitor-workspaces
+          hy3
+          hyprsplit
         ];
 
         # Xwayland for X applications

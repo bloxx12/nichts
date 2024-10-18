@@ -47,7 +47,7 @@ in {
       };
 
       general = {
-        layout = "dwindle";
+        layout = "hy3";
         gaps_in = 0;
         gaps_out = 0;
         border_size = 2;
@@ -57,9 +57,23 @@ in {
       };
 
       plugin = {
+        hy3 = {
+          no_gaps_when_only = 1;
+          tabs = {
+            height = 4;
+            padding = 5;
+            from_top = true;
+            render_text = false;
+          };
+          autotile.enable = true;
+        };
+        hyprsplit = {
+          num_workspaces = 10;
+          persistent_workspaces = true;
+        };
         split-monitor-workspaces = {
-          keep-focued = true;
           count = 10;
+          keep_focused = 0;
         };
       };
     };
