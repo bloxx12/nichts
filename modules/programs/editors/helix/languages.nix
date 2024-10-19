@@ -93,6 +93,10 @@ in {
             config.nil.formatting.command = ["${getExe pkgs.alejandra}" "-q"];
           };
 
+          qmlls = {
+            command = "${pkgs.kdePackages.full}/bin/qmlls";
+          };
+
           pyright = {
             command = "${pkgs.pyright}/bin/pyright-langserver";
             args = ["--stdio"];
