@@ -31,6 +31,7 @@
     nmap
     nyxt
     # onlyoffice-bin
+    pandoc
     pavucontrol
     pdfarranger
     polkit
@@ -43,12 +44,14 @@
     signal-desktop-beta
     strawberry
     telegram-desktop
+    texliveFull
     thunderbird
     tor-browser
     trash-cli
     tutanota-desktop
     typst
     ungoogled-chromium
+    wineWowPackages.waylandFull
     wireguard-tools
     xdg-utils
     xournalpp
