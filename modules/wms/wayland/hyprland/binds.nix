@@ -34,26 +34,6 @@ in {
         "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
         "$mainMod, SPACE, togglefloating, active"
 
-        # Move Windows
-        "$mainMod SHIFT, H, hy3:movewindow, l"
-        "$mainMod SHIFT, J, hy3:movewindow, d"
-        "$mainMod SHIFT, K, hy3:movewindow, u"
-        "$mainMod SHIFT, L, hy3:movewindow, r"
-
-        "$mainMod CTRL, H, movewindow, mon:l"
-        "$mainMod CTRL, J, movefocus, r"
-        "$mainMod CTRL, K, movefocus, l"
-        "$mainMod CTRL, L, movewindow, mon:r"
-
-        # Hy3 fun
-        "$mainMod, C, hy3:makegroup, h"
-        "$mainMod, Y, hy3:makegroup, v"
-        "$mainMod, B, hy3:makegroup, tab"
-
-        
-        "$mainMod, A, hy3:movefocus, raise"
-        "$mainMod SHIFT, A, hy3:movefocus, lower"
-
         # Screenshotting
         "$mainMod, S, exec, ${pkgs.grimblast}/bin/grimblast copy area" # only copy
         "$mainMod SHIFT, S, exec, ${pkgs.grimblast}/bin/grimblast save area - | ${pkgs.satty}/bin/satty -f -" # edit with satty
@@ -75,10 +55,16 @@ in {
 
     binde = [
       # window focus
-      "$mainMod, H, hy3:movefocus, l"
-      "$mainMod, J, hy3:movefocus, d"
-      "$mainMod, K, hy3:movefocus, u"
-      "$mainMod, L, hy3:movefocus, r"
+      "$mainMod, H, movefocus, l"
+      "$mainMod, J, movefocus, d"
+      "$mainMod, K, movefocus, u"
+      "$mainMod, L, movefocus, r"
+
+      # Move Windows
+      "$mainMod SHIFT, H, movewindow, l"
+      "$mainMod SHIFT, J, movewindow, d"
+      "$mainMod SHIFT, K, movewindow, u"
+      "$mainMod SHIFT, L, movewindow, r"
     ];
 
     # Media controls
@@ -114,10 +100,6 @@ in {
     bindm = [
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
-    ];
-    bindn = [
-      ", mouse_down, hy3:focustab, l, require_hovered"
-      ", mouse_up, hy3:focustab, r, require_hovered"
     ];
 
     # Some more movement-related settings

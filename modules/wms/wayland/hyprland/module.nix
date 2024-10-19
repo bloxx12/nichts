@@ -7,12 +7,7 @@
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.meta.mainUser) username;
-  inherit
-    (inputs'.split-monitor-workspaces.packages)
-    split-monitor-workspaces
-    ;
   inherit (inputs'.hyprsplit.packages) hyprsplit;
-  inherit (inputs'.hy3.packages) hy3;
   inherit (lib) mkIf mkDefault;
 in {
   imports = [
@@ -52,7 +47,6 @@ in {
 
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
-          hy3
           hyprsplit
         ];
 
