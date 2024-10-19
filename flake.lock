@@ -419,26 +419,6 @@
         "type": "github"
       }
     },
-    "hy3": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ]
-      },
-      "locked": {
-        "lastModified": 1729122023,
-        "narHash": "sha256-OJNfAveVogmpSIJ7V3eCSWVGvmWOVQfMQTfOpK163HQ=",
-        "owner": "outfoxxed",
-        "repo": "hy3",
-        "rev": "29293bf7d509cd18e25a59e15841538fcdef580a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "outfoxxed",
-        "repo": "hy3",
-        "type": "github"
-      }
-    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -1012,6 +992,22 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "194846768975b7ad2c4988bdb82572c00222c0d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable_3": {
+      "locked": {
+        "lastModified": 1729181673,
+        "narHash": "sha256-LDiPhQ3l+fBjRATNtnuDZsBS7hqoBtPkKBkhpoBHv3I=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4eb33fe664af7b41a4c446f87d20c9a0a6321fa3",
         "type": "github"
       },
       "original": {
@@ -2804,7 +2800,6 @@
         "flake-parts": "flake-parts",
         "helix": "helix",
         "home-manager": "home-manager",
-        "hy3": "hy3",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "hyprsplit": "hyprsplit",
@@ -2812,6 +2807,7 @@
         "lix-module": "lix-module",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-stable": "nixpkgs-stable_3",
         "quickshell": "quickshell",
         "schizofox": "schizofox",
         "spicetify-nix": "spicetify-nix",
