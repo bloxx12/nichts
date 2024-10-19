@@ -19,8 +19,8 @@ in {
 
         theme = {
           colors = {
-            background-darker = "383838";
-            background = "afaf8f";
+            background-darker = "000000";
+            background = "000000";
             foreground = "ffffff";
           };
 
