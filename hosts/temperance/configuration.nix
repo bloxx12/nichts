@@ -24,7 +24,7 @@
       impermanence.enable = true;
       programs = {
         editors = {
-          emacs.enable = true;
+          emacs.enable = false;
           # only emacs for me, right now.
           neovim.enable = true;
           # sadly just not advanced enough, yet.
