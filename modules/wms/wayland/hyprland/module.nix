@@ -8,6 +8,7 @@
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.meta.mainUser) username;
   inherit (inputs'.hyprsplit.packages) hyprsplit;
+  hyprchroma = inputs'.hyprchroma.packages.default;
   inherit (lib) mkIf mkDefault;
 in {
   imports = [
@@ -48,6 +49,7 @@ in {
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
           hyprsplit
+          hyprchroma
         ];
 
         # Xwayland for X applications

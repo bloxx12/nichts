@@ -43,6 +43,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hyprchroma = {
+      url = "github:alexhulbert/hyprchroma";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hyprsplit = {
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";

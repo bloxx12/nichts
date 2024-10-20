@@ -34,7 +34,7 @@ in {
       input = {
         kb_layout = "de,ru, us";
         kb_variant = ",phonetic_winkeys,workman";
-        kb_options = "grp:rctrl_rshift_toggle";
+        kb_options = "grp:rctrl_rshift_toggle caps:escape";
 
         follow_mouse = true;
 
