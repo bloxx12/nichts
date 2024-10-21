@@ -20,7 +20,6 @@ in {
           modules-left = ["tray" "mpd"];
           modules-center = ["hyprland/workspaces"];
           modules-right = [
-            "cpu"
             "memory"
             "pulseaudio"
             "clock"
@@ -219,7 +218,9 @@ in {
               background: @base;
               color: @text;
           }
-
+          #memory {
+            color: @text;
+          }
           #battery {
               margin-top: 3px;
               margin-bottom: 3px;
