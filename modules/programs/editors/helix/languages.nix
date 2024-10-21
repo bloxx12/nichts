@@ -90,6 +90,7 @@ in {
 
           nil = {
             command = getExe pkgs.nil;
+            # alejandro
             config.nil.formatting.command = ["${getExe pkgs.alejandra}" "-q"];
           };
 

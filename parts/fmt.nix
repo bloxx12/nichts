@@ -15,6 +15,7 @@
         global.excludes = ["*.png"];
       };
       programs = {
+        # alejandro
         alejandra.enable = true;
 
         shellcheck.enable = true;
