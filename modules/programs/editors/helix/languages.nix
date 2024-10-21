@@ -110,34 +110,34 @@ in {
             };
           };
 
-          # typescript-language-server = {
-          #   command = getExe pkgs.nodePackages.typescript-language-server;
-          #   args = ["--stdio"];
-          #   config = let
-          #     inlayHints = {
-          #       includeInlayEnumMemberValueHints = true;
-          #       includeInlayFunctionLikeReturnTypeHints = true;
-          #       includeInlayFunctionParameterTypeHints = true;
-          #       includeInlayParameterNameHints = "all";
-          #       includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-          #       includeInlayPropertyDeclarationTypeHints = true;
-          #       includeInlayVariableTypeHints = true;
-          #     };
-          #   in {
-          #     typescript-language-server.source = {
-          #       addMissingImports.ts = true;
-          #       fixAll.ts = true;
-          #       organizeImports.ts = true;
-          #       removeUnusedImports.ts = true;
-          #       sortImports.ts = true;
-          #     };
-          #
-          #     typescript = {inherit inlayHints;};
-          #     javascript = {inherit inlayHints;};
-          #
-          #     hostInfo = "helix";
-          #   };
-          # };
+          typescript-language-server = {
+            command = getExe pkgs.typescript-language-server;
+            args = ["--stdio"];
+            config = let
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true;
+                includeInlayFunctionLikeReturnTypeHints = true;
+                includeInlayFunctionParameterTypeHints = true;
+                includeInlayParameterNameHints = "all";
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                includeInlayPropertyDeclarationTypeHints = true;
+                includeInlayVariableTypeHints = true;
+              };
+            in {
+              typescript-language-server.source = {
+                addMissingImports.ts = true;
+                fixAll.ts = true;
+                organizeImports.ts = true;
+                removeUnusedImports.ts = true;
+                sortImports.ts = true;
+              };
+
+              typescript = {inherit inlayHints;};
+              javascript = {inherit inlayHints;};
+
+              hostInfo = "helix";
+            };
+          };
 
           # vscode-css-language-server = {
           #   command = "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-css-languageserver";
