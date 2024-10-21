@@ -22,7 +22,7 @@ in {
           ];
       };
       gamescopeSession.enable = true;
-      extraCompatPackages = with pkgs; [proton-ge-bin.steamcompattool];
+      extraCompatPackages = [pkgs.proton-ge-bin.steamcompattool];
     };
     # See
     # https://wiki.nixos.org/wiki/GameMode
