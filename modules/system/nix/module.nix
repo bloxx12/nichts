@@ -23,7 +23,9 @@ in {
 
     # this is taken from sioodmy.
     # pin the registry to avoid downloading and evaling a new nixpkgs version every time
-    registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
+    registry =
+      lib.mapAttrs (_: v: {flake = v;}) inputs
+      // {system.flake = inputs.self;};
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well
