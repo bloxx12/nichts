@@ -7,10 +7,12 @@
   ...
 }: let
   pname = "linux-xanmod";
-  version = "6.11.3";
+  version = "6.11.5";
   vendorSuffix = "xanmod1";
   modDirVersion = lib.versions.pad 3 "${version}-xanmod1";
 
+  inherit (lib.modules) mkForce;
+  inherit (lib.kernel) freeform yes no;
   xanmod_blox = buildLinux {
     inherit pname version modDirVersion;
 
@@ -18,7 +20,7 @@
       owner = "xanmod";
       repo = "linux";
       rev = "refs/tags/${version}-${vendorSuffix}";
-      hash = "sha256-Pb/7XToBFZstI1DFgWg4a2HiRuSzA9rEsMBLb6fRvYc=";
+      hash = "sha256-G4u0LQtIeJ0dNAmjNH0OKihmbkivYVbrbXDB9vPw2xI=";
     };
 
     kernelPatches = [
@@ -28,14 +30,14 @@
 
     enableCommonConfig = true;
     # Default Xanmod options
-    structuredExtraConfig = with lib.kernel; {
+    structuredExtraConfig = {
       # CPUFreq governor Performance
-      CPU_FREQ_DEFAULT_GOV_PERFORMANCE = lib.mkOverride 60 yes;
-      CPU_FREQ_DEFAULT_GOV_SCHEDUTIL = lib.mkOverride 60 no;
+      CPU_FREQ_DEFAULT_GOV_PERFORMANCE = mkForce 60 yes;
+      CPU_FREQ_DEFAULT_GOV_SCHEDUTIL = mkForce 60 no;
 
       # Full preemption
-      PREEMPT = lib.mkOverride 60 yes;
-      PREEMPT_VOLUNTARY = lib.mkOverride 60 no;
+      PREEMPT = mkForce 60 yes;
+      PREEMPT_VOLUNTARY = mkForce 60 no;
 
       # Google's BBRv3 TCP congestion Control
       TCP_CONG_BBR = yes;
