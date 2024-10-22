@@ -1,11 +1,10 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    ladybird
     alsa-utils
     asciinema
     cachix
     calc
-    calibre
+    # calibre
     cbonsai
     cmus
     difftastic
@@ -26,6 +25,7 @@
     impala
     imv
     inetutils
+    jujutsu
     jrnl
     keepassxc
     lazygit
