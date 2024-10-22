@@ -88,7 +88,7 @@ in {
         # :tools lookup & :lang org +roam
         sqlite
         # :lang latex & :lang org (latex previews)
-        texlive.combined.scheme-medium
+        # texlive.combined.scheme-medium
         # :lang nix
         age
       ];
