@@ -64,8 +64,6 @@ in {
         "size 70% 70%, class:^(code), title: ^(Open*)"
         "center, class: ^(code), title: ^(Open*)"
         "float, class:^(org.keepassxc.KeePassXC)$"
-        "plugin:chromakey,fullscreen:0"
-        # "chromakey_background = rgb(07121b)"
       ];
     };
   };
