@@ -2,32 +2,31 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  kernelPatches,
   buildLinux,
-  variant,
+  kernelPatches,
   ...
 }: let
+  pname = "linux-xanmod";
   version = "6.11.3";
-  hash = "sha256-Pb/7XToBFZstI1DFgWg4a2HiRuSzA9rEsMBLb6fRvYc=";
+  vendorSuffix = "xanmod1";
+  modDirVersion = lib.versions.pad 3 "${version}-xanmod1";
 
-  xanmod_blox = buildLinux rec {
-    inherit version;
-    pname = "linux-xanmod";
-    modDirVersion = lib.versions.pad 3 "${version}-blox";
+  xanmod_blox = buildLinux {
+    inherit pname version modDirVersion;
 
     src = fetchFromGitHub {
       owner = "xanmod";
       repo = "linux";
-      rev = modDirVersion;
-      inherit hash;
+      rev = "refs/tags/${version}-${vendorSuffix}";
+      hash = "sha256-Pb/7XToBFZstI1DFgWg4a2HiRuSzA9rEsMBLb6fRvYc=";
     };
+
     kernelPatches = [
       kernelPatches.bridge_stp_helper
       kernelPatches.request_key_helper
     ];
 
     enableCommonConfig = true;
-
     # Default Xanmod options
     structuredExtraConfig = with lib.kernel; {
       # CPUFreq governor Performance
@@ -56,5 +55,8 @@
       RCU_EXP_KTHREAD = yes;
     };
   };
-in
-  xanmod_blox
+in {
+  inherit
+    xanmod_blox
+    ;
+}
