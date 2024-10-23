@@ -70,7 +70,6 @@
 
         media.mpd = {
           enable = true;
-          musicDirectory = "/home/${config.modules.other.system.username}/cloud/media/Music";
         };
       };
 
