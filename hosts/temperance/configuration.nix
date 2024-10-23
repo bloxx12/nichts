@@ -3,13 +3,32 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit
+    (
+      pkgs.callPackage ./kernel/xanmod.nix {
+        inherit lib;
+        inherit
+          (pkgs)
+          stdenv
+          fetchFromGitHub
+          kernelPatches
+          buildLinux
+          variant
+          ;
+      }
+    )
+    xanmod_blox
+    ;
+in {
   # Time Zone
   time.timeZone = "Europe/Zurich";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
   security.polkit.enable = true;
+
+  # boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   programs.nix-ld.enable = true;
   services = {

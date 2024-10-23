@@ -10,16 +10,6 @@
 in {
   home-manager.users.${username} = {
     wayland.windowManager.hyprland.settings = {
-      # Monitor config
-      # monitor = [
-      #   "eDP-1,1920x1080,0x0,1"
-      #   # "DP-2,1920x1080,0x0,1"
-      #   # "HDMI-A-2,1920x1080,1920x0,1"
-      #   # "HDMI-A-1,1920x1080,3840x0,1"
-      #   # Had the shadow monitor bug, so had to disable all unknown monitors.
-      #   "Unknown-1,disable"
-      # ];
-
       # INFO: This is a custom function to map all of my monitors to workspaces.
       # Since I use split-monitor-workspaces, I map 10 workspaces to each monitor
       # and set the first one to be the default one.
