@@ -45,7 +45,7 @@ in {
             };
           };
           keys.normal = {
-            C-g = [":new" ":insert-output ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
+            space.g = [":new" ":insert-output ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
             esc = ["collapse_selection" "keep_primary_selection" "normal_mode"];
             A-H = "goto_previous_buffer";
             A-L = "goto_next_buffer";
