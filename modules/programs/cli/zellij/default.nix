@@ -10,7 +10,7 @@ in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.zellij = {
-        enable = false;
+        enable = true;
 
         enableFishIntegration = true;
 
