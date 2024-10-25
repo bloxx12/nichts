@@ -19,5 +19,7 @@ in {
         };
       };
     };
+    kmscon.enable = mkEnableOption "Kmscon";
+    greetd.enable = mkEnableOption "Greetd";
   };
 }

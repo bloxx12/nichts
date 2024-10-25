@@ -56,7 +56,7 @@ in {
         eza.enable = true;
         firefox.enable = true;
         spotify.enable = true;
-        zellij.enable = true;
+        zellij.enable = false;
         steam.enable = true;
         terminals = {
           foot.enable = true;
@@ -83,6 +83,8 @@ in {
       };
       services = {
         locate.enable = true;
+        kmscon.enable = false;
+        greetd.enable = true;
 
         media.mpd = {
           enable = true;

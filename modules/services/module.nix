@@ -7,5 +7,6 @@ _: {
     ./dunst.nix
     ./mpd.nix
     ./firewall.nix
+    ./kmscon.nix
   ];
 }
