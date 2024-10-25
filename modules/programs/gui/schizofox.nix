@@ -97,7 +97,7 @@ in {
               Descriptiom = "Noogle Search";
               Alias = "!ng";
               Method = "GET";
-              URLTemplate = "https://noogle.dev/";
+              URLTemplate = "https://noogle.dev/f/lib/{searchTerms}";
             }
           ];
         };
