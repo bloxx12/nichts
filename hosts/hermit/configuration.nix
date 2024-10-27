@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -79,10 +78,7 @@
       };
     };
     other = {
-      system = {
-        hostname = "hermit";
-        username = "cr";
-      };
+      system.username = "cr";
 
       home-manager = {
         enable = true;
