@@ -99,7 +99,6 @@ in {
     };
     other = {
       system = {
-        hostname = "temperance";
         username = "cr";
       };
 

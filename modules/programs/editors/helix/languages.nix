@@ -66,6 +66,54 @@ in {
             auto-format = true;
             language-servers = ["dprint" "typescript-language-server"];
           }
+          {
+            name = "rust";
+            debugger = {
+              command = "${pkgs.lldb_19}/bin/lldb-dap";
+              name = "lldb";
+              transport = "stdio";
+              templates = [
+                {
+                  name = "binary";
+                  request = "launch";
+                  completion = [
+                    {
+                      name = "binary";
+                      completion = "filename";
+                    }
+                  ];
+                  args = {
+                    program = "{0}";
+                    runInTerminal = true;
+                  };
+                }
+              ];
+            };
+          }
+          {
+            name = "c";
+            debugger = {
+              name = "gdb";
+              command = "${pkgs.gdb}/bin/gdb";
+              transport = "stdio";
+              templates = [
+                {
+                  name = "binary";
+                  request = "launch";
+                  completion = [
+                    {
+                      name = "binary";
+                      completion = "filename";
+                    }
+                  ];
+                  args = {
+                    program = "{0}";
+                    runInTerminal = true;
+                  };
+                }
+              ];
+            };
+          }
         ];
 
         language-server = {

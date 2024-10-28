@@ -14,9 +14,9 @@ in {
           "audio"
           "nix"
         ];
-        hashedPasswordFile = "/etc/passwords/cr";
+        # hashedPasswordFile = "/etc/passwords/cr";
       };
-      root.hashedPasswordFile = "/persist/passwords/root";
+      # root.hashedPasswordFile = "/persist/passwords/root";
     };
   };
 }

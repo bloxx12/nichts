@@ -4,6 +4,6 @@ _: {
     ./system.nix
     ./xdg.nix
     ./git.nix
-    /users.nix
+    ./users.nix
   ];
 }

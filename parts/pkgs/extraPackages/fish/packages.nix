@@ -7,6 +7,26 @@
   # better cat
   bat
 
+  # clipboard
+  yazi
+  serpl
+  diff-so-fancy
+  tig
+
+  sesh
+  mprocs
+  curlie
+  entr
+  procs
+  sd
+  # mult
+  glow
+
+  gdb
+  # dua-cli
+  dust
+  kondo
+
   # better grep
   ripgrep
 
