@@ -48,7 +48,7 @@ in {
           neovim.enable = true;
           # sadly just not advanced enough, yet.
           helix.enable = true;
-          kakoune.enable = false;
+          kakoune.enable = true;
         };
         discord.enable = true;
         nushell.enable = true;
