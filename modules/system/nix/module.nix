@@ -11,6 +11,8 @@ in {
   imports = [
     ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration
+
+    inputs.lix-module.nixosModules.lixFromNixpkgs
   ];
 
   nix = {
