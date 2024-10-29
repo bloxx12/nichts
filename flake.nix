@@ -53,23 +53,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    # Treefmt provides formatting for all files in my flake.
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-
     impermanence.url = "github:nix-community/impermanence";
 
-    # I use nvim, helix *and* emacs, cry about it.
+    # Helix my beloved
     helix.url = "github:helix-editor/helix";
 
-    neovim-flake = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # I use schizofox as my personal browser. This is because I am schizophrenic.
     schizofox = {
       url = "github:schizofox/schizofox";
