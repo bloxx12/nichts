@@ -10,17 +10,19 @@ in {
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraEnv = {
-          MANGOHUD = true;
-          SDL_VIDEODRIVER = "x11";
-        };
+      package = pkgs.steam;
+      
+      # .override {
+      #   extraEnv = {
+      #     MANGOHUD = true;
+      #     SDL_VIDEODRIVER = "x11";
+      #   };
 
-        extraLibraries = p:
-          with p; [
-            atk
-          ];
-      };
+      #   extraLibraries = p:
+      #     with p; [
+      #       atk
+      #     ];
+      # };
       gamescopeSession.enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin.steamcompattool];
     };
