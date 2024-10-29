@@ -25,10 +25,10 @@ with lib; let
     #exec-once=[workspace 1;fullscreen;noanim] ${
       pkgs.greetd.${cfg.greeter}
     }/bin/${cfg.greeter} -l; ${
-      inputs'.hyprland.packages.hyprland
+      pkgs.hyprland
     }/bin/hyprctl dispatch exit
     #exec-once=${
-      inputs'.hyprland.packages.hyprland
+      pkgs.hyprland
     }/bin/hyprctl dispatch focuswindow ${cfg.greeter}
   '';
 in {
@@ -49,7 +49,7 @@ in {
       enable = true;
       settings.default_session = {
         command = "${
-          inputs'.hyprland.packages.hyprland
+          pkgs.hyprland
         }/bin/Hyprland --config ${hyprlandConfig}";
         user = username;
       };

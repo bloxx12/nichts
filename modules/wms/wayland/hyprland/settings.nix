@@ -61,6 +61,17 @@ in {
           num_workspaces = 10;
           persistent_workspaces = true;
         };
+        hypr-dynamic-cursors = {
+          enabled = true;
+
+          mode = "tilt";
+          rotate = {
+            length = 20;
+            offset = 0.0;
+          };
+          threshhold = 2;
+          shake.enabled = false;
+        };
       };
     };
   };

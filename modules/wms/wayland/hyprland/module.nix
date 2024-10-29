@@ -23,17 +23,18 @@ in {
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
-      inherit (cfg) package portalPackage;
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
     # xdg Portal
     xdg.portal = {
       enable = true;
       configPackages = mkDefault [
-        cfg.portalPackage
+        pkgs.xdg-desktop-portal-hyprland
       ];
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        cfg.portalPackage
+        pkgs.xdg-desktop-portal-hyprland
       ];
       config = {
         common.default = ["gtk" "hyprland"];
@@ -43,11 +44,12 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        inherit (cfg) package;
+        package = pkgs.hyprland;
 
         # Split-monitor-workspaces provides awesome-like workspace behaviour
         plugins = [
-          hyprsplit
+          pkgs.hyprlandPlugins.hyprsplit
+          pkgs.hyprlandPlugins.hypr-dynamic-cursors
         ];
 
         # Xwayland for X applications

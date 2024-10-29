@@ -34,14 +34,14 @@ in {
 
         package = mkOption {
           type = package;
-          default = inputs'.hyprland.packages.hyprland;
+          default = pkgs.hyprland;
           description = ''
             The Hyprland package to be used.
           '';
         };
         portalPackage = mkOption {
           type = package;
-          default = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+          default = pkgs.xdg-desktop-portal-hyprland;
           description = "The hyprland portal package";
         };
       };
