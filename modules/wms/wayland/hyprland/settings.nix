@@ -61,10 +61,10 @@ in {
           num_workspaces = 10;
           persistent_workspaces = true;
         };
-        hypr-dynamic-cursors = {
+        dynamic-cursors = {
           enabled = true;
 
-          mode = "tilt";
+          mode = "rotate";
           rotate = {
             length = 20;
             offset = 0.0;
