@@ -1,12 +1,17 @@
 {
   description = "My NixOS config flake";
-  outputs = inputs:
+  outputs = inputs: let
+    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+  in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       imports = [
         ./hosts
         ./parts
       ];
+      flake = {
+        formatter.x86_64-linux = pkgs.alejandra;
+      };
     };
   inputs = {
     # what am I doing to this config help

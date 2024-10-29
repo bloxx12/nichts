@@ -9,9 +9,7 @@
 
       DIRENV_LOG_FORMAT = "";
 
-      inputsFrom = [config.treefmt.build.devShell];
       packages = [
-        config.treefmt.build.wrapper # treewide formatter
         pkgs.git # take a guess
 
         (pkgs.writeShellApplication {

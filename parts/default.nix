@@ -1,6 +1,6 @@
 {
   imports = [
-    ./fmt.nix
+    # ./fmt.nix
     ./shell.nix
     ./templates
     ./lib
