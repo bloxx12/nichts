@@ -95,7 +95,7 @@ in {
       };
       alpha = mkOption {
         type = str;
-        default = 0.85;
+        default = 1.0;
         description = ''
           The alpha value for the colorscheme
         '';
