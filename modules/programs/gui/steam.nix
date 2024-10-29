@@ -10,7 +10,7 @@ in {
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
-      package = pkgs.steam;
+      # package = pkgs.steam;
       
       # .override {
       #   extraEnv = {
