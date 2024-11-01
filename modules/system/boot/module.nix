@@ -5,6 +5,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
+      configurationLimit = 69;
     };
   };
   boot.plymouth = {
