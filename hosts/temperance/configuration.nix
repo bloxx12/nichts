@@ -109,7 +109,6 @@ in {
     programs = {
       ssh.enable = true;
       btop.enable = true;
-      newsboat.enable = true;
       fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
