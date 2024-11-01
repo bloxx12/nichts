@@ -5,7 +5,6 @@
   ...
 }: let
   cfg = config.modules.system.hardware.bluetooth;
-  inherit (config.modules.other.system) username;
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
@@ -13,8 +12,7 @@ in {
       enable = true;
       powerOnBoot = mkIf cfg.powerOnBoot true;
     };
-
-    home-manager.users.${username}.home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       bluetuith
       bluez
       blueman
