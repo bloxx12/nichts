@@ -38,9 +38,6 @@ in {
         "/var/lib/systemd/coredump"
       ];
 
-      files = [
-        "/etc/machine-id"
-      ];
       users.cr = {
         directories =
           [
@@ -55,7 +52,7 @@ in {
           ) ["tealdeer" "keepassxc" "nix" "starship" "nix-index" "mozilla" "zsh" "nvim"]
           ++ map (
             dir: ".local/share/${dir}"
-          ) ["direnv" "Steam" "TelegramDesktop" "PrismLauncher" "nicotine" "zoxide" ".ssh" ".keepass"];
+          ) ["direnv" "Steam" "TelegramDesktop" "PrismLauncher" "nicotine" "zoxide" ".keepass"];
       };
     };
 
