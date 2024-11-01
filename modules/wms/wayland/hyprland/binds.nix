@@ -28,7 +28,7 @@ in {
         in "$mainMod SHIFT, ${key}, split:movetoworkspacesilent, ${workspace}"
       ) (genList (i: i + 1) 10)
       ++ [
-        "$mainMod, RETURN, exec, ${pkgs.foot}/bin/foot"
+        "$mainMod, RETURN, exec, foot"
         "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen, 0"
         "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
