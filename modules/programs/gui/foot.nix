@@ -15,8 +15,8 @@
       title = "foot";
       locked-title = "no";
 
-      font = "Iosevka Nerd Font:size=16";
-      font-bold = "Iosevka Nerd Font:size=16";
+      font = "Iosevka Nerd Font:size=14";
+      font-bold = "Iosevka Nerd Font:size=14";
 
       line-height = 20;
       letter-spacing = 0;
