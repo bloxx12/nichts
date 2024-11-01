@@ -7,7 +7,7 @@
     nixosConfigurations = import ./hosts inputs;
     formatter.x86_64-linux = pkgs.alejandra;
     devShells.x86_64-linux.default = pkgs.callPackage ./shell.nix {};
-    packages.x86_64-linux = user.packages;
+    packages.x86_64-linux = user.shell;
     nixosModules = {
       user = user.module;
       shell = import ./modules/shell {inherit pkgs;};
