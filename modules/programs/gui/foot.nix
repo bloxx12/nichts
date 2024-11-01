@@ -15,8 +15,8 @@
       title = "foot";
       locked-title = "no";
 
-      font = "Iosevka Nerd Font:size=14";
-      font-bold = "Iosevka Nerd Font:size=14";
+      font = "Iosevka Nerd Font:size=16";
+      font-bold = "Iosevka Nerd Font:size=16";
 
       line-height = 20;
       letter-spacing = 0;
@@ -26,9 +26,6 @@
       box-drawings-uses-font-glyphs = "no";
       dpi-aware = "no";
 
-      # selection-target = "primary";
-      # dpi-aware = false;
-      # pad = "0x0 center";
       bold-text-in-bright = "no";
       word-delimiters = ",│`|:\"'()[]{}<>";
       selection-target = "primary";
