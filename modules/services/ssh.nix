@@ -1,12 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-with lib; let
-  cfg = config.modules.programs.ssh;
-  inherit (config.modules.other.system) username;
+{lib, ...}: let
+  inherit (lib) mkEnableOption;
 in {
   options.modules.programs.ssh.enable = mkEnableOption "ssh";
   config = {
