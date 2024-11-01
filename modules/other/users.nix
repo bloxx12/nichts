@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  self,
+  ...
+}: let
   inherit (config.meta.mainUser) username;
 in {
   users = {
@@ -15,6 +20,7 @@ in {
           "nix"
         ];
         homix = true;
+        shell = self.packages.${pkgs.stdenv.system}.fish;
         # hashedPasswordFile = "/etc/passwords/cr";
       };
       # root.hashedPasswordFile = "/persist/passwords/root";

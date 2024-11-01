@@ -2,16 +2,18 @@
   description = "My NixOS config flake";
   outputs = inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    user = import ./modules/user {inherit pkgs;};
   in {
     nixosConfigurations = import ./hosts inputs;
     formatter.x86_64-linux = pkgs.alejandra;
     devShells.x86_64-linux.default = pkgs.callPackage ./shell.nix {};
+    packages.x86_64-linux = user.packages;
     nixosModules = {
-      shell = import ./modules/shell;
+      user = user.module;
+      shell = import ./modules/shell {inherit pkgs;};
     };
   };
   inputs = {
-
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 

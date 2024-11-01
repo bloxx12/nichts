@@ -18,7 +18,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.fish.enable = true;
+    programs.fish.enable = false;
 
     # homix.".config/fish/config.fish".source = fishinit;
     # users.users.${username}.shell = pkgs.fish;

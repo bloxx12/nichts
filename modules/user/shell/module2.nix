@@ -16,5 +16,6 @@ in (pkgs.symlinkJoin {
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/fish --set STARSHIP_CONFIG "${toml.generate "starship.toml" starship-config}" \
+    --init-command source ${fishinit}
   '';
 })

@@ -11,7 +11,7 @@ in {
     programs.steam = {
       enable = true;
       # package = pkgs.steam;
-      
+
       # .override {
       #   extraEnv = {
       #     MANGOHUD = true;

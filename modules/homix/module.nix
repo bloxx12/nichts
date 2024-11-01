@@ -1,6 +1,5 @@
 # This is 1:1 copied from https://github.com/sioodmy/homix.
 # I simply put it here because it's not changing in any way anymore and i save myself a flake input this way.
-
 {
   config,
   lib,

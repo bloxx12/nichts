@@ -5,7 +5,7 @@
   ...
 }: let
   cfg = config.modules.system.programs.terminals.foot;
-  colours  = config.modules.style.colorScheme.colors;
+  colours = config.modules.style.colorScheme.colors;
 
   inherit (lib) mkIf;
   foot-config = pkgs.writeText "foot.ini" (lib.generators.toINI {} {
