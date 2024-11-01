@@ -11,6 +11,9 @@
       ];
       flake = {
         formatter.x86_64-linux = pkgs.alejandra;
+        nixosModules = {
+          shell = import ./modules/shell;
+        };
       };
     };
   inputs = {
@@ -68,8 +71,6 @@
       url = "github:gerg-l/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Wrapper-manager for safely wrapping some packages.
-    wrapper-manager.url = "github:viperML/wrapper-manager";
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";

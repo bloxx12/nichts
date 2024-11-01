@@ -1,20 +1,42 @@
 {
   config,
+  inputs',
   lib,
-  self',
   pkgs,
   ...
 }: let
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf getExe;
+  inherit (inputs'.helix.packages) helix;
+  wrapped-helix = pkgs.symlinkJoin {
+    name = "helix-wrapped";
+    paths = with pkgs; [
+      helix
+
+      # C/C++
+      clang-tools
+
+      # Markdown
+      marksman
+
+      # Nix
+      nil
+      lldb_19
+      # Bash
+      bash-language-server
+
+      # Shell
+      shellcheck
+    ];
+  };
 in {
   imports = [./languages.nix];
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       programs.helix = {
         enable = true;
-        package = self'.packages.helix;
+        package = wrapped-helix;
 
         settings = {
           theme = "catppuccin_mocha";
