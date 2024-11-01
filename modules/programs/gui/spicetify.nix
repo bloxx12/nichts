@@ -1,10 +1,9 @@
 {
   inputs,
-  inputs',
   pkgs,
   ...
 }: let
-  spicePkgs = inputs'.spicetify-nix.legacyPackages;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in {
   imports = [
     inputs.spicetify-nix.nixosModules.default

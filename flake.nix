@@ -2,28 +2,18 @@
   description = "My NixOS config flake";
   outputs = inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-  in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-      imports = [
-        ./hosts
-        ./parts
-      ];
-      flake = {
-        formatter.x86_64-linux = pkgs.alejandra;
-        nixosModules = {
-          shell = import ./modules/shell;
-        };
-      };
+  in {
+    nixosConfigurations = import ./hosts inputs;
+    formatter.x86_64-linux = pkgs.alejandra;
+    devShells.x86_64-linux.default = pkgs.callPackage ./shell.nix {};
+    nixosModules = {
+      shell = import ./modules/shell;
     };
+  };
   inputs = {
-    # what am I doing to this config help
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     # Unstable nixpkgs baby!
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # Lix, a faster nix fork.
     lix-module = {

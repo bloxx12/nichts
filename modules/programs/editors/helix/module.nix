@@ -1,6 +1,6 @@
 {
   config,
-  inputs',
+  inputs,
   lib,
   pkgs,
   ...
@@ -8,7 +8,7 @@
   cfg = config.modules.system.programs.editors.helix;
   inherit (config.modules.other.system) username;
   inherit (lib) mkIf getExe;
-  inherit (inputs'.helix.packages) helix;
+  inherit (inputs.helix.packages.${pkgs.stdenv.system}) helix;
   wrapped-helix = pkgs.symlinkJoin {
     name = "helix-wrapped";
     paths = with pkgs; [

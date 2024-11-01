@@ -1,10 +1,4 @@
-{
-  inputs',
-  pkgs,
-  ...
-}: let
-  inherit (inputs'.nixpkgs-stable.legacyPackages) calibre;
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs;
     [
       alsa-utils
@@ -12,6 +6,7 @@ in {
       asciinema
       cachix
       calc
+      calibre
       difftastic
       element-desktop
       evince
@@ -63,6 +58,5 @@ in {
       xournalpp
       zapzap
       zoxide
-    ]
-    ++ [calibre];
+    ];
 }

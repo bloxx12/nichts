@@ -1,11 +1,11 @@
 {
   config,
   lib,
-  inputs',
+  inputs,
   pkgs,
   ...
 }: let
-  inherit (inputs') quickshell;
+  inherit (inputs) quickshell;
   inherit (lib.generators) toKeyValue;
   inherit (config.meta.mainUser) username;
 in {
@@ -13,7 +13,7 @@ in {
     home.packages = with pkgs; [
       qt6.qtimageformats # amog
       qt6.qt5compat # shader fx
-      (quickshell.packages.default.override {
+      (quickshell.packages.x86_64-linux.default.override {
         withJemalloc = true;
         withQtSvg = true;
         withX11 = true;

@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  inputs',
   ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
   inherit (config.meta.mainUser) username;
-  inherit (inputs'.hyprsplit.packages) hyprsplit;
+  # inherit (inputs.hyprsplit.packages.${pkgs.system}) hyprsplit;
   inherit (lib) mkIf mkDefault;
 in {
   imports = [
