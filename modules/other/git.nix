@@ -1,10 +1,9 @@
 {
+  lib,
   pkgs,
   config,
   ...
-}: let
-  inherit (config.modules.other.system) username;
-in {
+}: {
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -20,6 +19,7 @@ in {
       pull.ff = "only";
       gpg.format = "ssh";
       commit.gpgsign = "true";
+      diff.external = "${pkgs.difftastic}/bin/difft";
       rebase = {
         autoSquash = true;
         autoStash = true;
