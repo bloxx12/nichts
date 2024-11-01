@@ -1,3 +1,3 @@
 _: {
-  imports = [./btop.nix ./newsboat.nix ./ncmpcpp.nix ./yazi.nix ./wtfutil.nix];
+  imports = [./btop.nix  ./ncmpcpp.nix ./yazi.nix ./wtfutil.nix];
 }
