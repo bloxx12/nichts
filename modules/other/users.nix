@@ -14,6 +14,7 @@ in {
           "audio"
           "nix"
         ];
+        homix = true;
         # hashedPasswordFile = "/etc/passwords/cr";
       };
       # root.hashedPasswordFile = "/persist/passwords/root";
