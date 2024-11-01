@@ -34,7 +34,6 @@
   extensions = lib.composeManyExtensions [
     (_: _: inputs.nixpkgs.lib)
     (_: _: inputs.flake-parts.lib)
-    (_: _: inputs.neovim-flake.lib)
   ];
 
   # Extend default library
