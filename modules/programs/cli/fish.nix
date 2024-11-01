@@ -20,6 +20,7 @@ in {
   config = mkIf cfg.enable {
     programs.fish.enable = true;
 
+    # homix.".config/fish/config.fish".source = fishinit;
     # users.users.${username}.shell = pkgs.fish;
 
     environment = {

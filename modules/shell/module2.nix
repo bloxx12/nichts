@@ -9,10 +9,10 @@
   aliasesStr =
     pkgs.lib.concatStringsSep "\n"
     (pkgs.lib.mapAttrsToList (k: v: "alias ${k}=\"${v}\"") aliases);
-
+  packages = import ./packages.nix pkgs;
 in (pkgs.symlinkJoin {
   name = "fish-wrapped";
-  paths = [pkgs.fish pkgs.starship pkgs.fzf];
+  paths = [pkgs.fish] ++ packages;
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/fish --set STARSHIP_CONFIG "${toml.generate "starship.toml" starship-config}" \

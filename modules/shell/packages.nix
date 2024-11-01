@@ -1,4 +1,4 @@
-{pkgs}: (with pkgs; [
+pkgs: (with pkgs; [
   # better cd
   zoxide
   #better ls
