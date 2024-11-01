@@ -9,6 +9,7 @@
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.mpc-cli];
     systemd.services.mpd.environment = {
       # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
       XDG_RUNTIME_DIR = "/run/user/1000";
@@ -37,22 +38,18 @@ in {
       '';
     };
     home-manager.users.${username} = {
-      home.packages = with pkgs; [mpc-cli];
-      services = {
-        mpd-mpris = {
-          enable = true;
-          mpd = {
-            host = "127.0.0.1";
-            network = "unix";
-            port = 6600;
-            useLocal = true;
-          };
-        };
+      # services = {
+      #   mpd-mpris = {
+      #     enable = true;
+      #     mpd = {
+      #       host = "127.0.0.1";
+      #       network = "unix";
+      #       port = 6600;
+      #       useLocal = true;
+      #     };
+      #   };
 
-        playerctld = {
-          enable = true;
-        };
-      };
+      # };
     };
   };
 }
