@@ -17,7 +17,7 @@ in
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/fish --set STARSHIP_CONFIG "${toml.generate "starship.toml" starship-config}" \
-      --set SSH_AUTH_SOCK /run/user/1000/ssh-agent
+      --set SSH_AUTH_SOCK /run/user/1000/ssh-agent \
     '';
   })
   .overrideAttrs (_: {
