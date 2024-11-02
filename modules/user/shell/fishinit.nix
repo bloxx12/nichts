@@ -7,6 +7,7 @@ pkgs.writeText "config.fish" ''
   # source ${pkgs.fishPlugins.sponge}/share/zsh-defer/zsh-defer.plugin.zsh
   ${pkgs.atuin}/bin/atuin init fish | source
   ${pkgs.zoxide}/bin/zoxide init fish | source
+  ${pkgs.starship}/bin/starship init fish | source
 
 
   source ${./config.fish}
