@@ -19,4 +19,6 @@ in {
   cat = "${getExe pkgs.bat} --plain";
 
   kys = "shutdown now";
+
+  cd = "z";
 }

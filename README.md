@@ -42,3 +42,4 @@ The nix logo was designed by ![jacekpoz](https://jacekpoz.pl)!
 ![fufexan](https://github.com/fufexan)
 ![lokasku](https://github.com/lokasku/nix-config)
 ![NotAShelf](https://github.com/notashelf/nyx)
+![viperML](https://github.com/viperml/dotfiles)

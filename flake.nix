@@ -9,7 +9,12 @@
     devShells.x86_64-linux.default = pkgs.callPackage ./shell.nix {};
 
     formatter.x86_64-linux = pkgs.alejandra;
-    packages.x86_64-linux= user.packages;
+    packages.x86_64-linux = user.packages;
+
+    apps.x86_64-linux.default = {
+      type = "app";
+      program = "${user.packages.fish}/bin/fish";
+    };
     nixosModules = {
       user = user.module;
       shell = import ./modules/shell {inherit pkgs;};
