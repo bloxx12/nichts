@@ -41,6 +41,7 @@
     qbittorrent
     r2modman
     ripgrep
+    rmpc
     signal-desktop-beta
     strawberry
     telegram-desktop
