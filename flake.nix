@@ -2,7 +2,7 @@
   description = "My NixOS config flake";
   outputs = inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    user = import ./modules/user {inherit pkgs;};
+    user = import ./modules/user {inherit inputs pkgs;};
   in {
     nixosConfigurations = import ./hosts inputs;
 

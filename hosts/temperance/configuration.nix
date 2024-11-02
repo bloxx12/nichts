@@ -109,7 +109,6 @@ in {
     programs = {
       ssh.enable = true;
       btop.enable = true;
-      fish.enable = true;
       nh.enable = true;
       waybar.enable = true;
       # steam.enable = true;

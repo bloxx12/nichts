@@ -39,58 +39,5 @@ in {
     environment.systemPackages = [
       custom-kakoune
     ];
-    home-manager.users.${username}.programs.kakoune = mkIf false {
-      enable = true;
-      package = custom-kakoune;
-      config = {
-        autoComplete = ["insert"];
-        autoReload = "yes";
-        indentWidth = 4;
-        tabStop = 4;
-        incrementalSearch = false;
-        numberLines = {
-          enable = true;
-          relative = true;
-          highlightCursor = true;
-          separator = " ";
-        };
-
-        scrollOff = {
-          lines = 4;
-          columns = 4;
-        };
-        wrapLines = {
-          enable = true;
-          indent = true;
-          word = true;
-        };
-
-        ui = {
-          enableMouse = true;
-          assistant = "none";
-          statusLine = "bottom";
-        };
-      };
-
-      plugins = with pkgs.kakounePlugins; [
-        active-window-kak
-        auto-pairs-kak
-        byline-kak # ope
-        prelude-kak # dependency of byline
-        kak-ls
-        kakboard
-        kakoune-buffer-switcher
-        kakoune-buffers
-        kakoune-lsp
-        kakoune-rainbow
-        kakoune-registers
-        kakoune-vertical-selection
-        powerline-kak
-        quickscope-kak
-        smarttab-kak
-        zig-kak
-      ];
-      # extraConfig = ./kakrc;
-    };
   };
 }

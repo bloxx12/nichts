@@ -24,6 +24,7 @@
     keepassxc
     lazygit
     libtool
+    mpv
     nextcloud-client
     nicotine-plus
     swww

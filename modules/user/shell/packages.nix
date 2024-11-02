@@ -3,6 +3,7 @@ pkgs: (with pkgs; [
   zoxide
   #better ls
   eza
+  atuin
 
   # better cat
   bat

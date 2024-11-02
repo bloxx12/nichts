@@ -37,19 +37,5 @@ in {
           }
       '';
     };
-    home-manager.users.${username} = {
-      # services = {
-      #   mpd-mpris = {
-      #     enable = true;
-      #     mpd = {
-      #       host = "127.0.0.1";
-      #       network = "unix";
-      #       port = 6600;
-      #       useLocal = true;
-      #     };
-      #   };
-
-      # };
-    };
   };
 }

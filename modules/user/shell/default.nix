@@ -1,6 +1,6 @@
 # This shell setup was inspired by sioodmy. Check out his setup!
 {
-  lib,
+  inputs,
   pkgs,
   ...
 }: let
