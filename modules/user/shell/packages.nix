@@ -37,7 +37,6 @@ pkgs: (with pkgs; [
   microfetch
 
   fzf
-  lldb_19
   element
   carapace
   difftastic
@@ -59,7 +58,8 @@ pkgs: (with pkgs; [
   hyperfine
   imagemagick
   ffmpeg-full
-  catimg
+  # catimg
+  timg
   nmap
   wget
   fd
