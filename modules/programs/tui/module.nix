@@ -1,3 +1,3 @@
 _: {
-  imports = [./btop.nix ./ncmpcpp.nix ./yazi.nix];
+  imports = [./btop.nix];
 }

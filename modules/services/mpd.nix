@@ -9,7 +9,7 @@
   inherit (lib) mkIf;
 in {
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.mpc-cli];
+    environment.systemPackages = [pkgs.mpc];
     systemd.services.mpd.environment = {
       # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
       XDG_RUNTIME_DIR = "/run/user/1000";

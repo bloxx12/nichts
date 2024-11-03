@@ -9,7 +9,7 @@ pkgs: (with pkgs; [
   bat
 
   # clipboard
-  yazi
+  # yazi
   serpl
   diff-so-fancy
   tig

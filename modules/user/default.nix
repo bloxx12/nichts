@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: rec {
+{pkgs, ...}: rec {
   packages = {
     fish = pkgs.callPackage ./shell {};
     # helix = pkgs.callPackge ./helix {};

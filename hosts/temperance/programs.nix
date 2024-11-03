@@ -12,7 +12,6 @@
     evince
     eza
     gcc
-    ghidra
     ida-free
     gnumake
     halloy
