@@ -35,7 +35,7 @@
 in {
   imports = [./mappings.nix];
   options.modules.programs.editors.kakoune.enable = mkEnableOption "kakoune";
-  config = {
+  config = mkIf false {
     environment.systemPackages = [
       custom-kakoune
     ];
