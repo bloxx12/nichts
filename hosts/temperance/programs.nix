@@ -7,15 +7,19 @@
     calc
     calibre
     difftastic
+    distrobox
     element-desktop
     evince
     eza
     gcc
+    ghidra
+    ida-free
     gnumake
     halloy
     helvum
     httpie
     imagemagick
+    imhex
     img2pdf
     impala
     imv
@@ -41,6 +45,7 @@
     pwvucontrol
     qbittorrent
     r2modman
+    radare2
     ripgrep
     rmpc
     signal-desktop-beta
