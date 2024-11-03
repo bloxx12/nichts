@@ -1,9 +1,5 @@
 # This shell setup was inspired by sioodmy. Check out his setup!
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   toml = pkgs.formats.toml {};
   starship-config = import ./starship.nix;
   aliases = import ./aliases.nix {inherit pkgs;};

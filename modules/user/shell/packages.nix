@@ -13,6 +13,7 @@ pkgs: (with pkgs; [
   serpl
   diff-so-fancy
   tig
+  direnv
 
   sesh
   mprocs
@@ -23,7 +24,6 @@ pkgs: (with pkgs; [
   # mult
   glow
 
-  gdb
   # dua-cli
   dust
   kondo

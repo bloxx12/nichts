@@ -8,7 +8,7 @@ pkgs.writeText "config.fish" ''
   ${pkgs.atuin}/bin/atuin init fish | source
   ${pkgs.zoxide}/bin/zoxide init fish | source
   ${pkgs.starship}/bin/starship init fish | source
-
+  ${pkgs.direnv}/bin/direnv hook fish | source
 
   source ${./config.fish}
 
