@@ -4,7 +4,7 @@ _: {
     ./locate.nix
     ./ssh.nix
     ./greetd.nix
-    ./dunst.nix
+    ./mako.nix
     ./mpd.nix
     ./firewall.nix
     ./kmscon.nix

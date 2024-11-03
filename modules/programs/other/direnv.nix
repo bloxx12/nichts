@@ -18,13 +18,6 @@ in {
 
       enableBashIntegration = true;
       enableFishIntegration = true;
-      enableZshIntegration = true;
-    };
-    home-manager.users.${username} = {
-      programs.direnv = {
-        # yes stupid direnv does _not_ work with nushell in nixos options
-        enableNushellIntegration = true;
-      };
     };
   };
 }

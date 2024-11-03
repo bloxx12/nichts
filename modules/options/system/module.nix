@@ -47,7 +47,7 @@ in {
     users = mkOption {
       type = listOf str;
       default = ["charlie"];
-      description = "A list of home-manager users on the system.";
+      description = "A list of  users on the system.";
     };
 
     autoLogin = mkOption {

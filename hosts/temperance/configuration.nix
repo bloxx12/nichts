@@ -71,9 +71,6 @@ in {
       desktops.hyprland.enable = true;
 
       programs = {
-        launchers = {
-          fuzzel.enable = true;
-        };
 
         media = {
           beets.enable = true;
@@ -110,12 +107,8 @@ in {
       ssh.enable = true;
       btop.enable = true;
       nh.enable = true;
-      waybar.enable = true;
       # steam.enable = true;
     };
 
-    services = {
-      dunst.enable = true;
-    };
   };
 }
