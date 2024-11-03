@@ -55,10 +55,14 @@ in {
             mouse = true;
             bufferline = "multiple";
             soft-wrap.enable = true;
-            cursor-shape = {insert = "bar";};
+            cursor-shape = {
+              insert = "bar";
+              normal = "block";
+              select = "underline";
+            };
             statusline = {
               left = ["spinner" "version-control" "diagnostics" "file-name"];
-              right = ["file-base-name" "file-type" "selections" "position" "file-encoding"];
+              right = ["file-base-name" "file-type" "position" "file-encoding"];
             };
             gutters.layout = ["diff" "diagnostics" "line-numbers" "spacer"];
             inline-diagnostics = {
@@ -66,13 +70,22 @@ in {
               other-lines = "error";
             };
           };
-          keys.normal = {
-            space.g = [":new" ":insert-output ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
-            esc = ["collapse_selection" "keep_primary_selection" "normal_mode"];
-            A-H = "goto_previous_buffer";
-            A-L = "goto_next_buffer";
-            A-w = ":buffer-close";
-            A-f = ":format";
+          keys = {
+            normal = {
+              space.g = [":new" ":insert-output ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
+              esc = ["collapse_selection" "keep_primary_selection" "normal_mode"];
+              A-H = "goto_previous_buffer";
+              A-L = "goto_next_buffer";
+              A-w = ":buffer-close";
+              A-f = ":format";
+              A-r = ":reload";
+              A-x = "extend_to_line_bounds";
+              X = ["extend_line_up" "extend_to_line_bounds"];
+            };
+            select = {
+              A-x = "extend_to_line_bounds";
+              X = ["extend_line_up" "extend_to_line_bounds"];
+            };
           };
         };
       };
