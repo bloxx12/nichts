@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # ./home-manager.nix
+    ./home-manager.nix
     ./system.nix
     ./xdg.nix
     ./git.nix

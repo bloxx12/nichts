@@ -4,10 +4,9 @@
   ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
-  inherit (config.modules.other.system) username;
   inherit (builtins) map genList toString;
 in {
-  home-manager.users.${username}.wayland.windowManager.hyprland.settings = {
+  programs.hyprland.settings = {
     # Keybinds
     bind =
       # workspaces

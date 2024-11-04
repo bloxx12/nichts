@@ -5,7 +5,6 @@
   ...
 }: let
   cfg = config.modules.usrEnv.desktops.hyprland;
-  inherit (config.meta.mainUser) username;
   # inherit (inputs.hyprsplit.packages.${pkgs.system}) hyprsplit;
   inherit (lib) mkIf mkDefault;
 in {
@@ -15,6 +14,7 @@ in {
     ./exec.nix
     ./settings.nix
     ./workspaces.nix
+    ./nixos-module.nix
   ];
   # we disable the default hyprland module
   disabledModules = ["programs/hyprland.nix"];
@@ -22,8 +22,13 @@ in {
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
+      xwayland.enable = true;
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      plugins = [
+        pkgs.hyprlandPlugins.hyprsplit
+        # pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      ];
     };
     # xdg Portal
     xdg.portal = {
@@ -37,27 +42,6 @@ in {
       ];
       config = {
         common.default = ["gtk" "hyprland"];
-      };
-    };
-
-    home-manager.users.${username} = {
-      wayland.windowManager.hyprland = {
-        enable = true;
-        package = pkgs.hyprland;
-
-        # Split-monitor-workspaces provides awesome-like workspace behaviour
-        plugins = [
-          pkgs.hyprlandPlugins.hyprsplit
-          pkgs.hyprlandPlugins.hypr-dynamic-cursors
-        ];
-
-        # Xwayland for X applications
-        xwayland.enable = true;
-        # No idea why I set this
-        systemd = {
-          enable = true;
-          variables = ["--all"];
-        };
       };
     };
   };
