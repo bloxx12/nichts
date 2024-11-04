@@ -20,43 +20,43 @@ in {
       GTK_THEME = theme.name;
     };
 
-    home-manager.users.${username} = {
-      # This is taken from jacekpoz, thanks a lot!
-      qt = {
-        enable = true;
-        style = {
-          inherit (cfg) name;
-          package = cfg.package.override {
-            flavour = [cfg.variant];
-            accents = [cfg.accentColor];
-          };
-        };
-      };
-      home = {
-        packages = with pkgs; [
-          qt5.qttools
-          qt6Packages.qtstyleplugin-kvantum
-          libsForQt5.qtstyleplugin-kvantum
-          libsForQt5.qt5ct
-        ];
+    # home-manager.users.${username} = {
+    #   # This is taken from jacekpoz, thanks a lot!
+    #   qt = {
+    #     enable = true;
+    #     style = {
+    #       inherit (cfg) name;
+    #       package = cfg.package.override {
+    #         flavour = [cfg.variant];
+    #         accents = [cfg.accentColor];
+    #       };
+    #     };
+    #   };
+    #   home = {
+    #     packages = with pkgs; [
+    #       qt5.qttools
+    #       qt6Packages.qtstyleplugin-kvantum
+    #       libsForQt5.qtstyleplugin-kvantum
+    #       libsForQt5.qt5ct
+    #     ];
 
-        sessionVariables = {
-          # Scaling factor for QT applications
-          QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    #     sessionVariables = {
+    #       # Scaling factor for QT applications
+    #       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
 
-          # Use wayland as the default backend.
-          QT_QPA_PLATFORM = "wayland";
+    #       # Use wayland as the default backend.
+    #       QT_QPA_PLATFORM = "wayland";
 
-          # Disable window decorations for qt applications.
-          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    #       # Disable window decorations for qt applications.
+    #       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
-          # Remain compatible with QT5 whenever possible.
-          DISABLE_QT_COMPAT = "0";
+    #       # Remain compatible with QT5 whenever possible.
+    #       DISABLE_QT_COMPAT = "0";
 
-          # Tell Calibre to use the dark theme.
-          CALIBRE_USE_DARK_PALETTE = "1";
-        };
-      };
-    };
+    #       # Tell Calibre to use the dark theme.
+    #       CALIBRE_USE_DARK_PALETTE = "1";
+    #     };
+    #   };
+    # };
   };
 }

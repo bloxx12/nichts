@@ -3,7 +3,7 @@ _: {
     ./foot.nix
     ./spicetify.nix
     ./steam.nix
-    ./schizofox.nix
+    # ./schizofox.nix
     ./minecraft.nix
   ];
 }
