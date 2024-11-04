@@ -1,12 +1,11 @@
 {
   config,
   lib,
-  self,
   ...
-}:
-with lib; let
+}: let
   cfg = config.modules.programs.nh;
   inherit (config.modules.other.system) username;
+  inherit (lib) mkEnableOption mkIf;
 in {
   options.modules.programs.nh.enable = mkEnableOption "nh";
 

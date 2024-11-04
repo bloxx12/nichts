@@ -33,7 +33,6 @@
     swww
     microfetch
     nmap
-    nyxt
     # onlyoffice-bin
     pandoc
     pavucontrol
@@ -57,6 +56,7 @@
     tutanota-desktop
     typst
     ungoogled-chromium
+    vesktop
     wineWowPackages.waylandFull
     wireguard-tools
     xdg-utils

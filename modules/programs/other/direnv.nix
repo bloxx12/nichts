@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.modules.other.system) username;
-in {
+{pkgs, ...}: {
   config = {
     programs.direnv = {
       enable = true;

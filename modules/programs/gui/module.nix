@@ -1,6 +1,5 @@
 _: {
   imports = [
-    ./vesktop.nix
     ./foot.nix
     ./spicetify.nix
     ./steam.nix
