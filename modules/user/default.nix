@@ -1,7 +1,11 @@
-{pkgs, ...}: rec {
+{
+  inputs,
+  pkgs,
+  ...
+}: rec {
   packages = {
     fish = pkgs.callPackage ./shell {};
-    # helix = pkgs.callPackge ./helix {};
+    helix = pkgs.callPackage ./helix {inherit (inputs.helix.packages.${pkgs.stdenv.system}) helix;};
     kakoune = pkgs.callPackage ./kakoune {};
   };
   shell = pkgs.mkShell {
@@ -10,8 +14,9 @@
   };
   module = {
     config = {
-      environment.systemPackages = [
-        shell
+      environment.systemPackages = with packages; [
+        fish
+        helix
       ];
     };
   };

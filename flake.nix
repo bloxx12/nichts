@@ -2,7 +2,7 @@
   description = "My NixOS config flake";
   outputs = inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    user = import ./modules/user {inherit pkgs;};
+    user = import ./modules/user {inherit inputs pkgs;};
   in {
     nixosConfigurations = import ./hosts inputs;
 
@@ -11,13 +11,19 @@
     formatter.x86_64-linux = pkgs.alejandra;
     packages.x86_64-linux = user.packages;
 
-    apps.x86_64-linux.default = {
-      type = "app";
-      program = "${user.packages.fish}/bin/fish";
+    apps.x86_64-linux = {
+      default = {
+        type = "app";
+        program = "${user.packages.fish}/bin/fish";
+      };
+      helix = {
+        type = "app";
+        program = "${user.packages.helix}/bin/hx";
+      };
     };
     nixosModules = {
       user = user.module;
-      shell = import ./modules/shell {inherit pkgs;};
+      # shell = import ./modules/shell {inherit pkgs;};
     };
   };
   inputs = {

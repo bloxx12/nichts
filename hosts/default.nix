@@ -28,6 +28,9 @@ inputs: let
       modules = concatLists [
         # This is used to pre-emptively set the hostPlatform for nixpkgs.
         # Also, we set the system hostname here.
+        [
+          self.nixosModules.user
+        ]
         (singleton {
           networking.hostName = args.hostname;
           nixpkgs.hostPlatform = mkDefault args.system;

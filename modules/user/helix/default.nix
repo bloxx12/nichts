@@ -1,14 +1,32 @@
 {
-  config,
-  inputs,
+  symlinkJoin,
+  makeWrapper,
+  helix,
+  gdb,
+  black,
+  cmake-format,
+  tinymist, 
   lib,
-  pkgs,
+  marksman,
+  lldb_19,
+  stdenv,
+  shellcheck,
+  formats,
+  lazygit,
+  deno,
+  shfmt,
+  bash-language-server,
+  clang-tools,
+  cmake-language-server,
+  dprint,
+  nil,
+  alejandra,
+  pyright,
+  typescript-language-server,
   ...
 }: let
-  cfg = config.modules.system.programs.editors.helix;
-  inherit (lib) mkIf getExe;
-  inherit (inputs.helix.packages.${pkgs.stdenv.system}) helix;
-  toml = pkgs.formats.toml {};
+  inherit (lib) getExe;
+  toml = formats.toml {};
   helix-config = {
     theme = "catppuccin_mocha";
     editor = {
@@ -43,7 +61,7 @@
     };
     keys = {
       normal = {
-        space.g = [":new" ":insert-output XDG_CONFIG_HOME=~/.config ${getExe pkgs.lazygit}" ":buffer-close!" ":redraw"];
+        space.g = [":new" ":insert-output XDG_CONFIG_HOME=~/.config ${getExe lazygit}" ":buffer-close!" ":redraw"];
         esc = ["collapse_selection" "keep_primary_selection" "normal_mode"];
         A-H = "goto_previous_buffer";
         A-L = "goto_next_buffer";
@@ -62,7 +80,7 @@
   helix-languages = {
     language = let
       extraFormatter = lang: {
-        command = getExe pkgs.deno;
+        command = getExe deno;
         args = ["fmt" "-" "--ext" lang];
       };
     in [
@@ -70,7 +88,7 @@
         name = "bash";
         auto-format = true;
         formatter = {
-          command = getExe pkgs.shfmt;
+          command = getExe shfmt;
           args = ["-i" "2"];
         };
       }
@@ -84,7 +102,7 @@
         auto-format = true;
         language-servers = ["cmake-language-server"];
         formatter = {
-          command = getExe pkgs.cmake-format;
+          command = getExe cmake-format;
           args = ["-"];
         };
       }
@@ -106,7 +124,7 @@
         name = "python";
         language-servers = ["pyright"];
         formatter = {
-          command = getExe pkgs.black;
+          command = getExe black;
           args = ["-" "--quiet" "--line-length 100"];
         };
       }
@@ -118,7 +136,7 @@
       {
         name = "rust";
         debugger = {
-          command = "${pkgs.lldb_19}/bin/lldb-dap";
+          command = "${lldb_19}/bin/lldb-dap";
           name = "lldb";
           transport = "stdio";
           templates = [
@@ -143,7 +161,7 @@
         name = "c";
         debugger = {
           name = "gdb";
-          command = "${pkgs.gdb}/bin/gdb";
+          command = getExe gdb;
           transport = "stdio";
           templates = [
             {
@@ -167,36 +185,32 @@
 
     language-server = {
       bash-language-server = {
-        command = getExe pkgs.bash-language-server;
+        command = getExe bash-language-server;
         args = ["start"];
       };
 
       clangd = {
-        command = "${pkgs.clang-tools}/bin/clangd";
+        command = "${clang-tools}/bin/clangd";
         clangd.fallbackFlags = ["-std=c++2b"];
       };
 
       cmake-language-server = {
-        command = getExe pkgs.cmake-language-server;
+        command = getExe cmake-language-server;
       };
 
       dprint = {
-        command = getExe pkgs.dprint;
+        command = getExe dprint;
         args = ["lsp"];
       };
 
       nil = {
-        command = getExe pkgs.nil;
+        command = getExe nil;
         # alejandro
-        config.nil.formatting.command = ["${getExe pkgs.alejandra}" "-q"];
-      };
-
-      qmlls = {
-        command = "${pkgs.kdePackages.full}/bin/qmlls";
+        config.nil.formatting.command = ["${getExe alejandra}" "-q"];
       };
 
       pyright = {
-        command = "${pkgs.pyright}/bin/pyright-langserver";
+        command = "${pyright}/bin/pyright-langserver";
         args = ["--stdio"];
         config = {
           reportMissingTypeStubs = false;
@@ -208,7 +222,7 @@
       };
 
       typescript-language-server = {
-        command = getExe pkgs.typescript-language-server;
+        command = getExe typescript-language-server;
         args = ["--stdio"];
         config = let
           inlayHints = {
@@ -237,9 +251,9 @@
       };
     };
   };
-  wrapped-helix = pkgs.symlinkJoin {
+  wrapped-helix = symlinkJoin {
     name = "helix-wrapped";
-    paths = with pkgs; [
+    paths = [
       helix
 
       # typst lsp
@@ -260,7 +274,7 @@
       # Shell
       shellcheck
     ];
-    buildInputs = [pkgs.makeWrapper];
+    buildInputs = [makeWrapper];
     postBuild = ''
       mkdir -p $out/config/helix
       cp "${toml.generate "config.toml" helix-config}" $out/config/helix/config.toml
@@ -269,10 +283,5 @@
       XDG_CONFIG_HOME $out/config
     '';
   };
-in {
-  config = mkIf cfg.enable {
-    environment.systemPackages = [
-      wrapped-helix
-    ];
-  };
-}
+in
+  wrapped-helix
