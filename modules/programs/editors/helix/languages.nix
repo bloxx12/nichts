@@ -186,16 +186,6 @@ in {
               hostInfo = "helix";
             };
           };
-
-          # vscode-css-language-server = {
-          #   command = "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-css-languageserver";
-          #   args = ["--stdio"];
-          #   config = {
-          #     provideFormatter = true;
-          #     css.validate.enable = true;
-          #     scss.validate.enable = true;
-          #   };
-          # };
         };
       };
     };

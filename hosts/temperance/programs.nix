@@ -9,6 +9,7 @@
     difftastic
     distrobox
     element-desktop
+    equibop
     evince
     eza
     gcc

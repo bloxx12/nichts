@@ -30,10 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Hyprland, my main compositor
     hyprland.url = "github:hyprwm/Hyprland";
 

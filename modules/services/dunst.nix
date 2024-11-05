@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     home-manager.users.${username} = {
       services.dunst = {
-        enable = true;
+        enable = false;
         package = pkgs.dunst;
         settings = {
           global = {

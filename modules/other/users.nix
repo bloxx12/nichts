@@ -19,7 +19,6 @@ in {
           "audio"
           "nix"
         ];
-        homix = true;
         shell = self.packages.${pkgs.stdenv.system}.fish;
         # hashedPasswordFile = "/etc/passwords/cr";
       };
