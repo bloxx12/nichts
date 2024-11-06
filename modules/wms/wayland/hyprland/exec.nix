@@ -11,12 +11,6 @@ in {
     # Programs which get executed at Hyprland start.
     exec-once = [
       "hyprctl setcursor ${cursor.name} ${toString cursor.size}"
-      #start waybar
-      "${pkgs.waybar}/bin/waybar"
-      # "${pkgs.ianny}/bin/ianny"
-
-      # run persistent special workspace windows
-      # "[workspace special:nixos; silent;tile] ${pkgs.foot}/bin/foot -D ~/projects/nichts"
 
       "[workspace special:keepassxc; silent;tile] ${pkgs.keepassxc}/bin/keepassxc"
       "[workspace special:audio; silent;tile] ${pkgs.pwvucontrol}/bin/pwvucontrol"
@@ -25,7 +19,7 @@ in {
 
       "${pkgs.wlsunset}/bin/wlsunset -S 06:00 -s 20:00"
       "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent"
-      "hyprctl dispatch split:workspace 1"
+      "hyprctl dispatch split-workspace 1"
     ];
   };
 }

@@ -33,8 +33,8 @@ in {
 
         # Input settings
         input = {
-          kb_layout = "de,ru, us";
-          kb_variant = ",phonetic_winkeys,dvorak";
+          kb_layout = "gb,ru,de";
+          kb_variant = ",phonetic_winkeys,";
           kb_options = "grp:rctrl_rshift_toggle, caps:escape";
 
           follow_mouse = true;

@@ -14,7 +14,7 @@
     apps.x86_64-linux = {
       default = {
         type = "app";
-        program = "${user.packages.fish}/bin/fish";
+        program = pkgs.getExe user.packages.fish;
       };
       helix = {
         type = "app";

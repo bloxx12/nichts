@@ -12,6 +12,7 @@
     element-desktop
     evince
     eza
+    firefox
     fftw
     grc
     gparted
@@ -30,6 +31,7 @@
     keepassxc
     lazygit
     libtool
+    librewolf
     links2
     mapscii
     moc
@@ -56,11 +58,15 @@
     signal-desktop-beta
     smartmontools
     telegram-desktop
+    texliveFull
     tldr
     thunderbird
+    tor-browser
     trash-cli
+    typst
     util-linux
     v4l-utils
+    vesktop
     vlc
     weechat
     wireguard-tools

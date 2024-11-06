@@ -80,22 +80,13 @@
     other = {
       system.username = "cr";
 
-      home-manager = {
-        enable = true;
-      };
     };
     programs = {
       ssh.enable = true;
       btop.enable = true;
-      newsboat.enable = true;
-      fish.enable = true;
       nh.enable = true;
-      waybar.enable = true;
     };
 
-    services = {
-      dunst.enable = true;
-    };
   };
   system.stateVersion = "23.11";
 }
