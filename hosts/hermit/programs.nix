@@ -57,6 +57,8 @@
     ripgrep
     signal-desktop-beta
     smartmontools
+    taskwarrior3
+    taskwarrior-tui
     telegram-desktop
     texliveFull
     tldr
