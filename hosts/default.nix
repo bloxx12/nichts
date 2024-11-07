@@ -19,7 +19,6 @@ inputs: let
       specialArgs =
         recursiveUpdate
         {
-          inherit system;
           inherit lib;
           inherit inputs;
           inherit self;
@@ -32,8 +31,9 @@ inputs: let
           self.nixosModules.user
         ]
         (singleton {
-          networking.hostName = args.hostname;
-          nixpkgs.hostPlatform = mkDefault args.system;
+          networking.hostName = hostname;
+          #thanks raf
+          nixpkgs.hostPlatform = system;
         })
         (flatten (
           concatLists [
