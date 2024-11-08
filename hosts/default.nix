@@ -2,7 +2,7 @@ inputs: let
   inherit (inputs) self;
   inherit (inputs.nixpkgs) lib;
   inherit (lib.lists) concatLists flatten singleton;
-  inherit (lib) mkDefault nixosSystem recursiveUpdate;
+  inherit (lib) nixosSystem recursiveUpdate;
   inherit (builtins) filter map toString;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix;
@@ -15,7 +15,6 @@ inputs: let
     ...
   } @ args:
     nixosSystem {
-      inherit system;
       specialArgs =
         recursiveUpdate
         {
@@ -32,7 +31,6 @@ inputs: let
         ]
         (singleton {
           networking.hostName = hostname;
-          #thanks raf
           nixpkgs.hostPlatform = system;
         })
         (flatten (

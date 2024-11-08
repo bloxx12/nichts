@@ -22,7 +22,6 @@ in {
       extraConfig = ''
         restore_paused "yes"
         auto_update "yes"
-        playlist_directory "${cfg.musicDirectory}/.playlists"
 
           audio_output {
               type "pipewire"

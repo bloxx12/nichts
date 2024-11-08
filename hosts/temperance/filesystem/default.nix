@@ -10,7 +10,7 @@
       "/" = {
         device = "none";
         fsType = "tmpfs";
-        options = ["defaults" "size=25%" "mode=755"];
+        options = ["defaults" "size=40%" "mode=755"];
       };
       "/nix" = {
         device = "/dev/disk/by-uuid/f0569993-722e-4721-b0d9-8ac537a7a548";

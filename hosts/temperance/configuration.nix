@@ -28,8 +28,8 @@ in {
   console.keyMap = "de";
   security.polkit.enable = true;
 
-  # boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   programs.nix-ld.enable = true;
   services = {
     fstrim.enable = lib.mkDefault true;
@@ -66,7 +66,6 @@ in {
       sound.enable = true;
       hardware.nvidia.enable = true;
     };
-    # style.colorScheme.name = "Zenburn";
     usrEnv = {
       desktops.hyprland.enable = true;
 
@@ -89,10 +88,6 @@ in {
         };
       };
 
-      style = {
-        gtk.enable = true;
-        qt.enable = true;
-      };
     };
     other = {
       system = {
@@ -104,7 +99,6 @@ in {
       ssh.enable = true;
       btop.enable = true;
       nh.enable = true;
-      # steam.enable = true;
     };
 
   };

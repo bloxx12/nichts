@@ -34,12 +34,6 @@
     # Helix my beloved
     helix.url = "github:helix-editor/helix";
 
-    # I use schizofox as my personal browser. This is because I am schizophrenic.
-    schizofox = {
-      url = "github:schizofox/schizofox";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:gerg-l/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
