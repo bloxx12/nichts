@@ -28,8 +28,8 @@ in {
   console.keyMap = "de";
   security.polkit.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   programs.nix-ld.enable = true;
   services = {
     fstrim.enable = lib.mkDefault true;
@@ -57,7 +57,7 @@ in {
         firefox.enable = true;
         spotify.enable = true;
         zellij.enable = false;
-        steam.enable = true;
+        steam.enable = false;
         terminals = {
           foot.enable = true;
           kitty.enable = true;
