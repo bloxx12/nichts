@@ -5,7 +5,7 @@
   gdb,
   black,
   cmake-format,
-  tinymist, 
+  tinymist,
   lib,
   marksman,
   lldb_19,

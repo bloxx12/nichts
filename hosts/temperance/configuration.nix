@@ -70,7 +70,6 @@ in {
       desktops.hyprland.enable = true;
 
       programs = {
-
         media = {
           beets.enable = true;
           mpv.enable = true;
@@ -87,19 +86,16 @@ in {
           musicDirectory = "/home/${config.modules.other.system.username}/cloud/media/Music";
         };
       };
-
     };
     other = {
       system = {
         username = "cr";
       };
-
     };
     programs = {
       ssh.enable = true;
       btop.enable = true;
       nh.enable = true;
     };
-
   };
 }
