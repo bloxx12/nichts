@@ -10,6 +10,7 @@
     difftastic
     element
     element-desktop
+    emacs30-pgtk
     evince
     eza
     firefox
@@ -45,7 +46,6 @@
     swww
     microfetch
     nmap
-    notesnook
     pamixer
     pavucontrol
     pdfarranger
@@ -66,6 +66,7 @@
     tor-browser
     trash-cli
     typst
+    ungoogled-chromium
     util-linux
     v4l-utils
     vesktop

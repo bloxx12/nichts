@@ -1,6 +1,4 @@
-{config, ...}: let
-  inherit (config.modules.other.system) username;
-in {
+_: {
   programs.hyprland.settings = {
     #Decoration settings
     decoration = {
@@ -10,12 +8,6 @@ in {
         size = 3;
         passes = 2;
       };
-      drop_shadow = 1;
-      shadow_range = 15;
-      shadow_render_power = 2;
-      shadow_ignore_window = 1;
-      shadow_offset = "2 4";
-      shadow_scale = 1;
     };
     # Bezier curves for aninmations.
     # Generate your own at https://www.cssportal.com/css-cubic-bezier-generator/

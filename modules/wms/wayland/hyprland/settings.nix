@@ -3,7 +3,6 @@
   lib,
   ...
 }: let
-  inherit (config.modules.other.system) username;
   inherit (config.modules.system.hardware) monitors;
   inherit (lib) mapAttrsToList;
   inherit (builtins) toString;

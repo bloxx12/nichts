@@ -20,6 +20,8 @@ in {
       defaultFonts = let
         common = [
           "Iosevka Nerd Font"
+          "Roboto Mono Nerd Font"
+          "Fira Code Nerd Font"
           "Symbols Nerd Font"
           "Noto Color Emoji"
         ];
