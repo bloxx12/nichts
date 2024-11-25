@@ -1,5 +1,19 @@
 {pkgs, ...}: let
   inherit (builtins) mapAttrs;
+
+  custom-iosevka = pkgs.iosevka.override {
+    privateBuildPlan = {
+      family = "Iosevka Custom";
+      spacing = "normal";
+      serifs = "sans";
+
+      noCvSs = true;
+      exportGlyphNames = false;
+      variants.inherits = "ss15";
+      ligations.inherits = "dlig";
+    };
+    set = "Fancy";
+  };
 in {
   # A (somewhat) sane list of fonts to be installed.
   fonts = {
@@ -34,6 +48,7 @@ in {
         };
     };
     packages = with pkgs; [
+      # custom-iosevka
       material-icons
       material-design-icons
       papirus-icon-theme
