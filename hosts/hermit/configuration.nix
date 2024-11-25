@@ -41,7 +41,7 @@
         # nushell.enable = true;
         eza.enable = true;
         firefox.enable = true;
-        spotify.enable = true;
+        spotify.enable = false;
         # starship.enable = true;
         zellij.enable = true;
         terminals = {
