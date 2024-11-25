@@ -8,6 +8,7 @@ pkgs: (with pkgs; [
   # better cat
   bat
 
+  gitu
   # clipboard
   # yazi
   serpl
