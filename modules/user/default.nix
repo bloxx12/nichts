@@ -14,6 +14,7 @@
   };
   module = {
     config = {
+      environment.sessionVariables.EDITOR = "hx";
       environment.systemPackages = with packages; [
         fish
         helix
