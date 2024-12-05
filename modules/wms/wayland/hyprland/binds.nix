@@ -30,7 +30,7 @@ in {
         "$mainMod, RETURN, exec, foot"
         "$mainMod, Q, killactive"
         "$mainMod, F, fullscreen, 0"
-        "$mainMod, D, exec, ${pkgs.procps}/bin/pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
+        "$mainMod, D, exec, ${pkgs.procps}/bin/pkill walker || ${pkgs.walker}/bin/walker"
         "$mainMod, SPACE, togglefloating, active"
 
         # Screenshotting

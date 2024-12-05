@@ -8,6 +8,7 @@
   colours = config.modules.style.colorScheme.colors;
 
   inherit (lib) mkIf;
+
   foot-config = pkgs.writeText "foot.ini" (lib.generators.toINI {} {
     main = {
       term = "foot";
@@ -15,8 +16,8 @@
       title = "foot";
       locked-title = "no";
 
-      font = "Iosevka Nerd Font:size=14";
-      font-bold = "Iosevka Nerd Font:size=14";
+      font = "Iosevka Custom:size=14";
+      font-bold = "Iosevka Custom:size=14";
 
       line-height = 20;
       letter-spacing = 0;
