@@ -55,7 +55,7 @@
     polkit
     python3
     ripgrep
-    signal-desktop-beta
+    signal-desktop
     smartmontools
     taskwarrior3
     taskwarrior-tui

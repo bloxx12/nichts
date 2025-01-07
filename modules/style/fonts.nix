@@ -48,7 +48,7 @@ in {
         };
     };
     packages = with pkgs; [
-      custom-iosevka
+      # custom-iosevka
       material-icons
       material-design-icons
       papirus-icon-theme

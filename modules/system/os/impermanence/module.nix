@@ -14,7 +14,7 @@ in {
   ];
   config = mkIf cfg.enable {
     users = {
-      mutableUsers = false;
+      mutableUsers = true;
       users = {
         cr = {
           hashedPasswordFile = "/persist/passwords/cr";

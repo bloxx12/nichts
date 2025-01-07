@@ -21,7 +21,7 @@
 
   modules = {
     system = {
-      impermanence.enable = true;
+      impermanence.enable = false;
       hardware = {
         nvidia.enable = true;
         bluetooth = {

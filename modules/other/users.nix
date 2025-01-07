@@ -7,7 +7,7 @@
   inherit (config.meta.mainUser) username;
 in {
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     users = {
       ${username} = {
         isNormalUser = true;

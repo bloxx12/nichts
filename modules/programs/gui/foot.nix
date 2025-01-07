@@ -16,8 +16,8 @@
       title = "foot";
       locked-title = "no";
 
-      font = "Iosevka Custom:size=14";
-      font-bold = "Iosevka Custom:size=14";
+      # font = "Iosevka Custom:size=14";
+      # font-bold = "Iosevka Custom:size=14";
 
       line-height = 20;
       letter-spacing = 0;
