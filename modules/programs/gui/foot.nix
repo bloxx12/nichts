@@ -18,6 +18,8 @@
 
       # font = "Iosevka Custom:size=14";
       # font-bold = "Iosevka Custom:size=14";
+      font = "Iosevka Nerd Font:size=14";
+      font-bold = "Iosevka Nerd Font:size=14";
 
       line-height = 20;
       letter-spacing = 0;

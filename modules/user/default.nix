@@ -5,7 +5,7 @@
 }: rec {
   packages = {
     fish = pkgs.callPackage ./shell {};
-    helix = pkgs.callPackage ./helix {inherit (inputs.helix.packages.${pkgs.stdenv.system}) helix;};
+    helix = pkgs.callPackage ./helix {};
     kakoune = pkgs.callPackage ./kakoune {};
   };
   shell = pkgs.mkShell {

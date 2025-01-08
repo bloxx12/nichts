@@ -31,9 +31,6 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    # Helix my beloved
-    helix.url = "github:helix-editor/helix";
-
     spicetify-nix = {
       url = "github:gerg-l/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
