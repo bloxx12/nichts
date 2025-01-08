@@ -31,9 +31,5 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }
