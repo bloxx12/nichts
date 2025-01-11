@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     alsa-utils
+    anki
     asciinema
     cachix
     calc
@@ -15,6 +16,7 @@
     eza
     firefox
     fftw
+    gcc
     grc
     gparted
     git
@@ -28,6 +30,7 @@
     imv
     inetutils
     jujutsu
+    just
     jrnl
     keepassxc
     lazygit
@@ -55,6 +58,7 @@
     polkit
     python3
     ripgrep
+    rmpc
     signal-desktop
     smartmontools
     taskwarrior3
