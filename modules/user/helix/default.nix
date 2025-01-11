@@ -2,26 +2,27 @@
   symlinkJoin,
   makeWrapper,
   helix,
-  gdb,
-  black,
-  cmake-format,
-  tinymist,
-  lib,
-  marksman,
-  lldb_19,
-  stdenv,
-  shellcheck,
-  formats,
-  lazygit,
-  deno,
-  shfmt,
-  bash-language-server,
-  clang-tools,
-  cmake-language-server,
-  dprint,
-  nil,
   alejandra,
+  bash-language-server,
+  black,
+  clang-tools,
+  cmake-format,
+  cmake-language-server,
+  deno,
+  dprint,
+  formats,
+  gdb,
+  lazygit,
+  lib,
+  lldb_19,
+  marksman,
+  nil,
   pyright,
+  rust-analyzer,
+  shellcheck,
+  shfmt,
+  stdenv,
+  tinymist,
   typescript-language-server,
   ...
 }: let
@@ -34,8 +35,11 @@
       color-modes = true;
       indent-guides.render = true;
       lsp = {
+        enable = true;
+        auto-signature-help = true;
         display-inlay-hints = true;
         display-messages = true;
+        snippets = true;
       };
       line-number = "relative";
       true-color = true;
@@ -159,6 +163,11 @@
       }
       {
         name = "c";
+        auto-format = true;
+        language-servers = ["clangd"];
+      }
+      {
+        name = "c";
         debugger = {
           name = "gdb";
           command = getExe gdb;
@@ -256,6 +265,7 @@
     paths = [
       helix
 
+      rust-analyzer
       # typst lsp
       tinymist
 
