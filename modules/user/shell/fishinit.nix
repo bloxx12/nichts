@@ -9,7 +9,9 @@ pkgs.writeText "config.fish" ''
   ${pkgs.zoxide}/bin/zoxide init fish | source
   ${pkgs.starship}/bin/starship init fish | source
   ${pkgs.direnv}/bin/direnv hook fish | source
+  ${pkgs.pay-respects}/bin/pay-respects fish --alias | source
 
+  
   source ${./config.fish}
 
 
