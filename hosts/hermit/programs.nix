@@ -37,8 +37,10 @@
     libtool
     librewolf
     links2
+    linuxHeaders
     mapscii
     moc
+    mpv
     ncmpcpp
     neofetch
     networkmanagerapplet
