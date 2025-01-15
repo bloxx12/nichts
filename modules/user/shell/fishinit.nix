@@ -11,7 +11,7 @@ pkgs.writeText "config.fish" ''
   ${pkgs.direnv}/bin/direnv hook fish | source
   ${pkgs.pay-respects}/bin/pay-respects fish --alias | source
 
-  
+
   source ${./config.fish}
 
 
