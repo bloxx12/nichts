@@ -15,6 +15,9 @@
       gpg.format = "ssh";
       commit.gpgsign = "true";
       diff.external = "${pkgs.difftastic}/bin/difft";
+      core = {
+        editor = "hx";
+      };
       rebase = {
         autoSquash = true;
         autoStash = true;
@@ -22,6 +25,9 @@
       rerere = {
         enabled = true;
         autoupdate = true;
+      };
+      feauture = {
+        manyFiles = true;
       };
     };
   };
