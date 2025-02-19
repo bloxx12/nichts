@@ -3,13 +3,13 @@
     alsa-utils
     anki
     asciinema
+    beets
     cachix
     calc
-    calibre
     difftastic
     distrobox
     element-desktop
-    equibop
+    emacs30-pgtk
     evince
     eza
     gcc
@@ -24,10 +24,15 @@
     impala
     imv
     inetutils
+    joplin-desktop
     jujutsu
+    julia
+    just
     keepassxc
     lazygit
+    librewolf
     libtool
+    logiops
     mpv
     nextcloud-client
     nicotine-plus
@@ -38,6 +43,7 @@
     pandoc
     pavucontrol
     pdfarranger
+    picard
     polkit
     pulsemixer
     python3
@@ -47,7 +53,8 @@
     radare2
     ripgrep
     rmpc
-    signal-desktop-beta
+    sayonara
+    signal-desktop
     strawberry
     telegram-desktop
     texliveFull
@@ -56,13 +63,15 @@
     trash-cli
     tutanota-desktop
     typst
-    ungoogled-chromium
+    # ungoogled-chromium
     vesktop
+    walker
     wineWowPackages.waylandFull
     wireguard-tools
     xdg-utils
     xournalpp
     zapzap
+    zotero
     zoxide
   ];
 }
