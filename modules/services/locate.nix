@@ -13,7 +13,6 @@ in {
       enable = true;
       interval = "hourly";
       package = pkgs.plocate;
-      localuser = null;
     };
   };
 }
