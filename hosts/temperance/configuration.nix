@@ -25,7 +25,7 @@ in {
   time.timeZone = "Europe/Zurich";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "de";
+  console.keyMap = "uk";
   security.polkit.enable = true;
 
   # boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
