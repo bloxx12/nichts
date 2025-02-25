@@ -34,7 +34,7 @@ in {
   options.modules.style = {
     colorScheme = {
       name = mkOption {
-        type = nullOr (enum ["Catppuccin Mocha" "Zenburn"]);
+        type = nullOr (enum ["Catppuccin Mocha" "Zenburn" "Black Metal Venom"]);
         description = "The colorscheme that should be used globally to theme your system.";
         default = "Catppuccin Mocha";
       };
