@@ -63,9 +63,9 @@
     trash-cli
     tutanota-desktop
     typst
-    # ungoogled-chromium
     vesktop
     walker
+    wayneko
     wineWowPackages.waylandFull
     wireguard-tools
     xdg-utils
