@@ -97,5 +97,6 @@ in {
       btop.enable = true;
       nh.enable = true;
     };
+    # style.colorScheme.name = "Black Metal Venom";
   };
 }
