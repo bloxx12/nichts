@@ -30,6 +30,5 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     impermanence.url = "github:nix-community/impermanence";
-
   };
 }

@@ -6,7 +6,7 @@
         device = "/dev/disk/by-uuid/5D7D-FC52";
         fsType = "vfat";
       };
-      
+
       "/" = {
         device = "/dev/disk/by-uuid/e353013b-8ac7-40ed-80f2-ddbea21b8d5e";
         fsType = "btrfs";
