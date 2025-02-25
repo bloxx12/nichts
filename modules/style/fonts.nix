@@ -56,7 +56,6 @@ in {
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
       nerd-fonts.symbols-only
-      
 
       lexend
       noto-fonts
@@ -64,6 +63,7 @@ in {
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
       corefonts
+      font-awesome
     ];
     fontDir = {
       # Whether to create a directory with links to all fonts in
