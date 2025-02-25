@@ -19,8 +19,8 @@ in {
       powersave = true;
 
       # Backend is either wpa_supplicant or iwd,
-      # we use wpa_supplicant.
-      backend = "wpa_supplicant";
+      # we use iwd.
+      backend = "iwd";
     };
   };
 }
