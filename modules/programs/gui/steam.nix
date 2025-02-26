@@ -9,7 +9,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.steam = {
-      enable = true;
+      enable = false;
       package = pkgs.steam.override {
         extraEnv = {
           MANGOHUD = true;
