@@ -27,7 +27,8 @@ in {
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       plugins = [
         pkgs.hyprlandPlugins.hyprsplit
-        # pkgs.hyprlandPlugins.hypr-dynamic-cursors
+        pkgs.hyprlandPlugins.hy3
+        pkgs.hyprlandPlugins.hypr-dynamic-cursors
       ];
     };
     # xdg Portal

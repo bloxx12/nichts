@@ -54,16 +54,21 @@ in {
 
     binde = [
       # window focus
-      "$mainMod, H, movefocus, l"
-      "$mainMod, J, movefocus, d"
-      "$mainMod, K, movefocus, u"
-      "$mainMod, L, movefocus, r"
+      "$mainMod, H, hy3:movefocus, l"
+      "$mainMod, J, hy3:movefocus, d"
+      "$mainMod, K, hy3:movefocus, u"
+      "$mainMod, L, hy3:movefocus, r"
 
       # Move Windows
-      "$mainMod SHIFT, H, movewindow, l"
-      "$mainMod SHIFT, J, movewindow, d"
-      "$mainMod SHIFT, K, movewindow, u"
-      "$mainMod SHIFT, L, movewindow, r"
+      "$mainMod SHIFT, H, hy3:movewindow, l"
+      "$mainMod SHIFT, J, hy3:movewindow, d"
+      "$mainMod SHIFT, K, hy3:movewindow, u"
+      "$mainMod SHIFT, L, hy3:movewindow, r"
+
+
+      "$mainMod, T, hy3:makegroup, tab"
+      "$mainMod, Z, hy3:makegroup, h"
+      "$mainMod, A, hy3:makegroup, v"
     ];
 
     # Media controls

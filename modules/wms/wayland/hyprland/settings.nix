@@ -47,7 +47,7 @@ in {
         };
 
         general = {
-          layout = "dwindle";
+          layout = "hy3";
           gaps_in = 0;
           gaps_out = 0;
           border_size = 2;
@@ -60,6 +60,9 @@ in {
           hyprsplit = {
             num_workspaces = 10;
             persistent_workspaces = true;
+          };
+          hy3 = {
+            
           };
           dynamic-cursors = {
             enabled = true;
