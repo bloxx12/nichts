@@ -67,8 +67,8 @@ in {
 
 
       "$mainMod, T, hy3:makegroup, tab"
-      "$mainMod, Z, hy3:makegroup, h"
-      "$mainMod, A, hy3:makegroup, v"
+      "$mainMod, M, hy3:makegroup, h"
+      "$mainMod, C, hy3:makegroup, v"
     ];
 
     # Media controls
