@@ -4,5 +4,6 @@ _: {
     ./steam.nix
     # ./schizofox.nix
     ./minecraft.nix
+    ./miniflux.nix
   ];
 }

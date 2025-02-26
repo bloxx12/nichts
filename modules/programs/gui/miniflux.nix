@@ -1,9 +1,6 @@
-{
-  config,
-  pkgs,
-}: {
+_: {
   services.miniflux = {
     enable = true;
-    createDatabaseLocally = true;
+    config.CREATE_ADMIN = 0;
   };
 }
