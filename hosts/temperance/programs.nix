@@ -8,6 +8,7 @@
     calc
     difftastic
     distrobox
+    dnsutils
     element-desktop
     emacs30-pgtk
     evince
