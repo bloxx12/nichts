@@ -12,7 +12,7 @@
   image_viewer = "imv.desktop";
   text_editor = "helix.desktop";
   terminal = "foot.desktop";
-  pdf_viewer = "org.gnome.Evince.desktop";
+  pdf_viewer = "sioyek.desktop";
 in {
   environment = {
     systemPackages = [pkgs.xdg-utils];
