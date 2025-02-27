@@ -61,6 +61,7 @@
     ripgrep
     rmpc
     signal-desktop
+    sioyek
     smartmontools
     taskwarrior3
     taskwarrior-tui
