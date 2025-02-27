@@ -22,6 +22,7 @@
   shellcheck,
   shfmt,
   stdenv,
+  solargraph,
   tinymist,
   typescript-language-server,
   ...
@@ -283,6 +284,9 @@
 
       # Shell
       shellcheck
+
+      # ruby
+      solargraph
     ];
     buildInputs = [makeWrapper];
     postBuild = ''
