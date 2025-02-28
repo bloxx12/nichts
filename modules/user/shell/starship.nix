@@ -1,7 +1,7 @@
 {
   add_newline = false;
   command_timeout = 2000;
-  format = "$hostname$username$directory$shell$nix_shell$git_branch$git_commit$git_state$git_status$jobs$cmd_duration\n$character";
+  # format = "$hostname$username$directory$shell$nix_shell$git_branch$git_commit$git_state$git_status$jobs$cmd_duration\n$character";
   scan_timeout = 2;
 
   character = {
@@ -34,7 +34,6 @@
     untracked = "?";
   };
 
-  golang.symbol = "[󰟓 ](blue)";
   hostname = {
     disabled = false;
     format = "@[$hostname](bold blue) ";
@@ -46,6 +45,7 @@
   c.symbol = "[ ](black)";
   lua.symbol = "[ ](blue) ";
 
+  golang.symbol = "[󰟓 ](blue)";
   nix_shell.symbol = "[󱄅 ](blue) ";
 
   nodejs.symbol = "[󰎙 ](yellow)";
