@@ -62,7 +62,13 @@ in {
             persistent_workspaces = true;
           };
           hy3 = {
-            
+            tabs = {
+              height = 13;
+              padding = 0;
+              radius = 0;
+              border_width = 1;
+              blur = false;
+            };
           };
           dynamic-cursors = {
             enabled = true;
