@@ -12,7 +12,7 @@
     element
     element-desktop
     emacs30-pgtk
-    evince
+    # evince
     eza
     firefox
     fftw
@@ -57,6 +57,7 @@
     pidgin
     playerctl
     polkit
+    pulsemixer
     python3
     ripgrep
     rmpc
