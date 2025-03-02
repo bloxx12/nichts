@@ -1,16 +1,14 @@
 {
-  config = {
-    fileSystems = {
-      "/boot" = {
-        device = "/dev/disk/by-uuid/3480-C94B";
-        fsType = "vfat";
-      };
-      # root on tmpfs
-      "/" = {
-        device = "/dev/disk/by-uuid/3dde50ca-440d-4d46-974e-efc623e53703";
-        fsType = "btrfs";
-        options = ["compress=zstd" "noatime"];
-      };
+  config.fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/3480-C94B";
+      fsType = "vfat";
+    };
+
+    "/" = {
+      device = "/dev/disk/by-uuid/3a781f2e-290a-4609-9035-a93374459def";
+      fsType = "ext4";
+      options = ["noatime" "compress=zstd"];
     };
   };
 }
