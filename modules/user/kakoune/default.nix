@@ -31,11 +31,9 @@
       ln -s --relative "$autoload_target" autoload
     '';
   };
-
-  plugins = with kakounePlugins; [
-    fzf-kak
-    kakoune-catppuccin
-  ];
+  plugins = builtins.attrValues {
+    inherit (kakounePlugins) fzf-kak kakoune-catppuccin;
+  };
 
   kakoune-wrapped = symlinkJoin {
     name = "kakoune-wrapped";

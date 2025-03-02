@@ -3,8 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
+}: let
+  inherit (lib) mkIf;
   cfg = config.modules.system.programs.steam;
 in {
   config = mkIf cfg.enable {
@@ -17,10 +17,11 @@ in {
         };
 
         extraLibraries = p:
-          with p; [
-            atk
-          ];
+          builtins.attrValues {
+            inherit (p) atk;
+          };
       };
+
       gamescopeSession.enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin.steamcompattool];
     };

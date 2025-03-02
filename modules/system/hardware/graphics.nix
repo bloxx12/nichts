@@ -11,12 +11,14 @@ in {
     hardware = {
       graphics = {
         enable = true;
-        extraPackages = with pkgs;
-          mkIf cfg.amd.enable [
+        extraPackages = mkIf cfg.amd.enable (builtins.attrValues {
+          inherit
+            (pkgs)
             mesa
             libva
             vaapiVdpa
-          ];
+            ;
+        });
       };
       nvidia = mkIf cfg.nvidia.enable {
         modesetting.enable = true;

@@ -47,24 +47,29 @@ in {
           monospace = ["Iosevka Nerd Font"];
         };
     };
-    packages = with pkgs; [
-      # custom-iosevka
-      material-icons
-      material-design-icons
-      papirus-icon-theme
-      nerd-fonts.iosevka
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.comic-shanns-mono
-      nerd-fonts.symbols-only
-
-      lexend
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
-      corefonts
-      font-awesome
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        # custom-iosevka
+        material-icons
+        material-design-icons
+        papirus-icon-theme
+        lexend
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        noto-fonts-color-emoji
+        corefonts
+        font-awesome
+        ;
+      inherit
+        (pkgs.nerd-fonts)
+        iosevka
+        jetbrains-mono
+        comic-shanns-mono
+        symbols-only
+        ;
+    };
     fontDir = {
       # Whether to create a directory with links to all fonts in
       # /run/current-system/sw/share/X11/fonts

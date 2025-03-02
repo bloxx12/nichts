@@ -9,9 +9,12 @@
 in {
   hardware = {
     cpu.intel.updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
-    graphics.extraPackages = with pkgs; [
-      intel-vaapi-driver
-      intel-media-driver
-    ];
+    graphics.extraPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        intel-vaapi-driver
+        intel-media-driver
+        ;
+    };
   };
 }

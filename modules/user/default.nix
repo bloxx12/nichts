@@ -11,10 +11,9 @@
   module = {
     config = {
       environment.sessionVariables.EDITOR = "hx";
-      environment.systemPackages = with packages; [
-        fish
-        helix
-      ];
+      environment.systemPackages = builtins.attrValues {
+        inherit (packages) fish helix;
+      };
     };
   };
 }

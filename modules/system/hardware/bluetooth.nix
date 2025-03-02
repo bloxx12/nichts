@@ -12,10 +12,13 @@ in {
       enable = true;
       powerOnBoot = mkIf cfg.powerOnBoot true;
     };
-    environment.systemPackages = with pkgs; [
-      bluetuith
-      bluez
-      blueman
-    ];
+    environment.systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        bluetuith
+        bluez
+        blueman
+        ;
+    };
   };
 }
