@@ -6,7 +6,6 @@
   nixpkgs = {
     # Configuration reference:
     # <https://nixos.org/manual/nixpkgs/unstable/#chap-packageconfig>
-    hostPlatform = "x86_64-linux";
     config = {
       # Disallow broken packages to be built.       allowBroken = false;
       allowUnsupportedSystem = true;
