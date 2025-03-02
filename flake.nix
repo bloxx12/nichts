@@ -2,7 +2,6 @@
   description = "My NixOS config flake";
   outputs = inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    user = import ./modules/user {inherit pkgs;};
     eachSystem = inputs.nixpkgs.lib.genAttrs (import inputs.systems);
     pkgsFor = inputs.nixpkgs.legacyPackages;
   in {
@@ -20,7 +19,9 @@
       }
     );
 
-    apps.x86_64-linux = {
+    apps = eachSystem (system: let
+      user = import ./modules/user {pkgs = pkgsFor.${system};};
+    in {
       default = {
         type = "app";
         program = "${user.packages.fish}/bin/fish";
@@ -29,10 +30,12 @@
         type = "app";
         program = "${user.packages.helix}/bin/hx";
       };
-    };
-    nixosModules = {
+    });
+    nixosModules = eachSystem (system: let
+      user = import ./modules/user {pkgs = pkgsFor.${system};};
+    in {
       user = user.module;
-    };
+    });
   };
   inputs = {
     # Unstable nixpkgs baby!
