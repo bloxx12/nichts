@@ -10,6 +10,7 @@
 
     formatter.x86_64-linux = pkgs.alejandra;
     packages.x86_64-linux = user.packages;
+    packages.aarch64-linux = user.packages;
 
     apps.x86_64-linux = {
       default = {
