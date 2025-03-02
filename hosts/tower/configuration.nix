@@ -13,6 +13,9 @@
   # boot.kernelPackages = pkgs.linuxPackagesFor xanmod_blox;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   programs.nix-ld.enable = true;
+  users.users."cr".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPiRe9OH/VtWFWyy5QbAVcN7CLxr4zUtRCwmxD6aeN6"
+  ];
   services = {
     fstrim.enable = lib.mkDefault true;
   };
