@@ -7,14 +7,10 @@
     cachix
     calc
     difftastic
-    distrobox
     dnsutils
     element-desktop
-    emacs30-pgtk
     evince
-    eza
     gcc
-    ida-free
     gnumake
     halloy
     helvum
@@ -36,11 +32,9 @@
     logiops
     mpv
     nextcloud-client
+    nheko
     nicotine-plus
     swww
-    microfetch
-    nmap
-    # onlyoffice-bin
     pandoc
     pavucontrol
     pdfarranger
@@ -54,7 +48,6 @@
     radare2
     ripgrep
     rmpc
-    sayonara
     signal-desktop
     strawberry
     telegram-desktop
@@ -64,7 +57,6 @@
     trash-cli
     tutanota-desktop
     typst
-    vesktop
     walker
     wayneko
     wineWowPackages.waylandFull
@@ -72,6 +64,7 @@
     xdg-utils
     xournalpp
     zapzap
+    zathura
     zotero
     zoxide
   ];

@@ -8,7 +8,6 @@ pkgs: (with pkgs; [
   # better cat
   bat
 
-  gitu
   # clipboard
   # yazi
   serpl
@@ -43,7 +42,6 @@ pkgs: (with pkgs; [
   carapace
   difftastic
   hexyl
-  gitui
   iputils
   gnumake
   gping
