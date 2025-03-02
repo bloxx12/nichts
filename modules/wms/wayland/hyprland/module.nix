@@ -28,7 +28,7 @@ in {
       plugins = [
         pkgs.hyprlandPlugins.hyprsplit
         pkgs.hyprlandPlugins.hy3
-        pkgs.hyprlandPlugins.hypr-dynamic-cursors
+        # pkgs.hyprlandPlugins.hypr-dynamic-cursors
       ];
     };
     # xdg Portal
