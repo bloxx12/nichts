@@ -55,4 +55,8 @@ in {
     system = "x86_64-linux";
     hostname = "hermit";
   };
+  tower = mkSystem {
+    system = "aarch_64-linux";
+    hostname = "tower";
+  };
 }
