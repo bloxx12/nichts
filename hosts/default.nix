@@ -36,6 +36,7 @@ inputs: let
         (flatten (
           concatLists [
             (singleton ./${hostname}/default.nix)
+            (singleton ./common.nix)
             (
               filter (hasSuffix "module.nix") (
                 map toString (listFilesRecursive ../modules)
