@@ -27,7 +27,7 @@ inputs: let
         # This is used to pre-emptively set the hostPlatform for nixpkgs.
         # Also, we set the system hostname here.
         [
-          self.nixosModules.user
+          # self.nixosModules.user
         ]
         (singleton {
           networking.hostName = hostname;

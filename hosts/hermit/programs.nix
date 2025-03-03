@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  self,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
@@ -87,5 +91,6 @@
       zip
       zoxide
       ;
+    inherit (self.packages.${pkgs.stdenv.system}) helix;
   };
 }

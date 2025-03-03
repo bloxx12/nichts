@@ -12,10 +12,8 @@
     formatter.x86_64-linux = pkgs.alejandra;
 
     packages = eachSystem (
-      system: let
-        user = import ./modules/user {pkgs = pkgsFor.${system};};
-      in {
-        inherit (user) packages;
+      system: {
+        inherit (import ./packages pkgsFor.${system}) helix fish;
       }
     );
 
@@ -31,11 +29,11 @@
         program = "${user.packages.helix}/bin/hx";
       };
     });
-    nixosModules = eachSystem (system: let
-      user = import ./modules/user {pkgs = pkgsFor.${system};};
-    in {
-      user = user.module;
-    });
+    # nixosModules = eachSystem (system: let
+    #   user = import ./modules/user {inherit inputs;};
+    # in {
+    #   user = user.module;
+    # });
   };
   inputs = {
     # Unstable nixpkgs baby!
