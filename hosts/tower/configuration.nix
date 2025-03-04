@@ -15,6 +15,7 @@
   programs.nix-ld.enable = true;
   users.users."cr".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPiRe9OH/VtWFWyy5QbAVcN7CLxr4zUtRCwmxD6aeN6"
+    "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAAWEDj/Yib6Mqs016jx7rtecWpytwfVl28eoHtPYCM9TVLq81VIHJSN37lbkc/JjiXCdIJy2Ta3A3CVV5k3Z37NbgAu23oKA2OcHQNaRTLtqWlcBf9fk9suOkP1A3NzAqzivFpBnZm3ytaXwU8LBJqxOtNqZcFVruO6fZxJtg2uE34mAw=="
   ];
   services = {
     fstrim.enable = lib.mkDefault true;
