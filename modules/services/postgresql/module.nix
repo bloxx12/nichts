@@ -6,7 +6,7 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
-  cfg = config.modules.sytem.services.database.postgresql;
+  cfg = config.modules.system.services.database.postgresql;
 in {
   options.modules.system.services.database.postgresql.enable = mkEnableOption "postgresql";
 
@@ -29,13 +29,23 @@ in {
 
       ensureUsers = [
         {
+          name = "postgres";
+          ensureClauses = {
+            superuser = true;
+            login = true;
+            createrole = true;
+            createdb = true;
+            replication = true;
+          };
+        }
+        {
           name = "git";
           ensureDBOwnership = true;
         }
       ];
       settings = {
         # taken from https://pgconfigurator.cybertec.at/
-         
+
         # Connectivity
         max_connections = 100;
         superuser_reserved_connections = 3;
