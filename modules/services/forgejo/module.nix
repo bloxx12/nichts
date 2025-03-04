@@ -1,53 +1,110 @@
-{config, ...}: let
-  cfg = config.services.forgejo;
-  srv = cfg.settings.server;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
+  inherit (config.services.forgejo) customDir user group;
+  cfg = config.modules.system.services;
+
+  port = 3000;
+  domain = "copeberg.org";
+  img = ./img;
+  acmeRoot = "/var/lib/acme/challenges-forgejo";
 in {
-  services.nginx = {
-    virtualHosts.${cfg.settings.server.DOMAIN} = {
-      forceSSL = true;
-      enableACME = true;
-      extraConfig = ''
-        client_max_body_size 512M;
+  options.modules.system.services.forgejo.enable = lib.mkEnableOption "forgejo";
+
+  config = mkIf cfg.enable {
+    networking.firewall.allowedTCPPorts = [
+      443
+      80
+    ];
+
+    services.nginx = {
+      enable = true;
+      virtualHosts.${domain} = {
+        forceSSL = true;
+        # enableACME = true;
+        useACMEHost = domain;
+        inherit acmeRoot;
+        extraConfig = ''
+          client_max_body_size 512M;
+        '';
+        locations."/" = {
+          recommendedProxysettings = true;
+          proxyPass = "http://localhost:${toString port}";
+        };
+      };
+    };
+
+    security.acme = let
+      email = "charlie@charlieroot.dev";
+    in {
+      acceptTerms = true;
+      defaults.email = email;
+      defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      certs = {
+        ${domain} = {
+          webroot = acmeRoot;
+          inherit email;
+          group = "nginx";
+        };
+      };
+    };
+    services.forgejo = {
+      enable = true;
+      package = pkgs.forgejo;
+
+      user = "git";
+      database = {
+        user = "git";
+        type = "postgres";
+      };
+
+      # Disable support for Git Large File Storage
+      lfs.enable = false;
+
+      settings = {
+        server = {
+          DOMAIN = domain;
+          # You need to specify this to remove the port from URLs in the web UI.
+          ROOT_URL = "https://${domain}/";
+          HTTP_PORT = port;
+        };
+        DEFAULT = {
+          APP_NAME = "Copeberg.org";
+          APP_SLOGAN = "Code and seethe.";
+        };
+        # disable registration by default.
+        service.DISABLE_REGISTRATION = true;
+
+        # Add support for actions, based on act: https://github.com/nektos/act
+        actions = {
+          ENABLED = false;
+          DEFAULT_ACTIONS_URL = "github";
+        };
+      };
+    };
+
+    systemd.tmpfiles.rules = let
+      # no crawlers, thank you.
+      robots = pkgs.writeText "robots-txt" ''
+        User-agent: *
+        Disallow: /
       '';
-      locations."/".proxyPass = "http://localhost:${toString srv.HTTP_PORT}";
-    };
-  };
+    in [
+      "d '${customDir}/public' 0750 ${user} ${group} - -"
+      "d '${customDir}/public/assets' 0750 ${user} ${group} - -"
+      "d '${customDir}/public/assets/img' 0750 ${user} ${group} - -"
 
-  services.forgejo = {
-    enable = true;
-    database.type = "postgres";
-    # Enable support for Git Large File Storage
-    lfs.enable = true;
-    settings = {
-      server = {
-        DOMAIN = "copeberg.org";
-        # You need to specify this to remove the port from URLs in the web UI.
-        ROOT_URL = "https://${srv.DOMAIN}/";
-        HTTP_PORT = 3000;
-      };
-      # You can temporarily allow registration to create an admin user.
-      service.DISABLE_REGISTRATION = true;
-      # Add support for actions, based on act: https://github.com/nektos/act
-      actions = {
-        ENABLED = false;
-        DEFAULT_ACTIONS_URL = "github";
-      };
-      # Sending emails is completely optional
-      # You can send a test email from the web UI at:
-      # Profile Picture > Site Administration > Configuration >  Mailer Configuration
-      mailer = {
-        ENABLED = false;
-        # SMTP_ADDR = "mail.example.com";
-        # FROM = "noreply@${srv.DOMAIN}";
-        # USER = "noreply@${srv.DOMAIN}";
-      };
-    };
-    # mailerPasswordFile = config.age.secrets.forgejo-mailer-password.path;
-  };
+      "L+ '${customDir}/public/assets/img/logo.svg' - - - - ${img}/logo.svg"
+      "L+ '${customDir}/public/assets/img/logo.png' - - - - ${img}/logo.png"
+      "L+ '${customDir}/public/assets/img/apple-touch-icon' - - - - ${img}/logo.png"
+      "L+ '${customDir}/public/assets/img/favicon.svg' - - - - ${img}/logo.svg"
+      "L+ '${customDir}/public/assets/img/favicon.png' - - - - ${img}/logo.png"
 
-  # age.secrets.forgejo-mailer-password = {
-  #   file = ../secrets/forgejo-mailer-password.age;
-  #   mode = "400";
-  #   owner = "forgejo";
-  # };
+      "L+ ${customDir}/public/robots.txt - - - - ${robots.outPath}"
+    ];
+  };
 }
