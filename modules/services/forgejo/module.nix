@@ -6,16 +6,22 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (config.services.forgejo) customDir user group;
-  cfg = config.modules.system.services;
+  cfg = config.modules.system.services.forgejo;
 
   port = 3000;
   domain = "copeberg.org";
   img = ./img;
   acmeRoot = "/var/lib/acme/challenges-forgejo";
+  dataDir = "/srv/data/forgejo";
 in {
   options.modules.system.services.forgejo.enable = lib.mkEnableOption "forgejo";
 
   config = mkIf cfg.enable {
+
+    modules.system.services = {
+      database.postgresql.enable = true;
+    };
+
     networking.firewall.allowedTCPPorts = [
       443
       80
@@ -32,7 +38,7 @@ in {
           client_max_body_size 512M;
         '';
         locations."/" = {
-          recommendedProxysettings = true;
+          recommendedProxySettings = true;
           proxyPass = "http://localhost:${toString port}";
         };
       };
@@ -52,12 +58,15 @@ in {
         };
       };
     };
+
     services.forgejo = {
       enable = true;
       package = pkgs.forgejo;
+      stateDir = dataDir;
 
       user = "git";
       database = {
+        name = "git";
         user = "git";
         type = "postgres";
       };
