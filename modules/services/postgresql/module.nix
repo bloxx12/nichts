@@ -14,6 +14,7 @@ in {
     services.postgresql = {
       enable = true;
       package = pkgs.postgresql_17;
+      # NOTE: it is imperative to create this when starting postgresql!
       dataDir = "/srv/data/postgresql/${config.services.postgresql.package.psqlSchema}";
 
       # Whether PostgreSQL should listen on all network interfaces.
