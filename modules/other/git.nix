@@ -18,7 +18,8 @@ in{
       pull.ff = "only";
       gpg.format = "ssh";
       commit.gpgsign = "true";
-      diff.external = "${pkgs.difftastic}/bin/difft";
+      # breaks forgejo
+      # diff.external = "${pkgs.difftastic}/bin/difft";
 
       signing = {
         key = "${key}";
