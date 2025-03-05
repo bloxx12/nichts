@@ -4,10 +4,10 @@ in {
   options.modules.programs.ssh.enable = mkEnableOption "ssh";
   config = {
     programs.ssh.startAgent = true;
-    programs.ssh.pubkeyAcceptedKeyTypes = [
-      "ssh-rsa"
-      "ecdsa-sha2-nistp521"
-    ];
+    # programs.ssh.pubkeyAcceptedKeyTypes = [
+    #   "ssh-rsa"
+    #   "ecdsa-sha2-nistp521"
+    # ];
 
     services.openssh = {
       enable = true;
