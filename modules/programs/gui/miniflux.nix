@@ -1,6 +1,6 @@
 _: {
   services.miniflux = {
-    enable = true;
+    enable = false;
     config.CREATE_ADMIN = 0;
   };
 }
