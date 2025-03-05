@@ -24,6 +24,7 @@ in {
     networking.firewall.allowedTCPPorts = [
       443
       80
+      3000
     ];
 
     services.nginx = {
@@ -107,6 +108,9 @@ in {
         actions = {
           ENABLED = false;
           DEFAULT_ACTIONS_URL = "github";
+        };
+        ui = {
+          SHOW_USER_EMAIL = false;
         };
 
         "repository.signing" = {
