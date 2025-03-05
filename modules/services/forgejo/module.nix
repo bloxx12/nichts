@@ -17,7 +17,6 @@ in {
   options.modules.system.services.forgejo.enable = lib.mkEnableOption "forgejo";
 
   config = mkIf cfg.enable {
-
     modules.system.services = {
       database.postgresql.enable = true;
     };
@@ -35,6 +34,10 @@ in {
         useACMEHost = domain;
         inherit acmeRoot;
         extraConfig = ''
+          # nginx defaults to a 1MB size limit for uploads, which
+          # *definitely* isn't enough for Git LFS.
+          # 'client_max_body_size 300m;' would set a limit of 300MB
+          # setting it to 0 means "no limit"
           client_max_body_size 512M;
         '';
         locations."/" = {
@@ -59,13 +62,25 @@ in {
       };
     };
 
+    # create the git user for forgejo
+    # NOTE: this is important and it will _not_ work otherwise.
+    users.users.git = {
+      home = dataDir;
+      useDefaultShell = true;
+      group = "git";
+      isSystemUser = true;
+    };
+    users.groups.git = {};
+
     services.forgejo = {
       enable = true;
       package = pkgs.forgejo;
       stateDir = dataDir;
 
       user = "git";
+      group = "git";
       database = {
+        createDatabase = true;
         name = "git";
         user = "git";
         type = "postgres";
