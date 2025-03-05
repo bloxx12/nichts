@@ -1,7 +1,6 @@
 # nichts
 
-This is my personal and opinionated configuration for several systems running
-NixOS.
+### Moved to [Copeberg](https://copeberg.org/bloxx12/nichts).
 
 # License
 
