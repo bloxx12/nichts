@@ -108,6 +108,10 @@ in {
           ENABLED = false;
           DEFAULT_ACTIONS_URL = "github";
         };
+
+        "repository.signing" = {
+          SIGNING_KEY = "none";
+        };
       };
     };
 
